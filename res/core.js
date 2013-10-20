@@ -125,6 +125,8 @@ define([
         utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
         // Template
         utils.setInputValue("#textarea-settings-publish-template", settings.template);
+        // PDF template
+        utils.setInputValue("#textarea-settings-publish-pdf-template", settings.pdfTemplate);
         // SSH proxy
         utils.setInputValue("#input-settings-ssh-proxy", settings.sshProxy);
 
@@ -154,6 +156,8 @@ define([
         newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
         // Template
         newSettings.template = utils.getInputTextValue("#textarea-settings-publish-template", event);
+        // PDF template
+        newSettings.pdfTemplate = utils.getInputTextValue("#textarea-settings-publish-pdf-template", event);
         // SSH proxy
         newSettings.sshProxy = utils.checkUrl(utils.getInputTextValue("#input-settings-ssh-proxy", event), true);
 
@@ -711,6 +715,11 @@ define([
             if(e.which == 13 && !$(e.target).is("textarea")) {
                 $(this).find(".modal-footer a:last").click();
             }
+        });
+        
+        // Hide menu panel when clicking 'Save as' button
+        $('.collapse-save-as a').click(function() {
+            $menuPanelElt.collapse('hide');
         });
 
         // Configure Mousetrap
