@@ -897,6 +897,8 @@ define([
                 return themeOptions + '<option value="' + value + '">' + name + '</option>';
             }, '');
             document.getElementById('input-settings-theme').innerHTML = themeOptions;
+            
+            $('.modal-unsecured').modal('show');
         }
 
     });

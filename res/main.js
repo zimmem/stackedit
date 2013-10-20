@@ -167,6 +167,10 @@ require([
     "css",
     themeModule,
 ], function($, core, eventMgr) {
+    
+    if(typeof(noStart) !== 'undefined' && noStart) {
+        return;
+    }
 
     $(function() {
 
