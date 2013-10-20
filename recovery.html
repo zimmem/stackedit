@@ -29,7 +29,7 @@
                     var eltList = document.querySelectorAll('.download-failure');
                     for (var i = 0; i < eltList.length; ++i) {
                         var elt = eltList[i];
-                        elt.className = elt.className.replace(/ hide/g, '');
+                        elt.className = elt.className.replace(/ hide/, '');
                     }
                 }
 
@@ -53,8 +53,7 @@
             <p>
                 <strong>The download of your documents and settings will start in 5 seconds...</strong>
             </p>
-            <p>To import your documents and settings back in
-                <strong>StackEdit</strong>:</p>
+            <p>To import your documents and settings back in StackEdit:</p>
             <blockquote>
                 <i class="icon-provider-stackedit"></i>
                 <code>Menu</code>
@@ -78,12 +77,10 @@
             <p>
                 <textarea class="download-failure hide form-control" rows="10"></textarea>
             </p>
-            <p class="download-success download-failure hide">
-                <a href="#" onclick="clearLocalStorage()">Click here to clear the local storage</a>
-            </p>
-            <p class="download-success download-failure hide">
-                <a href="https://stackedit.io/">Click here to reopen StackEdit</a>
-            </p>
+            <p class="download-success download-failure hide">To clear the local storage
+                <a href="#" onclick="clearLocalStorage()">click here</a>.</p>
+            <p class="download-success download-failure hide">To reopen StackEdit
+                <a href="https://stackedit.io/">click here</a>.</p>
         </div>
     </body>
 
