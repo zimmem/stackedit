@@ -7,12 +7,9 @@ define([
 	"fileSystem",
 	"fileMgr",
 	"classes/Provider",
-	"providers/dropboxProvider",
-	"providers/couchdbProvider",
-	"providers/gdriveProvider",
-	"providers/gdrivesecProvider",
-	"providers/gdriveterProvider"
-], function($, _, utils, storage, eventMgr, fileSystem, fileMgr, Provider) {
+	"providers/evernoteProvider",
+	"helpers/evernoteHelper"
+], function($, _, utils, storage, eventMgr, fileSystem, fileMgr, Provider, evernoteProvider, evernoteHelper) {
 
 	var synchronizer = {};
 
@@ -323,75 +320,22 @@ define([
 	});
 
 	eventMgr.addListener("onReady", function() {
-		// Init each provider
-		_.each(providerMap, function(provider) {
-			// Provider's import button
-			$(".action-sync-import-" + provider.providerId).click(function(event) {
-				provider.importFiles(event);
-
-				// Store input values as preferences for next time we open the
-				// import dialog
-				var importPreferences = {};
-				_.each(provider.importPreferencesInputIds, function(inputId) {
-					var inputElt = document.getElementById("input-sync-import-" + inputId);
-					if(inputElt.type == 'checkbox') {
-						importPreferences[inputId] = inputElt.checked;
-					}
-					else {
-						importPreferences[inputId] = inputElt.value;
-					}
-				});
-				storage[provider.providerId + ".importPreferences"] = JSON.stringify(importPreferences);
-			});
-			// Provider's import dialog action
-			$(".action-sync-import-dialog-" + provider.providerId).click(function() {
-				initImportDialog(provider);
-			});
-			// Provider's export dialog action
-			$(".action-sync-export-dialog-" + provider.providerId).click(function() {
-				initExportDialog(provider);
-			});
-			// Provider's autosync action
-			$(".action-autosync-dialog-" + provider.providerId).click(function() {
-				// Reset fields
-				utils.resetModalInputs();
-				// Load config
-				provider.setAutosyncDialogConfig(provider);
-				// Open dialog
-				$(".modal-autosync-" + provider.providerId).modal();
-			});
-			$(".action-sync-export-" + provider.providerId).click(function(event) {
-				var fileDesc = fileMgr.currentFile;
-
-				provider.exportFile(event, fileDesc.title, fileDesc.content, fileDesc.discussionListJSON, fileDesc.frontMatter, function(error, syncAttributes) {
-					if(error) {
-						return;
-					}
-					fileDesc.addSyncLocation(syncAttributes);
-					eventMgr.onSyncExportSuccess(fileDesc, syncAttributes);
-				});
-
-				// Store input values as preferences for next time we open the
-				// export dialog
-				var exportPreferences = {};
-				_.each(provider.exportPreferencesInputIds, function(inputId) {
-					var inputElt = document.getElementById("input-sync-export-" + inputId);
-					if(inputElt.type == 'checkbox') {
-						exportPreferences[inputId] = inputElt.checked;
-					}
-					else {
-						exportPreferences[inputId] = inputElt.value;
-					}
-				});
-				storage[provider.providerId + ".exportPreferences"] = JSON.stringify(exportPreferences);
-			});
-			$(".action-autosync-" + provider.providerId).click(function(event) {
-				var config = provider.getAutosyncDialogConfig(event);
-				if(config !== undefined) {
-					storage[provider.providerId + ".autosyncConfig"] = JSON.stringify(config);
-					provider.autosyncConfig = config;
-				}
-			});
+		
+		console.info("action-connect-evernoteaction-connect-evernote");
+		$('.action-connect-evernote').click(function(){
+			evernoteHelper.authenticate();
+		});
+		
+		$('.action-create-note').click(function(){
+			
+		});
+		
+		$('.action-delete-note').click(function(){
+					
+		});
+		
+		$('.action-share-note').click(function(){
+		
 		});
 	});
 

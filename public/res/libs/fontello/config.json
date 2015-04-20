@@ -1807,6 +1807,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "ce291d00162e998dbf5cb81bc5edff75",
+      "css": "evernote",
+      "code": 59467,
+      "src": "entypo"
+    },
+    {
       "uid": "4815ddddea76d90e367a9694a93b7e24",
       "css": "resize-full",
       "code": 59661,

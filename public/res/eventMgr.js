@@ -32,7 +32,7 @@ define([
 	"extensions/emailConverter",
 	"extensions/scrollSync",
 	"extensions/buttonSync",
-	"extensions/buttonPublish",
+//	"extensions/buttonPublish",
 	"extensions/buttonStat",
 	"extensions/buttonHtmlCode",
 	"extensions/buttonViewer",
@@ -171,7 +171,7 @@ define([
 	addEventHook("onEditorCreated");
 	addEventHook("onFileMgrCreated");
 	addEventHook("onSynchronizerCreated");
-	addEventHook("onPublisherCreated");
+	//addEventHook("onPublisherCreated");
 	addEventHook("onSharingCreated");
 	addEventHook("onEventMgrCreated");
 
@@ -195,10 +195,10 @@ define([
 	addEventHook("onSyncRemoved");
 
 	// Publish events
-	addEventHook("onPublishRunning");
-	addEventHook("onPublishSuccess");
-	addEventHook("onNewPublishSuccess");
-	addEventHook("onPublishRemoved");
+//	addEventHook("onPublishRunning");
+//	addEventHook("onPublishSuccess");
+//	addEventHook("onNewPublishSuccess");
+//	addEventHook("onPublishRemoved");
 
 	// Operations on Layout
 	addEventHook("onLayoutCreated");
