@@ -215,7 +215,7 @@ define([
 	var workingIndicatorWidth = 18 + 70;
 
 	function onResize() {
-		var paddingBottom = wrapperL3.height - 60;
+		var paddingBottom = 60;
 
 		var editorPadding = (editor.elt.offsetWidth - getMaxWidth()) / 2;
 		if(editorPadding < constants.EDITOR_DEFAULT_PADDING) {

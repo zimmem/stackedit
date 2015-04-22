@@ -652,10 +652,6 @@ define([
 		}
 	}
 
-	eventMgr.addListener('onDiscussionCreated', onComment);
-	eventMgr.addListener('onDiscussionRemoved', onComment);
-	eventMgr.addListener('onCommentsChanged', onComment);
-
 	var triggerSpellCheck = _.debounce(function() {
 		var selection = window.getSelection();
 		if(!selectionMgr.hasFocus || isComposing || selectionMgr.selectionStart !== selectionMgr.selectionEnd || !selection.modify) {

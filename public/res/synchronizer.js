@@ -321,7 +321,6 @@ define([
 
 	eventMgr.addListener("onReady", function() {
 		
-		console.info("action-connect-evernoteaction-connect-evernote");
 		$('.action-connect-evernote').click(function(){
 			evernoteHelper.authenticate();
 		});

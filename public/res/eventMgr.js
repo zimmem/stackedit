@@ -19,10 +19,10 @@ define([
 	"extensions/dialogManageSynchronization",
 	"extensions/dialogManageSharing",
 	"extensions/dialogOpenHarddrive",
-	"extensions/documentTitle",
-	"extensions/documentSelector",
+//	"extensions/documentTitle",
+//	"extensions/documentSelector",
 	"extensions/documentPanel",
-	"extensions/documentManager",
+//	"extensions/documentManager",
 	"extensions/workingIndicator",
 	"extensions/notifications",
 	"extensions/umlDiagrams",
@@ -31,7 +31,7 @@ define([
 	"extensions/mathJax",
 	"extensions/emailConverter",
 	"extensions/scrollSync",
-	"extensions/buttonSync",
+//	"extensions/buttonSync",
 //	"extensions/buttonPublish",
 	"extensions/buttonStat",
 	"extensions/buttonHtmlCode",
@@ -212,14 +212,12 @@ define([
 	addEventHook("onCursorCoordinates");
 	addEventHook("onEditorPopover");
 
-	// Operations on comments
-	addEventHook("onDiscussionCreated");
-	addEventHook("onDiscussionRemoved");
-	addEventHook("onCommentsChanged");
-
 	// Refresh twitter buttons
 	addEventHook("onTweet");
-
+	
+	// note operations
+	addEventHook("onNoteMgrCreated");
+	
 
 	var onPreviewFinished = createEventHook("onPreviewFinished");
 	var onAsyncPreviewListenerList = getExtensionListenerList("onAsyncPreview");

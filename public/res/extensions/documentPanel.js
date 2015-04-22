@@ -4,7 +4,8 @@ define([
     "utils",
     "classes/Extension",
     "folderList",
-    "fileSystem",
+    "fileSystem"
+    
 ], function($, _, utils, Extension, folderList, fileSystem) {
 
     var documentPanel = new Extension("documentPanel", 'Document Panel');
@@ -13,6 +14,12 @@ define([
     documentPanel.onFileMgrCreated = function(fileMgrParameter) {
         fileMgr = fileMgrParameter;
     };
+    
+    var noteMgr;
+    documentPanel.onNoteMgrCreated = function(theNoteMgr){
+    	noteMgr = theNoteMgr;
+    };
+    
 
     var folderEltTmpl = [
         '<a href="#"',
@@ -36,6 +43,7 @@ define([
         '   <%= fileDesc.composeTitle() %>',
         '</a>',
     ].join('');
+    
 
     var panelElt;
     var documentListElt;
@@ -140,6 +148,29 @@ define([
         $documentListFilteredElt.removeClass('hide');
         $documentListElt.addClass('hide');
     }
+    
+    
+    var noteEltTmpl = [
+       '<a href="#"',
+       ' class="list-group-item file',
+       ' data-file-index="<%= noteDesc.key %>">',
+       '   <%= noteDesc.title %>',
+       '</a>',
+   ].join('');
+    
+    function renderNoteList(notes){
+    	  var noteListHtml = _.chain(notes).sortBy(function(noteDesc) {
+              return noteDesc.title ? noteDesc.title.toLowerCase() : '';
+          }).reduce(function(result, noteDesc) {
+        	  noteDesc.key = noteDesc.guid;
+        	  console.info(noteDesc);
+              return result + '<li>' + _.template(noteEltTmpl, {
+                  noteDesc: noteDesc
+              }) + '</li>';
+          }, '').value();
+    	  noteListHtml = noteListHtml && '<ul class="nav">' + noteListHtml + '</ul>';
+          $documentListElt.html(noteListHtml);
+    }
 
     documentPanel.onReady = function() {
         panelElt = document.querySelector('.document-panel');
@@ -175,6 +206,22 @@ define([
         var $filterInputElt = $(panelElt.querySelector('.search-bar .form-control'));
         $filterInputElt.bind("propertychange keyup input paste", function() {
             filterFiles($filterInputElt.val());
+        });
+        
+        $('.action-fresh-notes').click(function(e){
+        	e.stopPropagation();
+        	$(this).find('.icon-refresh').addClass('spin');
+        	noteMgr.listNots(function(error,data){
+        		
+        		if(error){
+        			return;
+        		}
+        		renderNoteList(data);
+        		$(this).removeClass('spin');
+        		
+        		
+        	});
+        	return false;
         });
 
     };

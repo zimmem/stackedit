@@ -204,9 +204,9 @@ require([
 	"rangy",
 	"core",
 	"eventMgr",
-	"synchronizer",
-	"sharing",
-	"mediaImporter",
+	'fileMgr',
+	'noteMgr',
+	'uiActions',
 	"css",
 	"rangy-cssclassapplier",
 	themeModule
