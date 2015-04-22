@@ -50,7 +50,7 @@ define([
 		core.initEditor(fileDesc);
 	};
 
-	fileMgr.createFile = function(title, content, discussionListJSON, syncLocations, isTemporary) {
+	fileMgr.createFile = function(title, contentisTemporary) {
 		content = content !== undefined ? content : settings.defaultContent;
 		if(!title) {
 			// Create a file title
@@ -72,21 +72,10 @@ define([
 			} while(_.has(fileSystem, fileIndex));
 		}
 
-		// syncIndex associations
-		syncLocations = syncLocations || {};
-		var sync = _.reduce(syncLocations, function(sync, syncAttributes) {
-			utils.storeAttributes(syncAttributes);
-			return sync + syncAttributes.syncIndex + ";";
-		}, ";");
-
-		storage[fileIndex + ".title"] = title;
 		storage[fileIndex + ".content"] = content;
-		storage[fileIndex + ".sync"] = sync;
-		storage[fileIndex + ".publish"] = ";";
 
 		// Create the file descriptor
-		var fileDesc = new FileDescriptor(fileIndex, title, syncLocations);
-		discussionListJSON && (fileDesc.discussionListJSON = discussionListJSON);
+		var fileDesc = new FileDescriptor(fileIndex, title);
 
 		// Add the index to the file list
 		if(!isTemporary) {

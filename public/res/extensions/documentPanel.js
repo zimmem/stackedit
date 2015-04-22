@@ -40,7 +40,7 @@ define([
         '<a href="#"',
         ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"',
         ' data-file-index="<%= fileDesc.fileIndex %>">',
-        '   <%= fileDesc.composeTitle() %>',
+        '   <%= fileDesc.title %>',
         '</a>',
     ].join('');
     
