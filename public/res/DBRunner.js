@@ -22,9 +22,10 @@ define([], function() {
 		}else if(DBRunner.creating){
 			waitToRun(callback);
 		}else{
-			var  request = indexedDB.open("notedown");
+			var  request = indexedDB.open("notedown",2);
 			DBRunner.creating = true;
-			request.onupgradeneeded = function() {
+			request.onupgradeneeded = function(e) {
+				console.info(e);
 				// The database did not previously exist, so create object stores
 				// and indexes.
 				var db = request.result;

@@ -51,37 +51,39 @@ define([
     var $documentListFilteredElt;
     var selectedFileDesc;
     var refreshPanel = _.debounce(function() {
+    	
+    	fileSystem.listFiles(function(files){
+    		// List orphan documents
+            var orphanDocumentList = _.filter(files, function(fileDesc) {
+                return fileDesc.folder === undefined;
+            });
 
-        // List orphan documents
-        var orphanDocumentList = _.filter(fileSystem, function(fileDesc) {
-            return fileDesc.folder === undefined;
-        });
+            // Add orphan documents
+            var documentListHtml = _.chain(orphanDocumentList).sortBy(function(fileDesc) {
+                return fileDesc.title.toLowerCase();
+            }).reduce(function(result, fileDesc) {
+                return result + '<li>' + _.template(documentEltTmpl, {
+                    fileDesc: fileDesc,
+                    selectedFileDesc: selectedFileDesc
+                }) + '</li>';
+            }, '').value();
+            documentListHtml = documentListHtml && '<ul class="nav">' + documentListHtml + '</ul>';
 
-        // Add orphan documents
-        var documentListHtml = _.chain(orphanDocumentList).sortBy(function(fileDesc) {
-            return fileDesc.title.toLowerCase();
-        }).reduce(function(result, fileDesc) {
-            return result + '<li>' + _.template(documentEltTmpl, {
-                fileDesc: fileDesc,
-                selectedFileDesc: selectedFileDesc
-            }) + '</li>';
-        }, '').value();
-        documentListHtml = documentListHtml && '<ul class="nav">' + documentListHtml + '</ul>';
+            documentListElt.innerHTML = documentListHtml;
 
-        documentListElt.innerHTML = documentListHtml;
+            // Create filtered list
+            var documentListFilteredHtml = _.chain(files).sortBy(function(fileDesc) {
+                return fileDesc.title.toLowerCase();
+            }).reduce(function(result, fileDesc) {
+                return result + '<li>' + _.template(documentEltTmpl, {
+                    fileDesc: fileDesc,
+                    selectedFileDesc: selectedFileDesc
+                }) + '</li>';
+            }, '').value();
+            documentListFilteredHtml = '<ul class="nav">' + documentListFilteredHtml + '</ul>';
 
-        // Create filtered list
-        var documentListFilteredHtml = _.chain(fileSystem).sortBy(function(fileDesc) {
-            return fileDesc.title.toLowerCase();
-        }).reduce(function(result, fileDesc) {
-            return result + '<li>' + _.template(documentEltTmpl, {
-                fileDesc: fileDesc,
-                selectedFileDesc: selectedFileDesc
-            }) + '</li>';
-        }, '').value();
-        documentListFilteredHtml = '<ul class="nav">' + documentListFilteredHtml + '</ul>';
-
-        documentListFilteredElt.innerHTML = documentListFilteredHtml;
+            documentListFilteredElt.innerHTML = documentListFilteredHtml;
+    	});
 
     }, 50);
 
@@ -160,12 +162,7 @@ define([
         $documentListFilteredElt = $(documentListFilteredElt);
 
         // Open current folder before opening
-        $(panelElt).on('show.layout.toggle', function() {
-            var folderDesc = selectedFileDesc.folder;
-            if(folderDesc !== undefined) {
-                $(panelElt.querySelector('.file-list.' + folderDesc.folderIndex.replace('.', ''))).collapse('show');
-            }
-        }).on('shown.layout.toggle', function() {
+        $(panelElt).on('shown.layout.toggle', function() {
             // Scroll to the active file
             var activeElt = documentListElt.querySelector('.file.active');
             activeElt && (panelContentElt.scrollTop += activeElt.getBoundingClientRect().top - 240);
@@ -175,10 +172,7 @@ define([
             filterFiles('');
         }).on('click', '.file', function() {
             var $fileElt = $(this);
-            var fileDesc = fileSystem[$fileElt.data('fileIndex')];
-            if(fileDesc && fileDesc !== selectedFileDesc) {
-                fileMgr.selectFile(fileDesc);
-            }
+            fileMgr.selectFile($fileElt.data('fileIndex'));
         });
 
         // Search bar input change
