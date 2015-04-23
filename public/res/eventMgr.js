@@ -221,6 +221,7 @@ define([
 	
 	// note operations
 	addEventHook("onNoteMgrCreated");
+	addEventHook("onNotesRefresh");
 	
 
 	var onPreviewFinished = createEventHook("onPreviewFinished");

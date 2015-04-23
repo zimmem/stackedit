@@ -6,7 +6,7 @@ define([
 	'logger'
 ], function(_, utils, storage, DBRunner, logger) {
 
-	function FileDescriptor(fileIndex, title) {
+	function FileDescriptor(fileIndex) {
 		
 		
 		this.note = {
@@ -25,6 +25,15 @@ define([
 			},
 		});
 		
+		Object.defineProperty(this, 'guid', {
+			get: function() {
+				return this.note.guid;
+			},
+			set: function(selectTime) {
+				this.update({guid:guid});
+			}
+		});
+		
 		Object.defineProperty(this, 'title', {
 			get: function() {
 				return this.note.title;
@@ -35,15 +44,9 @@ define([
 		});
 		Object.defineProperty(this, 'content', {
 			get: function() {
-				if(!storage[this.key + ".content"]){
-					//debugger;
-				}
 				return storage[this.key + ".content"];
 			},
 			set: function(content) {
-				if(!content){
-					//debugger;
-				}
 				storage[this.key + ".content"] = content;
 			}
 		});
@@ -91,6 +94,7 @@ define([
 	}
 
 	FileDescriptor.prototype.update = function(target){
+		target.selectTime = target.selectTime || 1;
 		_.extend(this.note, target);
 		if(target.content){
 			this.content = target.content;

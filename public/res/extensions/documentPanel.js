@@ -95,12 +95,8 @@ define([
     documentPanel.onFileCreated = refreshPanel;
     documentPanel.onFileDeleted = refreshPanel;
     documentPanel.onTitleChanged = refreshPanel;
-    documentPanel.onSyncExportSuccess = refreshPanel;
-    documentPanel.onSyncRemoved = refreshPanel;
-    documentPanel.onNewPublishSuccess = refreshPanel;
-    documentPanel.onPublishRemoved = refreshPanel;
-    documentPanel.onFoldersChanged = refreshPanel;
-
+    documentPanel.onNotesRefresh = refreshPanel;
+    
     // Filter for search input in file selector
     var panelContentElt;
     var previousFilterValue = '';
@@ -130,30 +126,7 @@ define([
         $documentListElt.addClass('hide');
     }
     
-    
-    var noteEltTmpl = [
-       '<a href="#"',
-       ' class="list-group-item file',
-       ' data-file-index="<%= noteDesc.key %>">',
-       '   <%= noteDesc.title %>',
-       '</a>',
-   ].join('');
-    
-    function renderNoteList(notes){
-    	  var noteListHtml = _.chain(notes).sortBy(function(noteDesc) {
-              return noteDesc.title ? noteDesc.title.toLowerCase() : '';
-          }).reduce(function(result, noteDesc) {
-        	  noteDesc.key = noteDesc.guid;
-        	  console.info(noteDesc);
-              return result + '<li>' + _.template(noteEltTmpl, {
-                  noteDesc: noteDesc
-              }) + '</li>';
-          }, '').value();
-    	  noteListHtml = noteListHtml && '<ul class="nav">' + noteListHtml + '</ul>';
-          $documentListElt.html(noteListHtml);
-    }
-
-    documentPanel.onReady = function() {
+       documentPanel.onReady = function() {
         panelElt = document.querySelector('.document-panel');
         panelContentElt = panelElt.querySelector('.panel-content');
         documentListElt = panelElt.querySelector('.document-list');
@@ -184,16 +157,7 @@ define([
         $('.action-fresh-notes').click(function(e){
         	e.stopPropagation();
         	$(this).find('.icon-refresh').addClass('spin');
-        	noteMgr.listNots(function(error,data){
-        		
-        		if(error){
-        			return;
-        		}
-        		renderNoteList(data);
-        		$(this).removeClass('spin');
-        		
-        		
-        	});
+        	noteMgr.refreshNotes();
         	return false;
         });
 
