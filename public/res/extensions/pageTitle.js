@@ -11,6 +11,12 @@ define([
 		fileMgr = theFileMgr
 	}
 	
+	var eventMgr = null
+	pageTitle.onEventMgrCreated = function(p){
+		eventMgr = p;
+	}
+	
+	
 	pageTitle.onPagedownConfigure = function(editor){
 		editor.hooks.chain("onPreviewRefresh", function() {
 			var $previewContents = $('#preview-contents');
@@ -22,6 +28,7 @@ define([
 			if(fileMgr && fileMgr.currentFile ){
 				 fileMgr.currentFile.title = title;
 			}
+			eventMgr && eventMgr.onTitleChanged(title);
 		});
 	};
 	
