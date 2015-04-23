@@ -8,9 +8,10 @@ define([
 	"settings",
 	"eventMgr",
 	"fileSystem",
+	"DBRunner",
 	"classes/FileDescriptor",
 	"text!WELCOME.md"
-], function($, _, constants, core, utils, storage, settings, eventMgr, fileSystem, FileDescriptor, welcomeContent) {
+], function($, _, constants, core, utils, storage, settings, eventMgr, fileSystem, DBRunner, FileDescriptor, welcomeContent) {
 
 	var fileMgr = {};
 
@@ -18,40 +19,57 @@ define([
 	fileMgr.currentFile = undefined;
 
 	// Set the current file and refresh the editor
-	fileMgr.selectFile = function(fileDesc) {
-		fileDesc = fileDesc || fileMgr.currentFile;
+	fileMgr.selectFile = function(key) {
+		
+		if(fileMgr.currentFile && fileMgr.currentFile.key === key){
+			return;
+		}
+		
+		
+ 		// TODO : selecte latest file or create new file
+		if(key === undefined) {
+			fileSystem.getLastFile(function(file){
+				if(!file){
+					file = fileMgr.createFile(constants.WELCOME_DOCUMENT_TITLE);
+				}
+				onFileSelected(file);
+				
+			});
+			return 
 
-		if(fileDesc === undefined) {
-			var fileSystemSize = _.size(fileSystem);
-			if(fileSystemSize === 0) {
-				// If fileSystem empty create one file
-				fileDesc = fileMgr.createFile(constants.WELCOME_DOCUMENT_TITLE, welcomeContent);
-			}
-			else {
-				// Select the last selected file
-				fileDesc = _.max(fileSystem, function(fileDesc) {
-					return fileDesc.selectTime || 0;
-				});
-			}
 		}
 
-		if(fileMgr.currentFile !== fileDesc) {
-			fileMgr.currentFile = fileDesc;
-			fileDesc.selectTime = new Date().getTime();
-
-			// Notify extensions
-			eventMgr.onFileSelected(fileDesc);
-
-			// Hide the viewer pencil button
-			$(".action-edit-document").toggleClass("hide", fileDesc.fileIndex != constants.TEMPORARY_FILE_INDEX);
+		if(!fileMgr.currentFile || fileMgr.currentFile.key !== key) {
+			
+			DBRunner.run(function(db){
+				var tx = db.transaction("notes", "readwrite");
+				var store = tx.objectStore("notes");
+				var request = store.get(key);
+				request.onsuccess = function() {
+					var note = request.result;
+					var file = new FileDescriptor();
+					file.note = note;
+					
+					file.selectTime = new Date().getTime();
+					onFileSelected(file);
+				};
+			});
+			
+		}
+		
+		function onFileSelected(file){
+			console.info("selected fiile " + file.key);
+			fileMgr.currentFile = file;
+			file.selectTime = new Date().getTime();
+			eventMgr.onFileSelected(file);
+			core.initEditor(file);
 		}
 
-		// Refresh the editor (even if it's the same file)
-		core.initEditor(fileDesc);
+		
 	};
 
-	fileMgr.createFile = function(title, contentisTemporary) {
-		content = content !== undefined ? content : settings.defaultContent;
+	fileMgr.createFile = function(title, contentisTemporary, isTemporary) {
+		var content = content !== undefined ? content : settings.defaultContent;
 		if(!title) {
 			// Create a file title
 			title = constants.DEFAULT_FILE_TITLE;

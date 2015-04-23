@@ -2,28 +2,28 @@ define([], function() {
 
 	var DBRunner = {};
 	
-	var db = null;
-	var creating = false;
-	var created = false;
+	DBRunner.db = null;
+	DBRunner.creating = false;
+	DBRunner.created = false;
 	
 	function waitToRun(callback){
-		if(creating){
+		if(DBRunner.creating){
 			setTimeout(function(){
 				waitToRun(callback);
 			}, 100);
 		}else{
-			callback(db);
+			callback(DBRunner.db);
 		}
 	}
 	
 	DBRunner.run = function(callback) {
-		if(created){
-			callback(db);
-		}else if(creating){
+		if(DBRunner.created){
+			callback(DBRunner.db);
+		}else if(DBRunner.creating){
 			waitToRun(callback);
 		}else{
 			var  request = indexedDB.open("notedown");
-			creating = true;
+			DBRunner.creating = true;
 			request.onupgradeneeded = function() {
 				// The database did not previously exist, so create object stores
 				// and indexes.
@@ -34,6 +34,12 @@ define([], function() {
 				noteStore.createIndex("by_guid", "guid", {
 					unique : true
 				});
+				
+				noteStore.createIndex("by_selectTime", "selectTime", {
+					unique : false
+				});
+				
+				
 
 				var notebookStore = db.createObjectStore("notebooks", {
 					keyPath : "guid"
@@ -41,11 +47,15 @@ define([], function() {
 			};
 
 			request.onsuccess = function() {
-				db = request.result;
-				creating = false;
-				created = true;
+				DBRunner.db = request.result;
+				DBRunner.creating = false;
+				DBRunner.created = true;
 				callback(request.result);
 			};
+
+			request.onerror = function(){
+				console.error("open indexedDB error");
+			}
 		}
 		
 	}
