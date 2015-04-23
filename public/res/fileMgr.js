@@ -86,14 +86,8 @@ define([
 		return fileDesc;
 	};
 
-	fileMgr.deleteFile = function(fileDesc) {
+	fileMgr.deleteFile = function(fileDesc, callaback) {
 		fileDesc = fileDesc || fileMgr.currentFile;
-
-		// Unassociate file from folder
-		if(fileDesc.folder) {
-			fileDesc.folder.removeFile(fileDesc);
-			eventMgr.onFoldersChanged();
-		}
 
 		// Remove the index from the file list
 		utils.removeIndexFromArray("file.list", fileDesc.fileIndex);
@@ -111,19 +105,6 @@ define([
 		eventMgr.onFileDeleted(fileDesc);
 	};
 
-	// Get the file descriptor associated to a syncIndex
-	fileMgr.getFileFromSyncIndex = function(syncIndex) {
-		return _.find(fileSystem, function(fileDesc) {
-			return _.has(fileDesc.syncLocations, syncIndex);
-		});
-	};
-
-	// Get the file descriptor associated to a publishIndex
-	fileMgr.getFileFromPublishIndex = function(publishIndex) {
-		return _.find(fileSystem, function(fileDesc) {
-			return _.has(fileDesc.publishLocations, publishIndex);
-		});
-	};
 
 	eventMgr.addListener("onReady", function() {
 		var $editorElt = $("#wmd-input");

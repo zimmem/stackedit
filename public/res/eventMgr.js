@@ -12,8 +12,8 @@ define([
 	"extensions/markdownSectionParser",
 	"extensions/partialRendering",
 	"extensions/buttonMarkdownSyntax",
-	"extensions/googleAnalytics",
-	"extensions/twitter",
+//	"extensions/googleAnalytics",
+//	"extensions/twitter",
 	"extensions/dialogAbout",
 	"extensions/dialogManagePublication",
 	"extensions/dialogManageSynchronization",
@@ -171,9 +171,9 @@ define([
 	// To access modules that are loaded after extensions
 	addEventHook("onEditorCreated");
 	addEventHook("onFileMgrCreated");
-	addEventHook("onSynchronizerCreated");
+	//addEventHook("onSynchronizerCreated");
 	//addEventHook("onPublisherCreated");
-	addEventHook("onSharingCreated");
+	//addEventHook("onSharingCreated");
 	addEventHook("onEventMgrCreated");
 
 	// Operations on files
@@ -184,6 +184,10 @@ define([
 	addEventHook("onFileClosed");
 	addEventHook("onContentChanged");
 	addEventHook("onTitleChanged");
+	
+	// Operations on filesSystem
+	addEventHook("onFileSystemCreated");
+	
 
 	// Operations on folders
 	addEventHook("onFoldersChanged");

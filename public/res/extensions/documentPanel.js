@@ -3,10 +3,9 @@ define([
     "underscore",
     "utils",
     "classes/Extension",
-    "folderList",
     "fileSystem"
     
-], function($, _, utils, Extension, folderList, fileSystem) {
+], function($, _, utils, Extension,  fileSystem) {
 
     var documentPanel = new Extension("documentPanel", 'Document Panel');
 
@@ -68,26 +67,6 @@ define([
             }) + '</li>';
         }, '').value();
         documentListHtml = documentListHtml && '<ul class="nav">' + documentListHtml + '</ul>';
-
-        // Build directories
-        _.chain(folderList).sortBy(function(folderDesc) {
-            return folderDesc.name.toLowerCase();
-        }).each(function(folderDesc) {
-            var fileListHtml = _.chain(folderDesc.fileList).sortBy(function(fileDesc) {
-                return fileDesc.title.toLowerCase();
-            }).reduce(function(result, fileDesc) {
-                return result + '<li>' + _.template(documentEltTmpl, {
-                    fileDesc: fileDesc,
-                    selectedFileDesc: selectedFileDesc
-                }) + '</li>';
-            }, '').value();
-            fileListHtml = fileListHtml && '<ul class="nav">' + fileListHtml + '</ul>';
-            documentListHtml += _.template(folderEltTmpl, {
-                folderDesc: folderDesc,
-                fileListHtml: fileListHtml,
-                id: folderDesc.folderIndex.replace('.', '')
-            });
-        });
 
         documentListElt.innerHTML = documentListHtml;
 
