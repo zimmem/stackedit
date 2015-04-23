@@ -68,39 +68,21 @@ define([
 		
 	};
 
-	fileMgr.createFile = function(title, contentisTemporary, isTemporary) {
+	fileMgr.createFile = function(content , callback) {
 		var content = content !== undefined ? content : settings.defaultContent;
-		if(!title) {
-			// Create a file title
-			title = constants.DEFAULT_FILE_TITLE;
-			var indicator = 2;
-			var checkTitle = function(fileDesc) {
-				return fileDesc.title == title;
-			};
-			while(_.some(fileSystem, checkTitle)) {
-				title = constants.DEFAULT_FILE_TITLE + indicator++;
-			}
-		}
 
 		// Generate a unique fileIndex
 		var fileIndex = constants.TEMPORARY_FILE_INDEX;
-		if(!isTemporary) {
-			do {
-				fileIndex = "file." + utils.id();
-			} while(_.has(fileSystem, fileIndex));
-		}
+		fileIndex = "file." + utils.id();
 
 		storage[fileIndex + ".content"] = content;
 
 		// Create the file descriptor
-		var fileDesc = new FileDescriptor(fileIndex, title);
-
-		// Add the index to the file list
-		if(!isTemporary) {
-			utils.appendIndexToArray("file.list", fileIndex);
-			fileSystem[fileIndex] = fileDesc;
+		var fileDesc = new FileDescriptor(fileIndex);
+		fileDesc.store(function(){
+			callback && callback(fileDesc);
 			eventMgr.onFileCreated(fileDesc);
-		}
+		});
 		return fileDesc;
 	};
 

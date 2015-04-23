@@ -1,7 +1,8 @@
 define([
     "eventMgr",
+    'fileMgr',
     'helpers/evernoteHelper'
-], function(eventMgr, evernoteHelper) {
+], function(eventMgr, fileMgr, evernoteHelper) {
 
 	eventMgr.addListener("onReady", function() {
 
@@ -10,7 +11,9 @@ define([
 		});
 
 		$('.action-create-note').click(function() {
-
+			fileMgr.createFile('',function(file){
+				fileMgr.selectFile(file.key);
+			});
 		});
 
 		$('.action-delete-note').click(function() {

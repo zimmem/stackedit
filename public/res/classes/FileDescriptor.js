@@ -10,8 +10,7 @@ define([
 		
 		
 		this.note = {
-			key : fileIndex,
-			title : title
+			key : fileIndex
 		};
 		
 		Object.defineProperty(this, 'fileIndex', {
@@ -36,9 +35,15 @@ define([
 		});
 		Object.defineProperty(this, 'content', {
 			get: function() {
+				if(!storage[this.key + ".content"]){
+					//debugger;
+				}
 				return storage[this.key + ".content"];
 			},
 			set: function(content) {
+				if(!content){
+					//debugger;
+				}
 				storage[this.key + ".content"] = content;
 			}
 		});
@@ -95,13 +100,14 @@ define([
 		
 	};
 	
-	FileDescriptor.prototype.store = function(){
+	FileDescriptor.prototype.store = function(callback){
 		var that = this;
 		DBRunner.run(function(db){
 			var tx = db.transaction("notes", "readwrite");
 			var store = tx.objectStore("notes");
 			store.put(that.note);
 			tx.oncomplete = function() {
+				callback && callback(that);
 				logger.log("save note to indexdDB success");
 			};
 		});

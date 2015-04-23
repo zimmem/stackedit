@@ -7,19 +7,6 @@ define([
 ], function(_, utils, FileDescriptor, storage, DBRunner) {
     var fileSystem = {};
 
-    // Retrieve file descriptors from localStorage
-    utils.retrieveIndexArray("file.list").forEach(function(fileIndex) {
-        fileSystem[fileIndex] = new FileDescriptor(fileIndex);
-    });
-
-    // Clean fields from deleted files in local storage
-    Object.keys(storage).forEach(function(key) {
-        var match = key.match(/(file\.\S+?)\.\S+/);
-        if(match && !fileSystem.hasOwnProperty(match[1])) {
-            storage.removeItem(key);
-        }
-    });
-    
     fileSystem.getLastFile = function(callback){
     	DBRunner.run(function(db){
     		var tx = db.transaction("notes", "readonly");
