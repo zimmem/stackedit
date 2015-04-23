@@ -31,7 +31,7 @@ define([
 	"extensions/mathJax",
 	"extensions/emailConverter",
 	"extensions/scrollSync",
-//	"extensions/buttonSync",
+	"extensions/buttonSync",
 //	"extensions/buttonPublish",
 	"extensions/buttonStat",
 	"extensions/buttonHtmlCode",

@@ -1,11 +1,10 @@
 define([
         'eventMgr',
         'helpers/evernoteHelper',
-        'fileMgr',
         'fileSystem',
         'classes/FileDescriptor',
         'utils'
-], function(eventMgr, helper, fileMgr, fileSystem, FileDescriptor, utils){
+], function(eventMgr, helper, fileSystem, FileDescriptor, utils){
 	
 	var noteMgr = {};
 	
@@ -54,6 +53,13 @@ define([
 				
 			});
 		});
+	}
+	noteMgr.downloadNote = function(guid, callback){
+		helper.downloadNote(guid, callback);
+	}
+	
+	noteMgr.postNote = function(file, callback){
+		helper.postNote(file, callback);
 	}
 	
 	eventMgr.onNoteMgrCreated(noteMgr);

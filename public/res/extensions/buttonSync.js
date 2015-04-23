@@ -25,9 +25,14 @@ define([
         newConfig.syncShortcut = utils.getInputTextValue("#input-sync-shortcut", event);
     };
 
-    var synchronizer;
-    buttonSync.onSynchronizerCreated = function(synchronizerParameter) {
-        synchronizer = synchronizerParameter;
+    var fileMgr;
+    buttonSync.onFileMgrCreated = function(f) {
+        fileMgr = f;
+    };
+    
+    var noteMgr;
+    buttonSync.onNoteMgrCreated = function(n) {
+    	noteMgr = n;
     };
 
     var $button;
@@ -46,15 +51,7 @@ define([
         }
     };
 
-    // Run sync periodically
-    var lastSync = 0;
-    buttonSync.onPeriodicRun = function() {
-        if(!buttonSync.config.syncPeriod || lastSync + buttonSync.config.syncPeriod > utils.currentTime) {
-            return;
-        }
-        synchronizer.sync() && (lastSync = utils.currentTime);
-    };
-
+ 
     buttonSync.onCreateButton = function() {
         var button = crel('a', {
             class: 'btn btn-success button-synchronize',
@@ -65,7 +62,7 @@ define([
         $button = $(button);
         $button.click(function() {
             if(!$button.hasClass("disabled")) {
-                synchronizer.sync() && (lastSync = utils.currentTime);
+            	noteMgr.postNote(fileMgr.currentFile);
             }
         });
         return button;
@@ -74,8 +71,6 @@ define([
     buttonSync.onReady = updateButtonState;
     buttonSync.onFileCreated = updateButtonState;
     buttonSync.onFileDeleted = updateButtonState;
-    buttonSync.onSyncImportSuccess = updateButtonState;
-    buttonSync.onSyncExportSuccess = updateButtonState;
     buttonSync.onSyncRemoved = updateButtonState;
 
     buttonSync.onSyncRunning = function(isRunning) {
@@ -90,11 +85,11 @@ define([
 
     buttonSync.onReady = function() {
         mousetrap.bind(buttonSync.config.syncShortcut, function(e) {
-            synchronizer.sync() && (lastSync = utils.currentTime);
+        	noteMgr.postNote(fileMgr.currentFile);
             e.preventDefault();
         });
         $(".action-force-synchronization").click(function() {
-            synchronizer.sync() && (lastSync = utils.currentTime);
+        	noteMgr.postNote(fileMgr.currentFile);
         });
     };
 

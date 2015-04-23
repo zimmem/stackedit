@@ -7,11 +7,12 @@ define([
 	"storage",
 	"settings",
 	"eventMgr",
+	'noteMgr',
 	"fileSystem",
 	"DBRunner",
 	"classes/FileDescriptor",
 	"text!WELCOME.md"
-], function($, _, constants, core, utils, storage, settings, eventMgr, fileSystem, DBRunner, FileDescriptor, welcomeContent) {
+], function($, _, constants, core, utils, storage, settings, eventMgr, noteMgr, fileSystem, DBRunner, FileDescriptor, welcomeContent) {
 
 	var fileMgr = {};
 
@@ -58,11 +59,35 @@ define([
 		}
 		
 		function onFileSelected(file){
-			console.info("selected fiile " + file.key);
-			fileMgr.currentFile = file;
-			file.selectTime = new Date().getTime();
-			eventMgr.onFileSelected(file);
-			core.initEditor(file);
+			
+			function selectFile(file){
+				console.info("selected fiile " + file.key);
+				fileMgr.currentFile = file;
+				file.selectTime = new Date().getTime();
+				eventMgr.onFileSelected(file);
+				core.initEditor(file);
+			}
+			
+			if(file.guid){
+				noteMgr.downloadNote(file.guid, function(error, note){
+					
+					if(!error){
+						note.content = $(note.content).find('center').text();
+						file.update(note);
+						
+					}else{
+						eventMgr.onMessage('download note error with message ' + error + '! using local content');
+					}
+					
+					selectFile(file);
+					
+				});
+			}else{
+				selectFile(file);
+			}
+			
+			
+			
 		}
 
 		
