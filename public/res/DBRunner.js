@@ -22,7 +22,7 @@ define([], function() {
 		}else if(DBRunner.creating){
 			waitToRun(callback);
 		}else{
-			var  request = indexedDB.open("notedown",2);
+			var  request = indexedDB.open("notedown",1);
 			DBRunner.creating = true;
 			request.onupgradeneeded = function(e) {
 				console.info(e);

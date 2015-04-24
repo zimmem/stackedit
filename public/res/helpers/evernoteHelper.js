@@ -99,7 +99,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 		removeAttribute($clone, 'class');
 		
 		//暂时这么处理 br吧
-		var html =  $clone.html().replace(/<br>/g, "<br/>");;
+		var html =  $clone.html().replace(/<br>/g, "<br/>").replace(/<hr>/g, "<hr/>");
 		console.info(html);
 		var html = [
             '<div>',
