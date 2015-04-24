@@ -1,8 +1,9 @@
 define([
+    'jquery',
     "eventMgr",
     'fileMgr',
     'helpers/evernoteHelper'
-], function(eventMgr, fileMgr, evernoteHelper) {
+], function($,eventMgr, fileMgr, evernoteHelper) {
 
 	eventMgr.addListener("onReady", function() {
 

@@ -6,6 +6,8 @@ define([
     'DBRunner'
 ], function(_, utils, FileDescriptor, storage, DBRunner) {
     var fileSystem = {};
+    
+    var IDBCursor = window.IDBCursor;
 
     fileSystem.getLastFile = function(callback){
     	DBRunner.run(function(db){
@@ -29,10 +31,10 @@ define([
 			};
 			request.onerror = function(e){
 			  	console.info(e);
-			}
+			};
 			
     	});
-    }
+    };
     
     fileSystem.listFiles = function(callback){
     	DBRunner.run(function(db){
@@ -57,7 +59,7 @@ define([
 			};
 			request.onerror = function(e){
 			  	console.info(e);
-			}
+			};
 			
     	});
     };

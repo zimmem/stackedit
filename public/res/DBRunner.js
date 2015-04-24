@@ -22,29 +22,24 @@ define([], function() {
 		}else if(DBRunner.creating){
 			waitToRun(callback);
 		}else{
-			var  request = indexedDB.open("notedown",1);
+			var  request = window.indexedDB.open("notedown",1);
 			DBRunner.creating = true;
-			request.onupgradeneeded = function(e) {
-				console.info(e);
-				// The database did not previously exist, so create object stores
-				// and indexes.
-				var db = request.result;
-				var noteStore = db.createObjectStore("notes", {
-					keyPath : "key"
-				});
-				noteStore.createIndex("by_guid", "guid", {
-					unique : true
-				});
-				
-				noteStore.createIndex("by_selectTime", "selectTime", {
-					unique : false
-				});
-				
-				
-
-				var notebookStore = db.createObjectStore("notebooks", {
-					keyPath : "guid"
-				});
+			request.onupgradeneeded = function(event) {
+				 if (event.oldVersion < 1) {
+					// The database did not previously exist, so create object stores
+					// and indexes.
+					var db = request.result;
+					var noteStore = db.createObjectStore("notes", {
+						keyPath : "key"
+					});
+					noteStore.createIndex("by_guid", "guid", {
+						unique : true
+					});
+					
+					noteStore.createIndex("by_selectTime", "selectTime", {
+						unique : false
+					});
+					}
 			};
 
 			request.onsuccess = function() {
@@ -56,10 +51,10 @@ define([], function() {
 
 			request.onerror = function(){
 				console.error("open indexedDB error");
-			}
+			};
 		}
 		
-	}
+	};
 
 	return DBRunner;
 

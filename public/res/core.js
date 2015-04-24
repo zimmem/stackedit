@@ -326,23 +326,6 @@ define([
 		eventMgr.onReady();
 	};
 
-	var appId = 'ESTHdCYOi18iLhhO';
-	var $alerts = $();
-
-	function isSponsor(payments) {
-		var result = payments && payments.app == appId && (
-			(payments.chargeOption && payments.chargeOption.alias == 'once') ||
-			(payments.subscriptionOption && payments.subscriptionOption.alias == 'yearly'));
-		eventMgr.isSponsor = result;
-		return result;
-	}
-
-	function removeAlerts() {
-		$alerts.remove();
-		$alerts = $();
-	}
-
-
 	// Other initialization that are not prioritary
 	eventMgr.addListener("onReady", function() {
 

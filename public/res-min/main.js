@@ -55,7 +55,7 @@ function diff_match_patch() {
    return e === t !== n;
   });
   if ("string" == typeof t) {
-   if (Ie.test(t)) return oe.filter(t, e, n);
+   if (Ne.test(t)) return oe.filter(t, e, n);
    t = oe.filter(t, e);
   }
   return oe.grep(e, function(e) {
@@ -91,7 +91,7 @@ function diff_match_patch() {
  }
  function v(e, t) {
   var n = t.nodeName.toLowerCase();
-  "input" === n && Oe.test(e.type) ? t.checked = e.checked : ("input" === n || "textarea" === n) && (t.defaultValue = e.defaultValue);
+  "input" === n && Fe.test(e.type) ? t.checked = e.checked : ("input" === n || "textarea" === n) && (t.defaultValue = e.defaultValue);
  }
  function b(e, t) {
   if (t in e) return t;
@@ -125,16 +125,16 @@ function diff_match_patch() {
  function _(e, t, n) {
   var r = !0, i = "width" === t ? e.offsetWidth : e.offsetHeight, o = x(e), a = oe.support.boxSizing && "border-box" === oe.css(e, "boxSizing", !1, o);
   if (0 >= i || null == i) {
-   if (i = Ge(e, t, o), (0 > i || null == i) && (i = e.style[t]), We.test(i)) return i;
+   if (i = He(e, t, o), (0 > i || null == i) && (i = e.style[t]), We.test(i)) return i;
    r = a && (oe.support.boxSizingReliable || i === e.style[t]), i = parseFloat(i) || 0;
   }
   return i + C(e, t, n || (a ? "border" : "content"), r, o) + "px";
  }
  function k(e) {
-  var t = z, n = Qe[e];
-  return n || (n = E(e, t), "none" !== n && n || (He = (He || oe("<iframe frameborder='0' width='0' height='0'/>").css("cssText", "display:block !important")).appendTo(t.documentElement), 
-  t = (He[0].contentWindow || He[0].contentDocument).document, t.write("<!doctype html><html><body>"), 
-  t.close(), n = E(e, t), He.detach()), Qe[e] = n), n;
+  var t = z, n = Xe[e];
+  return n || (n = E(e, t), "none" !== n && n || (qe = (qe || oe("<iframe frameborder='0' width='0' height='0'/>").css("cssText", "display:block !important")).appendTo(t.documentElement), 
+  t = (qe[0].contentWindow || qe[0].contentDocument).document, t.write("<!doctype html><html><body>"), 
+  t.close(), n = E(e, t), qe.detach()), Xe[e] = n), n;
  }
  function E(e, t) {
   var n = oe(t.createElement(e)).appendTo(t.body), r = oe.css(n[0], "display");
@@ -146,7 +146,7 @@ function diff_match_patch() {
    n || tt.test(e) ? r(e, i) : T(e + "[" + ("object" == typeof i ? t : "") + "]", i, n, r);
   }); else if (n || "object" !== oe.type(t)) r(e, t); else for (i in t) T(e + "[" + i + "]", t[i], n, r);
  }
- function I(e) {
+ function N(e) {
   return function(t, n) {
    "string" != typeof t && (n = t, t = "*");
    var r, i = 0, o = t.toLowerCase().match(se) || [];
@@ -166,12 +166,12 @@ function diff_match_patch() {
   var o = {}, a = e === bt;
   return i(t.dataTypes[0]) || !o["*"] && i("*");
  }
- function N(e, n) {
+ function M(e, n) {
   var r, i, o = oe.ajaxSettings.flatOptions || {};
   for (r in n) n[r] !== t && ((o[r] ? e : i || (i = {}))[r] = n[r]);
   return i && oe.extend(!0, e, i), e;
  }
- function M(e, n, r) {
+ function I(e, n, r) {
   for (var i, o, a, s, l = e.contents, c = e.dataTypes; "*" === c[0]; ) c.shift(), 
   i === t && (i = e.mimeType || n.getResponseHeader("Content-Type"));
   if (i) for (o in l) if (l[o] && l[o].test(i)) {
@@ -251,7 +251,7 @@ function diff_match_patch() {
     return t ? s.resolveWith(e, [ c, t ]) : s.rejectWith(e, [ c, t ]), this;
    }
   }), u = c.props;
-  for (O(u, c.opts.specialEasing); a > o; o++) if (r = Lt[o].call(c, e, u, c.opts)) return r;
+  for (F(u, c.opts.specialEasing); a > o; o++) if (r = Lt[o].call(c, e, u, c.opts)) return r;
   return oe.map(u, R, c), oe.isFunction(c.opts.start) && c.opts.start.call(e, c), 
   oe.fx.timer(oe.extend(l, {
    elem: e,
@@ -259,7 +259,7 @@ function diff_match_patch() {
    queue: c.opts.queue
   })), c.progress(c.opts.progress).done(c.opts.done, c.opts.complete).fail(c.opts.fail).always(c.opts.always);
  }
- function O(e, t) {
+ function F(e, t) {
   var n, r, i, o, a;
   for (n in e) if (r = oe.camelCase(n), i = t[r], o = e[n], oe.isArray(o) && (i = o[1], 
   o = e[n] = o[0]), n !== r && (e[r] = o, delete e[n]), a = oe.cssHooks[r], a && "expand" in a) {
@@ -267,7 +267,7 @@ function diff_match_patch() {
    for (n in o) n in e || (e[n] = o[n], t[n] = i);
   } else t[r] = i;
  }
- function F(e, n, r) {
+ function O(e, n, r) {
   var i, o, a, s, l, c, u = this, d = {}, p = e.style, h = e.nodeType && y(e), f = ge.get(e, "fxshow");
   r.queue || (l = oe._queueHooks(e, "fx"), null == l.unqueued && (l.unqueued = 0, 
   c = l.empty.fire, l.empty.fire = function() {
@@ -314,8 +314,8 @@ function diff_match_patch() {
  function $(e) {
   return oe.isWindow(e) ? e : 9 === e.nodeType && e.defaultView;
  }
- var q, G, H = typeof t, U = e.location, z = e.document, V = z.documentElement, W = e.jQuery, X = e.$, Q = {}, Y = [], K = "2.0.3", J = Y.concat, Z = Y.push, ee = Y.slice, te = Y.indexOf, ne = Q.toString, re = Q.hasOwnProperty, ie = K.trim, oe = function(e, t) {
-  return new oe.fn.init(e, t, q);
+ var G, H, q = typeof t, U = e.location, z = e.document, V = z.documentElement, W = e.jQuery, Q = e.$, X = {}, K = [], Y = "2.0.3", J = K.concat, Z = K.push, ee = K.slice, te = K.indexOf, ne = X.toString, re = X.hasOwnProperty, ie = Y.trim, oe = function(e, t) {
+  return new oe.fn.init(e, t, G);
  }, ae = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, se = /\S+/g, le = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/, ce = /^<(\w+)\s*\/?>(?:<\/\1>|)$/, ue = /^-ms-/, de = /-([\da-z])/gi, pe = function(e, t) {
   return t.toUpperCase();
  }, he = function() {
@@ -323,7 +323,7 @@ function diff_match_patch() {
   oe.ready();
  };
  oe.fn = oe.prototype = {
-  jquery: K,
+  jquery: Y,
   constructor: oe,
   init: function(e, n, r) {
    var i, o;
@@ -392,9 +392,9 @@ function diff_match_patch() {
   a = r && oe.isArray(r) ? r : []) : a = r && oe.isPlainObject(r) ? r : {}, s[n] = oe.extend(u, a, i)) : i !== t && (s[n] = i));
   return s;
  }, oe.extend({
-  expando: "jQuery" + (K + Math.random()).replace(/\D/g, ""),
+  expando: "jQuery" + (Y + Math.random()).replace(/\D/g, ""),
   noConflict: function(t) {
-   return e.$ === oe && (e.$ = X), t && e.jQuery === oe && (e.jQuery = W), oe;
+   return e.$ === oe && (e.$ = Q), t && e.jQuery === oe && (e.jQuery = W), oe;
   },
   isReady: !1,
   readyWait: 1,
@@ -402,7 +402,7 @@ function diff_match_patch() {
    e ? oe.readyWait++ : oe.ready(!0);
   },
   ready: function(e) {
-   (e === !0 ? --oe.readyWait : oe.isReady) || (oe.isReady = !0, e !== !0 && --oe.readyWait > 0 || (G.resolveWith(z, [ oe ]), 
+   (e === !0 ? --oe.readyWait : oe.isReady) || (oe.isReady = !0, e !== !0 && --oe.readyWait > 0 || (H.resolveWith(z, [ oe ]), 
    oe.fn.trigger && oe(z).trigger("ready").off("ready")));
   },
   isFunction: function(e) {
@@ -416,7 +416,7 @@ function diff_match_patch() {
    return !isNaN(parseFloat(e)) && isFinite(e);
   },
   type: function(e) {
-   return null == e ? String(e) : "object" == typeof e || "function" == typeof e ? Q[ne.call(e)] || "object" : typeof e;
+   return null == e ? String(e) : "object" == typeof e || "function" == typeof e ? X[ne.call(e)] || "object" : typeof e;
   },
   isPlainObject: function(e) {
    if ("object" !== oe.type(e) || e.nodeType || oe.isWindow(e)) return !1;
@@ -530,14 +530,14 @@ function diff_match_patch() {
    return i;
   }
  }), oe.ready.promise = function(t) {
-  return G || (G = oe.Deferred(), "complete" === z.readyState ? setTimeout(oe.ready) : (z.addEventListener("DOMContentLoaded", he, !1), 
-  e.addEventListener("load", he, !1))), G.promise(t);
+  return H || (H = oe.Deferred(), "complete" === z.readyState ? setTimeout(oe.ready) : (z.addEventListener("DOMContentLoaded", he, !1), 
+  e.addEventListener("load", he, !1))), H.promise(t);
  }, oe.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(e, t) {
-  Q["[object " + t + "]"] = t.toLowerCase();
- }), q = oe(z), function(e, t) {
+  X["[object " + t + "]"] = t.toLowerCase();
+ }), G = oe(z), function(e, t) {
   function n(e, t, n, r) {
    var i, o, a, s, l, c, u, d, f, m;
-   if ((t ? t.ownerDocument || t : $) !== L && M(t), t = t || L, n = n || [], !e || "string" != typeof e) return n;
+   if ((t ? t.ownerDocument || t : $) !== L && I(t), t = t || L, n = n || [], !e || "string" != typeof e) return n;
    if (1 !== (s = t.nodeType) && 9 !== s) return [];
    if (R && !r) {
     if (i = ye.exec(e)) if (a = i[1]) {
@@ -590,7 +590,7 @@ function diff_match_patch() {
    for (var n = e.split("|"), r = e.length; r--; ) k.attrHandle[n[r]] = t;
   }
   function s(e, t) {
-   var n = t && e, r = n && 1 === e.nodeType && 1 === t.nodeType && (~t.sourceIndex || Q) - (~e.sourceIndex || Q);
+   var n = t && e, r = n && 1 === e.nodeType && 1 === t.nodeType && (~t.sourceIndex || X) - (~e.sourceIndex || X);
    if (r) return r;
    if (n) for (;n = n.nextSibling; ) if (n === t) return -1;
    return e ? 1 : -1;
@@ -639,11 +639,11 @@ function diff_match_patch() {
    return r;
   }
   function f(e, t, n) {
-   var r = t.dir, i = n && "parentNode" === r, o = G++;
+   var r = t.dir, i = n && "parentNode" === r, o = H++;
    return t.first ? function(t, n, o) {
     for (;t = t[r]; ) if (1 === t.nodeType || i) return e(t, n, o);
    } : function(t, n, a) {
-    var s, l, c, u = q + " " + o;
+    var s, l, c, u = G + " " + o;
     if (a) {
      for (;t = t[r]; ) if ((1 === t.nodeType || i) && e(t, n, a)) return !0;
     } else for (;t = t[r]; ) if (1 === t.nodeType || i) if (c = t[j] || (t[j] = {}), 
@@ -698,14 +698,14 @@ function diff_match_patch() {
   }
   function y(e, t) {
    var r = 0, o = t.length > 0, a = e.length > 0, s = function(i, s, l, c, u) {
-    var d, p, h, f = [], m = 0, v = "0", b = i && [], y = null != u, x = D, w = i || a && k.find.TAG("*", u && s.parentNode || s), S = q += null == x ? 1 : Math.random() || .1;
+    var d, p, h, f = [], m = 0, v = "0", b = i && [], y = null != u, x = D, w = i || a && k.find.TAG("*", u && s.parentNode || s), S = G += null == x ? 1 : Math.random() || .1;
     for (y && (D = s !== L && s, _ = r); null != (d = w[v]); v++) {
      if (a && d) {
       for (p = 0; h = e[p++]; ) if (h(d, s, l)) {
        c.push(d);
        break;
       }
-      y && (q = S, _ = ++r);
+      y && (G = S, _ = ++r);
      }
      o && ((d = !h && d) && m--, i && b.push(d));
     }
@@ -717,7 +717,7 @@ function diff_match_patch() {
      }
      ee.apply(c, f), y && !i && f.length > 0 && m + t.length > 1 && n.uniqueSort(c);
     }
-    return y && (q = S, D = x), b;
+    return y && (G = S, D = x), b;
    };
    return o ? i(s) : s;
   }
@@ -737,11 +737,11 @@ function diff_match_patch() {
      break;
     }
    }
-   return I(e, c)(r, t, !R, n, he.test(e)), n;
+   return N(e, c)(r, t, !R, n, he.test(e)), n;
   }
-  var S, C, _, k, E, T, I, D, N, M, L, A, R, P, O, F, B, j = "sizzle" + -new Date(), $ = e.document, q = 0, G = 0, H = r(), U = r(), z = r(), V = !1, W = function(e, t) {
+  var S, C, _, k, E, T, N, D, M, I, L, A, R, P, F, O, B, j = "sizzle" + -new Date(), $ = e.document, G = 0, H = 0, q = r(), U = r(), z = r(), V = !1, W = function(e, t) {
    return e === t ? (V = !0, 0) : 0;
-  }, X = typeof t, Q = 1 << 31, Y = {}.hasOwnProperty, K = [], J = K.pop, Z = K.push, ee = K.push, te = K.slice, ne = K.indexOf || function(e) {
+  }, Q = typeof t, X = 1 << 31, K = {}.hasOwnProperty, Y = [], J = Y.pop, Z = Y.push, ee = Y.push, te = Y.slice, ne = Y.indexOf || function(e) {
    for (var t = 0, n = this.length; n > t; t++) if (this[t] === e) return t;
    return -1;
   }, re = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", ie = "[\\x20\\t\\r\\n\\f]", ae = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+", se = ae.replace("w", "w#"), le = "\\[" + ie + "*(" + ae + ")" + ie + "*(?:([*^$|!~]?=)" + ie + "*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|(" + se + ")|)|)" + ie + "*\\]", ce = ":(" + ae + ")(?:\\(((['\"])((?:\\\\.|[^\\\\])*?)\\3|((?:\\\\.|[^\\\\()[\\]]|" + le.replace(3, 8) + ")*)|.*)\\)|)", ue = new RegExp("^" + ie + "+|((?:^|[^\\\\])(?:\\\\.)*)" + ie + "+$", "g"), de = new RegExp("^" + ie + "*," + ie + "*"), pe = new RegExp("^" + ie + "*([>+~]|" + ie + ")" + ie + "*"), he = new RegExp(ie + "*[+~]"), fe = new RegExp("=" + ie + "*([^\\]'\"]*)" + ie + "*\\]", "g"), me = new RegExp(ce), ge = new RegExp("^" + se + "$"), ve = {
@@ -758,10 +758,10 @@ function diff_match_patch() {
    return r !== r || n ? t : 0 > r ? String.fromCharCode(r + 65536) : String.fromCharCode(r >> 10 | 55296, 1023 & r | 56320);
   };
   try {
-   ee.apply(K = te.call($.childNodes), $.childNodes), K[$.childNodes.length].nodeType;
+   ee.apply(Y = te.call($.childNodes), $.childNodes), Y[$.childNodes.length].nodeType;
   } catch (ke) {
    ee = {
-    apply: K.length ? function(e, t) {
+    apply: Y.length ? function(e, t) {
      Z.apply(e, te.call(t));
     } : function(e, t) {
      for (var n = e.length, r = 0; e[n++] = t[r++]; ) ;
@@ -772,11 +772,11 @@ function diff_match_patch() {
   T = n.isXML = function(e) {
    var t = e && (e.ownerDocument || e).documentElement;
    return t ? "HTML" !== t.nodeName : !1;
-  }, C = n.support = {}, M = n.setDocument = function(e) {
+  }, C = n.support = {}, I = n.setDocument = function(e) {
    var t = e ? e.ownerDocument || e : $, n = t.defaultView;
    return t !== L && 9 === t.nodeType && t.documentElement ? (L = t, A = t.documentElement, 
    R = !T(t), n && n.attachEvent && n !== n.top && n.attachEvent("onbeforeunload", function() {
-    M();
+    I();
    }), C.attributes = o(function(e) {
     return e.className = "i", !e.getAttribute("className");
    }), C.getElementsByTagName = o(function(e) {
@@ -787,7 +787,7 @@ function diff_match_patch() {
    }), C.getById = o(function(e) {
     return A.appendChild(e).id = j, !t.getElementsByName || !t.getElementsByName(j).length;
    }), C.getById ? (k.find.ID = function(e, t) {
-    if (typeof t.getElementById !== X && R) {
+    if (typeof t.getElementById !== Q && R) {
      var n = t.getElementById(e);
      return n && n.parentNode ? [ n ] : [];
     }
@@ -799,11 +799,11 @@ function diff_match_patch() {
    }) : (delete k.find.ID, k.filter.ID = function(e) {
     var t = e.replace(Ce, _e);
     return function(e) {
-     var n = typeof e.getAttributeNode !== X && e.getAttributeNode("id");
+     var n = typeof e.getAttributeNode !== Q && e.getAttributeNode("id");
      return n && n.value === t;
     };
    }), k.find.TAG = C.getElementsByTagName ? function(e, t) {
-    return typeof t.getElementsByTagName !== X ? t.getElementsByTagName(e) : void 0;
+    return typeof t.getElementsByTagName !== Q ? t.getElementsByTagName(e) : void 0;
    } : function(e, t) {
     var n, r = [], i = 0, o = t.getElementsByTagName(e);
     if ("*" === e) {
@@ -812,8 +812,8 @@ function diff_match_patch() {
     }
     return o;
    }, k.find.CLASS = C.getElementsByClassName && function(e, t) {
-    return typeof t.getElementsByClassName !== X && R ? t.getElementsByClassName(e) : void 0;
-   }, O = [], P = [], (C.qsa = be.test(t.querySelectorAll)) && (o(function(e) {
+    return typeof t.getElementsByClassName !== Q && R ? t.getElementsByClassName(e) : void 0;
+   }, F = [], P = [], (C.qsa = be.test(t.querySelectorAll)) && (o(function(e) {
     e.innerHTML = "<select><option selected=''></option></select>", e.querySelectorAll("[selected]").length || P.push("\\[" + ie + "*(?:value|" + re + ")"), 
     e.querySelectorAll(":checked").length || P.push(":checked");
    }), o(function(e) {
@@ -821,9 +821,9 @@ function diff_match_patch() {
     n.setAttribute("type", "hidden"), e.appendChild(n).setAttribute("t", ""), e.querySelectorAll("[t^='']").length && P.push("[*^$]=" + ie + "*(?:''|\"\")"), 
     e.querySelectorAll(":enabled").length || P.push(":enabled", ":disabled"), e.querySelectorAll("*,:x"), 
     P.push(",.*:");
-   })), (C.matchesSelector = be.test(F = A.webkitMatchesSelector || A.mozMatchesSelector || A.oMatchesSelector || A.msMatchesSelector)) && o(function(e) {
-    C.disconnectedMatch = F.call(e, "div"), F.call(e, "[s!='']:x"), O.push("!=", ce);
-   }), P = P.length && new RegExp(P.join("|")), O = O.length && new RegExp(O.join("|")), 
+   })), (C.matchesSelector = be.test(O = A.webkitMatchesSelector || A.mozMatchesSelector || A.oMatchesSelector || A.msMatchesSelector)) && o(function(e) {
+    C.disconnectedMatch = O.call(e, "div"), O.call(e, "[s!='']:x"), F.push("!=", ce);
+   }), P = P.length && new RegExp(P.join("|")), F = F.length && new RegExp(F.join("|")), 
    B = be.test(A.contains) || A.compareDocumentPosition ? function(e, t) {
     var n = 9 === e.nodeType ? e.documentElement : e, r = t && t.parentNode;
     return e === r || !(!r || 1 !== r.nodeType || !(n.contains ? n.contains(r) : e.compareDocumentPosition && 16 & e.compareDocumentPosition(r)));
@@ -833,11 +833,11 @@ function diff_match_patch() {
    }, W = A.compareDocumentPosition ? function(e, n) {
     if (e === n) return V = !0, 0;
     var r = n.compareDocumentPosition && e.compareDocumentPosition && e.compareDocumentPosition(n);
-    return r ? 1 & r || !C.sortDetached && n.compareDocumentPosition(e) === r ? e === t || B($, e) ? -1 : n === t || B($, n) ? 1 : N ? ne.call(N, e) - ne.call(N, n) : 0 : 4 & r ? -1 : 1 : e.compareDocumentPosition ? -1 : 1;
+    return r ? 1 & r || !C.sortDetached && n.compareDocumentPosition(e) === r ? e === t || B($, e) ? -1 : n === t || B($, n) ? 1 : M ? ne.call(M, e) - ne.call(M, n) : 0 : 4 & r ? -1 : 1 : e.compareDocumentPosition ? -1 : 1;
    } : function(e, n) {
     var r, i = 0, o = e.parentNode, a = n.parentNode, l = [ e ], c = [ n ];
     if (e === n) return V = !0, 0;
-    if (!o || !a) return e === t ? -1 : n === t ? 1 : o ? -1 : a ? 1 : N ? ne.call(N, e) - ne.call(N, n) : 0;
+    if (!o || !a) return e === t ? -1 : n === t ? 1 : o ? -1 : a ? 1 : M ? ne.call(M, e) - ne.call(M, n) : 0;
     if (o === a) return s(e, n);
     for (r = e; r = r.parentNode; ) l.unshift(r);
     for (r = n; r = r.parentNode; ) c.unshift(r);
@@ -847,22 +847,22 @@ function diff_match_patch() {
   }, n.matches = function(e, t) {
    return n(e, null, null, t);
   }, n.matchesSelector = function(e, t) {
-   if ((e.ownerDocument || e) !== L && M(e), t = t.replace(fe, "='$1']"), !(!C.matchesSelector || !R || O && O.test(t) || P && P.test(t))) try {
-    var r = F.call(e, t);
+   if ((e.ownerDocument || e) !== L && I(e), t = t.replace(fe, "='$1']"), !(!C.matchesSelector || !R || F && F.test(t) || P && P.test(t))) try {
+    var r = O.call(e, t);
     if (r || C.disconnectedMatch || e.document && 11 !== e.document.nodeType) return r;
    } catch (i) {}
    return n(t, L, null, [ e ]).length > 0;
   }, n.contains = function(e, t) {
-   return (e.ownerDocument || e) !== L && M(e), B(e, t);
+   return (e.ownerDocument || e) !== L && I(e), B(e, t);
   }, n.attr = function(e, n) {
-   (e.ownerDocument || e) !== L && M(e);
-   var r = k.attrHandle[n.toLowerCase()], i = r && Y.call(k.attrHandle, n.toLowerCase()) ? r(e, n, !R) : t;
+   (e.ownerDocument || e) !== L && I(e);
+   var r = k.attrHandle[n.toLowerCase()], i = r && K.call(k.attrHandle, n.toLowerCase()) ? r(e, n, !R) : t;
    return i === t ? C.attributes || !R ? e.getAttribute(n) : (i = e.getAttributeNode(n)) && i.specified ? i.value : null : i;
   }, n.error = function(e) {
    throw new Error("Syntax error, unrecognized expression: " + e);
   }, n.uniqueSort = function(e) {
    var t, n = [], r = 0, i = 0;
-   if (V = !C.detectDuplicates, N = !C.sortStable && e.slice(0), e.sort(W), V) {
+   if (V = !C.detectDuplicates, M = !C.sortStable && e.slice(0), e.sort(W), V) {
     for (;t = e[i++]; ) t === e[i] && (r = n.push(i));
     for (;r--; ) e.splice(n[r], 1);
    }
@@ -924,9 +924,9 @@ function diff_match_patch() {
      };
     },
     CLASS: function(e) {
-     var t = H[e + " "];
-     return t || (t = new RegExp("(^|" + ie + ")" + e + "(" + ie + "|$)")) && H(e, function(e) {
-      return t.test("string" == typeof e.className && e.className || typeof e.getAttribute !== X && e.getAttribute("class") || "");
+     var t = q[e + " "];
+     return t || (t = new RegExp("(^|" + ie + ")" + e + "(" + ie + "|$)")) && q(e, function(e) {
+      return t.test("string" == typeof e.className && e.className || typeof e.getAttribute !== Q && e.getAttribute("class") || "");
      });
     },
     ATTR: function(e, t, r) {
@@ -950,12 +950,12 @@ function diff_match_patch() {
         return !0;
        }
        if (f = [ a ? g.firstChild : g.lastChild ], a && b) {
-        for (u = g[j] || (g[j] = {}), c = u[e] || [], h = c[0] === q && c[1], p = c[0] === q && c[2], 
+        for (u = g[j] || (g[j] = {}), c = u[e] || [], h = c[0] === G && c[1], p = c[0] === G && c[2], 
         d = h && g.childNodes[h]; d = ++h && d && d[m] || (p = h = 0) || f.pop(); ) if (1 === d.nodeType && ++p && d === t) {
-         u[e] = [ q, h, p ];
+         u[e] = [ G, h, p ];
          break;
         }
-       } else if (b && (c = (t[j] || (t[j] = {}))[e]) && c[0] === q) p = c[1]; else for (;(d = ++h && d && d[m] || (p = h = 0) || f.pop()) && ((s ? d.nodeName.toLowerCase() !== v : 1 !== d.nodeType) || !++p || (b && ((d[j] || (d[j] = {}))[e] = [ q, p ]), 
+       } else if (b && (c = (t[j] || (t[j] = {}))[e]) && c[0] === G) p = c[1]; else for (;(d = ++h && d && d[m] || (p = h = 0) || f.pop()) && ((s ? d.nodeName.toLowerCase() !== v : 1 !== d.nodeType) || !++p || (b && ((d[j] || (d[j] = {}))[e] = [ G, p ]), 
        d !== t)); ) ;
        return p -= i, p === r || p % r === 0 && p / r >= 0;
       }
@@ -972,7 +972,7 @@ function diff_match_patch() {
    },
    pseudos: {
     not: i(function(e) {
-     var t = [], n = [], r = I(e.replace(ue, "$1"));
+     var t = [], n = [], r = N(e.replace(ue, "$1"));
      return r[j] ? i(function(e, t, n, i) {
       for (var o, a = r(e, null, i, []), s = e.length; s--; ) (o = a[s]) && (e[s] = !(t[s] = o));
      }) : function(e, i, o) {
@@ -1080,14 +1080,14 @@ function diff_match_patch() {
    submit: !0,
    reset: !0
   }) k.pseudos[S] = c(S);
-  d.prototype = k.filters = k.pseudos, k.setFilters = new d(), I = n.compile = function(e, t) {
+  d.prototype = k.filters = k.pseudos, k.setFilters = new d(), N = n.compile = function(e, t) {
    var n, r = [], i = [], o = z[e + " "];
    if (!o) {
     for (t || (t = p(e)), n = t.length; n--; ) o = b(t[n]), o[j] ? r.push(o) : i.push(o);
     o = z(e, y(i, r));
    }
    return o;
-  }, C.sortStable = j.split("").sort(W).join("") === j, C.detectDuplicates = V, M(), 
+  }, C.sortStable = j.split("").sort(W).join("") === j, C.detectDuplicates = V, I(), 
   C.sortDetached = o(function(e) {
    return 1 & e.compareDocumentPosition(L.createElement("div"));
   }), o(function(e) {
@@ -1425,7 +1425,7 @@ function diff_match_patch() {
    return "boolean" == typeof t && "string" === n ? t ? this.addClass(e) : this.removeClass(e) : this.each(oe.isFunction(e) ? function(n) {
     oe(this).toggleClass(e.call(this, n, this.className, t), t);
    } : function() {
-    if ("string" === n) for (var t, r = 0, i = oe(this), o = e.match(se) || []; t = o[r++]; ) i.hasClass(t) ? i.removeClass(t) : i.addClass(t); else (n === H || "boolean" === n) && (this.className && ge.set(this, "__className__", this.className), 
+    if ("string" === n) for (var t, r = 0, i = oe(this), o = e.match(se) || []; t = o[r++]; ) i.hasClass(t) ? i.removeClass(t) : i.addClass(t); else (n === q || "boolean" === n) && (this.className && ge.set(this, "__className__", this.className), 
     this.className = this.className || e === !1 ? "" : ge.get(this, "__className__") || "");
    });
   },
@@ -1472,7 +1472,7 @@ function diff_match_patch() {
   },
   attr: function(e, n, r) {
    var i, o, a = e.nodeType;
-   if (e && 3 !== a && 8 !== a && 2 !== a) return typeof e.getAttribute === H ? oe.prop(e, n, r) : (1 === a && oe.isXMLDoc(e) || (n = n.toLowerCase(), 
+   if (e && 3 !== a && 8 !== a && 2 !== a) return typeof e.getAttribute === q ? oe.prop(e, n, r) : (1 === a && oe.isXMLDoc(e) || (n = n.toLowerCase(), 
    i = oe.attrHooks[n] || (oe.expr.match.bool.test(n) ? xe : ye)), r === t ? i && "get" in i && null !== (o = i.get(e, n)) ? o : (o = oe.find.attr(e, n), 
    null == o ? t : o) : null !== r ? i && "set" in i && (o = i.set(e, r, n)) !== t ? o : (e.setAttribute(n, r + ""), 
    r) : void oe.removeAttr(e, n));
@@ -1542,7 +1542,7 @@ function diff_match_patch() {
    if (v) {
     for (r.handler && (a = r, r = a.handler, o = a.selector), r.guid || (r.guid = oe.guid++), 
     (c = v.events) || (c = v.events = {}), (s = v.handle) || (s = v.handle = function(e) {
-     return typeof oe === H || e && oe.event.triggered === e.type ? t : oe.event.dispatch.apply(s.elem, arguments);
+     return typeof oe === q || e && oe.event.triggered === e.type ? t : oe.event.dispatch.apply(s.elem, arguments);
     }, s.elem = e), n = (n || "").match(se) || [ "" ], u = n.length; u--; ) l = Te.exec(n[u]) || [], 
     f = g = l[1], m = (l[2] || "").split(".").sort(), f && (p = oe.event.special[f] || {}, 
     f = (o ? p.delegateType : p.bindType) || f, p = oe.event.special[f] || {}, d = oe.extend({
@@ -1779,7 +1779,7 @@ function diff_match_patch() {
    return n ? oe.event.trigger(e, t, n, !0) : void 0;
   }
  });
- var Ie = /^.[^:#\[\.,]*$/, De = /^(?:parents|prev(?:Until|All))/, Ne = oe.expr.match.needsContext, Me = {
+ var Ne = /^.[^:#\[\.,]*$/, De = /^(?:parents|prev(?:Until|All))/, Me = oe.expr.match.needsContext, Ie = {
   children: !0,
   contents: !0,
   next: !0,
@@ -1808,10 +1808,10 @@ function diff_match_patch() {
    return this.pushStack(u(this, e || [], !1));
   },
   is: function(e) {
-   return !!u(this, "string" == typeof e && Ne.test(e) ? oe(e) : e || [], !1).length;
+   return !!u(this, "string" == typeof e && Me.test(e) ? oe(e) : e || [], !1).length;
   },
   closest: function(e, t) {
-   for (var n, r = 0, i = this.length, o = [], a = Ne.test(e) || "string" != typeof e ? oe(e, t || this.context) : 0; i > r; r++) for (n = this[r]; n && n !== t; n = n.parentNode) if (n.nodeType < 11 && (a ? a.index(n) > -1 : 1 === n.nodeType && oe.find.matchesSelector(n, e))) {
+   for (var n, r = 0, i = this.length, o = [], a = Me.test(e) || "string" != typeof e ? oe(e, t || this.context) : 0; i > r; r++) for (n = this[r]; n && n !== t; n = n.parentNode) if (n.nodeType < 11 && (a ? a.index(n) > -1 : 1 === n.nodeType && oe.find.matchesSelector(n, e))) {
     n = o.push(n);
     break;
    }
@@ -1869,7 +1869,7 @@ function diff_match_patch() {
   oe.fn[e] = function(n, r) {
    var i = oe.map(this, t, n);
    return "Until" !== e.slice(-5) && (r = n), r && "string" == typeof r && (i = oe.filter(r, i)), 
-   this.length > 1 && (Me[e] || oe.unique(i), De.test(e) && i.reverse()), this.pushStack(i);
+   this.length > 1 && (Ie[e] || oe.unique(i), De.test(e) && i.reverse()), this.pushStack(i);
   };
  }), oe.extend({
   filter: function(e, t, n) {
@@ -1890,7 +1890,7 @@ function diff_match_patch() {
    return n;
   }
  });
- var Le = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi, Ae = /<([\w:]+)/, Re = /<|&#?\w+;/, Pe = /<(?:script|style|link)/i, Oe = /^(?:checkbox|radio)$/i, Fe = /checked\s*(?:[^=]|=\s*.checked.)/i, Be = /^$|\/(?:java|ecma)script/i, je = /^true\/(.*)/, $e = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g, qe = {
+ var Le = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi, Ae = /<([\w:]+)/, Re = /<|&#?\w+;/, Pe = /<(?:script|style|link)/i, Fe = /^(?:checkbox|radio)$/i, Oe = /checked\s*(?:[^=]|=\s*.checked.)/i, Be = /^$|\/(?:java|ecma)script/i, je = /^true\/(.*)/, $e = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g, Ge = {
   option: [ 1, "<select multiple='multiple'>", "</select>" ],
   thead: [ 1, "<table>", "</table>" ],
   col: [ 2, "<table><colgroup>", "</colgroup></table>" ],
@@ -1898,8 +1898,8 @@ function diff_match_patch() {
   td: [ 3, "<table><tbody><tr>", "</tr></tbody></table>" ],
   _default: [ 0, "", "" ]
  };
- qe.optgroup = qe.option, qe.tbody = qe.tfoot = qe.colgroup = qe.caption = qe.thead, 
- qe.th = qe.td, oe.fn.extend({
+ Ge.optgroup = Ge.option, Ge.tbody = Ge.tfoot = Ge.colgroup = Ge.caption = Ge.thead, 
+ Ge.th = Ge.td, oe.fn.extend({
   text: function(e) {
    return oe.access(this, function(e) {
     return e === t ? oe.text(this) : this.empty().append((this[0] && this[0].ownerDocument || z).createTextNode(e));
@@ -1950,7 +1950,7 @@ function diff_match_patch() {
    return oe.access(this, function(e) {
     var n = this[0] || {}, r = 0, i = this.length;
     if (e === t && 1 === n.nodeType) return n.innerHTML;
-    if ("string" == typeof e && !Pe.test(e) && !qe[(Ae.exec(e) || [ "", "" ])[1].toLowerCase()]) {
+    if ("string" == typeof e && !Pe.test(e) && !Ge[(Ae.exec(e) || [ "", "" ])[1].toLowerCase()]) {
      e = e.replace(Le, "<$1></$2>");
      try {
       for (;i > r; r++) n = this[r] || {}, 1 === n.nodeType && (oe.cleanData(g(n, !1)), 
@@ -1976,7 +1976,7 @@ function diff_match_patch() {
   domManip: function(e, t, n) {
    e = J.apply([], e);
    var r, i, o, a, s, l, c = 0, u = this.length, d = this, f = u - 1, m = e[0], v = oe.isFunction(m);
-   if (v || !(1 >= u || "string" != typeof m || oe.support.checkClone) && Fe.test(m)) return this.each(function(r) {
+   if (v || !(1 >= u || "string" != typeof m || oe.support.checkClone) && Oe.test(m)) return this.each(function(r) {
     var i = d.eq(r);
     v && (e[0] = m.call(this, r, i.html())), i.domManip(e, t, n);
    });
@@ -2013,7 +2013,7 @@ function diff_match_patch() {
    for (var i, o, a, s, l, c, u = 0, d = e.length, p = t.createDocumentFragment(), h = []; d > u; u++) if (i = e[u], 
    i || 0 === i) if ("object" === oe.type(i)) oe.merge(h, i.nodeType ? [ i ] : i); else if (Re.test(i)) {
     for (o = o || p.appendChild(t.createElement("div")), a = (Ae.exec(i) || [ "", "" ])[1].toLowerCase(), 
-    s = qe[a] || qe._default, o.innerHTML = s[1] + i.replace(Le, "<$1></$2>") + s[2], 
+    s = Ge[a] || Ge._default, o.innerHTML = s[1] + i.replace(Le, "<$1></$2>") + s[2], 
     c = s[0]; c--; ) o = o.lastChild;
     oe.merge(h, o.childNodes), o = p.firstChild, o.textContent = "";
    } else h.push(t.createTextNode(i));
@@ -2071,13 +2071,13 @@ function diff_match_patch() {
    }).end();
   }
  });
- var Ge, He, Ue = /^(none|table(?!-c[ea]).+)/, ze = /^margin/, Ve = new RegExp("^(" + ae + ")(.*)$", "i"), We = new RegExp("^(" + ae + ")(?!px)[a-z%]+$", "i"), Xe = new RegExp("^([+-])=(" + ae + ")", "i"), Qe = {
+ var He, qe, Ue = /^(none|table(?!-c[ea]).+)/, ze = /^margin/, Ve = new RegExp("^(" + ae + ")(.*)$", "i"), We = new RegExp("^(" + ae + ")(?!px)[a-z%]+$", "i"), Qe = new RegExp("^([+-])=(" + ae + ")", "i"), Xe = {
   BODY: "block"
- }, Ye = {
+ }, Ke = {
   position: "absolute",
   visibility: "hidden",
   display: "block"
- }, Ke = {
+ }, Ye = {
   letterSpacing: 0,
   fontWeight: 400
  }, Je = [ "Top", "Right", "Bottom", "Left" ], Ze = [ "Webkit", "O", "Moz", "ms" ];
@@ -2108,7 +2108,7 @@ function diff_match_patch() {
    opacity: {
     get: function(e, t) {
      if (t) {
-      var n = Ge(e, "opacity");
+      var n = He(e, "opacity");
       return "" === n ? "1" : n;
      }
     }
@@ -2134,7 +2134,7 @@ function diff_match_patch() {
     var o, a, s, l = oe.camelCase(n), c = e.style;
     return n = oe.cssProps[l] || (oe.cssProps[l] = b(c, l)), s = oe.cssHooks[n] || oe.cssHooks[l], 
     r === t ? s && "get" in s && (o = s.get(e, !1, i)) !== t ? o : c[n] : (a = typeof r, 
-    "string" === a && (o = Xe.exec(r)) && (r = (o[1] + 1) * o[2] + parseFloat(oe.css(e, n)), 
+    "string" === a && (o = Qe.exec(r)) && (r = (o[1] + 1) * o[2] + parseFloat(oe.css(e, n)), 
     a = "number"), null == r || "number" === a && isNaN(r) || ("number" !== a || oe.cssNumber[l] || (r += "px"), 
     oe.support.clearCloneStyle || "" !== r || 0 !== n.indexOf("background") || (c[n] = "inherit"), 
     s && "set" in s && (r = s.set(e, r, i)) === t || (c[n] = r)), void 0);
@@ -2143,10 +2143,10 @@ function diff_match_patch() {
   css: function(e, n, r, i) {
    var o, a, s, l = oe.camelCase(n);
    return n = oe.cssProps[l] || (oe.cssProps[l] = b(e.style, l)), s = oe.cssHooks[n] || oe.cssHooks[l], 
-   s && "get" in s && (o = s.get(e, !0, r)), o === t && (o = Ge(e, n, i)), "normal" === o && n in Ke && (o = Ke[n]), 
+   s && "get" in s && (o = s.get(e, !0, r)), o === t && (o = He(e, n, i)), "normal" === o && n in Ye && (o = Ye[n]), 
    "" === r || r ? (a = parseFloat(o), r === !0 || oe.isNumeric(a) ? a || 0 : o) : o;
   }
- }), Ge = function(e, n, r) {
+ }), He = function(e, n, r) {
   var i, o, a, s = r || x(e), l = s ? s.getPropertyValue(n) || s[n] : t, c = e.style;
   return s && ("" !== l || oe.contains(e.ownerDocument, e) || (l = oe.style(e, n)), 
   We.test(l) && ze.test(n) && (i = c.width, o = c.minWidth, a = c.maxWidth, c.minWidth = c.maxWidth = c.width = l, 
@@ -2154,7 +2154,7 @@ function diff_match_patch() {
  }, oe.each([ "height", "width" ], function(e, t) {
   oe.cssHooks[t] = {
    get: function(e, n, r) {
-    return n ? 0 === e.offsetWidth && Ue.test(oe.css(e, "display")) ? oe.swap(e, Ye, function() {
+    return n ? 0 === e.offsetWidth && Ue.test(oe.css(e, "display")) ? oe.swap(e, Ke, function() {
      return _(e, t, r);
     }) : _(e, t, r) : void 0;
    },
@@ -2168,12 +2168,12 @@ function diff_match_patch() {
    get: function(e, t) {
     return t ? oe.swap(e, {
      display: "inline-block"
-    }, Ge, [ e, "marginRight" ]) : void 0;
+    }, He, [ e, "marginRight" ]) : void 0;
    }
   }), !oe.support.pixelPosition && oe.fn.position && oe.each([ "top", "left" ], function(e, t) {
    oe.cssHooks[t] = {
     get: function(e, n) {
-     return n ? (n = Ge(e, t), We.test(n) ? oe(e).position()[t] + "px" : n) : void 0;
+     return n ? (n = He(e, t), We.test(n) ? oe(e).position()[t] + "px" : n) : void 0;
     }
    };
   });
@@ -2204,7 +2204,7 @@ function diff_match_patch() {
     return e ? oe.makeArray(e) : this;
    }).filter(function() {
     var e = this.type;
-    return this.name && !oe(this).is(":disabled") && it.test(this.nodeName) && !rt.test(e) && (this.checked || !Oe.test(e));
+    return this.name && !oe(this).is(":disabled") && it.test(this.nodeName) && !rt.test(e) && (this.checked || !Fe.test(e));
    }).map(function(e, t) {
     var n = oe(this).val();
     return null == n ? null : oe.isArray(n) ? oe.map(n, function(e) {
@@ -2312,15 +2312,15 @@ function diff_match_patch() {
    }
   },
   ajaxSetup: function(e, t) {
-   return t ? N(N(e, oe.ajaxSettings), t) : N(oe.ajaxSettings, e);
+   return t ? M(M(e, oe.ajaxSettings), t) : M(oe.ajaxSettings, e);
   },
-  ajaxPrefilter: I(vt),
-  ajaxTransport: I(bt),
+  ajaxPrefilter: N(vt),
+  ajaxTransport: N(bt),
   ajax: function(e, n) {
    function r(e, n, r, s) {
     var c, d, b, y, w, C = n;
     2 !== x && (x = 2, l && clearTimeout(l), i = t, a = s || "", S.readyState = e > 0 ? 4 : 0, 
-    c = e >= 200 && 300 > e || 304 === e, r && (y = M(p, S, r)), y = L(p, y, S, c), 
+    c = e >= 200 && 300 > e || 304 === e, r && (y = I(p, S, r)), y = L(p, y, S, c), 
     c ? (p.ifModified && (w = S.getResponseHeader("Last-Modified"), w && (oe.lastModified[o] = w), 
     w = S.getResponseHeader("etag"), w && (oe.etag[o] = w)), 204 === e || "HEAD" === p.type ? C = "nocontent" : 304 === e ? C = "notmodified" : (C = y.state, 
     d = y.data, b = y.error, c = !b)) : (b = C, (e || !C) && (C = "error", 0 > e && (e = 0))), 
@@ -2493,9 +2493,9 @@ function diff_match_patch() {
    }
   } : void 0;
  });
- var Tt, It, Dt = /^(?:toggle|show|hide)$/, Nt = new RegExp("^(?:([+-])=|)(" + ae + ")([a-z%]*)$", "i"), Mt = /queueHooks$/, Lt = [ F ], At = {
+ var Tt, Nt, Dt = /^(?:toggle|show|hide)$/, Mt = new RegExp("^(?:([+-])=|)(" + ae + ")([a-z%]*)$", "i"), It = /queueHooks$/, Lt = [ O ], At = {
   "*": [ function(e, t) {
-   var n = this.createTween(e, t), r = n.cur(), i = Nt.exec(t), o = i && i[3] || (oe.cssNumber[e] ? "" : "px"), a = (oe.cssNumber[e] || "px" !== o && +r) && Nt.exec(oe.css(n.elem, e)), s = 1, l = 20;
+   var n = this.createTween(e, t), r = n.cur(), i = Mt.exec(t), o = i && i[3] || (oe.cssNumber[e] ? "" : "px"), a = (oe.cssNumber[e] || "px" !== o && +r) && Mt.exec(oe.css(n.elem, e)), s = 1, l = 20;
    if (a && a[3] !== o) {
     o = o || a[3], i = i || [], a = +r || 1;
     do s = s || ".5", a /= s, oe.style(n.elem, e, a + o); while (s !== (s = n.cur() / r) && 1 !== s && --l);
@@ -2569,7 +2569,7 @@ function diff_match_patch() {
    return "string" != typeof e && (r = n, n = e, e = t), n && e !== !1 && this.queue(e || "fx", []), 
    this.each(function() {
     var t = !0, n = null != e && e + "queueHooks", o = oe.timers, a = ge.get(this);
-    if (n) a[n] && a[n].stop && i(a[n]); else for (n in a) a[n] && a[n].stop && Mt.test(n) && i(a[n]);
+    if (n) a[n] && a[n].stop && i(a[n]); else for (n in a) a[n] && a[n].stop && It.test(n) && i(a[n]);
     for (n = o.length; n--; ) o[n].elem !== this || null != e && o[n].queue !== e || (o[n].anim.stop(r), 
     t = !1, o.splice(n, 1));
     (t || !r) && oe.dequeue(this, e);
@@ -2626,9 +2626,9 @@ function diff_match_patch() {
  }, oe.fx.timer = function(e) {
   e() && oe.timers.push(e) && oe.fx.start();
  }, oe.fx.interval = 13, oe.fx.start = function() {
-  It || (It = setInterval(oe.fx.tick, oe.fx.interval));
+  Nt || (Nt = setInterval(oe.fx.tick, oe.fx.interval));
  }, oe.fx.stop = function() {
-  clearInterval(It), It = null;
+  clearInterval(Nt), Nt = null;
  }, oe.fx.speeds = {
   slow: 600,
   fast: 200,
@@ -2645,7 +2645,7 @@ function diff_match_patch() {
    top: 0,
    left: 0
   }, a = i && i.ownerDocument;
-  if (a) return n = a.documentElement, oe.contains(n, i) ? (typeof i.getBoundingClientRect !== H && (o = i.getBoundingClientRect()), 
+  if (a) return n = a.documentElement, oe.contains(n, i) ? (typeof i.getBoundingClientRect !== q && (o = i.getBoundingClientRect()), 
   r = $(a), {
    top: o.top + r.pageYOffset - n.clientTop,
    left: o.left + r.pageXOffset - n.clientLeft
@@ -2943,8 +2943,8 @@ function diff_match_patch() {
  var T = document.createElement("div");
  E.areHostMethods(T, [ "insertBefore", "appendChild", "cloneNode" ] || !E.areHostObjects(T, [ "previousSibling", "nextSibling", "childNodes", "parentNode" ])) || t.fail("Incomplete Element implementation"), 
  E.isHostProperty(T, "innerHTML") || t.fail("Element is missing innerHTML property");
- var I = document.createTextNode("test");
- E.areHostMethods(I, [ "splitText", "deleteData", "insertData", "appendData", "cloneNode" ] || !E.areHostObjects(T, [ "previousSibling", "nextSibling", "childNodes", "parentNode" ]) || !E.areHostProperties(I, [ "data" ])) || t.fail("Incomplete Text Node implementation");
+ var N = document.createTextNode("test");
+ E.areHostMethods(N, [ "splitText", "deleteData", "insertData", "appendData", "cloneNode" ] || !E.areHostObjects(T, [ "previousSibling", "nextSibling", "childNodes", "parentNode" ]) || !E.areHostProperties(N, [ "data" ])) || t.fail("Incomplete Text Node implementation");
  var D = function(e, t) {
   for (var n = e.length; n--; ) if (e[n] === t) return !0;
   return !1;
@@ -3098,7 +3098,7 @@ function diff_match_patch() {
   };
  }
  function b(e, t) {
-  if (Q(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
+  if (X(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
  }
  function y(e) {
   if (!e.startContainer) throw new $("INVALID_STATE_ERR");
@@ -3113,13 +3113,13 @@ function diff_match_patch() {
   if (W(e, !0) !== W(t, !0)) throw new $("WRONG_DOCUMENT_ERR");
  }
  function C(e) {
-  if (X(e, !0)) throw new $("NO_MODIFICATION_ALLOWED_ERR");
+  if (Q(e, !0)) throw new $("NO_MODIFICATION_ALLOWED_ERR");
  }
  function _(e, t) {
   if (!e) throw new $(t);
  }
  function k(e) {
-  return !B.arrayContains(G, e.nodeType) && !W(e, !0);
+  return !B.arrayContains(H, e.nodeType) && !W(e, !0);
  }
  function E(e, t) {
   return t <= (B.isCharacterDataNode(e) ? e.length : e.childNodes.length);
@@ -3127,20 +3127,20 @@ function diff_match_patch() {
  function T(e) {
   return !!e.startContainer && !!e.endContainer && !k(e.startContainer) && !k(e.endContainer) && E(e.startContainer, e.startOffset) && E(e.endContainer, e.endOffset);
  }
- function I(e) {
+ function N(e) {
   if (y(e), !T(e)) throw new Error("Range error: Range is no longer valid after DOM mutation (" + e.inspect() + ")");
  }
  function D() {}
- function N(e) {
+ function M(e) {
   e.START_TO_START = te, e.START_TO_END = ne, e.END_TO_END = re, e.END_TO_START = ie, 
   e.NODE_BEFORE = oe, e.NODE_AFTER = ae, e.NODE_BEFORE_AND_AFTER = se, e.NODE_INSIDE = le;
  }
- function M(e) {
-  N(e), N(e.prototype);
+ function I(e) {
+  M(e), M(e.prototype);
  }
  function L(e, t) {
   return function() {
-   I(this);
+   N(this);
    var n, r, i = this.startContainer, o = this.startOffset, s = this.commonAncestorContainer, l = new f(this, !0);
    i !== s && (n = B.getClosestAncestorIn(i, s, !0), r = a(n), i = r.node, o = r.offset), 
    c(l, C), l.reset();
@@ -3151,7 +3151,7 @@ function diff_match_patch() {
  function A(t, r, i) {
   function s(e, t) {
    return function(n) {
-    y(this), x(n, q), x(V(n), G);
+    y(this), x(n, G), x(V(n), H);
     var r = (e ? o : a)(n);
     (t ? l : c)(this, r.node, r.offset);
    };
@@ -3181,20 +3181,20 @@ function diff_match_patch() {
    setEndBefore: s(!0, !1),
    setEndAfter: s(!1, !1),
    collapse: function(e) {
-    I(this), e ? r(this, this.startContainer, this.startOffset, this.startContainer, this.startOffset) : r(this, this.endContainer, this.endOffset, this.endContainer, this.endOffset);
+    N(this), e ? r(this, this.startContainer, this.startOffset, this.startContainer, this.startOffset) : r(this, this.endContainer, this.endOffset, this.endContainer, this.endOffset);
    },
    selectNodeContents: function(e) {
     y(this), b(e, !0), r(this, e, 0, e, B.getNodeLength(e));
    },
    selectNode: function(e) {
-    y(this), b(e, !1), x(e, q);
+    y(this), b(e, !1), x(e, G);
     var t = o(e), n = a(e);
     r(this, t.node, t.offset, n.node, n.offset);
    },
    extractContents: L(d, r),
    deleteContents: L(u, r),
    canSurroundContents: function() {
-    I(this), C(this.startContainer), C(this.endContainer);
+    N(this), C(this.startContainer), C(this.endContainer);
     var e = new f(this, !0), t = e._first && n(e._first, this) || e._last && n(e._last, this);
     return e.detach(), !t;
    },
@@ -3202,14 +3202,14 @@ function diff_match_patch() {
     i(this);
    },
    splitBoundaries: function() {
-    I(this);
+    N(this);
     var e = this.startContainer, t = this.startOffset, n = this.endContainer, i = this.endOffset, o = e === n;
     B.isCharacterDataNode(n) && i > 0 && i < n.length && B.splitDataNode(n, i), B.isCharacterDataNode(e) && t > 0 && t < e.length && (e = B.splitDataNode(e, t), 
     o ? (i -= t, n = e) : n == e.parentNode && i >= B.getNodeIndex(e) && i++, t = 0), 
     r(this, e, t, n, i);
    },
    normalizeBoundaries: function() {
-    I(this);
+    N(this);
     var e = this.startContainer, t = this.startOffset, n = this.endContainer, i = this.endOffset, o = function(e) {
      var t = e.nextSibling;
      t && t.nodeType == e.nodeType && (n = e, i = e.length, e.appendData(t.data), t.parentNode.removeChild(t));
@@ -3243,7 +3243,7 @@ function diff_match_patch() {
    collapseToPoint: function(e, t) {
     y(this), b(e, !0), w(e, t), p(this, e, t);
    }
-  }), M(t);
+  }), I(t);
  }
  function R(e) {
   e.collapsed = e.startContainer === e.endContainer && e.startOffset === e.endOffset, 
@@ -3257,11 +3257,11 @@ function diff_match_patch() {
    endMoved: s
   });
  }
- function O(e) {
+ function F(e) {
   y(e), e.startContainer = e.startOffset = e.endContainer = e.endOffset = null, e.collapsed = e.commonAncestorContainer = null, 
   i(e, "detach", null), e._listeners = null;
  }
- function F(e) {
+ function O(e) {
   this.startContainer = e, this.startOffset = 0, this.endContainer = e, this.endOffset = 0, 
   this._listeners = {
    boundarychange: [],
@@ -3299,7 +3299,7 @@ function diff_match_patch() {
   getSubtreeIterator: function() {
    var e;
    if (this.isSingleCharacterDataNode) e = this.range.cloneRange(), e.collapse(); else {
-    e = new F(r(this.range));
+    e = new O(r(this.range));
     var t = this._current, n = t, i = 0, o = t, a = B.getNodeLength(t);
     B.isAncestorOf(t, this.sc, !0) && (n = this.sc, i = this.so), B.isAncestorOf(t, this.ec, !0) && (o = this.ec, 
     a = this.eo), P(e, n, i, o, a);
@@ -3326,12 +3326,12 @@ function diff_match_patch() {
    this._current = this._next = this.nodes = null;
   }
  };
- var q = [ 1, 3, 4, 5, 7, 8, 10 ], G = [ 2, 9, 11 ], H = [ 5, 6, 10, 12 ], U = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], V = B.getRootContainer, W = v([ 9, 11 ]), X = v(H), Q = v([ 6, 10, 12 ]), Y = document.createElement("style"), K = !1;
+ var G = [ 1, 3, 4, 5, 7, 8, 10 ], H = [ 2, 9, 11 ], q = [ 5, 6, 10, 12 ], U = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], V = B.getRootContainer, W = v([ 9, 11 ]), Q = v(q), X = v([ 6, 10, 12 ]), K = document.createElement("style"), Y = !1;
  try {
-  Y.innerHTML = "<b>x</b>", K = 3 == Y.firstChild.nodeType;
+  K.innerHTML = "<b>x</b>", Y = 3 == K.firstChild.nodeType;
  } catch (J) {}
- e.features.htmlParsingConforms = K;
- var Z = K ? function(e) {
+ e.features.htmlParsingConforms = Y;
+ var Z = Y ? function(e) {
   var t = this.startContainer, n = B.getDocument(t);
   if (!t) throw new $("INVALID_STATE_ERR");
   var r = null;
@@ -3348,18 +3348,18 @@ function diff_match_patch() {
    this._listeners[e].push(t);
   },
   compareBoundaryPoints: function(e, t) {
-   I(this), S(this.startContainer, t.startContainer);
+   N(this), S(this.startContainer, t.startContainer);
    var n, r, i, o, a = e == ie || e == te ? "start" : "end", s = e == ne || e == te ? "start" : "end";
    return n = this[a + "Container"], r = this[a + "Offset"], i = t[s + "Container"], 
    o = t[s + "Offset"], B.comparePoints(n, r, i, o);
   },
   insertNode: function(e) {
-   if (I(this), x(e, U), C(this.startContainer), B.isAncestorOf(e, this.startContainer, !0)) throw new $("HIERARCHY_REQUEST_ERR");
+   if (N(this), x(e, U), C(this.startContainer), B.isAncestorOf(e, this.startContainer, !0)) throw new $("HIERARCHY_REQUEST_ERR");
    var t = s(e, this.startContainer, this.startOffset);
    this.setStartBefore(t);
   },
   cloneContents: function() {
-   I(this);
+   N(this);
    var e, t;
    if (this.collapsed) return r(this).createDocumentFragment();
    if (this.startContainer === this.endContainer && B.isCharacterDataNode(this.startContainer)) return e = this.startContainer.cloneNode(!0), 
@@ -3369,7 +3369,7 @@ function diff_match_patch() {
    return e = l(n), n.detach(), e;
   },
   canSurroundContents: function() {
-   I(this), C(this.startContainer), C(this.endContainer);
+   N(this), C(this.startContainer), C(this.endContainer);
    var e = new f(this, !0), t = e._first && n(e._first, this) || e._last && n(e._last, this);
    return e.detach(), !t;
   },
@@ -3380,12 +3380,12 @@ function diff_match_patch() {
    s(e, this.startContainer, this.startOffset), e.appendChild(t), this.selectNode(e);
   },
   cloneRange: function() {
-   I(this);
-   for (var e, t = new F(r(this)), n = ee.length; n--; ) e = ee[n], t[e] = this[e];
+   N(this);
+   for (var e, t = new O(r(this)), n = ee.length; n--; ) e = ee[n], t[e] = this[e];
    return t;
   },
   toString: function() {
-   I(this);
+   N(this);
    var e = this.startContainer;
    if (e === this.endContainer && B.isCharacterDataNode(e)) return 3 == e.nodeType || 4 == e.nodeType ? e.data.slice(this.startOffset, this.endOffset) : "";
    var t = [], n = new f(this, !0);
@@ -3394,33 +3394,33 @@ function diff_match_patch() {
    }), n.detach(), t.join("");
   },
   compareNode: function(e) {
-   I(this);
+   N(this);
    var t = e.parentNode, n = B.getNodeIndex(e);
    if (!t) throw new $("NOT_FOUND_ERR");
    var r = this.comparePoint(t, n), i = this.comparePoint(t, n + 1);
    return 0 > r ? i > 0 ? se : oe : i > 0 ? ae : le;
   },
   comparePoint: function(e, t) {
-   return I(this), _(e, "HIERARCHY_REQUEST_ERR"), S(e, this.startContainer), B.comparePoints(e, t, this.startContainer, this.startOffset) < 0 ? -1 : B.comparePoints(e, t, this.endContainer, this.endOffset) > 0 ? 1 : 0;
+   return N(this), _(e, "HIERARCHY_REQUEST_ERR"), S(e, this.startContainer), B.comparePoints(e, t, this.startContainer, this.startOffset) < 0 ? -1 : B.comparePoints(e, t, this.endContainer, this.endOffset) > 0 ? 1 : 0;
   },
   createContextualFragment: Z,
   toHtml: function() {
-   I(this);
+   N(this);
    var e = r(this).createElement("div");
    return e.appendChild(this.cloneContents()), e.innerHTML;
   },
   intersectsNode: function(e, t) {
-   if (I(this), _(e, "NOT_FOUND_ERR"), B.getDocument(e) !== r(this)) return !1;
+   if (N(this), _(e, "NOT_FOUND_ERR"), B.getDocument(e) !== r(this)) return !1;
    var n = e.parentNode, i = B.getNodeIndex(e);
    _(n, "NOT_FOUND_ERR");
    var o = B.comparePoints(n, i, this.endContainer, this.endOffset), a = B.comparePoints(n, i + 1, this.startContainer, this.startOffset);
    return t ? 0 >= o && a >= 0 : 0 > o && a > 0;
   },
   isPointInRange: function(e, t) {
-   return I(this), _(e, "HIERARCHY_REQUEST_ERR"), S(e, this.startContainer), B.comparePoints(e, t, this.startContainer, this.startOffset) >= 0 && B.comparePoints(e, t, this.endContainer, this.endOffset) <= 0;
+   return N(this), _(e, "HIERARCHY_REQUEST_ERR"), S(e, this.startContainer), B.comparePoints(e, t, this.startContainer, this.startOffset) >= 0 && B.comparePoints(e, t, this.endContainer, this.endOffset) <= 0;
   },
   intersectsRange: function(e, t) {
-   if (I(this), r(e) != r(this)) throw new $("WRONG_DOCUMENT_ERR");
+   if (N(this), r(e) != r(this)) throw new $("WRONG_DOCUMENT_ERR");
    var n = B.comparePoints(this.startContainer, this.startOffset, e.endContainer, e.endOffset), i = B.comparePoints(this.endContainer, this.endOffset, e.startContainer, e.startOffset);
    return t ? 0 >= n && i >= 0 : 0 > n && i > 0;
   },
@@ -3464,10 +3464,10 @@ function diff_match_patch() {
    return this.containsNodeContents(e);
   },
   createNodeIterator: function(e, t) {
-   return I(this), new g(this, e, t);
+   return N(this), new g(this, e, t);
   },
   getNodes: function(e, t) {
-   return I(this), p(this, e, t);
+   return N(this), p(this, e, t);
   },
   getDocument: function() {
    return r(this);
@@ -3482,7 +3482,7 @@ function diff_match_patch() {
    return "DomRange";
   },
   equals: function(e) {
-   return F.rangesEqual(this, e);
+   return O.rangesEqual(this, e);
   },
   isValid: function() {
    return T(this);
@@ -3490,11 +3490,11 @@ function diff_match_patch() {
   inspect: function() {
    return h(this);
   }
- }, A(F, P, O), e.rangePrototype = D.prototype, F.rangeProperties = ee, F.RangeIterator = f, 
- F.copyComparisonConstants = M, F.createPrototypeRange = A, F.inspect = h, F.getRangeDocument = r, 
- F.rangesEqual = function(e, t) {
+ }, A(O, P, F), e.rangePrototype = D.prototype, O.rangeProperties = ee, O.RangeIterator = f, 
+ O.copyComparisonConstants = I, O.createPrototypeRange = A, O.inspect = h, O.getRangeDocument = r, 
+ O.rangesEqual = function(e, t) {
   return e.startContainer === t.startContainer && e.startOffset === t.startOffset && e.endContainer === t.endContainer && e.endOffset === t.endOffset;
- }, e.DomRange = F, e.RangeException = m;
+ }, e.DomRange = O, e.RangeException = m;
 }), rangy.createModule("WrappedRange", function(e, t) {
  function n(e) {
   var t = e.parentElement(), n = e.duplicate();
@@ -3760,8 +3760,8 @@ function diff_match_patch() {
   return "[" + i + "(Ranges: " + t.join(", ") + ")(anchor: " + n.inspect() + ", focus: " + r.inspect() + "]";
  }
  e.requireModules([ "DomUtil", "DomRange", "WrappedRange" ]), e.config.checkSelectionRanges = !0;
- var b, y, x = "boolean", w = "_rangySelection", S = e.dom, C = e.util, _ = e.DomRange, k = e.WrappedRange, E = e.DOMException, T = S.DomPosition, I = "Control", D = e.util.isHostMethod(window, "getSelection"), N = e.util.isHostObject(document, "selection"), M = N && (!D || e.config.preferTextRange);
- M ? (b = r, e.isSelectionValid = function(e) {
+ var b, y, x = "boolean", w = "_rangySelection", S = e.dom, C = e.util, _ = e.DomRange, k = e.WrappedRange, E = e.DOMException, T = S.DomPosition, N = "Control", D = e.util.isHostMethod(window, "getSelection"), M = e.util.isHostObject(document, "selection"), I = M && (!D || e.config.preferTextRange);
+ I ? (b = r, e.isSelectionValid = function(e) {
   var t = (e || window).document, n = t.selection;
   return "None" != n.type || S.getDocument(n.createRange().parentElement()) == t;
  }) : D ? (b = n, e.isSelectionValid = function() {
@@ -3769,10 +3769,10 @@ function diff_match_patch() {
  }) : t.fail("Neither document.selection or window.getSelection() detected."), e.getNativeSelection = b;
  var L = b(), A = e.createNativeRange(document), R = S.getBody(document), P = C.areHostObjects(L, [ "anchorNode", "focusNode" ] && C.areHostProperties(L, [ "anchorOffset", "focusOffset" ]));
  e.features.selectionHasAnchorAndFocus = P;
- var O = C.isHostMethod(L, "extend");
- e.features.selectionHasExtend = O;
- var F = "number" == typeof L.rangeCount;
- e.features.selectionHasRangeCount = F;
+ var F = C.isHostMethod(L, "extend");
+ e.features.selectionHasExtend = F;
+ var O = "number" == typeof L.rangeCount;
+ e.features.selectionHasRangeCount = O;
  var B = !1, j = !0;
  C.areHostMethods(L, [ "addRange", "getRangeAt", "removeAllRanges" ]) && "number" == typeof L.rangeCount && e.features.implementsDomRange && !function() {
   var e = document.createElement("iframe");
@@ -3785,36 +3785,36 @@ function diff_match_patch() {
   a.setStart(o, 0), s.setEnd(o, 2), n.addRange(a), n.addRange(s), B = 2 == n.rangeCount, 
   a.detach(), s.detach(), R.removeChild(e);
  }(), e.features.selectionSupportsMultipleRanges = B, e.features.collapsedNonEditableSelectionsSupported = j;
- var $, q = !1;
- R && C.isHostMethod(R, "createControlRange") && ($ = R.createControlRange(), C.areHostProperties($, [ "item", "add" ]) && (q = !0)), 
- e.features.implementsControlRange = q, y = P ? function(e) {
+ var $, G = !1;
+ R && C.isHostMethod(R, "createControlRange") && ($ = R.createControlRange(), C.areHostProperties($, [ "item", "add" ]) && (G = !0)), 
+ e.features.implementsControlRange = G, y = P ? function(e) {
   return e.anchorNode === e.focusNode && e.anchorOffset === e.focusOffset;
  } : function(e) {
   return e.rangeCount ? e.getRangeAt(e.rangeCount - 1).collapsed : !1;
  };
- var G;
- C.isHostMethod(L, "getRangeAt") ? G = function(e, t) {
+ var H;
+ C.isHostMethod(L, "getRangeAt") ? H = function(e, t) {
   try {
    return e.getRangeAt(t);
   } catch (n) {
    return null;
   }
- } : P && (G = function(t) {
+ } : P && (H = function(t) {
   var n = S.getDocument(t.anchorNode), r = e.createRange(n);
   return r.setStart(t.anchorNode, t.anchorOffset), r.setEnd(t.focusNode, t.focusOffset), 
   r.collapsed !== this.isCollapsed && (r.setStart(t.focusNode, t.focusOffset), r.setEnd(t.anchorNode, t.anchorOffset)), 
   r;
  }), e.getSelection = function(e) {
   e = e || window;
-  var t = e[w], n = b(e), i = N ? r(e) : null;
+  var t = e[w], n = b(e), i = M ? r(e) : null;
   return t ? (t.nativeSelection = n, t.docSelection = i, t.refresh(e)) : (t = new f(n, i, e), 
   e[w] = t), t;
  }, e.getIframeSelection = function(t) {
   return e.getSelection(S.getIframeWindow(t));
  };
- var H = f.prototype;
- if (!M && P && C.areHostMethods(L, [ "removeAllRanges", "addRange" ])) {
-  H.removeAllRanges = function() {
+ var q = f.prototype;
+ if (!I && P && C.areHostMethods(L, [ "removeAllRanges", "addRange" ])) {
+  q.removeAllRanges = function() {
    this.nativeSelection.removeAllRanges(), a(this);
   };
   var U = function(t, n) {
@@ -3822,34 +3822,34 @@ function diff_match_patch() {
    i.collapseToPoint(n.endContainer, n.endOffset), t.nativeSelection.addRange(s(i)), 
    t.nativeSelection.extend(n.startContainer, n.startOffset), t.refresh();
   };
-  H.addRange = F ? function(t, n) {
-   if (q && N && this.docSelection.type == I) h(this, t); else if (n && O) U(this, t); else {
+  q.addRange = O ? function(t, n) {
+   if (G && M && this.docSelection.type == N) h(this, t); else if (n && F) U(this, t); else {
     var r;
     if (B ? r = this.rangeCount : (this.removeAllRanges(), r = 0), this.nativeSelection.addRange(s(t)), 
     this.rangeCount = this.nativeSelection.rangeCount, this.rangeCount == r + 1) {
      if (e.config.checkSelectionRanges) {
-      var o = G(this.nativeSelection, this.rangeCount - 1);
+      var o = H(this.nativeSelection, this.rangeCount - 1);
       o && !_.rangesEqual(o, t) && (t = new k(o));
      }
      this._ranges[this.rangeCount - 1] = t, i(this, t, W(this.nativeSelection)), this.isCollapsed = y(this);
     } else this.refresh();
    }
   } : function(e, t) {
-   t && O ? U(this, e) : (this.nativeSelection.addRange(s(e)), this.refresh());
-  }, H.setRanges = function(e) {
-   if (q && e.length > 1) m(this, e); else {
+   t && F ? U(this, e) : (this.nativeSelection.addRange(s(e)), this.refresh());
+  }, q.setRanges = function(e) {
+   if (G && e.length > 1) m(this, e); else {
     this.removeAllRanges();
     for (var t = 0, n = e.length; n > t; ++t) this.addRange(e[t]);
    }
   };
  } else {
-  if (!(C.isHostMethod(L, "empty") && C.isHostMethod(A, "select") && q && M)) return t.fail("No means of selecting a Range or TextRange was found"), 
+  if (!(C.isHostMethod(L, "empty") && C.isHostMethod(A, "select") && G && I)) return t.fail("No means of selecting a Range or TextRange was found"), 
   !1;
-  H.removeAllRanges = function() {
+  q.removeAllRanges = function() {
    try {
     if (this.docSelection.empty(), "None" != this.docSelection.type) {
      var e;
-     if (this.anchorNode) e = S.getDocument(this.anchorNode); else if (this.docSelection.type == I) {
+     if (this.anchorNode) e = S.getDocument(this.anchorNode); else if (this.docSelection.type == N) {
       var t = this.docSelection.createRange();
       t.length && (e = S.getDocument(t.item(0)).body.createTextRange());
      }
@@ -3860,26 +3860,26 @@ function diff_match_patch() {
     }
    } catch (r) {}
    a(this);
-  }, H.addRange = function(e) {
-   this.docSelection.type == I ? h(this, e) : (k.rangeToTextRange(e).select(), this._ranges[0] = e, 
+  }, q.addRange = function(e) {
+   this.docSelection.type == N ? h(this, e) : (k.rangeToTextRange(e).select(), this._ranges[0] = e, 
    this.rangeCount = 1, this.isCollapsed = this._ranges[0].collapsed, i(this, e, !1));
-  }, H.setRanges = function(e) {
+  }, q.setRanges = function(e) {
    this.removeAllRanges();
    var t = e.length;
    t > 1 ? m(this, e) : t && this.addRange(e[0]);
   };
  }
- H.getRangeAt = function(e) {
+ q.getRangeAt = function(e) {
   if (0 > e || e >= this.rangeCount) throw new E("INDEX_SIZE_ERR");
   return this._ranges[e];
  };
  var z;
- if (M) z = function(t) {
+ if (I) z = function(t) {
   var n;
   e.isSelectionValid(t.win) ? n = t.docSelection.createRange() : (n = S.getBody(t.win.document).createTextRange(), 
-  n.collapse(!0)), t.docSelection.type == I ? p(t) : u(n) ? d(t, n) : a(t);
+  n.collapse(!0)), t.docSelection.type == N ? p(t) : u(n) ? d(t, n) : a(t);
  }; else if (C.isHostMethod(L, "getRangeAt") && "number" == typeof L.rangeCount) z = function(t) {
-  if (q && N && t.docSelection.type == I) p(t); else if (t._ranges.length = t.rangeCount = t.nativeSelection.rangeCount, 
+  if (G && M && t.docSelection.type == N) p(t); else if (t._ranges.length = t.rangeCount = t.nativeSelection.rangeCount, 
   t.rangeCount) {
    for (var n = 0, r = t.rangeCount; r > n; ++n) t._ranges[n] = new e.WrappedRange(t.nativeSelection.getRangeAt(n));
    i(t, t._ranges[t.rangeCount - 1], W(t.nativeSelection)), t.isCollapsed = y(t);
@@ -3889,10 +3889,10 @@ function diff_match_patch() {
   !1;
   z = function(e) {
    var t, n = e.nativeSelection;
-   n.anchorNode ? (t = G(n, 0), e._ranges = [ t ], e.rangeCount = 1, o(e), e.isCollapsed = y(e)) : a(e);
+   n.anchorNode ? (t = H(n, 0), e._ranges = [ t ], e.rangeCount = 1, o(e), e.isCollapsed = y(e)) : a(e);
   };
  }
- H.refresh = function(e) {
+ q.refresh = function(e) {
   var t = e ? this._ranges.slice(0) : null;
   if (z(this), e) {
    var n = t.length;
@@ -3907,8 +3907,8 @@ function diff_match_patch() {
   for (var i = 0, o = n.length; o > i; ++i) r || t !== n[i] ? e.addRange(n[i]) : r = !0;
   e.rangeCount || a(e);
  };
- H.removeRange = q ? function(e) {
-  if (this.docSelection.type == I) {
+ q.removeRange = G ? function(e) {
+  if (this.docSelection.type == N) {
    for (var t, n = this.docSelection.createRange(), r = c(e), i = S.getDocument(n.item(0)), o = S.getBody(i).createControlRange(), a = !1, s = 0, l = n.length; l > s; ++s) t = n.item(s), 
    t !== r || a ? o.add(n.item(s)) : a = !0;
    o.select(), p(this);
@@ -3917,35 +3917,35 @@ function diff_match_patch() {
   V(this, e);
  };
  var W;
- !M && P && e.features.implementsDomRange ? (W = function(e) {
+ !I && P && e.features.implementsDomRange ? (W = function(e) {
   var t = !1;
   return e.anchorNode && (t = 1 == S.comparePoints(e.anchorNode, e.anchorOffset, e.focusNode, e.focusOffset)), 
   t;
- }, H.isBackwards = function() {
+ }, q.isBackwards = function() {
   return W(this);
- }) : W = H.isBackwards = function() {
+ }) : W = q.isBackwards = function() {
   return !1;
- }, H.toString = function() {
+ }, q.toString = function() {
   for (var e = [], t = 0, n = this.rangeCount; n > t; ++t) e[t] = "" + this._ranges[t];
   return e.join("");
- }, H.collapse = function(t, n) {
+ }, q.collapse = function(t, n) {
   g(this, t);
   var r = e.createRange(S.getDocument(t));
   r.collapseToPoint(t, n), this.removeAllRanges(), this.addRange(r), this.isCollapsed = !0;
- }, H.collapseToStart = function() {
+ }, q.collapseToStart = function() {
   if (!this.rangeCount) throw new E("INVALID_STATE_ERR");
   var e = this._ranges[0];
   this.collapse(e.startContainer, e.startOffset);
- }, H.collapseToEnd = function() {
+ }, q.collapseToEnd = function() {
   if (!this.rangeCount) throw new E("INVALID_STATE_ERR");
   var e = this._ranges[this.rangeCount - 1];
   this.collapse(e.endContainer, e.endOffset);
- }, H.selectAllChildren = function(t) {
+ }, q.selectAllChildren = function(t) {
   g(this, t);
   var n = e.createRange(S.getDocument(t));
   n.selectNodeContents(t), this.removeAllRanges(), this.addRange(n);
- }, H.deleteFromDocument = function() {
-  if (q && N && this.docSelection.type == I) {
+ }, q.deleteFromDocument = function() {
+  if (G && M && this.docSelection.type == N) {
    for (var e, t = this.docSelection.createRange(); t.length; ) e = t.item(0), t.remove(e), 
    e.parentNode.removeChild(e);
    this.refresh();
@@ -3955,27 +3955,27 @@ function diff_match_patch() {
    for (var r = 0, i = n.length; i > r; ++r) n[r].deleteContents();
    this.addRange(n[i - 1]);
   }
- }, H.getAllRanges = function() {
+ }, q.getAllRanges = function() {
   return this._ranges.slice(0);
- }, H.setSingleRange = function(e) {
+ }, q.setSingleRange = function(e) {
   this.setRanges([ e ]);
- }, H.containsNode = function(e, t) {
+ }, q.containsNode = function(e, t) {
   for (var n = 0, r = this._ranges.length; r > n; ++n) if (this._ranges[n].containsNode(e, t)) return !0;
   return !1;
- }, H.toHtml = function() {
+ }, q.toHtml = function() {
   var e = "";
   if (this.rangeCount) {
    for (var t = _.getRangeDocument(this._ranges[0]).createElement("div"), n = 0, r = this._ranges.length; r > n; ++n) t.appendChild(this._ranges[n].cloneContents());
    e = t.innerHTML;
   }
   return e;
- }, H.getName = function() {
+ }, q.getName = function() {
   return "WrappedSelection";
- }, H.inspect = function() {
+ }, q.inspect = function() {
   return v(this);
- }, H.detach = function() {
+ }, q.detach = function() {
   this.win[w] = null, this.win = this.anchorNode = this.focusNode = null;
- }, f.inspect = v, e.Selection = f, e.selectionPrototype = H, e.addCreateMissingNativeApiListener(function(t) {
+ }, f.inspect = v, e.Selection = f, e.selectionPrototype = q, e.addCreateMissingNativeApiListener(function(t) {
   "undefined" == typeof t.getSelection && (t.getSelection = function() {
    return e.getSelection(this);
   }), t = null;
@@ -4128,7 +4128,7 @@ function diff_match_patch() {
    return e.index < t.index ? -1 : 1;
   }), "value");
  };
- var I = function(e, t, n, r) {
+ var N = function(e, t, n, r) {
   var i = {}, o = T(null == t ? C.identity : t);
   return _(e, function(t, a) {
    var s = o.call(n, t, a, e);
@@ -4136,11 +4136,11 @@ function diff_match_patch() {
   }), i;
  };
  C.groupBy = function(e, t, n) {
-  return I(e, t, n, function(e, t, n) {
+  return N(e, t, n, function(e, t, n) {
    (C.has(e, t) ? e[t] : e[t] = []).push(n);
   });
  }, C.countBy = function(e, t, n) {
-  return I(e, t, n, function(e, t) {
+  return N(e, t, n, function(e, t) {
    C.has(e, t) || (e[t] = 0), e[t]++;
   });
  }, C.sortedIndex = function(e, t, n, r) {
@@ -4223,16 +4223,16 @@ function diff_match_patch() {
   e += n;
   return o;
  };
- var N = function() {};
+ var M = function() {};
  C.bind = function(e, t) {
   var n, r;
   if (S && e.bind === S) return S.apply(e, s.call(arguments, 1));
   if (!C.isFunction(e)) throw new TypeError();
   return n = s.call(arguments, 2), r = function() {
    if (!(this instanceof r)) return e.apply(t, n.concat(s.call(arguments)));
-   N.prototype = e.prototype;
-   var i = new N();
-   N.prototype = null;
+   M.prototype = e.prototype;
+   var i = new M();
+   M.prototype = null;
    var o = e.apply(i, n.concat(s.call(arguments)));
    return Object(o) === o ? o : i;
   };
@@ -4344,7 +4344,7 @@ function diff_match_patch() {
  }, C.tap = function(e, t) {
   return t(e), e;
  };
- var M = function(e, t, n, r) {
+ var I = function(e, t, n, r) {
   if (e === t) return 0 !== e || 1 / e == 1 / t;
   if (null == e || null == t) return e === t;
   e instanceof C && (e = e._wrapped), t instanceof C && (t = t._wrapped);
@@ -4371,9 +4371,9 @@ function diff_match_patch() {
   n.push(e), r.push(t);
   var l = 0, u = !0;
   if ("[object Array]" == i) {
-   if (l = e.length, u = l == t.length) for (;l-- && (u = M(e[l], t[l], n, r)); ) ;
+   if (l = e.length, u = l == t.length) for (;l-- && (u = I(e[l], t[l], n, r)); ) ;
   } else {
-   for (var d in e) if (C.has(e, d) && (l++, !(u = C.has(t, d) && M(e[d], t[d], n, r)))) break;
+   for (var d in e) if (C.has(e, d) && (l++, !(u = C.has(t, d) && I(e[d], t[d], n, r)))) break;
    if (u) {
     for (d in t) if (C.has(t, d) && !l--) break;
     u = !l;
@@ -4382,7 +4382,7 @@ function diff_match_patch() {
   return n.pop(), r.pop(), u;
  };
  C.isEqual = function(e, t) {
-  return M(e, t, [], []);
+  return I(e, t, [], []);
  }, C.isEmpty = function(e) {
   if (null == e) return !0;
   if (C.isArray(e) || C.isString(e)) return 0 === e.length;
@@ -4467,7 +4467,7 @@ function diff_match_patch() {
   interpolate: /<%=([\s\S]+?)%>/g,
   escape: /<%-([\s\S]+?)%>/g
  };
- var P = /(.)^/, O = {
+ var P = /(.)^/, F = {
   "'": "'",
   "\\": "\\",
   "\r": "r",
@@ -4475,14 +4475,14 @@ function diff_match_patch() {
   "	": "t",
   "\u2028": "u2028",
   "\u2029": "u2029"
- }, F = /\\|'|\r|\n|\t|\u2028|\u2029/g;
+ }, O = /\\|'|\r|\n|\t|\u2028|\u2029/g;
  C.template = function(e, t, n) {
   var r;
   n = C.defaults({}, n, C.templateSettings);
   var i = new RegExp([ (n.escape || P).source, (n.interpolate || P).source, (n.evaluate || P).source ].join("|") + "|$", "g"), o = 0, a = "__p+='";
   e.replace(i, function(t, n, r, i, s) {
-   return a += e.slice(o, s).replace(F, function(e) {
-    return "\\" + O[e];
+   return a += e.slice(o, s).replace(O, function(e) {
+    return "\\" + F[e];
    }), n && (a += "'+\n((__t=(" + n + "))==null?'':_.escape(__t))+\n'"), r && (a += "'+\n((__t=(" + r + "))==null?'':__t)+\n'"), 
    i && (a += "';\n" + i + "\n__p+='"), o = s + t.length, t;
   }), a += "';\n", n.variable || (a = "with(obj||{}){\n" + a + "}\n"), a = "var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};\n" + a + "return __p;\n";
@@ -4684,7 +4684,7 @@ function diff_match_patch() {
    for (e = x.replace.call(e, /^\(\?([\w$]+)\)/, function(e, r) {
     if (x.test.call(/[gy]/, r)) throw new SyntaxError("Cannot use flag g or y in mode modifier " + e);
     return t = n(t + r), "";
-   }), r = 0; r < t.length; ++r) if (!M[t.charAt(r)]) throw new SyntaxError("Unknown regex flag " + t.charAt(r));
+   }), r = 0; r < t.length; ++r) if (!I[t.charAt(r)]) throw new SyntaxError("Unknown regex flag " + t.charAt(r));
    return {
     pattern: e,
     flags: t
@@ -4697,7 +4697,7 @@ function diff_match_patch() {
   }
   function d(e) {
    if (!/^[\w$]$/.test(e)) throw new Error("Flag must be a single character A-Za-z0-9_$");
-   M[e] = !0;
+   I[e] = !0;
   }
   function p(e, t, n, r, i) {
    for (var o, a, s = _.length, l = null; s--; ) if (a = _[s], (a.scope === r || "all" === a.scope) && (!a.flag || t.indexOf(a.flag) > -1) && (o = g.exec(e, a.regex, n, "sticky"))) {
@@ -4734,11 +4734,11 @@ function diff_match_patch() {
   }, w = {}, S = {}, C = {}, _ = [], k = "default", E = "class", T = {
    "default": /\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9]\d*|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S])|\(\?[:=!]|[?*+]\?|{\d+(?:,\d*)?}\??|[\s\S]/,
    "class": /\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S])|[\s\S]/
-  }, I = /\$(?:{([\w$]+)}|(\d\d?|[\s\S]))/g, D = x.exec.call(/()??/, "")[1] === e, N = RegExp.prototype.sticky !== e, M = {
+  }, N = /\$(?:{([\w$]+)}|(\d\d?|[\s\S]))/g, D = x.exec.call(/()??/, "")[1] === e, M = RegExp.prototype.sticky !== e, I = {
    g: !0,
    i: !0,
    m: !0,
-   y: N
+   y: M
   }, L = {}.toString;
   return g = function(n, i) {
    var o, a, s, l = {
@@ -4771,7 +4771,7 @@ function diff_match_patch() {
    if (n.flag && d(n.flag), o) for (o = x.split.call(o, ""), i = 0; i < o.length; ++i) d(o[i]);
    _.push({
     regex: r(e, {
-     add: "g" + (N ? "y" : "")
+     add: "g" + (M ? "y" : "")
     }),
     handler: t,
     scope: n.scope || k,
@@ -4787,7 +4787,7 @@ function diff_match_patch() {
    return x.replace.call(m(e), /[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   }, g.exec = function(e, t, n, o) {
    var a, s, l = "g";
-   return N && (o || t.sticky && o !== !1) && (l += "y"), t[b] = t[b] || i(), s = t[b][l] || (t[b][l] = r(t, {
+   return M && (o || t.sticky && o !== !1) && (l += "y"), t[b] = t[b] || i(), s = t[b][l] || (t[b][l] = r(t, {
     add: l,
     remove: o === !1 ? "y" : ""
    })), s.lastIndex = n = n || 0, a = w.exec.call(s, e), o && a && a.index !== n && (a = null), 
@@ -4884,7 +4884,7 @@ function diff_match_patch() {
     return l && t.global && (t.lastIndex = o[o.length - 2] + o[0].length), n.apply(e, o);
    }) : x.replace.call(null == this ? this : String(this), t, function() {
     var e = arguments;
-    return x.replace.call(String(n), I, function(t, n, r) {
+    return x.replace.call(String(n), N, function(t, n, r) {
      var o;
      if (n) {
       if (o = +n, o <= e.length - 3) return e[o] || "";
@@ -6614,6 +6614,11 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  utils.id = function() {
   for (var e = [], t = 0; 24 > t; t++) e.push(idAlphabet[Math.random() * idAlphabet.length | 0]);
   return e.join("");
+ }, utils.guid = function() {
+  function e() {
+   return (65536 * (1 + Math.random()) | 0).toString(16).substring(1);
+  }
+  return e() + e() + "-" + e() + "-" + e() + "-" + e() + "-" + e() + e() + e();
  }, utils.getURLParameter = function(e) {
   var t = new RegExp("(?:\\?|\\#\\!|&)" + e + "=(.+?)(?:&|\\#|$)");
   try {
@@ -6976,14 +6981,14 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  function a(e) {
   e = e || {};
   var t, n = !1;
-  for (t in M) e[t] ? n = !0 : M[t] = 0;
+  for (t in I) e[t] ? n = !0 : I[t] = 0;
   n || (R = !1);
  }
  function s(e, t, n, r, i, a) {
   var s, l, c = [], u = n.type;
   if (!D[e]) return [];
   for ("keyup" == u && f(e) && (t = [ e ]), s = 0; s < D[e].length; ++s) if (l = D[e][s], 
-  (r || !l.seq || M[l.seq] == l.level) && u == l.action && ("keypress" == u && !n.metaKey && !n.ctrlKey || o(t, l.modifiers))) {
+  (r || !l.seq || I[l.seq] == l.level) && u == l.action && ("keypress" == u && !n.metaKey && !n.ctrlKey || o(t, l.modifiers))) {
    var d = !r && l.combo == i, p = r && l.seq == r && l.level == a;
    (d || p) && D[e].splice(s, 1), c.push(l);
   }
@@ -7001,7 +7006,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   return e.stopPropagation ? void e.stopPropagation() : void (e.cancelBubble = !0);
  }
  function d(e, t, n, r) {
-  O.stopCallback(t, t.target || t.srcElement, n, r) || e(t, n) === !1 && (c(t), u(t));
+  F.stopCallback(t, t.target || t.srcElement, n, r) || e(t, n) === !1 && (c(t), u(t));
  }
  function p(e, t, n) {
   var r, i = s(e, t, n), o = {}, l = 0, c = !1;
@@ -7016,7 +7021,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  function h(e) {
   "number" != typeof e.which && (e.which = e.keyCode);
   var t = i(e);
-  if (t) return "keyup" == e.type && L === t ? void (L = !1) : void O.handleKey(t, l(e), e);
+  if (t) return "keyup" == e.type && L === t ? void (L = !1) : void F.handleKey(t, l(e), e);
  }
  function f(e) {
   return "shift" == e || "ctrl" == e || "alt" == e || "meta" == e;
@@ -7038,13 +7043,13 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  function b(e, t, n, r) {
   function o(t) {
    return function() {
-    R = t, ++M[e], m();
+    R = t, ++I[e], m();
    };
   }
   function s(t) {
    d(n, t, e), "keyup" !== r && (L = i(t)), setTimeout(a, 10);
   }
-  M[e] = 0;
+  I[e] = 0;
   for (var l = 0; l < t.length; ++l) {
    var c = l + 1 === t.length, u = c ? s : o(r || x(t[l + 1]).action);
    w(t[l], u, r, e, l);
@@ -7055,7 +7060,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }
  function x(e, t) {
   var n, r, i, o = [];
-  for (n = y(e), i = 0; i < n.length; ++i) r = n[i], I[r] && (r = I[r]), t && "keypress" != t && T[r] && (r = T[r], 
+  for (n = y(e), i = 0; i < n.length; ++i) r = n[i], N[r] && (r = N[r]), t && "keypress" != t && T[r] && (r = T[r], 
   o.push("shift")), f(r) && o.push(r);
   return t = v(r, o, t), {
    key: r,
@@ -7064,7 +7069,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   };
  }
  function w(e, t, n, r, i) {
-  N[e + ":" + n] = t, e = e.replace(/\s+/g, " ");
+  M[e + ":" + n] = t, e = e.replace(/\s+/g, " ");
   var o, a = e.split(" ");
   return a.length > 1 ? void b(e, a, t, n) : (o = x(e, n), D[o.key] = D[o.key] || [], 
   s(o.key, o.modifiers, {
@@ -7141,34 +7146,34 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   ">": ".",
   "?": "/",
   "|": "\\"
- }, I = {
+ }, N = {
   option: "alt",
   command: "meta",
   "return": "enter",
   escape: "esc",
   mod: /Mac|iPod|iPhone|iPad/.test(navigator.platform) ? "meta" : "ctrl"
- }, D = {}, N = {}, M = {}, L = !1, A = !1, R = !1, P = 1; 20 > P; ++P) k[111 + P] = "f" + P;
+ }, D = {}, M = {}, I = {}, L = !1, A = !1, R = !1, P = 1; 20 > P; ++P) k[111 + P] = "f" + P;
  for (P = 0; 9 >= P; ++P) k[P + 96] = P;
  r(t, "keypress", h), r(t, "keydown", h), r(t, "keyup", h);
- var O = {
+ var F = {
   bind: function(e, t, n) {
    return e = e instanceof Array ? e : [ e ], S(e, t, n), this;
   },
   unbind: function(e, t) {
-   return O.bind(e, function() {}, t);
+   return F.bind(e, function() {}, t);
   },
   trigger: function(e, t) {
-   return N[e + ":" + t] && N[e + ":" + t]({}, e), this;
+   return M[e + ":" + t] && M[e + ":" + t]({}, e), this;
   },
   reset: function() {
-   return D = {}, N = {}, this;
+   return D = {}, M = {}, this;
   },
   stopCallback: function(e, t) {
    return (" " + t.className + " ").indexOf(" mousetrap ") > -1 ? !1 : "INPUT" == t.tagName || "SELECT" == t.tagName || "TEXTAREA" == t.tagName || t.isContentEditable;
   },
   handleKey: p
  };
- e.Mousetrap = O, "function" == typeof define && define.amd && define("mousetrap", O);
+ e.Mousetrap = F, "function" == typeof define && define.amd && define("mousetrap", F);
 }(window, document), define("logger", [], function() {
  var e = {
   log: function() {},
@@ -8293,7 +8298,7 @@ var prettyPrintOne, prettyPrint;
  function r(e) {
   for (var t = void 0, n = e.firstChild; n; n = n.nextSibling) {
    var r = n.nodeType;
-   t = 1 === r ? t ? e : n : 3 === r && H.test(n.nodeValue) ? e : t;
+   t = 1 === r ? t ? e : n : 3 === r && q.test(n.nodeValue) ? e : t;
   }
   return t === e ? void 0 : t;
  }
@@ -8340,18 +8345,18 @@ var prettyPrintOne, prettyPrint;
   t.push(e.tripleQuotedStrings ? [ D, /^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/, null, "'\"" ] : e.multiLineStrings ? [ D, /^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/, null, "'\"`" ] : [ D, /^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/, null, "\"'" ]), 
   e.verbatimStrings && n.push([ D, /^@\"(?:[^\"]|\"\")*(?:\"|$)/, null ]);
   var r = e.hashComments;
-  r && (e.cStyleComments ? (t.push(r > 1 ? [ M, /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, null, "#" ] : [ M, /^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/, null, "#" ]), 
-  n.push([ D, /^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)>/, null ])) : t.push([ M, /^#[^\r\n]*/, null, "#" ])), 
-  e.cStyleComments && (n.push([ M, /^\/\/[^\r\n]*/, null ]), n.push([ M, /^\/\*[\s\S]*?(?:\*\/|$)/, null ]));
+  r && (e.cStyleComments ? (t.push(r > 1 ? [ I, /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, null, "#" ] : [ I, /^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/, null, "#" ]), 
+  n.push([ D, /^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)>/, null ])) : t.push([ I, /^#[^\r\n]*/, null, "#" ])), 
+  e.cStyleComments && (n.push([ I, /^\/\/[^\r\n]*/, null ]), n.push([ I, /^\/\*[\s\S]*?(?:\*\/|$)/, null ]));
   var o = e.regexLiterals;
   if (o) {
    var a = o > 1 ? "" : "\n\r", s = a ? "." : "[\\S\\s]", l = "/(?=[^/*" + a + "])(?:[^/\\x5B\\x5C" + a + "]|\\x5C" + s + "|\\x5B(?:[^\\x5C\\x5D" + a + "]|\\x5C" + s + ")*(?:\\x5D|$))+/";
-   n.push([ "lang-regex", RegExp("^" + G + "(" + l + ")") ]);
+   n.push([ "lang-regex", RegExp("^" + H + "(" + l + ")") ]);
   }
   var c = e.types;
   c && n.push([ L, c ]);
   var u = ("" + e.keywords).replace(/^ | $/g, "");
-  u.length && n.push([ N, new RegExp("^(?:" + u.replace(/[\s,]+/g, "|") + ")\\b"), null ]), 
+  u.length && n.push([ M, new RegExp("^(?:" + u.replace(/[\s,]+/g, "|") + ")\\b"), null ]), 
   t.push([ P, /^\s+/, null, " \r\n	\xa0" ]);
   var d = "^.[^\\s\\w.$@'\"`/\\\\]*";
   return e.regexLiterals && (d += "(?!s*/)"), n.push([ A, /^@[a-z_$][a-z_$@0-9]*/i, null ], [ L, /^(?:[@_]?[A-Z]+[a-z][A-Za-z_$@0-9]*|\w+_t\b)/, null ], [ P, /^[a-z_$][a-z_$@0-9]*/i, null ], [ A, new RegExp("^(?:0x[a-f0-9]+|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)(?:e[+\\-]?\\d+)?)[a-z]*", "i"), null, "0123456789" ], [ P, /^\\[\s\S]?/, null ], [ R, new RegExp(d), null ]), 
@@ -8488,24 +8493,24 @@ var prettyPrintOne, prettyPrint;
      }
      if (!k) {
       n.className += " prettyprinted";
-      var I = o.lang;
-      if (!I) {
-       I = f.match(b);
+      var N = o.lang;
+      if (!N) {
+       N = f.match(b);
        var D;
-       !I && (D = r(n)) && S.test(D.tagName) && (I = D.className.match(b)), I && (I = I[1]);
+       !N && (D = r(n)) && S.test(D.tagName) && (N = D.className.match(b)), N && (N = N[1]);
       }
-      var N;
-      if (w.test(n.tagName)) N = 1; else {
-       var M = n.currentStyle, L = s.defaultView, A = M ? M.whiteSpace : L && L.getComputedStyle ? L.getComputedStyle(n, null).getPropertyValue("white-space") : 0;
-       N = A && "pre" === A.substring(0, 3);
+      var M;
+      if (w.test(n.tagName)) M = 1; else {
+       var I = n.currentStyle, L = s.defaultView, A = I ? I.whiteSpace : L && L.getComputedStyle ? L.getComputedStyle(n, null).getPropertyValue("white-space") : 0;
+       M = A && "pre" === A.substring(0, 3);
       }
       var R = o.linenums;
       (R = "true" === R || +R) || (R = f.match(/\blinenums\b(?::(\d+))?/), R = R ? R[1] && R[1].length ? +R[1] : !0 : !1), 
-      R && a(n, R, N), g = {
-       langExtension: I,
+      R && a(n, R, M), g = {
+       langExtension: N,
        sourceNode: n,
        numberLines: R,
-       pre: N
+       pre: M
       }, u(g);
      }
     }
@@ -8523,20 +8528,20 @@ var prettyPrintOne, prettyPrint;
   var g, v = 0, b = /\blang(?:uage)?-([\w.]+)(?!\S)/, y = /\bprettyprint\b/, x = /\bprettyprinted\b/, w = /pre|xmp/i, S = /^code$/i, C = /^(?:pre|code|xmp)$/i, _ = {};
   i();
  }
- var h = window, f = [ "break,continue,do,else,for,if,return,while" ], m = [ f, "auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile" ], g = [ m, "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof" ], v = [ g, "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where" ], b = [ g, "abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient" ], y = [ b, "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where" ], x = "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes", w = [ g, "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN" ], S = "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END", C = [ f, "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None" ], _ = [ f, "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END" ], k = [ f, "as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use" ], E = [ f, "case,done,elif,esac,eval,fi,function,in,local,set,then,until" ], T = [ v, y, w, S, C, _, E ], I = /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/, D = "str", N = "kwd", M = "com", L = "typ", A = "lit", R = "pun", P = "pln", O = "tag", F = "dec", B = "src", j = "atn", $ = "atv", q = "nocode", G = "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*", H = /\S/, U = o({
+ var h = window, f = [ "break,continue,do,else,for,if,return,while" ], m = [ f, "auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile" ], g = [ m, "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof" ], v = [ g, "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where" ], b = [ g, "abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient" ], y = [ b, "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where" ], x = "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes", w = [ g, "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN" ], S = "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END", C = [ f, "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None" ], _ = [ f, "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END" ], k = [ f, "as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use" ], E = [ f, "case,done,elif,esac,eval,fi,function,in,local,set,then,until" ], T = [ v, y, w, S, C, _, E ], N = /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/, D = "str", M = "kwd", I = "com", L = "typ", A = "lit", R = "pun", P = "pln", F = "tag", O = "dec", B = "src", j = "atn", $ = "atv", G = "nocode", H = "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*", q = /\S/, U = o({
   keywords: T,
   hashComments: !0,
   cStyleComments: !0,
   multiLineStrings: !0,
   regexLiterals: !0
  }), z = {};
- l(U, [ "default-code" ]), l(i([], [ [ P, /^[^<?]+/ ], [ F, /^<!\w[^>]*(?:>|$)/ ], [ M, /^<\!--[\s\S]*?(?:-\->|$)/ ], [ "lang-", /^<\?([\s\S]+?)(?:\?>|$)/ ], [ "lang-", /^<%([\s\S]+?)(?:%>|$)/ ], [ R, /^(?:<[%?]|[%?]>)/ ], [ "lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i ], [ "lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i ], [ "lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i ], [ "lang-in.tag", /^(<\/?[a-z][^<>]*>)/i ] ]), [ "default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl" ]), 
- l(i([ [ P, /^[\s]+/, null, " 	\r\n" ], [ $, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'" ] ], [ [ O, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i ], [ j, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i ], [ "lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/ ], [ R, /^[=<>\/]+/ ], [ "lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i ], [ "lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i ], [ "lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i ], [ "lang-css", /^style\s*=\s*\"([^\"]+)\"/i ], [ "lang-css", /^style\s*=\s*\'([^\']+)\'/i ], [ "lang-css", /^style\s*=\s*([^\"\'>\s]+)/i ] ]), [ "in.tag" ]), 
+ l(U, [ "default-code" ]), l(i([], [ [ P, /^[^<?]+/ ], [ O, /^<!\w[^>]*(?:>|$)/ ], [ I, /^<\!--[\s\S]*?(?:-\->|$)/ ], [ "lang-", /^<\?([\s\S]+?)(?:\?>|$)/ ], [ "lang-", /^<%([\s\S]+?)(?:%>|$)/ ], [ R, /^(?:<[%?]|[%?]>)/ ], [ "lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i ], [ "lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i ], [ "lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i ], [ "lang-in.tag", /^(<\/?[a-z][^<>]*>)/i ] ]), [ "default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl" ]), 
+ l(i([ [ P, /^[\s]+/, null, " 	\r\n" ], [ $, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'" ] ], [ [ F, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i ], [ j, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i ], [ "lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/ ], [ R, /^[=<>\/]+/ ], [ "lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i ], [ "lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i ], [ "lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i ], [ "lang-css", /^style\s*=\s*\"([^\"]+)\"/i ], [ "lang-css", /^style\s*=\s*\'([^\']+)\'/i ], [ "lang-css", /^style\s*=\s*([^\"\'>\s]+)/i ] ]), [ "in.tag" ]), 
  l(i([], [ [ $, /^[\s\S]+/ ] ]), [ "uq.val" ]), l(o({
   keywords: v,
   hashComments: !0,
   cStyleComments: !0,
-  types: I
+  types: N
  }), [ "c", "cc", "cpp", "cxx", "cyc", "m" ]), l(o({
   keywords: "null,true,false"
  }), [ "json" ]), l(o({
@@ -8544,7 +8549,7 @@ var prettyPrintOne, prettyPrint;
   hashComments: !0,
   cStyleComments: !0,
   verbatimStrings: !0,
-  types: I
+  types: N
  }), [ "cs" ]), l(o({
   keywords: b,
   cStyleComments: !0
@@ -8589,16 +8594,16 @@ var prettyPrintOne, prettyPrint;
   sourceDecorator: o,
   PR_ATTRIB_NAME: j,
   PR_ATTRIB_VALUE: $,
-  PR_COMMENT: M,
-  PR_DECLARATION: F,
-  PR_KEYWORD: N,
+  PR_COMMENT: I,
+  PR_DECLARATION: O,
+  PR_KEYWORD: M,
   PR_LITERAL: A,
-  PR_NOCODE: q,
+  PR_NOCODE: G,
   PR_PLAIN: P,
   PR_PUNCTUATION: R,
   PR_SOURCE: B,
   PR_STRING: D,
-  PR_TAG: O,
+  PR_TAG: F,
   PR_TYPE: L,
   prettyPrintOne: IN_GLOBAL_SCOPE ? h.prettyPrintOne = d : prettyPrintOne = d,
   prettyPrint: prettyPrint = IN_GLOBAL_SCOPE ? h.prettyPrint = p : prettyPrint = p
@@ -8791,11 +8796,11 @@ var hljs = new function() {
   for (var C = o || S, _ = "", k = C; k != S; k = k.parent) k.cN && (_ = h(k.cN, _, !0));
   var E = "", T = 0;
   try {
-   for (var I, D, N = 0; ;) {
-    if (C.t.lastIndex = N, I = C.t.exec(r), !I) break;
-    D = w(r.substr(N, I.index - N), I[0]), N = I.index + D;
+   for (var N, D, M = 0; ;) {
+    if (C.t.lastIndex = M, N = C.t.exec(r), !N) break;
+    D = w(r.substr(M, N.index - M), N[0]), M = N.index + D;
    }
-   w(r.substr(N));
+   w(r.substr(M));
    for (var k = C; k.parent; k = k.parent) k.cN && (_ += "</span>");
    return {
     r: T,
@@ -8803,12 +8808,12 @@ var hljs = new function() {
     language: t,
     top: C
    };
-  } catch (M) {
-   if (-1 != M.message.indexOf("Illegal")) return {
+  } catch (I) {
+   if (-1 != I.message.indexOf("Illegal")) return {
     r: 0,
     value: e(r)
    };
-   throw M;
+   throw I;
   }
  }
  function u(t, n) {
@@ -12480,7 +12485,7 @@ function() {
  }, Markdown.Converter = function() {
   function e(e) {
    return e = e.replace(/^[ ]{0,3}\[(.+)\]:[ \t]*\n?[ \t]*<?(\S+?)>?(?=\s|$)[ \t]*\n?[ \t]*((\n*)["(](.+?)[")][ \t]*)?(?:\n+)/gm, function(e, t, n, r, i, o) {
-    return t = t.toLowerCase(), P.set(t, C(n)), i ? r : (o && O.set(t, o.replace(/"/g, "&quot;")), 
+    return t = t.toLowerCase(), P.set(t, C(n)), i ? r : (o && F.set(t, o.replace(/"/g, "&quot;")), 
     "");
    });
   }
@@ -12492,7 +12497,7 @@ function() {
   }
   function i(e, t) {
    var n = t;
-   return n = n.replace(/^\n+/, ""), n = n.replace(/\n+$/g, ""), n = "\n\n~K" + (F.push(n) - 1) + "K\n\n";
+   return n = n.replace(/^\n+/, ""), n = n.replace(/\n+$/g, ""), n = "\n\n~K" + (O.push(n) - 1) + "K\n\n";
   }
   function o(e, n) {
    e = R.preBlockGamut(e, j), e = h(e);
@@ -12510,7 +12515,7 @@ function() {
    var t = /(<[a-z\/!$]("[^"]*"|'[^']*'|[^'">])*>|<!(--(?:|(?:[^>-]|-[^>])(?:[^-]|-[^-])*)--)>)/gi;
    return e = e.replace(t, function(e) {
     var t = e.replace(/(.)<\/?code>(?=.)/g, "$1`");
-    return t = M(t, "!" == e.charAt(1) ? "\\`*_/" : "\\`*_");
+    return t = I(t, "!" == e.charAt(1) ? "\\`*_/" : "\\`*_");
    });
   }
   function l(e) {
@@ -12522,13 +12527,13 @@ function() {
    void 0 == s && (s = "");
    var l = t, c = n.replace(/:\/\//g, "~P"), u = r.toLowerCase(), p = i, h = s;
    if ("" == p) if ("" == u && (u = c.toLowerCase().replace(/ ?\n/g, " ")), p = "#" + u, 
-   void 0 != P.get(u)) p = P.get(u), void 0 != O.get(u) && (h = O.get(u)); else {
+   void 0 != P.get(u)) p = P.get(u), void 0 != F.get(u) && (h = F.get(u)); else {
     if (!(l.search(/\(\s*\)$/m) > -1)) return l;
     p = "";
    }
-   p = N(p), p = M(p, "*_");
+   p = M(p), p = I(p, "*_");
    var f = '<a href="' + p + '"';
-   return "" != h && (h = d(h), h = M(h, "*_"), f += ' title="' + h + '"'), f += ">" + c + "</a>";
+   return "" != h && (h = d(h), h = I(h, "*_"), f += ' title="' + h + '"'), f += ">" + c + "</a>";
   }
   function u(e) {
    return e = e.replace(/(!\[(.*?)\][ ]?(?:\n[ ]*)?\[(.*?)\])()()()()/g, p), e = e.replace(/(!\[(.*?)\]\s?\([ \t]*()<?(\S+?)>?[ \t]*((['"])(.*?)\6[ \t]*)?\))/g, p);
@@ -12540,11 +12545,11 @@ function() {
    var l = t, c = n, u = r.toLowerCase(), p = i, h = s;
    if (h || (h = ""), "" == p) {
     if ("" == u && (u = c.toLowerCase().replace(/ ?\n/g, " ")), p = "#" + u, void 0 == P.get(u)) return l;
-    p = P.get(u), void 0 != O.get(u) && (h = O.get(u));
+    p = P.get(u), void 0 != F.get(u) && (h = F.get(u));
    }
-   c = M(d(c), "*_[]()"), p = M(p, "*_");
+   c = I(d(c), "*_[]()"), p = I(p, "*_");
    var f = '<img src="' + p + '" alt="' + c + '"';
-   return h = d(h), h = M(h, "*_"), f += ' title="' + h + '"', f += " />";
+   return h = d(h), h = I(h, "*_"), f += ' title="' + h + '"', f += " />";
   }
   function h(e) {
    return e = e.replace(/^(.+)[ \t]*\n=+[ \t]*\n+/gm, function(e, t) {
@@ -12573,19 +12578,19 @@ function() {
    var r = $[t], i = new RegExp("(^[ \\t]*)(" + r + ")[ \\t]+([^\\r]+?(\\n+))(?=(~0|\\1(" + r + ")[ \\t]+))", "gm"), s = !1;
    return e = e.replace(i, function(e, t, r, i) {
     var l = i, c = /\n\n$/.test(l), u = c || l.search(/\n{2,}/) > -1;
-    return u || s ? l = o(I(l), !0) : (l = f(I(l), !0), l = l.replace(/\n$/, ""), n || (l = a(l))), 
+    return u || s ? l = o(N(l), !0) : (l = f(N(l), !0), l = l.replace(/\n$/, ""), n || (l = a(l))), 
     s = c, "<li>" + l + "</li>\n";
    }), e = e.replace(/~0/g, ""), B--, e;
   }
   function g(e) {
    return e += "~0", e = e.replace(/(?:\n\n|^\n?)((?:(?:[ ]{4}|\t).*\n+)+)(\n*[ ]{0,3}[^ \t\n]|(?=~0))/g, function(e, t, n) {
     var r = t, i = n;
-    return r = y(I(r)), r = D(r), r = r.replace(/^\n+/g, ""), r = r.replace(/\n+$/g, ""), 
+    return r = y(N(r)), r = D(r), r = r.replace(/^\n+/g, ""), r = r.replace(/\n+$/g, ""), 
     r = "<pre><code>" + r + "\n</code></pre>", "\n\n" + r + "\n\n" + i;
    }), e = e.replace(/~0/, "");
   }
   function v(e) {
-   return e = e.replace(/(^\n+|\n+$)/g, ""), "\n\n~K" + (F.push(e) - 1) + "K\n\n";
+   return e = e.replace(/(^\n+|\n+$)/g, ""), "\n\n~K" + (O.push(e) - 1) + "K\n\n";
   }
   function b(e) {
    return e = e.replace(/(^|[^\\])(`+)([^\r]*?[^`])\2(?!`)/gm, function(e, t, n, r, i) {
@@ -12596,7 +12601,7 @@ function() {
   }
   function y(e) {
    return e = e.replace(/&/g, "&amp;"), e = e.replace(/</g, "&lt;"), e = e.replace(/>/g, "&gt;"), 
-   e = M(e, "*_{}[]\\", !1);
+   e = I(e, "*_{}[]\\", !1);
   }
   function x(e) {
    return e = e.replace(/([\W_]|^)(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\2([\W_]|$)/g, "$1<strong>$3</strong>$4"), 
@@ -12622,7 +12627,7 @@ function() {
    if (!t) {
     o = r.length;
     for (var s = 0; o > s; s++) for (var c = !0; c; ) c = !1, r[s] = r[s].replace(/~K(\d+)K/g, function(e, t) {
-     return c = !0, F[t];
+     return c = !0, O[t];
     });
    }
    return r.join("\n\n");
@@ -12651,7 +12656,7 @@ function() {
    return "<" + n + r + ">" + s;
   }
   function E(e) {
-   e = e.replace(H, k);
+   e = e.replace(q, k);
    var t = function(e, t) {
     return '<a href="' + t + '">' + R.plainLinkText(t) + "</a>";
    };
@@ -12663,7 +12668,7 @@ function() {
     return String.fromCharCode(n);
    });
   }
-  function I(e) {
+  function N(e) {
    return e = e.replace(/^(\t|[ ]{1,4})/gm, "~0"), e = e.replace(/~0/g, "");
   }
   function D(e) {
@@ -12673,14 +12678,14 @@ function() {
     return "\n" === e ? (r = i + 1, e) : (t = (i - r) % 4, r = i + 1, n[t]);
    });
   }
-  function N(e) {
+  function M(e) {
    if (!e) return "";
    e.length;
    return e.replace(z, function(e, t) {
     return "~D" == e ? "%24" : ":" == e ? ":" : "%" + e.charCodeAt(0).toString(16);
    });
   }
-  function M(e, t, n) {
+  function I(e, t, n) {
    var r = "([" + t.replace(/([\[\]\\])/g, "\\$1") + "])";
    n && (r = "\\\\" + r);
    var i = new RegExp(r, "g");
@@ -12698,21 +12703,21 @@ function() {
   R.addNoop("plainLinkText"), R.addNoop("preConversion"), R.addNoop("postNormalization"), 
   R.addNoop("preBlockGamut"), R.addNoop("postBlockGamut"), R.addNoop("preSpanGamut"), 
   R.addNoop("postSpanGamut"), R.addNoop("postConversion");
-  var P, O, F, B;
+  var P, F, O, B;
   this.makeHtml = function(n) {
    if (P) throw new Error("Recursive call to converter.makeHtml");
-   return P = new r(), O = new r(), F = [], B = 0, n = R.preConversion(n), n = n.replace(/~/g, "~T"), 
+   return P = new r(), F = new r(), O = [], B = 0, n = R.preConversion(n), n = n.replace(/~/g, "~T"), 
    n = n.replace(/\$/g, "~D"), n = n.replace(/\r\n/g, "\n"), n = n.replace(/\r/g, "\n"), 
    n = "\n\n" + n + "\n\n", n = D(n), n = n.replace(/^[ \t]+$/gm, ""), n = R.postNormalization(n), 
    n = t(n), n = e(n), n = o(n), n = T(n), n = n.replace(/~D/g, "$$"), n = n.replace(/~T/g, "~"), 
-   n = R.postConversion(n), F = O = P = null, n;
+   n = R.postConversion(n), O = F = P = null, n;
   };
   var j = function(e) {
    return o(e);
   }, $ = {
    ol: "\\d+[.]",
    ul: "[*+-]"
-  }, q = "[-A-Z0-9+&@#/%?=~_|[\\]()!:,.;]", G = "[-A-Z0-9+&@#/%=~_|[\\])]", H = new RegExp('(="|<)?\\b(https?|ftp)(://' + q + "*" + G + ")(?=$|\\W)", "gi"), U = new RegExp(G, "i"), z = /(?:["'*()[\]:]|~D)/g;
+  }, G = "[-A-Z0-9+&@#/%?=~_|[\\]()!:,.;]", H = "[-A-Z0-9+&@#/%=~_|[\\])]", q = new RegExp('(="|<)?\\b(https?|ftp)(://' + G + "*" + H + ")(?=$|\\W)", "gi"), U = new RegExp(H, "i"), z = /(?:["'*()[\]:]|~D)/g;
  };
 }(), define("libs/Markdown.Converter", function() {}), function() {
  function e(e) {
@@ -13339,84 +13344,6 @@ function() {
  r.onCreatePreviewButton = function() {
   return n;
  }, r;
-}), define("extensions/googleAnalytics", [ "jquery", "underscore", "constants", "utils", "classes/Extension", "settings" ], function(e, t, n, r, i, o) {
- function a() {
-  r.currentTime - d > 18e4 && (_gaq.push([ "_trackPageview" ]), d = r.currentTime);
- }
- var s = new i("googleAnalytics", "Google Analytics", !0);
- s.settingsBlock = "<p>Sends anonymous statistics about usage and errors to help improve StackEdit.</p>";
- var l = !1, c = !1;
- window._gaq = [];
- var u = function() {
-  if (l === !1 && c === !1) {
-   var t = "/ga.js";
-   location.search.match(/(\?|&)console/) && (t = "/u/ga_debug.js"), e.ajax({
-    url: "https://ssl.google-analytics.com" + t,
-    dataType: "script"
-   }).done(function() {
-    l = !0;
-   });
-  }
- }, d = 0;
- s.onPeriodicRun = function() {
-  a();
- }, s.onReady = function() {
-  _gaq.push([ "_setAccount", n.GOOGLE_ANALYTICS_ACCOUNT_ID ]), a(), _gaq.push([ "_trackEvent", "About", "version", n.VERSION ]), 
-  _gaq.push([ "_trackEvent", "Settings", "layoutOrientation", "" + o.layoutOrientation ]), 
-  _gaq.push([ "_trackEvent", "Settings", "editMode", "" + o.editMode ]), _gaq.push([ "_trackEvent", "Settings", "theme", "" + window.themeV4 ]), 
-  _gaq.push([ "_trackEvent", "Settings", "lazyRendering", "" + o.lazyRendering ]), 
-  _gaq.push([ "_trackEvent", "Settings", "editorFontClass", "" + o.editorFontClass ]), 
-  _gaq.push([ "_trackEvent", "Settings", "fontSizeRatio", "" + o.fontSizeRatio ]), 
-  _gaq.push([ "_trackEvent", "Settings", "maxWidthRatio", "" + o.maxWidthRatio ]), 
-  _gaq.push([ "_trackEvent", "Settings", "cursorFocusRatio", "" + o.cursorFocusRatio ]), 
-  _gaq.push([ "_trackEvent", "Settings", "defaultContent backlink", "" + (-1 !== o.defaultContent.indexOf(n.MAIN_URL)) ]), 
-  _gaq.push([ "_trackEvent", "Settings", "commitMsg backlink", "" + (-1 !== o.commitMsg.indexOf(n.MAIN_URL)) ]), 
-  t.each(o.extensionSettings, function(e, t) {
-   _gaq.push([ "_trackEvent", "Extensions", t + " enabled", "" + (e.enabled === !0) ]);
-  }), window.onerror = function(e, t, n) {
-   _gaq.push([ "_trackEvent", "Error", e, t + ":" + n + r.formatEventList() ]);
-  }, u();
- }, s.onOfflineChanged = function(e) {
-  c = e, u();
- };
- var p = 0;
- return s.onSyncRunning = function(e) {
-  e === !0 && (p = new Date().getTime());
- }, s.onPublishRunning = function(e) {
-  e === !0 && (p = new Date().getTime());
- }, s.onSyncSuccess = function() {
-  var e = new Date().getTime();
-  _gaq.push([ "_trackTiming", "Sync", "SyncTime", e - p ]);
- }, s.onSyncImportSuccess = function(e, t) {
-  _gaq.push([ "_trackEvent", "Sync", "SyncImport" ]), _gaq.push([ "_trackEvent", "Sync", "SyncImport provider", t.providerId ]);
- }, s.onSyncExportSuccess = function(e, t) {
-  _gaq.push([ "_trackEvent", "Sync", "SyncExport" ]), _gaq.push([ "_trackEvent", "Sync", "SyncExport provider", t.provider.providerId ]);
- }, s.onPublishSuccess = function(e) {
-  var n = new Date().getTime();
-  _gaq.push([ "_trackTiming", "Publish", "PublishSuccess", n - p ]), t.each(e.publishLocations, function(e) {
-   _gaq.push([ "_trackEvent", "Publish", "PublishSuccess provider", e.provider.providerId ]);
-  });
- }, s.onNewPublishSuccess = function(e, t) {
-  _gaq.push([ "_trackEvent", "Publish", "NewPublish provider", t.provider.providerId ]);
- }, s.onError = function(e) {
-  !t.isString(e) && e.message && _gaq.push([ "_trackEvent", "Error", "message", e.message + r.formatEventList() ]);
- }, s;
-}), define("extensions/twitter", [ "jquery", "underscore", "constants", "utils", "classes/Extension" ], function(e, t, n, r, i) {
- var o = new i("twitter", "Twitter", !1, !0), a = !1, s = !1, l = function() {
-  a === !1 && s === !1 && e.ajax({
-   url: "https://platform.twitter.com/widgets.js",
-   dataType: "script"
-  }).done(function() {
-   a = !0;
-  });
- };
- return o.onReady = function() {
-  l();
- }, o.onOfflineChanged = function(e) {
-  s = e, l();
- }, o.onTweet = function() {
-  a && window.twttr.widgets.load();
- }, o;
 }), function() {
  function e() {
   if (u) return u;
@@ -13908,260 +13835,163 @@ function() {
    }
   });
  }, d;
-}), define("extensions/documentTitle", [ "jquery", "underscore", "classes/Extension" ], function(e, t, n) {
- var r, i, o = new n("documentTitle", "Document Title"), a = t.debounce(function(t) {
-  if (t === r) {
-   var n = r.title;
-   i.html(r.composeTitle(!0)), e(".file-title").text(n), e(".input-file-title").val(n);
+}), define("DBRunner", [], function() {
+ function e(n) {
+  t.creating ? setTimeout(function() {
+   e(n);
+  }, 100) : n(t.db);
+ }
+ var t = {};
+ return t.db = null, t.creating = !1, t.created = !1, t.run = function(n) {
+  if (t.created) n(t.db); else if (t.creating) e(n); else {
+   var r = window.indexedDB.open("notedown", 1);
+   t.creating = !0, r.onupgradeneeded = function(e) {
+    if (e.oldVersion < 1) {
+     var t = r.result, n = t.createObjectStore("notes", {
+      keyPath: "key"
+     });
+     n.createIndex("by_guid", "guid", {
+      unique: !0
+     }), n.createIndex("by_selectTime", "selectTime", {
+      unique: !1
+     });
+    }
+   }, r.onsuccess = function() {
+    t.db = r.result, t.creating = !1, t.created = !0, n(r.result);
+   }, r.onerror = function() {
+    console.error("open indexedDB error");
+   };
   }
- }, 50);
- return o.onFileSelected = function(e) {
-  r = e, a(e);
- }, o.onTitleChanged = a, o.onSyncExportSuccess = a, o.onSyncRemoved = a, o.onNewPublishSuccess = a, 
- o.onPublishRemoved = a, o.onReady = a, o.onReady = function() {
-  i = e(".file-title-navbar"), i.hover(function() {
-   var e = i[0].scrollWidth - i.outerWidth();
-   i.stop(!0, !0).animate({
-    scrollLeft: e
-   }, 15 * e, "linear");
-  }, function() {
-   i.stop(!0, !0).scrollLeft(0);
-  }).click(function() {
-   i.stop(!0, !0).scrollLeft(0);
-  });
- }, o;
-}), define("classes/FileDescriptor", [ "underscore", "utils", "storage" ], function(e, t, n) {
- function r(e, t, r, i) {
-  this.fileIndex = e, this._title = t || n[e + ".title"], this._editorScrollTop = parseInt(n[e + ".editorScrollTop"]) || 0, 
-  this._editorStart = parseInt(n[e + ".editorEnd"]) || 0, this._editorEnd = parseInt(n[e + ".editorEnd"]) || 0, 
-  this._previewScrollTop = parseInt(n[e + ".previewScrollTop"]) || 0, this._selectTime = parseInt(n[e + ".selectTime"]) || 0, 
-  this._discussionList = JSON.parse(n[e + ".discussionList"] || "{}"), this.syncLocations = r || {}, 
-  this.publishLocations = i || {}, Object.defineProperty(this, "title", {
+ }, t;
+}), define("classes/FileDescriptor", [ "underscore", "utils", "storage", "DBRunner", "logger" ], function(e, t, n, r, i) {
+ function o(e) {
+  this.note = {
+   key: e
+  }, Object.defineProperty(this, "fileIndex", {
    get: function() {
-    return this._title;
+    return this.note.key;
+   }
+  }), Object.defineProperty(this, "key", {
+   get: function() {
+    return this.note.key;
+   }
+  }), Object.defineProperty(this, "guid", {
+   get: function() {
+    return this.note.guid;
    },
    set: function(e) {
-    this._title = e, n[this.fileIndex + ".title"] = e;
+    this.update({
+     guid: e
+    });
+   }
+  }), Object.defineProperty(this, "title", {
+   get: function() {
+    return this.note.title;
+   },
+   set: function(e) {
+    this.update({
+     title: e
+    });
    }
   }), Object.defineProperty(this, "content", {
    get: function() {
-    return n[this.fileIndex + ".content"];
+    return n[this.key + ".content"];
    },
    set: function(e) {
-    n[this.fileIndex + ".content"] = e;
+    n[this.key + ".content"] = e;
    }
   }), Object.defineProperty(this, "editorScrollTop", {
    get: function() {
-    return this._editorScrollTop;
+    return this.note.editorScrollTop;
    },
    set: function(e) {
-    this._editorScrollTop = e, n[this.fileIndex + ".editorScrollTop"] = e;
+    this.update({
+     editorScrollTop: e
+    });
    }
   }), Object.defineProperty(this, "editorStart", {
    get: function() {
-    return this._editorStart;
+    return this.note.editorStart;
    },
    set: function(e) {
-    this._editorStart = e, n[this.fileIndex + ".editorStart"] = e;
+    this.update({
+     editorStart: e
+    });
    }
   }), Object.defineProperty(this, "editorEnd", {
    get: function() {
-    return this._editorEnd;
+    return this.note.editorEnd;
    },
    set: function(e) {
-    this._editorEnd = e, n[this.fileIndex + ".editorEnd"] = e;
+    this.update({
+     editorEnd: e
+    });
    }
   }), Object.defineProperty(this, "previewScrollTop", {
    get: function() {
-    return this._previewScrollTop;
+    return this.note.previewScrollTop;
    },
    set: function(e) {
-    this._previewScrollTop = e, n[this.fileIndex + ".previewScrollTop"] = e;
+    this.update({
+     previewScrollTop: e
+    });
    }
   }), Object.defineProperty(this, "selectTime", {
    get: function() {
-    return this._selectTime;
+    return this.note.selectTime;
    },
    set: function(e) {
-    this._selectTime = e, n[this.fileIndex + ".selectTime"] = e;
-   }
-  }), Object.defineProperty(this, "discussionList", {
-   get: function() {
-    return this._discussionList;
-   },
-   set: function(e) {
-    this._discussionList = e, n[this.fileIndex + ".discussionList"] = JSON.stringify(e);
-   }
-  }), Object.defineProperty(this, "discussionListJSON", {
-   get: function() {
-    return n[this.fileIndex + ".discussionList"] || "{}";
-   },
-   set: function(e) {
-    this._discussionList = JSON.parse(e), n[this.fileIndex + ".discussionList"] = e;
+    this.update({
+     selectTime: e
+    });
    }
   });
  }
- function i(e, t) {
-  e.push('<i class="icon-provider-' + t.provider.providerId + '"></i>');
- }
- function o(e, t) {
-  if (t.provider.getSyncLocationLink) {
-   var n = t.provider.getSyncLocationLink(t);
-   e.push([ '<a href="', n, '" target="_blank" title="Open in ', t.provider.providerName, '"><i class="icon-provider-', t.provider.providerId, '"></i><i class="icon-link-ext-alt"></i></a>' ].join(""));
-  } else i(e, t);
- }
- function a(e, t) {
-  if (t.provider.getPublishLocationLink) {
-   var n = t.provider.getPublishLocationLink(t);
-   e.push([ '<a href="', n, '" target="_blank" title="Open in ', t.provider.providerName, '"><i class="icon-provider-', t.provider.providerId, '"></i><i class="icon-link-ext-alt"></i></a>' ].join(""));
-  } else i(e, t);
- }
- return r.prototype.addSyncLocation = function(e) {
-  t.storeAttributes(e), t.appendIndexToArray(this.fileIndex + ".sync", e.syncIndex), 
-  this.syncLocations[e.syncIndex] = e;
- }, r.prototype.removeSyncLocation = function(e) {
-  t.removeIndexFromArray(this.fileIndex + ".sync", e.syncIndex), delete this.syncLocations[e.syncIndex];
- }, r.prototype.addPublishLocation = function(e) {
-  t.storeAttributes(e), t.appendIndexToArray(this.fileIndex + ".publish", e.publishIndex), 
-  this.publishLocations[e.publishIndex] = e;
- }, r.prototype.removePublishLocation = function(e) {
-  t.removeIndexFromArray(this.fileIndex + ".publish", e.publishIndex), delete this.publishLocations[e.publishIndex];
- }, r.prototype.composeTitle = function(t) {
-  var n = [], r = t ? o : i, s = t ? a : i;
-  return e.chain(this.syncLocations).sortBy(function(e) {
-   return e.provider.providerId;
-  }).each(function(e) {
-   r(n, e);
-  }), 0 !== e.size(this.syncLocations) && n.push('<i class="icon-refresh title-icon-category"></i>'), 
-  e.chain(this.publishLocations).sortBy(function(e) {
-   return e.provider.providerId;
-  }).each(function(e) {
-   s(n, e);
-  }), 0 !== e.size(this.publishLocations) && n.push('<i class="icon-upload title-icon-category"></i>'), 
-  n.push(e.escape(this.title)), n.join("");
- }, r;
-}), define("fileSystem", [ "underscore", "utils", "classes/FileDescriptor", "storage" ], function(e, t, n, r) {
- var i = {};
- return t.retrieveIndexArray("file.list").forEach(function(e) {
-  i[e] = new n(e);
- }), Object.keys(r).forEach(function(e) {
-  var t = e.match(/(file\.\S+?)\.\S+/);
-  t && !i.hasOwnProperty(t[1]) && r.removeItem(e);
- }), i;
-}), define("text!html/documentSelectorSettingsBlock.html", [], function() {
- return '<p>Allows toggling document with keyboard shortcuts.</p>\r\n<div class="form-horizontal">\r\n	<div class="form-group">\r\n		<label class="col-sm-5 control-label" for="select-document-selector-orderby">Order\r\n			by</label>\r\n		<div class="col-sm-6">\r\n			<select id="select-document-selector-orderby" class="form-control">\r\n				<option value="title">Document title</option>\r\n				<option value="mru">Most recently used</option>\r\n			</select>\r\n		</div>\r\n	</div>\r\n	<div class="form-group">\r\n		<label class="col-sm-5 control-label"\r\n			for="input-document-selector-shortcut-previous">"Previous"\r\n			shortcut <a href="http://craig.is/killing/mice#keys" target="_blank">(?)</a></label>\r\n		<div class="col-sm-6">\r\n			<input type="text" id="input-document-selector-shortcut-previous"\r\n				class="form-control">\r\n		</div>\r\n	</div>\r\n	<div class="form-group">\r\n		<label class="col-sm-5 control-label"\r\n			for="input-document-selector-shortcut-next">"Next"\r\n			shortcut <a href="http://craig.is/killing/mice#keys" target="_blank">(?)</a></label>\r\n		<div class="col-sm-6">\r\n			<input type="text" id="input-document-selector-shortcut-next"\r\n				class="form-control">\r\n		</div>\r\n	</div>\r\n</div>';
-}), define("extensions/documentSelector", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "fileSystem", "text!html/documentSelectorSettingsBlock.html" ], function(e, t, n, r, i, o, a, s) {
- var l = new i("documentSelector", "Document Selector", !0);
- l.settingsBlock = s, l.defaultConfig = {
-  orderBy: "mru",
-  shortcutPrevious: "Ctrl+[",
-  shortcutNext: "Ctrl+]"
- }, l.onLoadSettings = function() {
-  r.setInputValue("#select-document-selector-orderby", l.config.orderBy), r.setInputValue("#input-document-selector-shortcut-previous", l.config.shortcutPrevious), 
-  r.setInputValue("#input-document-selector-shortcut-next", l.config.shortcutNext);
- }, l.onSaveSettings = function(e, t) {
-  e.orderBy = r.getInputValue("#select-document-selector-orderby"), e.shortcutPrevious = r.getInputTextValue("#input-document-selector-shortcut-previous", t), 
-  e.shortcutNext = r.getInputTextValue("#input-document-selector-shortcut-next", t);
- };
- var c;
- l.onFileMgrCreated = function(e) {
-  c = e;
- };
- var u, d, p, h, f, m, g, v = [ '<li class="<%= isCurrent ? "disabled" : "" %>" data-file-index="<%= fileDesc.fileIndex %>">', '   <a href="#">', "       <%= fileDesc.composeTitle() %>", "   </a>", "</li>" ].join(""), b = t.debounce(function() {
-  var n = t.chain(a).sortBy(h).reduce(function(e, n) {
-   return e + t.template(v, {
-    fileDesc: n,
-    isCurrent: n === f
-   });
-  }, "").value();
-  u.innerHTML = n, p = [], d = {}, t.each(u.querySelectorAll("li"), function(t) {
-   var n = e(t);
-   p.push(n);
-   var r = a[n.data("fileIndex")];
-   d[r.fileIndex] = n;
+ return o.prototype.update = function(t) {
+  t.selectTime = t.selectTime || 1, e.extend(this.note, t), t.content && (this.content = t.content, 
+  delete this.note.content), this.store();
+ }, o.prototype.store = function(e) {
+  var t = this;
+  r.run(function(n) {
+   var r = n.transaction("notes", "readwrite"), o = r.objectStore("notes");
+   o.put(t.note), r.oncomplete = function() {
+    e && e(t), i.log("save note to indexdDB success");
+   };
   });
- }, 50);
- return l.onFileSelected = function(e) {
-  f = e, b();
- }, l.onFileCreated = b, l.onFileDeleted = b, l.onTitleChanged = b, l.onSyncExportSuccess = b, 
- l.onSyncRemoved = b, l.onNewPublishSuccess = b, l.onPublishRemoved = b, l.onReady = function() {
-  g = e("#wmd-input"), "title" == l.config.orderBy ? h = function(e) {
-   return e.title.toLowerCase();
-  } : "mru" == l.config.orderBy && (h = function(e) {
-   return -e.selectTime;
-  }), u = n("ul", {
-   "class": "dropdown-menu dropdown-file-selector"
-  }), document.querySelector(".navbar").appendChild(n("div", n("div", {
-   "data-toggle": "dropdown"
-  }), u));
-  var r = e(u).dropdown(), i = e(".document-panel .collapse-button");
-  i.prop("title", t.template("<%= title %>  <%= shortcutPrevious %>  <%= shortcutNext %>", {
-   title: i.prop("title"),
-   shortcutPrevious: l.config.shortcutPrevious,
-   shortcutNext: l.config.shortcutNext
-  }));
-  var s = l.config.shortcutPrevious.toLowerCase();
-  o.bind(s, function() {
-   void 0 === m && (r.dropdown("toggle"), m = d[f.fileIndex]);
-   var e = t.indexOf(p, m) - 1;
-   return -2 === e && (e = -1), m = p[(e + p.length) % p.length], setTimeout(function() {
-    m.find("a").focus();
-   }, 10), !1;
+ }, o;
+}), define("fileSystem", [ "underscore", "utils", "classes/FileDescriptor", "storage", "DBRunner" ], function(e, t, n, r, i) {
+ var o = {}, a = window.IDBCursor;
+ return o.getLastFile = function(e) {
+  i.run(function(t) {
+   var r = t.transaction("notes", "readonly"), i = r.objectStore("notes"), o = i.index("by_selectTime"), s = o.openCursor(null, a.prev);
+   s.onsuccess = function(t) {
+    var r = t.target.result;
+    if (r) {
+     var i = r.value, o = new n();
+     o.note = i, e(o);
+    } else e();
+   }, s.onerror = function(e) {
+    console.info(e);
+   };
   });
-  var v = l.config.shortcutNext.toLowerCase();
-  o.bind(l.config.shortcutNext.toLowerCase(), function() {
-   void 0 === m && (r.dropdown("toggle"), m = d[f.fileIndex]);
-   var e = t.indexOf(p, m) + 1;
-   return m = p[e % p.length], setTimeout(function() {
-    m.find("a").focus();
-   }, 10), !1;
+ }, o.listFiles = function(e) {
+  i.run(function(t) {
+   var r = t.transaction("notes", "readonly"), i = r.objectStore("notes"), o = i.index("by_selectTime"), s = o.openCursor(null, a.prev), l = [];
+   s.onsuccess = function(t) {
+    var r = t.target.result;
+    if (r) {
+     var i = r.value, o = new n();
+     o.note = i, l.push(o), r["continue"]();
+    } else e(l);
+   }, s.onerror = function(e) {
+    console.info(e);
+   };
   });
-  var b = s.indexOf("+"), y = -1 === b ? s : s.substring(0, b), x = v.indexOf("+"), w = -1 === x ? v : v.substring(0, x);
-  o.bind([ y, w ], function() {
-   void 0 !== m && m.find("a").click();
-  }, "keyup"), r.on("click", "a", function() {
-   m = void 0;
-   var t = e(this.parentNode), n = a[t.data("fileIndex")];
-   t.hasClass("disabled") ? g.focus() : c.selectFile(n);
-  });
- }, l;
-}), define("classes/FolderDescriptor", [ "underscore", "utils", "storage", "fileSystem" ], function(e, t, n, r) {
- function i(i, o) {
-  this.folderIndex = i, this._name = o || n[i + ".name"], this.fileList = {}, e.each(t.retrieveIndexArray(i + ".files"), function(e) {
-   try {
-    var n = r[e];
-    n.folder = this, this.fileList[e] = n;
-   } catch (o) {
-    t.removeIndexFromArray(i + ".files", e);
-   }
-  }, this), Object.defineProperty(this, "name", {
-   get: function() {
-    return this._name;
-   },
-   set: function(e) {
-    this._name = e, n[this.folderIndex + ".name"] = e;
-   }
-  });
- }
- return i.prototype.addFile = function(e) {
-  e.folder = this, t.appendIndexToArray(this.folderIndex + ".files", e.fileIndex), 
-  this.fileList[e.fileIndex] = e;
- }, i.prototype.removeFile = function(e) {
-  e.folder = void 0, t.removeIndexFromArray(this.folderIndex + ".files", e.fileIndex), 
-  delete this.fileList[e.fileIndex];
- }, i;
-}), define("folderList", [ "underscore", "utils", "storage", "classes/FolderDescriptor", "storage" ], function(e, t, n, r) {
- var i = {};
- return t.retrieveIndexArray("folder.list").forEach(function(e) {
-  i[e] = new r(e);
- }), Object.keys(n).forEach(function(e) {
-  var t = e.match(/(folder\.\S+?)\.\S+/);
-  t && !i.hasOwnProperty(t[1]) && n.removeItem(e);
- }), i;
-}), define("extensions/documentPanel", [ "jquery", "underscore", "utils", "classes/Extension", "folderList", "fileSystem" ], function(e, t, n, r, i, o) {
- function a(n) {
-  if (n != y) {
-   if (y = n, b.scrollTop = 0, !n) return h.addClass("hide"), void d.removeClass("hide");
+ }, o;
+}), define("extensions/documentPanel", [ "jquery", "underscore", "utils", "classes/Extension", "fileSystem" ], function(e, t, n, r, i) {
+ function o(n) {
+  if (n != b) {
+   if (b = n, v.scrollTop = 0, !n) return h.addClass("hide"), void d.removeClass("hide");
    var r = n.toLowerCase().split(/\s+/);
    t.each(p.querySelectorAll(".file"), function(n) {
     var i = e(n), o = i.text().toLowerCase();
@@ -14171,227 +14001,62 @@ function() {
    }), h.removeClass("hide"), d.addClass("hide");
   }
  }
- var s, l = new r("documentPanel", "Document Panel");
- l.onFileMgrCreated = function(e) {
-  s = e;
+ var a, s = new r("documentPanel", "Document Panel");
+ s.onFileMgrCreated = function(e) {
+  a = e;
  };
- var c, u, d, p, h, f, m = [ '<a href="#"', ' class="list-group-item folder clearfix"', ' data-folder-index="<%= folderDesc.folderIndex %>"', ' data-toggle="collapse"', ' data-target=".file-list.<%= id %>">', '   <div class="pull-right file-count">', "       <%= _.size(folderDesc.fileList) %>", "   </div>", '   <i class="icon-folder"></i> <%= folderDesc.name %>', "</a>", '<div class="file-list collapse <%= id %> clearfix">', "   <%= fileListHtml %>", "</div>" ].join(""), g = [ '<a href="#"', ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"', ' data-file-index="<%= fileDesc.fileIndex %>">', "   <%= fileDesc.composeTitle() %>", "</a>" ].join(""), v = t.debounce(function() {
-  var e = t.filter(o, function(e) {
-   return void 0 === e.folder;
-  }), n = t.chain(e).sortBy(function(e) {
-   return e.title.toLowerCase();
-  }).reduce(function(e, n) {
-   return e + "<li>" + t.template(g, {
-    fileDesc: n,
-    selectedFileDesc: f
-   }) + "</li>";
-  }, "").value();
-  n = n && '<ul class="nav">' + n + "</ul>", t.chain(i).sortBy(function(e) {
-   return e.name.toLowerCase();
-  }).each(function(e) {
-   var r = t.chain(e.fileList).sortBy(function(e) {
+ var l;
+ s.onNoteMgrCreated = function(e) {
+  l = e;
+ };
+ var c, u, d, p, h, f, m = [ '<a href="#"', ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"', ' data-file-index="<%= fileDesc.fileIndex %>">', "   <%= fileDesc.title %>", "</a>" ].join(""), g = t.debounce(function() {
+  i.listFiles(function(e) {
+   var n = t.filter(e, function(e) {
+    return void 0 === e.folder;
+   }), r = t.chain(n).sortBy(function(e) {
     return e.title.toLowerCase();
    }).reduce(function(e, n) {
-    return e + "<li>" + t.template(g, {
+    return e + "<li>" + t.template(m, {
      fileDesc: n,
      selectedFileDesc: f
     }) + "</li>";
    }, "").value();
-   r = r && '<ul class="nav">' + r + "</ul>", n += t.template(m, {
-    folderDesc: e,
-    fileListHtml: r,
-    id: e.folderIndex.replace(".", "")
-   });
-  }), u.innerHTML = n;
-  var r = t.chain(o).sortBy(function(e) {
-   return e.title.toLowerCase();
-  }).reduce(function(e, n) {
-   return e + "<li>" + t.template(g, {
-    fileDesc: n,
-    selectedFileDesc: f
-   }) + "</li>";
-  }, "").value();
-  r = '<ul class="nav">' + r + "</ul>", p.innerHTML = r;
+   r = r && '<ul class="nav">' + r + "</ul>", u.innerHTML = r;
+   var i = t.chain(e).sortBy(function(e) {
+    return e.title.toLowerCase();
+   }).reduce(function(e, n) {
+    return e + "<li>" + t.template(m, {
+     fileDesc: n,
+     selectedFileDesc: f
+    }) + "</li>";
+   }, "").value();
+   i = '<ul class="nav">' + i + "</ul>", p.innerHTML = i;
+  });
  }, 50);
- l.onFileSelected = function(e) {
-  f = e, v();
- }, l.onFileCreated = v, l.onFileDeleted = v, l.onTitleChanged = v, l.onSyncExportSuccess = v, 
- l.onSyncRemoved = v, l.onNewPublishSuccess = v, l.onPublishRemoved = v, l.onFoldersChanged = v;
- var b, y = "";
- return l.onReady = function() {
-  c = document.querySelector(".document-panel"), b = c.querySelector(".panel-content"), 
+ s.onFileSelected = function(e) {
+  f = e, g();
+ }, s.onFileCreated = g, s.onFileDeleted = g, s.onTitleChanged = g, s.onNotesRefresh = g;
+ var v, b = "";
+ return s.onReady = function() {
+  c = document.querySelector(".document-panel"), v = c.querySelector(".panel-content"), 
   u = c.querySelector(".document-list"), d = e(u), p = c.querySelector(".document-list-filtered"), 
-  h = e(p), e(c).on("show.layout.toggle", function() {
-   var t = f.folder;
-   void 0 !== t && e(c.querySelector(".file-list." + t.folderIndex.replace(".", ""))).collapse("show");
-  }).on("shown.layout.toggle", function() {
+  h = e(p), e(c).on("shown.layout.toggle", function() {
    var e = u.querySelector(".file.active");
-   e && (b.scrollTop += e.getBoundingClientRect().top - 240);
+   e && (v.scrollTop += e.getBoundingClientRect().top - 240);
   }).on("hidden.layout.toggle", function() {
-   t.val(""), a("");
+   t.val(""), o("");
   }).on("click", ".file", function() {
-   var t = e(this), n = o[t.data("fileIndex")];
-   n && n !== f && s.selectFile(n);
+   var t = e(this);
+   a.selectFile(t.data("fileIndex"));
   });
   var t = e(c.querySelector(".search-bar .form-control"));
   t.bind("propertychange keyup input paste", function() {
-   a(t.val());
+   o(t.val());
+  }), e(".action-fresh-notes").click(function(t) {
+   return t.stopPropagation(), e(this).find(".icon-refresh").addClass("spin"), l.refreshNotes(), 
+   !1;
   });
- }, l;
-}), define("extensions/documentManager", [ "jquery", "underscore", "constants", "utils", "storage", "classes/Extension", "classes/FolderDescriptor", "folderList", "fileSystem" ], function(e, t, n, r, i, o, a, s, l) {
- function c() {
-  D = [], I = [], t.each(v.querySelectorAll('input[type="checkbox"]:checked'), function(t) {
-   var n = e(t.parentNode.parentNode), r = s[n.data("folderIndex")], i = l[n.data("fileIndex")];
-   void 0 !== r ? D.push(r) : void 0 !== i && I.push(i);
-  });
- }
- function u() {
-  if (0 === t.size(I)) return void d();
-  var n = t.chain(I).sortBy(function(e) {
-   return e.title.toLowerCase();
-  }).reduce(function(e, n) {
-   return e + t.template(T, {
-    fileDesc: n
-   });
-  }, "").value();
-  b.innerHTML = '<ul class="file-list nav">' + n + "</ul>", e(g.querySelectorAll(".document-list")).addClass("hide"), 
-  e(g.querySelectorAll(".confirm-delete, .selected-document-list")).removeClass("hide");
- }
- function d() {
-  t.each(I, function(e) {
-   e.folder && e.folder.removeFile(e), p.deleteFile(e);
-  }), t.each(D, function(e) {
-   r.removeIndexFromArray("folder.list", e.folderIndex), delete s[e.folderIndex];
-  }), f.onFoldersChanged();
- }
- var p, h = new o("documentManager", "Document Manager", !1, !0);
- h.onFileMgrCreated = function(e) {
-  p = e;
- };
- var f;
- h.onEventMgrCreated = function(e) {
-  f = e;
- };
- var m, g, v, b, y, x, w, S, C, _ = [ '<a href="#" class="list-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">', '<label class="checkbox" title="Select"><input type="checkbox"></label>', '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash"></i></button>', '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="pull-right file-count"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-folder"></i> ', "<%= folderDesc.name %></div>", '<input type="text" class="input-rename form-control hide"></a>', '<div class="file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>' ].join(""), k = [ '<li class="list-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">', '<label class="checkbox" title="Select"><input type="checkbox"></label>', '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash"></i></button>', '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="name"><%= fileDesc.composeTitle() %></div>', '<input type="text" class="input-rename form-control hide"></li>' ].join(""), E = [ '<a href="#" class="list-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">', '<div class="pull-right file-count"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-forward"></i> ', "<%= folderDesc.name %></div></a>" ].join(""), T = [ '<li class="list-group-item file clearfix">', '<div class="name"><%= fileDesc.composeTitle() %></div></li>' ].join(""), I = [], D = [], N = t.debounce(function() {
-  c(), y.toggleClass("disabled", 0 === t.size(s) || 0 === t.size(I)), x.toggleClass("disabled", 0 === t.size(D) && 0 === t.size(I));
- }, 50), M = t.debounce(function() {
-  if (m !== !1) {
-   N(), S.text(t.size(l)), C.text(t.size(s) + 1), w = t.filter(l, function(e) {
-    return void 0 === e.folder;
-   });
-   var e = [ '<a href="#" class="list-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder">', '<label class="checkbox" title="Select"><input type="checkbox"></label>', '<div class="pull-right file-count">', t.size(w), "</div>", '<div class="name"><i class="icon-folder"></i> ', "ROOT folder</div></a>" ].join(""), n = t.chain(w).sortBy(function(e) {
-    return e.title.toLowerCase();
-   }).reduce(function(e, n) {
-    return e + t.template(k, {
-     fileDesc: n
-    });
-   }, "").value();
-   n = n && '<ul class="nav">' + n + "</ul>", e += '<div class="file-list collapse root-folder clearfix">' + n + "</div>", 
-   t.chain(s).sortBy(function(e) {
-    return e.name.toLowerCase();
-   }).each(function(n) {
-    var r = t.chain(n.fileList).sortBy(function(e) {
-     return e.title.toLowerCase();
-    }).reduce(function(e, n) {
-     return e + t.template(k, {
-      fileDesc: n
-     });
-    }, "").value();
-    r = r && '<ul class="nav">' + r + "</ul>", e += t.template(_, {
-     folderDesc: n,
-     fileListHtml: r,
-     id: n.folderIndex.replace(".", "")
-    });
-   }), v.innerHTML = e;
-  }
- }, 50);
- return h.onFileCreated = M, h.onFileDeleted = M, h.onSyncExportSuccess = M, h.onSyncRemoved = M, 
- h.onNewPublishSuccess = M, h.onPublishRemoved = M, h.onFoldersChanged = M, h.onTitleChanged = function(t) {
-  m !== !1 && (e(v).find('[data-file-index="' + t.fileIndex + '"] .name').html(t.composeTitle()).removeClass("hide"), 
-  e(v.querySelectorAll(".input-rename")).addClass("hide"));
- }, h.onReady = function() {
-  g = document.querySelector(".modal-document-manager"), v = g.querySelector(".list-group.document-list"), 
-  S = e(g.querySelectorAll(".document-count")), C = e(g.querySelectorAll(".folder-count")), 
-  b = g.querySelector(".list-group.selected-document-list");
-  var o = g.querySelector(".list-group.select-folder-list");
-  e(g).on("show.bs.modal", function() {
-   m = !0, M(), setTimeout(function() {
-    e(v.querySelectorAll(".root-folder")).click();
-   }, 250);
-  }).on("hide.bs.modal", function() {
-   m = !1, v.innerHTML = "";
-  }), e(g.querySelectorAll(".action-create-folder")).click(function() {
-   var o;
-   do o = "folder." + r.id(); while (t.has(s, o));
-   i[o + ".name"] = n.DEFAULT_FOLDER_NAME;
-   var l = new a(o, n.DEFAULT_FOLDER_NAME);
-   r.appendIndexToArray("folder.list", o), s[o] = l, f.onFoldersChanged(), setTimeout(function() {
-    var t = e(g.querySelector('[data-folder-index="' + o + '"] .button-rename')).click();
-    g.scrollTop += t.offset().top - 50;
-   }, 60);
-  }), e(g.querySelectorAll(".action-select-all")).click(function() {
-   e(v.querySelectorAll('.folder input[type="checkbox"]')).prop("checked", !0).change();
-  }), e(g.querySelectorAll(".action-unselect-all")).click(function() {
-   e(v.querySelectorAll('.folder input[type="checkbox"]')).prop("checked", !1).change();
-  });
-  var p = e(g.querySelectorAll(".action-delete-items")).click(function() {
-   x.hasClass("disabled") || (c(), u());
-  });
-  x = p.parent(), e(g.querySelectorAll(".action-delete-items-confirm")).click(function() {
-   d(), e(g.querySelectorAll(".document-list")).removeClass("hide"), e(g.querySelectorAll(".confirm-delete, .selected-document-list")).addClass("hide");
-  });
-  var h = e(g.querySelectorAll(".action-move-items")).click(function() {
-   if (!y.hasClass("disabled")) {
-    c();
-    var n = [ '<a href="#" class="list-group-item folder clearfix">', '<div class="pull-right file-count">', t.size(w), "</div>", '<div class="name"><i class="icon-forward"></i> ', "ROOT folder</div></a>" ].join("");
-    n += t.chain(s).sortBy(function(e) {
-     return e.name.toLowerCase();
-    }).reduce(function(e, n) {
-     return e + t.template(E, {
-      folderDesc: n
-     });
-    }, "").value(), o.innerHTML = n, t.each(o.querySelectorAll(".folder"), function(n) {
-     n = e(n), n.click(function() {
-      var r = s[n.data("folderIndex")];
-      t.each(I, function(e) {
-       e.folder && e.folder.removeFile(e), r && r.addFile(e);
-      }), f.onFoldersChanged(), e(g.querySelectorAll(".document-list")).removeClass("hide"), 
-      e(g.querySelectorAll(".choose-folder, .select-folder-list")).addClass("hide");
-     });
-    }), e(g.querySelectorAll(".document-list")).addClass("hide"), e(g.querySelectorAll(".choose-folder, .select-folder-list")).removeClass("hide");
-   }
-  });
-  y = h.parent(), e(g.querySelectorAll(".action-cancel")).click(function() {
-   e(g.querySelectorAll(".document-list")).removeClass("hide"), e(g.querySelectorAll(".confirm-delete, .choose-folder, .selected-document-list, .select-folder-list")).addClass("hide");
-  }), e(v).on("click", ".button-delete", function(t) {
-   t.stopPropagation();
-   var n = e(this), r = n.parent(), i = s[r.data("folderIndex")], o = l[r.data("fileIndex")];
-   I = [], D = [], i ? (D.push(i), I = i.fileList) : o && I.push(o), u();
-  }).on("click", ".button-rename", function(t) {
-   t.stopPropagation();
-   var n, r = e(this.parentNode), i = s[r.data("folderIndex")], o = l[r.data("fileIndex")];
-   i ? n = i.name : o && (n = o.title), r.find(".name").addClass("hide"), r.find(".input-rename").removeClass("hide").val(n)[0].select();
-  }).on("blur keyup", ".input-rename", function(t) {
-   function n() {
-    var t = r.parent(), n = e.trim(r.val()), i = s[t.data("folderIndex")], o = l[t.data("fileIndex")];
-    n && i && n != i.name ? (i.name = n, f.onFoldersChanged()) : n && o && n != o.title ? (o.title = n, 
-    f.onTitleChanged(o)) : (r.addClass("hide"), t.find(".name").removeClass("hide"));
-   }
-   var r = e(this);
-   void 0 === t.keyCode ? n() : 13 == t.keyCode ? (n(), t.stopPropagation()) : 27 == t.keyCode && (r.val(""), 
-   n(), t.stopPropagation());
-  }).on("click", ".file .checkbox", function(e) {
-   e.stopPropagation();
-  }).on("change", ".file .checkbox input", function() {
-   e(this).parents(".file-list").prev().find(".checkbox input").prop("checked", !1), 
-   N();
-  }).on("click", ".folder .checkbox", function(e) {
-   e.stopPropagation();
-  }).on("change", ".folder .checkbox input", function() {
-   e(this).parents(".folder").next().find(".checkbox input").prop("checked", this.checked), 
-   N();
-  });
- }, h;
+ }, s;
 }), define("extensions/workingIndicator", [ "jquery", "underscore", "crel", "classes/Extension" ], function(e, t, n, r) {
  var i, o, a = new r("workingIndicator", "Working Indicator"), s = [ "@<%= prefix %>keyframes <%= name %> {", "    0% { opacity:<%= z %>; }", "    <%= start %>.01% { opacity:<%= alpha %>; }", "    <%= start %>.02% { opacity:1; }", "    <%= ((start + trail) % 100) %>.01% { opacity:<%= alpha %>; }", "    100% { opacity:<%= z %>; }", "}" ].join("\n");
  return a.onAsyncRunning = function(e) {
@@ -14775,17 +14440,17 @@ function() {
  function u(e, t, n, r, i, o, a, s, l) {
   if (!(0 > l || c(e, t, n, r, i, o, a, s) < l)) {
    var u, d = 1, p = d / 2, h = d - p, f = .01;
-   for (u = c(e, t, n, r, i, o, a, s, h); G(u - l) > f; ) p /= 2, h += (l > u ? 1 : -1) * p, 
+   for (u = c(e, t, n, r, i, o, a, s, h); H(u - l) > f; ) p /= 2, h += (l > u ? 1 : -1) * p, 
    u = c(e, t, n, r, i, o, a, s, h);
    return h;
   }
  }
  function d(e, t, n, r, i, o, a, s) {
-  if (!($(e, n) < q(i, a) || q(e, n) > $(i, a) || $(t, r) < q(o, s) || q(t, r) > $(o, s))) {
+  if (!($(e, n) < G(i, a) || G(e, n) > $(i, a) || $(t, r) < G(o, s) || G(t, r) > $(o, s))) {
    var l = (e * r - t * n) * (i - a) - (e - n) * (i * s - o * a), c = (e * r - t * n) * (o - s) - (t - r) * (i * s - o * a), u = (e - n) * (o - s) - (t - r) * (i - a);
    if (u) {
     var d = l / u, p = c / u, h = +d.toFixed(2), f = +p.toFixed(2);
-    if (!(h < +q(e, n).toFixed(2) || h > +$(e, n).toFixed(2) || h < +q(i, a).toFixed(2) || h > +$(i, a).toFixed(2) || f < +q(t, r).toFixed(2) || f > +$(t, r).toFixed(2) || f < +q(o, s).toFixed(2) || f > +$(o, s).toFixed(2))) return {
+    if (!(h < +G(e, n).toFixed(2) || h > +$(e, n).toFixed(2) || h < +G(i, a).toFixed(2) || h > +$(i, a).toFixed(2) || f < +G(t, r).toFixed(2) || f > +$(t, r).toFixed(2) || f < +G(o, s).toFixed(2) || f > +$(o, s).toFixed(2))) return {
      x: d,
      y: p
     };
@@ -14809,16 +14474,16 @@ function() {
    t: g / u
   });
   for (g = 0; l > g; g++) for (var b = 0; u > b; b++) {
-   var y = p[g], x = p[g + 1], w = h[b], S = h[b + 1], C = G(x.x - y.x) < .001 ? "y" : "x", _ = G(S.x - w.x) < .001 ? "y" : "x", k = d(y.x, y.y, x.x, x.y, w.x, w.y, S.x, S.y);
+   var y = p[g], x = p[g + 1], w = h[b], S = h[b + 1], C = H(x.x - y.x) < .001 ? "y" : "x", _ = H(S.x - w.x) < .001 ? "y" : "x", k = d(y.x, y.y, x.x, x.y, w.x, w.y, S.x, S.y);
    if (k) {
     if (f[k.x.toFixed(4)] == k.y.toFixed(4)) continue;
     f[k.x.toFixed(4)] = k.y.toFixed(4);
-    var E = y.t + G((k[C] - y[C]) / (x[C] - y[C])) * (x.t - y.t), T = w.t + G((k[_] - w[_]) / (S[_] - w[_])) * (S.t - w.t);
+    var E = y.t + H((k[C] - y[C]) / (x[C] - y[C])) * (x.t - y.t), T = w.t + H((k[_] - w[_]) / (S[_] - w[_])) * (S.t - w.t);
     E >= 0 && 1.001 >= E && T >= 0 && 1.001 >= T && (r ? m++ : m.push({
      x: k.x,
      y: k.y,
-     t1: q(E, 1),
-     t2: q(T, 1)
+     t1: G(E, 1),
+     t2: G(T, 1)
     }));
    }
   }
@@ -14866,14 +14531,14 @@ function() {
   function l(e, t) {
    var n, r, i, o, s, l;
    for (i = e, l = 0; 8 > l; l++) {
-    if (o = a(i) - e, G(o) < t) return i;
-    if (s = (3 * d * i + 2 * u) * i + c, G(s) < 1e-6) break;
+    if (o = a(i) - e, H(o) < t) return i;
+    if (s = (3 * d * i + 2 * u) * i + c, H(s) < 1e-6) break;
     i -= o / s;
    }
    if (n = 0, r = 1, i = e, n > i) return n;
    if (i > r) return r;
    for (;r > n; ) {
-    if (o = a(i), G(o - e) < t) return i;
+    if (o = a(i), H(o - e) < t) return i;
     e > o ? n = i : r = i, i = (r - n) / 2 + n;
    }
    return i;
@@ -14926,18 +14591,18 @@ function() {
      break;
 
     case "path":
-     var T = Oe(v[_], b[_]), I = T[1];
+     var T = Fe(v[_], b[_]), N = T[1];
      for (v[_] = T[0], y[_] = [], w = 0, C = v[_].length; C > w; w++) {
       y[_][w] = [ 0 ];
-      for (var D = 1, M = v[_][w].length; M > D; D++) y[_][w][D] = (I[w][D] - v[_][w][D]) / m;
+      for (var D = 1, I = v[_][w].length; I > D; D++) y[_][w][D] = (N[w][D] - v[_][w][D]) / m;
      }
      break;
 
     case "transform":
-     var L = r._, A = qe(L[_], b[_]);
+     var L = r._, A = Ge(L[_], b[_]);
      if (A) for (v[_] = A.from, b[_] = A.to, y[_] = [], y[_].real = !0, w = 0, C = v[_].length; C > w; w++) for (y[_][w] = [ v[_][w][0] ], 
-     D = 1, M = v[_][w].length; M > D; D++) y[_][w][D] = (b[_][w][D] - v[_][w][D]) / m; else {
-      var O = r.matrix || new f(), F = {
+     D = 1, I = v[_][w].length; I > D; D++) y[_][w][D] = (b[_][w][D] - v[_][w][D]) / m; else {
+      var F = r.matrix || new f(), O = {
        _: {
         transform: L.transform
        },
@@ -14945,7 +14610,7 @@ function() {
         return r.getBBox(1);
        }
       };
-      v[_] = [ O.a, O.b, O.c, O.d, O.e, O.f ], je(F, b[_]), b[_] = F._.transform, y[_] = [ (F.matrix.a - O.a) / m, (F.matrix.b - O.b) / m, (F.matrix.c - O.c) / m, (F.matrix.d - O.d) / m, (F.matrix.e - O.e) / m, (F.matrix.f - O.f) / m ];
+      v[_] = [ F.a, F.b, F.c, F.d, F.e, F.f ], je(O, b[_]), b[_] = O._.transform, y[_] = [ (O.matrix.a - F.a) / m, (O.matrix.b - F.b) / m, (O.matrix.c - F.c) / m, (O.matrix.d - F.d) / m, (O.matrix.e - F.e) / m, (O.matrix.f - F.f) / m ];
      }
      break;
 
@@ -14956,15 +14621,15 @@ function() {
      break;
 
     default:
-     for (B = [][N](l[_]), j = [][N](v[_]), y[_] = [], w = r.paper.customAttributes[_].length; w--; ) y[_][w] = ((B[w] || 0) - (j[w] || 0)) / m;
+     for (B = [][M](l[_]), j = [][M](v[_]), y[_] = [], w = r.paper.customAttributes[_].length; w--; ) y[_][w] = ((B[w] || 0) - (j[w] || 0)) / m;
     }
-    var $ = l.easing, q = n.easing_formulas[$];
-    if (!q) if (q = R($).match(K), q && 5 == q.length) {
-     var G = q;
-     q = function(e) {
-      return g(e, +G[1], +G[2], +G[3], +G[4], m);
+    var $ = l.easing, G = n.easing_formulas[$];
+    if (!G) if (G = R($).match(Y), G && 5 == G.length) {
+     var H = G;
+     G = function(e) {
+      return g(e, +H[1], +H[2], +H[3], +H[4], m);
      };
-    } else q = he;
+    } else G = he;
     if (h = l.start || e.start || +new Date(), x = {
      anim: e,
      percent: i,
@@ -14974,7 +14639,7 @@ function() {
      initstatus: o || 0,
      stop: !1,
      ms: m,
-     easing: q,
+     easing: G,
      from: v,
      diff: y,
      to: b,
@@ -15008,18 +14673,18 @@ function() {
  }, T = {
   was: Object.prototype[k].call(E.win, "Raphael"),
   is: E.win.Raphael
- }, I = function() {
+ }, N = function() {
   this.ca = this.customAttributes = {};
- }, D = "apply", N = "concat", M = "ontouchstart" in E.win || E.win.DocumentTouch && E.doc instanceof DocumentTouch, L = "", A = " ", R = String, P = "split", O = "click dblclick mousedown mousemove mouseout mouseover mouseup touchstart touchmove touchend touchcancel"[P](A), F = {
+ }, D = "apply", M = "concat", I = "ontouchstart" in E.win || E.win.DocumentTouch && E.doc instanceof DocumentTouch, L = "", A = " ", R = String, P = "split", F = "click dblclick mousedown mousemove mouseout mouseover mouseup touchstart touchmove touchend touchcancel"[P](A), O = {
   mousedown: "touchstart",
   mousemove: "touchmove",
   mouseup: "touchend"
- }, B = R.prototype.toLowerCase, j = Math, $ = j.max, q = j.min, G = j.abs, H = j.pow, U = j.PI, z = "number", V = "string", W = "array", X = Object.prototype.toString, Q = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
- /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Y = {
+ }, B = R.prototype.toLowerCase, j = Math, $ = j.max, G = j.min, H = j.abs, q = j.pow, U = j.PI, z = "number", V = "string", W = "array", Q = Object.prototype.toString, X = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
+ /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), K = {
   NaN: 1,
   Infinity: 1,
   "-Infinity": 1
- }, K = /^(?:cubic-)?bezier\(([^,]+),([^,]+),([^,]+),([^\)]+)\)/, J = j.round, Z = parseFloat, ee = parseInt, te = R.prototype.toUpperCase, ne = n._availableAttrs = {
+ }, Y = /^(?:cubic-)?bezier\(([^,]+),([^,]+),([^,]+),([^\)]+)\)/, J = j.round, Z = parseFloat, ee = parseInt, te = R.prototype.toUpperCase, ne = n._availableAttrs = {
   "arrow-end": "none",
   "arrow-start": "none",
   blur: 0,
@@ -15122,7 +14787,7 @@ function() {
  }, ve = n.mapPath = function(e, t) {
   if (!t) return e;
   var n, r, i, o, a, s, l;
-  for (e = Oe(e), i = 0, a = e.length; a > i; i++) for (l = e[i], o = 1, s = l.length; s > o; o += 2) n = t.x(l[o], l[o + 1]), 
+  for (e = Fe(e), i = 0, a = e.length; a > i; i++) for (l = e[i], o = 1, s = l.length; s > o; o += 2) n = t.x(l[o], l[o + 1]), 
   r = t.y(l[o], l[o + 1]), l[o] = n, l[o + 1] = r;
   return e;
  };
@@ -15133,9 +14798,9 @@ function() {
   !be || "object" != typeof be.adj) return n.type = L;
   ye = null;
  }
- n.svg = !(n.vml = "VML" == n.type), n._Paper = I, n.fn = w = I.prototype = n.prototype, 
+ n.svg = !(n.vml = "VML" == n.type), n._Paper = N, n.fn = w = N.prototype = n.prototype, 
  n._id = 0, n._oid = 0, n.is = function(e, t) {
-  return t = B.call(t), "finite" == t ? !Y[k](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || X.call(e).slice(8, -1).toLowerCase() == t;
+  return t = B.call(t), "finite" == t ? !K[k](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || Q.call(e).slice(8, -1).toLowerCase() == t;
  }, n.angle = function(e, t, r, i, o, a) {
   if (null == o) {
    var s = e - r, l = t - i;
@@ -15148,7 +14813,7 @@ function() {
   return Math.round(180 * e / U % 360 * 1e3) / 1e3;
  }, n.snapTo = function(e, t, r) {
   if (r = n.is(r, "finite") ? r : 10, n.is(e, W)) {
-   for (var i = e.length; i--; ) if (G(e[i] - t) <= r) return e[i];
+   for (var i = e.length; i--; ) if (H(e[i] - t) <= r) return e[i];
   } else {
    e = +e;
    var o = t % e;
@@ -15232,20 +14897,20 @@ function() {
   this.is(e, "object") && "h" in e && "s" in e && "b" in e && (n = e.b, t = e.s, r = e.o, 
   e = e.h), e *= 360;
   var i, o, a, s, l;
-  return e = e % 360 / 60, l = n * t, s = l * (1 - G(e % 2 - 1)), i = o = a = n - l, 
+  return e = e % 360 / 60, l = n * t, s = l * (1 - H(e % 2 - 1)), i = o = a = n - l, 
   e = ~~e, i += [ l, s, 0, 0, s, l ][e], o += [ s, l, l, s, 0, 0 ][e], a += [ 0, 0, s, l, l, s ][e], 
   ke(i, o, a, r);
  }, n.hsl2rgb = function(e, t, n, r) {
   this.is(e, "object") && "h" in e && "s" in e && "l" in e && (n = e.l, t = e.s, e = e.h), 
   (e > 1 || t > 1 || n > 1) && (e /= 360, t /= 100, n /= 100), e *= 360;
   var i, o, a, s, l;
-  return e = e % 360 / 60, l = 2 * t * (.5 > n ? n : 1 - n), s = l * (1 - G(e % 2 - 1)), 
+  return e = e % 360 / 60, l = 2 * t * (.5 > n ? n : 1 - n), s = l * (1 - H(e % 2 - 1)), 
   i = o = a = n - l / 2, e = ~~e, i += [ l, s, 0, 0, s, l ][e], o += [ s, l, l, s, 0, 0 ][e], 
   a += [ 0, 0, s, l, l, s ][e], ke(i, o, a, r);
  }, n.rgb2hsb = function(e, t, n) {
   n = _e(e, t, n), e = n[0], t = n[1], n = n[2];
   var r, i, o, a;
-  return o = $(e, t, n), a = o - q(e, t, n), r = 0 == a ? null : o == e ? (t - n) / a : o == t ? (n - e) / a + 2 : (e - t) / a + 4, 
+  return o = $(e, t, n), a = o - G(e, t, n), r = 0 == a ? null : o == e ? (t - n) / a : o == t ? (n - e) / a + 2 : (e - t) / a + 4, 
   r = (r + 360) % 6 * 60 / 360, i = 0 == a ? 0 : a / o, {
    h: r,
    s: i,
@@ -15255,7 +14920,7 @@ function() {
  }, n.rgb2hsl = function(e, t, n) {
   n = _e(e, t, n), e = n[0], t = n[1], n = n[2];
   var r, i, o, a, s, l;
-  return a = $(e, t, n), s = q(e, t, n), l = a - s, r = 0 == l ? null : a == e ? (t - n) / l : a == t ? (n - e) / l + 2 : (e - t) / l + 4, 
+  return a = $(e, t, n), s = G(e, t, n), l = a - s, r = 0 == l ? null : a == e ? (t - n) / l : a == t ? (n - e) / l + 2 : (e - t) / l + 4, 
   r = (r + 360) % 6 * 60 / 360, o = (a + s) / 2, i = 0 == l ? 0 : .5 > o ? l / (2 * o) : l / (2 - 2 * o), 
   {
    h: r,
@@ -15291,7 +14956,7 @@ function() {
    toString: a
   };
   !(oe[k](e.toLowerCase().substring(0, 2)) || "#" == e.charAt()) && (e = xe(e));
-  var t, r, i, o, s, l, c = e.match(Q);
+  var t, r, i, o, s, l, c = e.match(X);
   return c ? (c[2] && (i = ee(c[2].substring(5), 16), r = ee(c[2].substring(3, 5), 16), 
   t = ee(c[2].substring(1, 3), 16)), c[3] && (i = ee((s = c[3].charAt(3)) + s, 16), 
   r = ee((s = c[3].charAt(2)) + s, 16), t = ee((s = c[3].charAt(1)) + s, 16)), c[4] && (l = c[4][P](ie), 
@@ -15340,7 +15005,7 @@ function() {
  }, n.parsePathString = function(e) {
   if (!e) return null;
   var t = Ee(e);
-  if (t.arr) return Ie(t.arr);
+  if (t.arr) return Ne(t.arr);
   var r = {
    a: 7,
    c: 6,
@@ -15354,25 +15019,25 @@ function() {
    v: 1,
    z: 0
   }, i = [];
-  return n.is(e, W) && n.is(e[0], W) && (i = Ie(e)), i.length || R(e).replace(se, function(e, t, n) {
+  return n.is(e, W) && n.is(e[0], W) && (i = Ne(e)), i.length || R(e).replace(se, function(e, t, n) {
    var o = [], a = t.toLowerCase();
    if (n.replace(ce, function(e, t) {
     t && o.push(+t);
-   }), "m" == a && o.length > 2 && (i.push([ t ][N](o.splice(0, 2))), a = "l", t = "m" == t ? "l" : "L"), 
-   "r" == a) i.push([ t ][N](o)); else for (;o.length >= r[a] && (i.push([ t ][N](o.splice(0, r[a]))), 
+   }), "m" == a && o.length > 2 && (i.push([ t ][M](o.splice(0, 2))), a = "l", t = "m" == t ? "l" : "L"), 
+   "r" == a) i.push([ t ][M](o)); else for (;o.length >= r[a] && (i.push([ t ][M](o.splice(0, r[a]))), 
    r[a]); ) ;
-  }), i.toString = n._path2string, t.arr = Ie(i), i;
+  }), i.toString = n._path2string, t.arr = Ne(i), i;
  }, n.parseTransformString = o(function(e) {
   if (!e) return null;
   var t = [];
-  return n.is(e, W) && n.is(e[0], W) && (t = Ie(e)), t.length || R(e).replace(le, function(e, n, r) {
+  return n.is(e, W) && n.is(e[0], W) && (t = Ne(e)), t.length || R(e).replace(le, function(e, n, r) {
    {
     var i = [];
     B.call(n);
    }
    r.replace(ce, function(e, t) {
     t && i.push(+t);
-   }), t.push([ n ][N](i));
+   }), t.push([ n ][M](i));
   }), t.toString = n._path2string, t;
  });
  var Ee = function(e) {
@@ -15384,7 +15049,7 @@ function() {
   }), t[e];
  };
  n.findDotsAtSegment = function(e, t, n, r, i, o, a, s, l) {
-  var c = 1 - l, u = H(c, 3), d = H(c, 2), p = l * l, h = p * l, f = u * e + 3 * d * l * n + 3 * c * l * l * i + h * a, m = u * t + 3 * d * l * r + 3 * c * l * l * o + h * s, g = e + 2 * l * (n - e) + p * (i - 2 * n + e), v = t + 2 * l * (r - t) + p * (o - 2 * r + t), b = n + 2 * l * (i - n) + p * (a - 2 * i + n), y = r + 2 * l * (o - r) + p * (s - 2 * o + r), x = c * e + l * n, w = c * t + l * r, S = c * i + l * a, C = c * o + l * s, _ = 90 - 180 * j.atan2(g - b, v - y) / U;
+  var c = 1 - l, u = q(c, 3), d = q(c, 2), p = l * l, h = p * l, f = u * e + 3 * d * l * n + 3 * c * l * l * i + h * a, m = u * t + 3 * d * l * r + 3 * c * l * l * o + h * s, g = e + 2 * l * (n - e) + p * (i - 2 * n + e), v = t + 2 * l * (r - t) + p * (o - 2 * r + t), b = n + 2 * l * (i - n) + p * (a - 2 * i + n), y = r + 2 * l * (o - r) + p * (s - 2 * o + r), x = c * e + l * n, w = c * t + l * r, S = c * i + l * a, C = c * o + l * s, _ = 90 - 180 * j.atan2(g - b, v - y) / U;
   return (g > b || y > v) && (_ += 180), {
    x: f,
    y: m,
@@ -15445,13 +15110,13 @@ function() {
    x2: 0,
    y2: 0
   };
-  e = Oe(e);
+  e = Fe(e);
   for (var n, i = 0, o = 0, a = [], s = [], l = 0, c = e.length; c > l; l++) if (n = e[l], 
   "M" == n[0]) i = n[1], o = n[2], a.push(i), s.push(o); else {
    var u = Pe(i, o, n[1], n[2], n[3], n[4], n[5], n[6]);
-   a = a[N](u.min.x, u.max.x), s = s[N](u.min.y, u.max.y), i = n[5], o = n[6];
+   a = a[M](u.min.x, u.max.x), s = s[M](u.min.y, u.max.y), i = n[5], o = n[6];
   }
-  var d = q[D](0, a), p = q[D](0, s), h = $[D](0, a), f = $[D](0, s), m = h - d, g = f - p, v = {
+  var d = G[D](0, a), p = G[D](0, s), h = $[D](0, a), f = $[D](0, s), m = h - d, g = f - p, v = {
    x: d,
    y: p,
    x2: h,
@@ -15462,12 +15127,12 @@ function() {
    cy: p + g / 2
   };
   return t.bbox = r(v), v;
- }, Ie = function(e) {
+ }, Ne = function(e) {
   var t = r(e);
   return t.toString = n._path2string, t;
  }, De = n._pathToRelative = function(e) {
   var t = Ee(e);
-  if (t.rel) return Ie(t.rel);
+  if (t.rel) return Ne(t.rel);
   n.is(e, W) && n.is(e && e[0], W) || (e = n.parsePathString(e));
   var r = [], i = 0, o = 0, a = 0, s = 0, l = 0;
   "M" == e[0][0] && (i = e[0][1], o = e[0][2], a = i, s = o, l++, r.push([ "M", i, o ]));
@@ -15510,10 +15175,10 @@ function() {
     i += +r[c][v - 2], o += +r[c][v - 1];
    }
   }
-  return r.toString = n._path2string, t.rel = Ie(r), r;
- }, Ne = n._pathToAbsolute = function(e) {
+  return r.toString = n._path2string, t.rel = Ne(r), r;
+ }, Me = n._pathToAbsolute = function(e) {
   var t = Ee(e);
-  if (t.abs) return Ie(t.abs);
+  if (t.abs) return Ne(t.abs);
   if (n.is(e, W) && n.is(e && e[0], W) || (e = n.parsePathString(e)), !e || !e.length) return [ [ "M", 0, 0 ] ];
   var r = [], i = 0, o = 0, a = 0, l = 0, c = 0;
   "M" == e[0][0] && (i = +e[0][1], o = +e[0][2], a = i, l = o, c++, r[0] = [ "M", i, o ]);
@@ -15534,9 +15199,9 @@ function() {
     break;
 
    case "R":
-    for (var m = [ i, o ][N](d.slice(1)), g = 2, v = m.length; v > g; g++) m[g] = +m[g] + i, 
+    for (var m = [ i, o ][M](d.slice(1)), g = 2, v = m.length; v > g; g++) m[g] = +m[g] + i, 
     m[++g] = +m[g] + o;
-    r.pop(), r = r[N](s(m, p));
+    r.pop(), r = r[M](s(m, p));
     break;
 
    case "M":
@@ -15544,8 +15209,8 @@ function() {
 
    default:
     for (g = 1, v = d.length; v > g; g++) u[g] = +d[g] + (g % 2 ? i : o);
-   } else if ("R" == d[0]) m = [ i, o ][N](d.slice(1)), r.pop(), r = r[N](s(m, p)), 
-   u = [ "R" ][N](d.slice(-2)); else for (var b = 0, y = d.length; y > b; b++) u[b] = d[b];
+   } else if ("R" == d[0]) m = [ i, o ][M](d.slice(1)), r.pop(), r = r[M](s(m, p)), 
+   u = [ "R" ][M](d.slice(-2)); else for (var b = 0, y = d.length; y > b; b++) u[b] = d[b];
    switch (u[0]) {
    case "Z":
     i = a, o = l;
@@ -15566,8 +15231,8 @@ function() {
     i = u[u.length - 2], o = u[u.length - 1];
    }
   }
-  return r.toString = n._path2string, t.abs = Ie(r), r;
- }, Me = function(e, t, n, r) {
+  return r.toString = n._path2string, t.abs = Ne(r), r;
+ }, Ie = function(e, t, n, r) {
   return [ e, t, n, r, n, r ];
  }, Le = function(e, t, n, r, i, o) {
   var a = 1 / 3, s = 2 / 3;
@@ -15584,49 +15249,49 @@ function() {
    d = m(e, t, -h), e = d.x, t = d.y, d = m(l, c, -h), l = d.x, c = d.y;
    var g = (j.cos(U / 180 * i), j.sin(U / 180 * i), (e - l) / 2), v = (t - c) / 2, b = g * g / (n * n) + v * v / (r * r);
    b > 1 && (b = j.sqrt(b), n = b * n, r = b * r);
-   var y = n * n, x = r * r, w = (a == s ? -1 : 1) * j.sqrt(G((y * x - y * v * v - x * g * g) / (y * v * v + x * g * g))), S = w * n * v / r + (e + l) / 2, C = w * -r * g / n + (t + c) / 2, _ = j.asin(((t - C) / r).toFixed(9)), k = j.asin(((c - C) / r).toFixed(9));
+   var y = n * n, x = r * r, w = (a == s ? -1 : 1) * j.sqrt(H((y * x - y * v * v - x * g * g) / (y * v * v + x * g * g))), S = w * n * v / r + (e + l) / 2, C = w * -r * g / n + (t + c) / 2, _ = j.asin(((t - C) / r).toFixed(9)), k = j.asin(((c - C) / r).toFixed(9));
    _ = S > e ? U - _ : _, k = S > l ? U - k : k, 0 > _ && (_ = 2 * U + _), 0 > k && (k = 2 * U + k), 
    s && _ > k && (_ -= 2 * U), !s && k > _ && (k -= 2 * U);
   }
   var E = k - _;
-  if (G(E) > p) {
-   var T = k, I = l, D = c;
-   k = _ + p * (s && k > _ ? 1 : -1), l = S + n * j.cos(k), c = C + r * j.sin(k), f = Ae(l, c, n, r, i, 0, s, I, D, [ k, T, S, C ]);
+  if (H(E) > p) {
+   var T = k, N = l, D = c;
+   k = _ + p * (s && k > _ ? 1 : -1), l = S + n * j.cos(k), c = C + r * j.sin(k), f = Ae(l, c, n, r, i, 0, s, N, D, [ k, T, S, C ]);
   }
   E = k - _;
-  var M = j.cos(_), L = j.sin(_), A = j.cos(k), R = j.sin(k), O = j.tan(E / 4), F = 4 / 3 * n * O, B = 4 / 3 * r * O, $ = [ e, t ], q = [ e + F * L, t - B * M ], H = [ l + F * R, c - B * A ], z = [ l, c ];
-  if (q[0] = 2 * $[0] - q[0], q[1] = 2 * $[1] - q[1], u) return [ q, H, z ][N](f);
-  f = [ q, H, z ][N](f).join()[P](",");
-  for (var V = [], W = 0, X = f.length; X > W; W++) V[W] = W % 2 ? m(f[W - 1], f[W], h).y : m(f[W], f[W + 1], h).x;
+  var I = j.cos(_), L = j.sin(_), A = j.cos(k), R = j.sin(k), F = j.tan(E / 4), O = 4 / 3 * n * F, B = 4 / 3 * r * F, $ = [ e, t ], G = [ e + O * L, t - B * I ], q = [ l + O * R, c - B * A ], z = [ l, c ];
+  if (G[0] = 2 * $[0] - G[0], G[1] = 2 * $[1] - G[1], u) return [ G, q, z ][M](f);
+  f = [ G, q, z ][M](f).join()[P](",");
+  for (var V = [], W = 0, Q = f.length; Q > W; W++) V[W] = W % 2 ? m(f[W - 1], f[W], h).y : m(f[W], f[W + 1], h).x;
   return V;
  }, Re = function(e, t, n, r, i, o, a, s, l) {
   var c = 1 - l;
   return {
-   x: H(c, 3) * e + 3 * H(c, 2) * l * n + 3 * c * l * l * i + H(l, 3) * a,
-   y: H(c, 3) * t + 3 * H(c, 2) * l * r + 3 * c * l * l * o + H(l, 3) * s
+   x: q(c, 3) * e + 3 * q(c, 2) * l * n + 3 * c * l * l * i + q(l, 3) * a,
+   y: q(c, 3) * t + 3 * q(c, 2) * l * r + 3 * c * l * l * o + q(l, 3) * s
   };
  }, Pe = o(function(e, t, n, r, i, o, a, s) {
   var l, c = i - 2 * n + e - (a - 2 * i + n), u = 2 * (n - e) - 2 * (i - n), d = e - n, p = (-u + j.sqrt(u * u - 4 * c * d)) / 2 / c, h = (-u - j.sqrt(u * u - 4 * c * d)) / 2 / c, f = [ t, s ], m = [ e, a ];
-  return G(p) > "1e12" && (p = .5), G(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Re(e, t, n, r, i, o, a, s, p), 
+  return H(p) > "1e12" && (p = .5), H(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Re(e, t, n, r, i, o, a, s, p), 
   m.push(l.x), f.push(l.y)), h > 0 && 1 > h && (l = Re(e, t, n, r, i, o, a, s, h), 
   m.push(l.x), f.push(l.y)), c = o - 2 * r + t - (s - 2 * o + r), u = 2 * (r - t) - 2 * (o - r), 
   d = t - r, p = (-u + j.sqrt(u * u - 4 * c * d)) / 2 / c, h = (-u - j.sqrt(u * u - 4 * c * d)) / 2 / c, 
-  G(p) > "1e12" && (p = .5), G(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Re(e, t, n, r, i, o, a, s, p), 
+  H(p) > "1e12" && (p = .5), H(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Re(e, t, n, r, i, o, a, s, p), 
   m.push(l.x), f.push(l.y)), h > 0 && 1 > h && (l = Re(e, t, n, r, i, o, a, s, h), 
   m.push(l.x), f.push(l.y)), {
    min: {
-    x: q[D](0, m),
-    y: q[D](0, f)
+    x: G[D](0, m),
+    y: G[D](0, f)
    },
    max: {
     x: $[D](0, m),
     y: $[D](0, f)
    }
   };
- }), Oe = n._path2curve = o(function(e, t) {
+ }), Fe = n._path2curve = o(function(e, t) {
   var n = !t && Ee(e);
-  if (!t && n.curve) return Ie(n.curve);
-  for (var r = Ne(e), i = t && Ne(t), o = {
+  if (!t && n.curve) return Ne(n.curve);
+  for (var r = Me(e), i = t && Me(t), o = {
    x: 0,
    y: 0,
    bx: 0,
@@ -15656,43 +15321,43 @@ function() {
     break;
 
    case "A":
-    e = [ "C" ][N](Ae[D](0, [ t.x, t.y ][N](e.slice(1))));
+    e = [ "C" ][M](Ae[D](0, [ t.x, t.y ][M](e.slice(1))));
     break;
 
    case "S":
     "C" == n || "S" == n ? (r = 2 * t.x - t.bx, i = 2 * t.y - t.by) : (r = t.x, i = t.y), 
-    e = [ "C", r, i ][N](e.slice(1));
+    e = [ "C", r, i ][M](e.slice(1));
     break;
 
    case "T":
     "Q" == n || "T" == n ? (t.qx = 2 * t.x - t.qx, t.qy = 2 * t.y - t.qy) : (t.qx = t.x, 
-    t.qy = t.y), e = [ "C" ][N](Le(t.x, t.y, t.qx, t.qy, e[1], e[2]));
+    t.qy = t.y), e = [ "C" ][M](Le(t.x, t.y, t.qx, t.qy, e[1], e[2]));
     break;
 
    case "Q":
-    t.qx = e[1], t.qy = e[2], e = [ "C" ][N](Le(t.x, t.y, e[1], e[2], e[3], e[4]));
+    t.qx = e[1], t.qy = e[2], e = [ "C" ][M](Le(t.x, t.y, e[1], e[2], e[3], e[4]));
     break;
 
    case "L":
-    e = [ "C" ][N](Me(t.x, t.y, e[1], e[2]));
+    e = [ "C" ][M](Ie(t.x, t.y, e[1], e[2]));
     break;
 
    case "H":
-    e = [ "C" ][N](Me(t.x, t.y, e[1], t.y));
+    e = [ "C" ][M](Ie(t.x, t.y, e[1], t.y));
     break;
 
    case "V":
-    e = [ "C" ][N](Me(t.x, t.y, t.x, e[1]));
+    e = [ "C" ][M](Ie(t.x, t.y, t.x, e[1]));
     break;
 
    case "Z":
-    e = [ "C" ][N](Me(t.x, t.y, t.X, t.Y));
+    e = [ "C" ][M](Ie(t.x, t.y, t.X, t.Y));
    }
    return e;
   }), l = function(e, t) {
    if (e[t].length > 7) {
     e[t].shift();
-    for (var n = e[t]; n.length; ) u[t] = "A", i && (d[t] = "A"), e.splice(t++, 0, [ "C" ][N](n.splice(0, 6)));
+    for (var n = e[t]; n.length; ) u[t] = "A", i && (d[t] = "A"), e.splice(t++, 0, [ "C" ][M](n.splice(0, 6)));
     e.splice(t, 1), m = $(r.length, i && i.length || 0);
    }
   }, c = function(e, t, n, o, a) {
@@ -15708,8 +15373,8 @@ function() {
    a.bx = i && (Z(v[y - 4]) || a.x), a.by = i && (Z(v[y - 3]) || a.y), a.x = i && v[y - 2], 
    a.y = i && v[y - 1];
   }
-  return i || (n.curve = Ie(r)), i ? [ r, i ] : r;
- }, null, Ie), Fe = (n._parseDots = o(function(e) {
+  return i || (n.curve = Ne(r)), i ? [ r, i ] : r;
+ }, null, Ne), Oe = (n._parseDots = o(function(e) {
   for (var t = [], r = 0, i = e.length; i > r; r++) {
    var o = {}, a = e[r].match(/^([^:]*):?([\d\.]*)/);
    if (o.color = n.getRGB(a[1]), o.color.error) return null;
@@ -15728,15 +15393,15 @@ function() {
   e == t.top && (t.top = e.prev), e == t.bottom && (t.bottom = e.next), e.next && (e.next.prev = e.prev), 
   e.prev && (e.prev.next = e.next);
  }), Be = (n._tofront = function(e, t) {
-  t.top !== e && (Fe(e, t), e.next = null, e.prev = t.top, t.top.next = e, t.top = e);
+  t.top !== e && (Oe(e, t), e.next = null, e.prev = t.top, t.top.next = e, t.top = e);
  }, n._toback = function(e, t) {
-  t.bottom !== e && (Fe(e, t), e.next = t.bottom, e.prev = null, t.bottom.prev = e, 
+  t.bottom !== e && (Oe(e, t), e.next = t.bottom, e.prev = null, t.bottom.prev = e, 
   t.bottom = e);
  }, n._insertafter = function(e, t, n) {
-  Fe(e, n), t == n.top && (n.top = e), t.next && (t.next.prev = e), e.next = t.next, 
+  Oe(e, n), t == n.top && (n.top = e), t.next && (t.next.prev = e), e.next = t.next, 
   e.prev = t, t.next = e;
  }, n._insertbefore = function(e, t, n) {
-  Fe(e, n), t == n.bottom && (n.bottom = e), t.prev && (t.prev.next = e), e.prev = t.prev, 
+  Oe(e, n), t == n.bottom && (n.bottom = e), t.prev && (t.prev.next = e), e.prev = t.prev, 
   t.prev = e, e.next = t;
  }, n.toMatrix = function(e, t) {
   var n = Te(e), r = {
@@ -15782,7 +15447,7 @@ function() {
   case "s":
    return 5 == e.length ? [ t, 1, 1, e[3], e[4] ] : 3 == e.length ? [ t, 1, 1 ] : [ t, 1 ];
   }
- }, qe = n._equaliseTransform = function(e, t) {
+ }, Ge = n._equaliseTransform = function(e, t) {
   t = R(t).replace(/\.{3}|\u2026/g, e), e = n.parseTransformString(e) || [], t = n.parseTransformString(t) || [];
   for (var r, i, o, a, s = $(e.length, t.length), l = [], c = [], u = 0; s > u; u++) {
    if (o = e[u] || $e(t[u]), a = t[u] || $e(o), o[0] != a[0] || "r" == o[0].toLowerCase() && (o[2] != a[2] || o[3] != a[3]) || "s" == o[0].toLowerCase() && (o[3] != a[3] || o[4] != a[4])) return;
@@ -15811,7 +15476,7 @@ function() {
    width: r,
    height: i
   } : void 0;
- }, n.pathToRelative = De, n._engine = {}, n.path2curve = Oe, n.matrix = function(e, t, n, r, i, o) {
+ }, n.pathToRelative = De, n._engine = {}, n.path2curve = Fe, n.matrix = function(e, t, n, r, i, o) {
   return new f(e, t, n, r, i, o);
  }, function(e) {
   function t(e) {
@@ -15874,8 +15539,8 @@ function() {
    t.rotate = +t.rotate.toFixed(4), (t.dx || t.dy ? "t" + [ t.dx, t.dy ] : L) + (1 != t.scalex || 1 != t.scaley ? "s" + [ t.scalex, t.scaley, 0, 0 ] : L) + (t.rotate ? "r" + [ t.rotate, 0, 0 ] : L)) : "m" + [ this.get(0), this.get(1), this.get(2), this.get(3), this.get(4), this.get(5) ];
   };
  }(f.prototype);
- var Ge = navigator.userAgent.match(/Version\/(.*?)\s/) || navigator.userAgent.match(/Chrome\/(\d+)/);
- w.safari = "Apple Computer, Inc." == navigator.vendor && (Ge && Ge[1] < 4 || "iP" == navigator.platform.slice(0, 2)) || "Google Inc." == navigator.vendor && Ge && Ge[1] < 8 ? function() {
+ var He = navigator.userAgent.match(/Version\/(.*?)\s/) || navigator.userAgent.match(/Chrome\/(\d+)/);
+ w.safari = "Apple Computer, Inc." == navigator.vendor && (He && He[1] < 4 || "iP" == navigator.platform.slice(0, 2)) || "Google Inc." == navigator.vendor && He && He[1] < 8 ? function() {
   var e = this.rect(-99, -99, this.width + 99, this.height + 99).attr({
    stroke: "none"
   });
@@ -15883,7 +15548,7 @@ function() {
    e.remove();
   });
  } : pe;
- for (var He = function() {
+ for (var qe = function() {
   this.returnValue = !1;
  }, Ue = function() {
   return this.originalEvent.preventDefault();
@@ -15897,13 +15562,13 @@ function() {
    x: e.clientX + n,
    y: e.clientY + t
   };
- }, Xe = function() {
+ }, Qe = function() {
   return E.doc.addEventListener ? function(e, t, n, r) {
    var i = function(e) {
     var t = We(e);
     return n.call(r, e, t.x, t.y);
    };
-   if (e.addEventListener(t, i, !1), M && F[t]) {
+   if (e.addEventListener(t, i, !1), I && O[t]) {
     var o = function(t) {
      for (var i = We(t), o = t, a = 0, s = t.targetTouches && t.targetTouches.length; s > a; a++) if (t.targetTouches[a].target == e) {
       t = t.targetTouches[a], t.originalEvent = o, t.preventDefault = Ue, t.stopPropagation = Ve;
@@ -15911,17 +15576,17 @@ function() {
      }
      return n.call(r, t, i.x, i.y);
     };
-    e.addEventListener(F[t], o, !1);
+    e.addEventListener(O[t], o, !1);
    }
    return function() {
-    return e.removeEventListener(t, i, !1), M && F[t] && e.removeEventListener(F[t], o, !1), 
+    return e.removeEventListener(t, i, !1), I && O[t] && e.removeEventListener(O[t], o, !1), 
     !0;
    };
   } : E.doc.attachEvent ? function(e, t, n, r) {
    var i = function(e) {
     e = e || E.win.event;
     var t = E.doc.documentElement.scrollTop || E.doc.body.scrollTop, i = E.doc.documentElement.scrollLeft || E.doc.body.scrollLeft, o = e.clientX + i, a = e.clientY + t;
-    return e.preventDefault = e.preventDefault || He, e.stopPropagation = e.stopPropagation || ze, 
+    return e.preventDefault = e.preventDefault || qe, e.stopPropagation = e.stopPropagation || ze, 
     n.call(r, e, o, a);
    };
    e.attachEvent("on" + t, i);
@@ -15930,9 +15595,9 @@ function() {
    };
    return o;
   } : void 0;
- }(), Qe = [], Ye = function(e) {
-  for (var n, r = e.clientX, i = e.clientY, o = E.doc.documentElement.scrollTop || E.doc.body.scrollTop, a = E.doc.documentElement.scrollLeft || E.doc.body.scrollLeft, s = Qe.length; s--; ) {
-   if (n = Qe[s], M && e.touches) {
+ }(), Xe = [], Ke = function(e) {
+  for (var n, r = e.clientX, i = e.clientY, o = E.doc.documentElement.scrollTop || E.doc.body.scrollTop, a = E.doc.documentElement.scrollLeft || E.doc.body.scrollLeft, s = Xe.length; s--; ) {
+   if (n = Xe[s], I && e.touches) {
     for (var l, c = e.touches.length; c--; ) if (l = e.touches[c], l.identifier == n.el._drag.id) {
      r = l.clientX, i = l.clientY, (e.originalEvent ? e.originalEvent : e).preventDefault();
      break;
@@ -15943,23 +15608,23 @@ function() {
    d.style.display = f, E.win.opera && (p ? h.insertBefore(d, p) : h.appendChild(d)), 
    u && t("raphael.drag.over." + n.el.id, n.el, u), r += a, i += o, t("raphael.drag.move." + n.el.id, n.move_scope || n.el, r - n.el._drag.x, i - n.el._drag.y, r, i, e);
   }
- }, Ke = function(e) {
-  n.unmousemove(Ye).unmouseup(Ke);
-  for (var r, i = Qe.length; i--; ) r = Qe[i], r.el._drag = {}, t("raphael.drag.end." + r.el.id, r.end_scope || r.start_scope || r.move_scope || r.el, e);
-  Qe = [];
- }, Je = n.el = {}, Ze = O.length; Ze--; ) !function(e) {
+ }, Ye = function(e) {
+  n.unmousemove(Ke).unmouseup(Ye);
+  for (var r, i = Xe.length; i--; ) r = Xe[i], r.el._drag = {}, t("raphael.drag.end." + r.el.id, r.end_scope || r.start_scope || r.move_scope || r.el, e);
+  Xe = [];
+ }, Je = n.el = {}, Ze = F.length; Ze--; ) !function(e) {
   n[e] = Je[e] = function(t, r) {
    return n.is(t, "function") && (this.events = this.events || [], this.events.push({
     name: e,
     f: t,
-    unbind: Xe(this.shape || this.node || E.doc, e, t, r || this)
+    unbind: Qe(this.shape || this.node || E.doc, e, t, r || this)
    })), this;
   }, n["un" + e] = Je["un" + e] = function(t) {
    for (var r = this.events || [], i = r.length; i--; ) r[i].name != e || !n.is(t, "undefined") && r[i].f != t || (r[i].unbind(), 
    r.splice(i, 1), !r.length && delete this.events);
    return this;
   };
- }(O[Ze]);
+ }(F[Ze]);
  Je.data = function(e, r) {
   var i = ue[this.id] = ue[this.id] || {};
   if (0 == arguments.length) return i;
@@ -15985,13 +15650,13 @@ function() {
   function l(l) {
    (l.originalEvent || l).preventDefault();
    var c = l.clientX, u = l.clientY, d = E.doc.documentElement.scrollTop || E.doc.body.scrollTop, p = E.doc.documentElement.scrollLeft || E.doc.body.scrollLeft;
-   if (this._drag.id = l.identifier, M && l.touches) for (var h, f = l.touches.length; f--; ) if (h = l.touches[f], 
+   if (this._drag.id = l.identifier, I && l.touches) for (var h, f = l.touches.length; f--; ) if (h = l.touches[f], 
    this._drag.id = h.identifier, h.identifier == this._drag.id) {
     c = h.clientX, u = h.clientY;
     break;
    }
-   this._drag.x = c + p, this._drag.y = u + d, !Qe.length && n.mousemove(Ye).mouseup(Ke), 
-   Qe.push({
+   this._drag.x = c + p, this._drag.y = u + d, !Xe.length && n.mousemove(Ke).mouseup(Ye), 
+   Xe.push({
     el: this,
     move_scope: o,
     start_scope: a,
@@ -16008,7 +15673,7 @@ function() {
  }, Je.undrag = function() {
   for (var e = et.length; e--; ) et[e].el == this && (this.unmousedown(et[e].start), 
   et.splice(e, 1), t.unbind("raphael.drag.*." + this.id));
-  !et.length && n.unmousemove(Ye).unmouseup(Ke), Qe = [];
+  !et.length && n.unmousemove(Ke).unmouseup(Ye), Xe = [];
  }, w.circle = function(e, t, r) {
   var i = n._engine.circle(this, e || 0, t || 0, r || 0);
   return this.__set__ && this.__set__.push(i), i;
@@ -16129,7 +15794,7 @@ function() {
   return null == d ? c(e, t, r, i, o, a, s, l) : n.findDotsAtSegment(e, t, r, i, o, a, s, l, u(e, t, r, i, o, a, s, l, d));
  }, rt = function(e, t) {
   return function(r, i, o) {
-   r = Oe(r);
+   r = Fe(r);
    for (var a, s, l, c, u, d = "", p = {}, h = 0, f = 0, m = r.length; m > f; f++) {
     if (l = r[f], "M" == l[0]) a = +l[1], s = +l[2]; else {
      if (c = nt(a, s, l[1], l[2], l[3], l[4], l[5], l[6]), h + c > i) {
@@ -16180,13 +15845,13 @@ function() {
    return e;
   },
   "<": function(e) {
-   return H(e, 1.7);
+   return q(e, 1.7);
   },
   ">": function(e) {
-   return H(e, .48);
+   return q(e, .48);
   },
   "<>": function(e) {
-   var t = .48 - e / 1.04, n = j.sqrt(.1734 + t * t), r = n - t, i = H(G(r), 1 / 3) * (0 > r ? -1 : 1), o = -n - t, a = H(G(o), 1 / 3) * (0 > o ? -1 : 1), s = i + a + .5;
+   var t = .48 - e / 1.04, n = j.sqrt(.1734 + t * t), r = n - t, i = q(H(r), 1 / 3) * (0 > r ? -1 : 1), o = -n - t, a = q(H(o), 1 / 3) * (0 > o ? -1 : 1), s = i + a + .5;
    return 3 * (1 - s) * s * s + s * s * s;
   },
   backIn: function(e) {
@@ -16199,7 +15864,7 @@ function() {
    return e * e * ((t + 1) * e + t) + 1;
   },
   elastic: function(e) {
-   return e == !!e ? e : H(2, -10 * e) * j.sin(2 * (e - .075) * U / .3) + 1;
+   return e == !!e ? e : q(2, -10 * e) * j.sin(2 * (e - .075) * U / .3) + 1;
   },
   bounce: function(e) {
    var t, n = 7.5625, r = 2.75;
@@ -16256,7 +15921,7 @@ function() {
        break;
 
       default:
-       var _ = [][N](u[v]);
+       var _ = [][M](u[v]);
        for (o = [], y = h.paper.customAttributes[v].length; y--; ) o[y] = +_[y] + g * l * d[v][y];
       }
       f[v] = o;
@@ -16325,10 +15990,10 @@ function() {
   var a = e instanceof v ? e : n.animation(e, t, r, i);
   return b(a, o, a.percents[0], null, o.attr()), o;
  }, Je.setTime = function(e, t) {
-  return e && null != t && this.status(e, q(t, e.ms) / e.ms), this;
+  return e && null != t && this.status(e, G(t, e.ms) / e.ms), this;
  }, Je.status = function(e, t) {
   var n, r, i = [], o = 0;
-  if (null != t) return b(e, this, -1, q(t, 1)), this;
+  if (null != t) return b(e, this, -1, G(t, 1)), this;
   for (n = lt.length; n > o; o++) if (r = lt[o], r.el.id == this.id && (!e || r.anim == e)) {
    if (e) return r.status;
    i.push({
@@ -16380,7 +16045,7 @@ function() {
  }, ht.clear = function() {
   for (;this.length; ) this.pop();
  }, ht.splice = function(e, t, n) {
-  e = 0 > e ? $(this.length + e, 0) : e, t = $(0, q(this.length - e, t));
+  e = 0 > e ? $(this.length + e, 0) : e, t = $(0, G(this.length - e, t));
   var r, i = [], o = [], a = [];
   for (r = 2; r < arguments.length; r++) a.push(arguments[r]);
   for (r = 0; t > r; r++) o.push(this[e + r]);
@@ -16411,7 +16076,7 @@ function() {
    var o = this.items[i].getBBox();
    e.push(o.x), t.push(o.y), n.push(o.x + o.width), r.push(o.y + o.height);
   }
-  return e = q[D](0, e), t = q[D](0, t), n = $[D](0, n), r = $[D](0, r), {
+  return e = G[D](0, e), t = G[D](0, t), n = $[D](0, n), r = $[D](0, r), {
    x: e,
    y: t,
    x2: n,
@@ -16488,7 +16153,7 @@ function() {
    return l;
   }
  }, w.print = function(e, t, r, i, o, a, s, l) {
-  a = a || "middle", s = $(q(s || 0, 1), -1), l = $(q(l || 1, 3), 1);
+  a = a || "middle", s = $(G(s || 0, 1), -1), l = $(G(l || 1, 3), 1);
   var c, u = R(r)[P](L), d = 0, p = 0, h = L;
   if (n.is(i, "string") && (i = this.getFont(i)), i) {
    c = (o || 16) / i.face["units-per-em"];
@@ -16509,7 +16174,7 @@ function() {
   C[k](t.type) && r.push(this[t.type]().attr(t));
   return r;
  }, n.format = function(e, t) {
-  var r = n.is(t, W) ? [ 0 ][N](t) : arguments;
+  var r = n.is(t, W) ? [ 0 ][M](t) : arguments;
   return e && n.is(e, V) && r.length - 1 && (e = e.replace(_, function(e, t) {
    return null == r[++t] ? L : r[t];
   })), e || L;
@@ -16644,24 +16309,24 @@ function() {
        d: f[S],
        id: E
       })), m[E] = 1);
-      var I, D = n._g.doc.getElementById(T);
-      D ? (m[T]++, I = D.getElementsByTagName("use")[0]) : (D = g(g("marker"), {
+      var N, D = n._g.doc.getElementById(T);
+      D ? (m[T]++, N = D.getElementsByTagName("use")[0]) : (D = g(g("marker"), {
        id: T,
        markerHeight: _,
        markerWidth: C,
        orient: "auto",
        refX: c,
        refY: _ / 2
-      }), I = g(g("use"), {
+      }), N = g(g("use"), {
        "xlink:href": "#" + E,
        transform: (o ? "rotate(180 " + C / 2 + " " + _ / 2 + ") " : d) + "scale(" + C / k + "," + _ / k + ")",
        "stroke-width": (1 / ((C / k + _ / k) / 2)).toFixed(4)
-      }), D.appendChild(I), h.defs.appendChild(D), m[T] = 1), g(I, u);
-      var N = l * ("diamond" != S && "oval" != S);
-      o ? (a = r._.arrows.startdx * x || 0, s = n.getTotalLength(y.path) - N * x) : (a = N * x, 
+      }), D.appendChild(N), h.defs.appendChild(D), m[T] = 1), g(N, u);
+      var M = l * ("diamond" != S && "oval" != S);
+      o ? (a = r._.arrows.startdx * x || 0, s = n.getTotalLength(y.path) - M * x) : (a = M * x, 
       s = n.getTotalLength(y.path) - (r._.arrows.enddx * x || 0)), u = {}, u["marker-" + v] = "url(#" + T + ")", 
       (s || a) && (u.d = n.getSubpath(y.path, a, s)), g(b, u), r._.arrows[v + "Path"] = E, 
-      r._.arrows[v + "Marker"] = T, r._.arrows[v + "dx"] = N, r._.arrows[v + "Type"] = S, 
+      r._.arrows[v + "Marker"] = T, r._.arrows[v + "dx"] = M, r._.arrows[v + "Type"] = S, 
       r._.arrows[v + "String"] = i;
      } else o ? (a = r._.arrows.startdx * x || 0, s = n.getTotalLength(y.path) - a) : (a = 0, 
      s = n.getTotalLength(y.path) - (r._.arrows.enddx * x || 0)), r._.arrows[v + "Path"] && g(b, {
@@ -16669,8 +16334,8 @@ function() {
      }), delete r._.arrows[v + "Path"], delete r._.arrows[v + "Marker"], delete r._.arrows[v + "dx"], 
      delete r._.arrows[v + "Type"], delete r._.arrows[v + "String"];
      for (u in m) if (m[e](u) && !m[u]) {
-      var M = n._g.doc.getElementById(u);
-      M && M.parentNode.removeChild(M);
+      var I = n._g.doc.getElementById(u);
+      I && I.parentNode.removeChild(I);
      }
     }
    }, x = {
@@ -16747,21 +16412,21 @@ function() {
       var E = t(m).split(c);
       if (4 == E.length) {
        r.clip && r.clip.parentNode.parentNode.removeChild(r.clip.parentNode);
-       var T = g("clipPath"), I = g("rect");
-       T.id = n.createUUID(), g(I, {
+       var T = g("clipPath"), N = g("rect");
+       T.id = n.createUUID(), g(N, {
         x: E[0],
         y: E[1],
         width: E[2],
         height: E[3]
-       }), T.appendChild(I), r.paper.defs.appendChild(T), g(l, {
+       }), T.appendChild(N), r.paper.defs.appendChild(T), g(l, {
         "clip-path": "url(#" + T.id + ")"
-       }), r.clip = I;
+       }), r.clip = N;
       }
       if (!m) {
        var D = l.getAttribute("clip-path");
        if (D) {
-        var N = n._g.doc.getElementById(D.replace(/(^url\(#|\)$)/g, d));
-        N && N.parentNode.removeChild(N), g(l, {
+        var M = n._g.doc.getElementById(D.replace(/(^url\(#|\)$)/g, d));
+        M && M.parentNode.removeChild(M), g(l, {
          "clip-path": d
         }), delete r.clip;
        }
@@ -16825,8 +16490,8 @@ function() {
       break;
 
      case "fill":
-      var M = t(m).match(n._ISURL);
-      if (M) {
+      var I = t(m).match(n._ISURL);
+      if (I) {
        T = g("pattern");
        var L = g("image");
        T.id = n.createUUID(), g(T, {
@@ -16838,9 +16503,9 @@ function() {
        }), g(L, {
         x: 0,
         y: 0,
-        "xlink:href": M[1]
+        "xlink:href": I[1]
        }), T.appendChild(L), function(e) {
-        n._preload(M[1], function() {
+        n._preload(I[1], function() {
          var t = this.offsetWidth, n = this.offsetHeight;
          g(e, {
           width: t,
@@ -16906,10 +16571,10 @@ function() {
 
      default:
       "font-size" == f && (m = i(m, 10) + "px");
-      var O = f.replace(/(\-.)/g, function(e) {
+      var F = f.replace(/(\-.)/g, function(e) {
        return e.substring(1).toUpperCase();
       });
-      l.style[O] = m, r._.dirty = 1, l.setAttribute(f, m);
+      l.style[F] = m, r._.dirty = 1, l.setAttribute(f, m);
      }
     }
     _(r, o), l.style.visibility = p;
@@ -17209,8 +16874,8 @@ function() {
     u("raphael.remove", this), this.canvas.parentNode && this.canvas.parentNode.removeChild(this.canvas);
     for (var e in this) this[e] = "function" == typeof this[e] ? n._removedFactory(e) : null;
    };
-   var I = n.st;
-   for (var D in T) T[e](D) && !I[e](D) && (I[D] = function(e) {
+   var N = n.st;
+   for (var D in T) T[e](D) && !N[e](D) && (N[D] = function(e) {
     return function() {
      var t = arguments;
      return this.forEach(function(n) {
@@ -17313,8 +16978,8 @@ function() {
     "blur" in l && i.blur(l.blur), (l.path && "path" == i.type || g) && (d.path = C(~t(p.path).toLowerCase().indexOf("r") ? n._pathToAbsolute(p.path) : p.path), 
     i._.dirty = 1, "image" == i.type && (i._.fillpos = [ p.x, p.y ], i._.fillsize = [ p.width, p.height ], 
     k(i, 1, 1, 0, 0, 0))), "transform" in l && i.transform(l.transform), v) {
-     var _ = +p.cx, T = +p.cy, D = +p.rx || +p.r || 0, N = +p.ry || +p.r || 0;
-     d.path = n.format("ar{0},{1},{2},{3},{4},{1},{4},{1}x", o((_ - D) * x), o((T - N) * x), o((_ + D) * x), o((T + N) * x), o(_ * x)), 
+     var _ = +p.cx, T = +p.cy, D = +p.rx || +p.r || 0, M = +p.ry || +p.r || 0;
+     d.path = n.format("ar{0},{1},{2},{3},{4},{1},{4},{1}x", o((_ - D) * x), o((T - M) * x), o((_ + D) * x), o((T + M) * x), o(_ * x)), 
      i._.dirty = 1;
     }
     if ("clip-rect" in l) {
@@ -17336,37 +17001,37 @@ function() {
     }
     if ("arrow-start" in l && E(b, l["arrow-start"]), "arrow-end" in l && E(b, l["arrow-end"], 1), 
     null != l.opacity || null != l["stroke-width"] || null != l.fill || null != l.src || null != l.stroke || null != l["stroke-width"] || null != l["stroke-opacity"] || null != l["fill-opacity"] || null != l["stroke-dasharray"] || null != l["stroke-miterlimit"] || null != l["stroke-linejoin"] || null != l["stroke-linecap"]) {
-     var O = d.getElementsByTagName(c), F = !1;
-     if (O = O && O[0], !O && (F = O = M(c)), "image" == i.type && l.src && (O.src = l.src), 
-     l.fill && (O.on = !0), (null == O.on || "none" == l.fill || null === l.fill) && (O.on = !1), 
-     O.on && l.fill) {
+     var F = d.getElementsByTagName(c), O = !1;
+     if (F = F && F[0], !F && (O = F = I(c)), "image" == i.type && l.src && (F.src = l.src), 
+     l.fill && (F.on = !0), (null == F.on || "none" == l.fill || null === l.fill) && (F.on = !1), 
+     F.on && l.fill) {
       var B = t(l.fill).match(n._ISURL);
       if (B) {
-       O.parentNode == d && d.removeChild(O), O.rotate = !0, O.src = B[1], O.type = "tile";
+       F.parentNode == d && d.removeChild(F), F.rotate = !0, F.src = B[1], F.type = "tile";
        var j = i.getBBox(1);
-       O.position = j.x + h + j.y, i._.fillpos = [ j.x, j.y ], n._preload(B[1], function() {
+       F.position = j.x + h + j.y, i._.fillpos = [ j.x, j.y ], n._preload(B[1], function() {
         i._.fillsize = [ this.offsetWidth, this.offsetHeight ];
        });
-      } else O.color = n.getRGB(l.fill).hex, O.src = f, O.type = "solid", n.getRGB(l.fill).error && (b.type in {
+      } else F.color = n.getRGB(l.fill).hex, F.src = f, F.type = "solid", n.getRGB(l.fill).error && (b.type in {
        circle: 1,
        ellipse: 1
-      } || "r" != t(l.fill).charAt()) && I(b, l.fill, O) && (p.fill = "none", p.gradient = l.fill, 
-      O.rotate = !1);
+      } || "r" != t(l.fill).charAt()) && N(b, l.fill, F) && (p.fill = "none", p.gradient = l.fill, 
+      F.rotate = !1);
      }
      if ("fill-opacity" in l || "opacity" in l) {
       var $ = ((+p["fill-opacity"] + 1 || 2) - 1) * ((+p.opacity + 1 || 2) - 1) * ((+n.getRGB(l.fill).o + 1 || 2) - 1);
-      $ = s(a($, 0), 1), O.opacity = $, O.src && (O.color = "none");
+      $ = s(a($, 0), 1), F.opacity = $, F.src && (F.color = "none");
      }
-     d.appendChild(O);
-     var q = d.getElementsByTagName("stroke") && d.getElementsByTagName("stroke")[0], G = !1;
-     !q && (G = q = M("stroke")), (l.stroke && "none" != l.stroke || l["stroke-width"] || null != l["stroke-opacity"] || l["stroke-dasharray"] || l["stroke-miterlimit"] || l["stroke-linejoin"] || l["stroke-linecap"]) && (q.on = !0), 
-     ("none" == l.stroke || null === l.stroke || null == q.on || 0 == l.stroke || 0 == l["stroke-width"]) && (q.on = !1);
-     var H = n.getRGB(l.stroke);
-     q.on && l.stroke && (q.color = H.hex), $ = ((+p["stroke-opacity"] + 1 || 2) - 1) * ((+p.opacity + 1 || 2) - 1) * ((+H.o + 1 || 2) - 1);
+     d.appendChild(F);
+     var G = d.getElementsByTagName("stroke") && d.getElementsByTagName("stroke")[0], H = !1;
+     !G && (H = G = I("stroke")), (l.stroke && "none" != l.stroke || l["stroke-width"] || null != l["stroke-opacity"] || l["stroke-dasharray"] || l["stroke-miterlimit"] || l["stroke-linejoin"] || l["stroke-linecap"]) && (G.on = !0), 
+     ("none" == l.stroke || null === l.stroke || null == G.on || 0 == l.stroke || 0 == l["stroke-width"]) && (G.on = !1);
+     var q = n.getRGB(l.stroke);
+     G.on && l.stroke && (G.color = q.hex), $ = ((+p["stroke-opacity"] + 1 || 2) - 1) * ((+p.opacity + 1 || 2) - 1) * ((+q.o + 1 || 2) - 1);
      var U = .75 * (r(l["stroke-width"]) || 1);
-     if ($ = s(a($, 0), 1), null == l["stroke-width"] && (U = p["stroke-width"]), l["stroke-width"] && (q.weight = U), 
-     U && 1 > U && ($ *= U) && (q.weight = 1), q.opacity = $, l["stroke-linejoin"] && (q.joinstyle = l["stroke-linejoin"] || "miter"), 
-     q.miterlimit = l["stroke-miterlimit"] || 8, l["stroke-linecap"] && (q.endcap = "butt" == l["stroke-linecap"] ? "flat" : "square" == l["stroke-linecap"] ? "square" : "round"), 
+     if ($ = s(a($, 0), 1), null == l["stroke-width"] && (U = p["stroke-width"]), l["stroke-width"] && (G.weight = U), 
+     U && 1 > U && ($ *= U) && (G.weight = 1), G.opacity = $, l["stroke-linejoin"] && (G.joinstyle = l["stroke-linejoin"] || "miter"), 
+     G.miterlimit = l["stroke-miterlimit"] || 8, l["stroke-linecap"] && (G.endcap = "butt" == l["stroke-linecap"] ? "flat" : "square" == l["stroke-linecap"] ? "square" : "round"), 
      "stroke-dasharray" in l) {
       var z = {
        "-": "shortdash",
@@ -17380,20 +17045,20 @@ function() {
        "--.": "longdashdot",
        "--..": "longdashdotdot"
       };
-      q.dashstyle = z[e](l["stroke-dasharray"]) ? z[l["stroke-dasharray"]] : f;
+      G.dashstyle = z[e](l["stroke-dasharray"]) ? z[l["stroke-dasharray"]] : f;
      }
-     G && d.appendChild(q);
+     H && d.appendChild(G);
     }
     if ("text" == b.type) {
      b.paper.canvas.style.display = f;
-     var V = b.paper.span, W = 100, X = p.font && p.font.match(/\d+(?:\.\d*)?(?=px)/);
+     var V = b.paper.span, W = 100, Q = p.font && p.font.match(/\d+(?:\.\d*)?(?=px)/);
      m = V.style, p.font && (m.font = p.font), p["font-family"] && (m.fontFamily = p["font-family"]), 
      p["font-weight"] && (m.fontWeight = p["font-weight"]), p["font-style"] && (m.fontStyle = p["font-style"]), 
-     X = r(p["font-size"] || X && X[0]) || 10, m.fontSize = X * W + "px", b.textpath.string && (V.innerHTML = t(b.textpath.string).replace(/</g, "&#60;").replace(/&/g, "&#38;").replace(/\n/g, "<br>"));
-     var Q = V.getBoundingClientRect();
-     b.W = p.w = (Q.right - Q.left) / W, b.H = p.h = (Q.bottom - Q.top) / W, b.X = p.x, 
+     Q = r(p["font-size"] || Q && Q[0]) || 10, m.fontSize = Q * W + "px", b.textpath.string && (V.innerHTML = t(b.textpath.string).replace(/</g, "&#60;").replace(/&/g, "&#38;").replace(/\n/g, "<br>"));
+     var X = V.getBoundingClientRect();
+     b.W = p.w = (X.right - X.left) / W, b.H = p.h = (X.bottom - X.top) / W, b.X = p.x, 
      b.Y = p.y + b.H / 2, ("x" in l || "y" in l) && (b.path.v = n.format("m{0},{1}l{2},{1}", o(p.x * x), o(p.y * x), o(p.x * x) + 1));
-     for (var Y = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], K = 0, J = Y.length; J > K; K++) if (Y[K] in l) {
+     for (var K = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], Y = 0, J = K.length; J > Y; Y++) if (K[Y] in l) {
       b._.dirty = 1;
       break;
      }
@@ -17411,7 +17076,7 @@ function() {
      }
      b.textpath.style["v-text-kern"] = !0;
     }
-   }, I = function(e, o, a) {
+   }, N = function(e, o, a) {
     e.attrs = e.attrs || {};
     var s = (e.attrs, Math.pow), l = "linear", c = ".5 .5";
     if (e.attrs.gradient = o, o = t(o).replace(n._radial_gradient, function(e, t, n) {
@@ -17445,8 +17110,8 @@ function() {
      dirtyT: 1
     }, !t.bottom && (t.bottom = this), this.prev = t.top, t.top && (t.top.next = this), 
     t.top = this, this.next = null;
-   }, N = n.el;
-   D.prototype = N, N.constructor = D, N.transform = function(e) {
+   }, M = n.el;
+   D.prototype = M, M.constructor = D, M.transform = function(e) {
     if (null == e) return this._.transform;
     var r, i = this.paper._viewBoxShift, o = i ? "s" + [ i.scale, i.scale ] + "-1-1t" + [ i.dx, i.dy ] : f;
     i && (r = e = t(e).replace(/\.{3}|\u2026/g, this._.transform || f)), n._extractTransform(this, o + e);
@@ -17459,7 +17124,7 @@ function() {
     } else c.style.filter = f, k(this, a.scalex, a.scaley, a.dx, a.dy, a.rotate); else c.style.filter = f, 
     l.matrix = t(s), l.offset = s.offset();
     return null !== r && (this._.transform = r, n._extractTransform(this, r)), this;
-   }, N.rotate = function(e, n, i) {
+   }, M.rotate = function(e, n, i) {
     if (this.removed) return this;
     if (null != e) {
      if (e = t(e).split(u), e.length - 1 && (n = r(e[1]), i = r(e[2])), e = r(e[0]), 
@@ -17470,11 +17135,11 @@ function() {
      return this._.dirtyT = 1, this.transform(this._.transform.concat([ [ "r", e, n, i ] ])), 
      this;
     }
-   }, N.translate = function(e, n) {
+   }, M.translate = function(e, n) {
     return this.removed ? this : (e = t(e).split(u), e.length - 1 && (n = r(e[1])), 
     e = r(e[0]) || 0, n = +n || 0, this._.bbox && (this._.bbox.x += e, this._.bbox.y += n), 
     this.transform(this._.transform.concat([ [ "t", e, n ] ])), this);
-   }, N.scale = function(e, n, i, o) {
+   }, M.scale = function(e, n, i, o) {
     if (this.removed) return this;
     if (e = t(e).split(u), e.length - 1 && (n = r(e[1]), i = r(e[2]), o = r(e[3]), isNaN(i) && (i = null), 
     isNaN(o) && (o = null)), e = r(e[0]), null == n && (n = e), null == o && (i = o), 
@@ -17482,11 +17147,11 @@ function() {
     return i = null == i ? a.x + a.width / 2 : i, o = null == o ? a.y + a.height / 2 : o, 
     this.transform(this._.transform.concat([ [ "s", e, n, i, o ] ])), this._.dirtyT = 1, 
     this;
-   }, N.hide = function() {
+   }, M.hide = function() {
     return !this.removed && (this.node.style.display = "none"), this;
-   }, N.show = function() {
+   }, M.show = function() {
     return !this.removed && (this.node.style.display = f), this;
-   }, N.auxGetBBox = n.el.getBBox, N.getBBox = function() {
+   }, M.auxGetBBox = n.el.getBBox, M.getBBox = function() {
     var e = this.auxGetBBox();
     if (this.paper && this.paper._viewBoxShift) {
      var t = {}, n = 1 / this.paper._viewBoxShift.scale;
@@ -17495,21 +17160,21 @@ function() {
      t.y2 = t.y + t.height, t;
     }
     return e;
-   }, N._getBBox = function() {
+   }, M._getBBox = function() {
     return this.removed ? {} : {
      x: this.X + (this.bbx || 0) - this.W / 2,
      y: this.Y - this.H,
      width: this.W,
      height: this.H
     };
-   }, N.remove = function() {
+   }, M.remove = function() {
     if (!this.removed && this.node.parentNode) {
      this.paper.__set__ && this.paper.__set__.exclude(this), n.eve.unbind("raphael.*.*." + this.id), 
      n._tear(this, this.paper), this.node.parentNode.removeChild(this.node), this.shape && this.shape.parentNode.removeChild(this.shape);
      for (var e in this) this[e] = "function" == typeof this[e] ? n._removedFactory(e) : null;
      this.removed = !0;
     }
-   }, N.attr = function(t, r) {
+   }, M.attr = function(t, r) {
     if (this.removed) return this;
     if (null == t) {
      var i = {};
@@ -17538,33 +17203,33 @@ function() {
      h.text && "text" == this.type && (this.textpath.string = h.text), T(this, h);
     }
     return this;
-   }, N.toFront = function() {
+   }, M.toFront = function() {
     return !this.removed && this.node.parentNode.appendChild(this.node), this.paper && this.paper.top != this && n._tofront(this, this.paper), 
     this;
-   }, N.toBack = function() {
+   }, M.toBack = function() {
     return this.removed ? this : (this.node.parentNode.firstChild != this.node && (this.node.parentNode.insertBefore(this.node, this.node.parentNode.firstChild), 
     n._toback(this, this.paper)), this);
-   }, N.insertAfter = function(e) {
+   }, M.insertAfter = function(e) {
     return this.removed ? this : (e.constructor == n.st.constructor && (e = e[e.length - 1]), 
     e.node.nextSibling ? e.node.parentNode.insertBefore(this.node, e.node.nextSibling) : e.node.parentNode.appendChild(this.node), 
     n._insertafter(this, e, this.paper), this);
-   }, N.insertBefore = function(e) {
+   }, M.insertBefore = function(e) {
     return this.removed ? this : (e.constructor == n.st.constructor && (e = e[0]), e.node.parentNode.insertBefore(this.node, e.node), 
     n._insertbefore(this, e, this.paper), this);
-   }, N.blur = function(e) {
+   }, M.blur = function(e) {
     var t = this.node.runtimeStyle, r = t.filter;
     return r = r.replace(v, f), 0 !== +e ? (this.attrs.blur = e, t.filter = r + h + p + ".Blur(pixelradius=" + (+e || 1.5) + ")", 
     t.margin = n.format("-{0}px 0 0 -{0}px", o(+e || 1.5))) : (t.filter = r, t.margin = 0, 
     delete this.attrs.blur), this;
    }, n._engine.path = function(e, t) {
-    var n = M("shape");
+    var n = I("shape");
     n.style.cssText = y, n.coordsize = x + h + x, n.coordorigin = t.coordorigin;
     var r = new D(n, t), i = {
      fill: "none",
      stroke: "#000"
     };
     e && (i.path = e), r.type = "path", r.path = [], r.Path = f, T(r, i), t.canvas.appendChild(n);
-    var o = M("skew");
+    var o = I("skew");
     return o.on = !0, n.appendChild(o), r.skew = o, r.transform(f), r;
    }, n._engine.rect = function(e, t, r, i, o, a) {
     var s = n._rectPath(t, r, i, o, a), l = e.path(s), c = l.attrs;
@@ -17600,7 +17265,7 @@ function() {
     p.src = t, p.type = "tile", l._.fillpos = [ r, i ], l._.fillsize = [ o, a ], d.appendChild(p), 
     k(l, 1, 1, 0, 0, 0), l;
    }, n._engine.text = function(e, r, i, a) {
-    var s = M("shape"), l = M("path"), c = M("textpath");
+    var s = I("shape"), l = I("path"), c = I("textpath");
     r = r || 0, i = i || 0, a = a || "", l.v = n.format("m{0},{1}l{2},{1}", o(r * x), o(i * x), o(r * x) + 1), 
     l.textpathok = !0, c.string = t(a), c.on = !0, s.style.cssText = y, s.coordsize = x + h + x, 
     s.coordorigin = "0 0";
@@ -17613,7 +17278,7 @@ function() {
     u.shape = s, u.path = l, u.textpath = c, u.type = "text", u.attrs.text = t(a), u.attrs.x = r, 
     u.attrs.y = i, u.attrs.w = 1, u.attrs.h = 1, T(u, d), s.appendChild(c), s.appendChild(l), 
     e.canvas.appendChild(s);
-    var p = M("skew");
+    var p = I("skew");
     return p.on = !0, s.appendChild(p), u.skew = p, u.transform(f), u;
    }, n._engine.setSize = function(e, t) {
     var r = this.canvas.style;
@@ -17632,17 +17297,17 @@ function() {
      e.transform("...");
     }), this;
    };
-   var M;
+   var I;
    n._engine.initWin = function(e) {
     var t = e.document;
     t.styleSheets.length < 31 ? t.createStyleSheet().addRule(".rvml", "behavior:url(#default#VML)") : t.styleSheets[0].addRule(".rvml", "behavior:url(#default#VML)");
     try {
      !t.namespaces.rvml && t.namespaces.add("rvml", "urn:schemas-microsoft-com:vml"), 
-     M = function(e) {
+     I = function(e) {
       return t.createElement("<rvml:" + e + ' class="rvml">');
      };
     } catch (n) {
-     M = function(e) {
+     I = function(e) {
       return t.createElement("<" + e + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');
      };
     }
@@ -17666,7 +17331,7 @@ function() {
     return !0;
    };
    var L = n.st;
-   for (var A in N) N[e](A) && !L[e](A) && (L[A] = function(e) {
+   for (var A in M) M[e](A) && !L[e](A) && (L[A] = function(e) {
     return function() {
      var t = arguments;
      return this.forEach(function(n) {
@@ -18939,15 +18604,15 @@ function() {
      S.text = k[0], S.flowstate = k[1].trim();
     }
     r.symbols[S.key] = S;
-   } else if (y.indexOf("->") >= 0) for (var E = y.split("->"), T = 0, I = E.length; I > T; T++) {
-    var D = E[T], N = t(D), M = n(D), L = null;
-    if (M.indexOf(",") >= 0) {
-     var A = M.split(",");
-     M = A[0], L = A[1].trim();
+   } else if (y.indexOf("->") >= 0) for (var E = y.split("->"), T = 0, N = E.length; N > T; T++) {
+    var D = E[T], M = t(D), I = n(D), L = null;
+    if (I.indexOf(",") >= 0) {
+     var A = I.split(",");
+     I = A[0], L = A[1].trim();
     }
-    if (r.start || (r.start = N), I > T + 1) {
+    if (r.start || (r.start = M), N > T + 1) {
      var R = E[T + 1];
-     N[M] = t(R), N["direction_" + M] = L, L = null;
+     M[I] = t(R), M["direction_" + I] = L, L = null;
     }
    }
   }
@@ -19240,22 +18905,22 @@ function() {
   this.rightStart = !0, e.leftEnd = !0, S = m.x; else o = r(this.chart, c, h, t), 
   this.bottomStart = !0, e.topEnd = !0, S = c.x;
   if (o) {
-   for (var E = 0, T = this.chart.lines.length; T > E; E++) for (var I, D = this.chart.lines[E], N = D.attr("path"), M = o.attr("path"), L = 0, A = N.length - 1; A > L; L++) {
+   for (var E = 0, T = this.chart.lines.length; T > E; E++) for (var N, D = this.chart.lines[E], M = D.attr("path"), I = o.attr("path"), L = 0, A = M.length - 1; A > L; L++) {
     var R = [];
-    R.push([ "M", N[L][1], N[L][2] ]), R.push([ "L", N[L + 1][1], N[L + 1][2] ]);
-    for (var P = R[0][1], O = R[0][2], F = R[1][1], B = R[1][2], j = 0, $ = M.length - 1; $ > j; j++) {
-     var q = [];
-     q.push([ "M", M[j][1], M[j][2] ]), q.push([ "L", M[j + 1][1], M[j + 1][2] ]);
-     var G = q[0][1], H = q[0][2], U = q[1][1], z = q[1][2], V = i(P, O, F, B, G, H, U, z);
+    R.push([ "M", M[L][1], M[L][2] ]), R.push([ "L", M[L + 1][1], M[L + 1][2] ]);
+    for (var P = R[0][1], F = R[0][2], O = R[1][1], B = R[1][2], j = 0, $ = I.length - 1; $ > j; j++) {
+     var G = [];
+     G.push([ "M", I[j][1], I[j][2] ]), G.push([ "L", I[j + 1][1], I[j + 1][2] ]);
+     var H = G[0][1], q = G[0][2], U = G[1][1], z = G[1][2], V = i(P, F, O, B, H, q, U, z);
      if (V.onLine1 && V.onLine2) {
       var W;
-      H === z ? G > U ? (W = [ "L", V.x + 2 * _, H ], M.splice(j + 1, 0, W), W = [ "C", V.x + 2 * _, H, V.x, H - 4 * _, V.x - 2 * _, H ], 
-      M.splice(j + 2, 0, W), o.attr("path", M)) : (W = [ "L", V.x - 2 * _, H ], M.splice(j + 1, 0, W), 
-      W = [ "C", V.x - 2 * _, H, V.x, H - 4 * _, V.x + 2 * _, H ], M.splice(j + 2, 0, W), 
-      o.attr("path", M)) : H > z ? (W = [ "L", G, V.y + 2 * _ ], M.splice(j + 1, 0, W), 
-      W = [ "C", G, V.y + 2 * _, G + 4 * _, V.y, G, V.y - 2 * _ ], M.splice(j + 2, 0, W), 
-      o.attr("path", M)) : (W = [ "L", G, V.y - 2 * _ ], M.splice(j + 1, 0, W), W = [ "C", G, V.y - 2 * _, G + 4 * _, V.y, G, V.y + 2 * _ ], 
-      M.splice(j + 2, 0, W), o.attr("path", M)), j += 2, I += 2;
+      q === z ? H > U ? (W = [ "L", V.x + 2 * _, q ], I.splice(j + 1, 0, W), W = [ "C", V.x + 2 * _, q, V.x, q - 4 * _, V.x - 2 * _, q ], 
+      I.splice(j + 2, 0, W), o.attr("path", I)) : (W = [ "L", V.x - 2 * _, q ], I.splice(j + 1, 0, W), 
+      W = [ "C", V.x - 2 * _, q, V.x, q - 4 * _, V.x + 2 * _, q ], I.splice(j + 2, 0, W), 
+      o.attr("path", I)) : q > z ? (W = [ "L", H, V.y + 2 * _ ], I.splice(j + 1, 0, W), 
+      W = [ "C", H, V.y + 2 * _, H + 4 * _, V.y, H, V.y - 2 * _ ], I.splice(j + 2, 0, W), 
+      o.attr("path", I)) : (W = [ "L", H, V.y - 2 * _ ], I.splice(j + 1, 0, W), W = [ "C", H, V.y - 2 * _, H + 4 * _, V.y, H, V.y + 2 * _ ], 
+      I.splice(j + 2, 0, W), o.attr("path", I)), j += 2, N += 2;
      }
     }
    }
@@ -19559,66 +19224,38 @@ function() {
   e.syncPeriod = r.getInputIntValue("#input-sync-period", t, 0), e.syncShortcut = r.getInputTextValue("#input-sync-shortcut", t);
  };
  var l;
- s.onSynchronizerCreated = function(e) {
+ s.onFileMgrCreated = function(e) {
   l = e;
  };
- var c, u = !1, d = !1, p = function() {
-  void 0 !== c && (u === !0 || l.hasSync() === !1 || d ? c.addClass("disabled") : c.removeClass("disabled"));
- }, h = 0;
- return s.onPeriodicRun = function() {
-  !s.config.syncPeriod || h + s.config.syncPeriod > r.currentTime || l.sync() && (h = r.currentTime);
- }, s.onCreateButton = function() {
+ var c;
+ s.onNoteMgrCreated = function(e) {
+  c = e;
+ };
+ var u, d = !1, p = !1, h = function() {
+  void 0 !== u && (d === !0 || p ? u.addClass("disabled") : u.removeClass("disabled"));
+ };
+ return s.onCreateButton = function() {
   var t = n("a", {
    "class": "btn btn-success button-synchronize",
    title: "Force synchronization Ctrl/Cmd+S"
   }, n("i", {
    "class": "icon-refresh"
   }));
-  return c = e(t), c.click(function() {
-   c.hasClass("disabled") || l.sync() && (h = r.currentTime);
+  return u = e(t), u.click(function() {
+   u.hasClass("disabled") || c.postNote(l.currentFile);
   }), t;
- }, s.onReady = p, s.onFileCreated = p, s.onFileDeleted = p, s.onSyncImportSuccess = p, 
- s.onSyncExportSuccess = p, s.onSyncRemoved = p, s.onSyncRunning = function(e) {
-  u = e, p();
+ }, s.onReady = h, s.onFileCreated = h, s.onFileDeleted = h, s.onSyncRemoved = h, 
+ s.onSyncRunning = function(e) {
+  d = e, h();
  }, s.onOfflineChanged = function(e) {
-  d = e, p();
+  p = e, h();
  }, s.onReady = function() {
   o.bind(s.config.syncShortcut, function(e) {
-   l.sync() && (h = r.currentTime), e.preventDefault();
+   c.postNote(l.currentFile), e.preventDefault();
   }), e(".action-force-synchronization").click(function() {
-   l.sync() && (h = r.currentTime);
+   c.postNote(l.currentFile);
   });
  }, s;
-}), define("extensions/buttonPublish", [ "jquery", "underscore", "crel", "classes/Extension" ], function(e, t, n, r) {
- function i() {
-  void 0 !== o && (c === !0 || u === !1 || d === !0 ? o.addClass("disabled") : o.removeClass("disabled"));
- }
- var o, a, s, l = new r("buttonPublish", 'Button "Publish"'), c = !1, u = !1, d = !1;
- l.onPublisherCreated = function(e) {
-  s = e;
- }, l.onCreateButton = function() {
-  var t = n("a", {
-   "class": "btn btn-success button-publish",
-   title: "Update document publication"
-  }, n("i", {
-   "class": "icon-upload"
-  }));
-  return o = e(t).click(function() {
-   o.hasClass("disabled") || s.publish();
-  }), t;
- }, l.onPublishRunning = function(e) {
-  c = e, i();
- }, l.onOfflineChanged = function(e) {
-  d = e, i();
- };
- var p = function() {
-  u = 0 === t.size(a.publishLocations) ? !1 : !0, i();
- };
- return l.onFileSelected = function(e) {
-  a = e, p();
- }, l.onReady = function() {
-  e(".action-update-publication").click(s.publish);
- }, l.onPublishRemoved = p, l.onNewPublishSuccess = p, l;
 }), define("text!html/buttonStat.html", [], function() {
  return '<button class="btn btn-success dropdown-toggle stat-button" title="Document statistics" data-toggle="dropdown">\r\n	<i class="icon-chart-bar"></i>\r\n	<span class="value"></span>\r\n</button>\r\n<div class="dropdown-menu pull-right stat-button-dropdown">\r\n	<h3>Statistics</h3>\r\n    <hr>\r\n	<div class="stat">\r\n		<div>\r\n			<%= name1 %>: <span class="value1"></span>\r\n		</div>\r\n		<div>\r\n			<%= name2 %>: <span class="value2"></span>\r\n		</div>\r\n		<div>\r\n			<%= name3 %>: <span class="value3"></span>\r\n		</div>\r\n	</div>\r\n</div>\r\n';
 }), define("text!html/buttonStatSettingsBlock.html", [], function() {
@@ -20891,28 +20528,28 @@ function() {
  }, c.prototype.getPopoverElt = function() {
   return document.querySelector(".comments-popover .popover:last-child");
  };
- var _, k, E, T, I, D, N = {}, M = [], L = !1, A = t.debounce(function() {
+ var _, k, E, T, N, D, M = {}, I = [], L = !1, A = t.debounce(function() {
   function e() {
    var r;
-   if (0 === o.length) return t.filter(N, function(e, n) {
+   if (0 === o.length) return t.filter(M, function(e, n) {
     return !t.has(E.discussionList, n);
    }).forEach(function(e) {
-    x.removeChild(e), delete N[e.discussionIndex];
+    x.removeChild(e), delete M[e.discussionIndex];
    }), l(C, w, !0), _ && !_.discussionIndex && (y.scrollTop += parseInt(C.style.top) - y.scrollTop - 3 * y.offsetHeight / 4, 
-   u(C)), M = t.sortBy(N, function(e) {
+   u(C)), I = t.sortBy(M, function(e) {
     return e.selectionEnd;
-   }), I.toggleClass("some", 0 !== M.length), I.toggleClass("replied", L), void D.toggleClass("icon-chat", 0 !== M.length);
-   var a = o.shift(), s = N[a.discussionIndex];
+   }), N.toggleClass("some", 0 !== I.length), N.toggleClass("replied", L), void D.toggleClass("icon-chat", 0 !== I.length);
+   var a = o.shift(), s = M[a.discussionIndex];
    s || (s = i("a"));
    var c = "discussion", d = !a.commentList || !n || t.last(a.commentList).author != n;
    d && (L = !0), c += "conflict" == a.type ? " icon-split" : " icon-comment", c += d ? " replied" : " added", 
    s.className = c, s.discussionIndex = a.discussionIndex, s.selectionEnd = a.selectionEnd, 
-   r = b.getCoordinates(a.selectionEnd), l(s, r.y), x.appendChild(s), N[a.discussionIndex] = s, 
+   r = b.getCoordinates(a.selectionEnd), l(s, r.y), x.appendChild(s), M[a.discussionIndex] = s, 
    _ && _.getDiscussion() === a && (y.scrollTop += parseInt(s.style.top) - y.scrollTop - 3 * y.offsetHeight / 4, 
    u(s)), T = setTimeout(e, 5);
   }
   if (void 0 !== E) {
-   L = !1, M = [];
+   L = !1, I = [];
    var n = r["author.name"];
    S = [];
    var o = t.sortBy(E.discussionList, function(e) {
@@ -21047,16 +20684,16 @@ function() {
    e.stopPropagation();
   });
   var f = e(C);
-  I = e(".button-open-discussion").click(function(n) {
+  N = e(".button-open-discussion").click(function(n) {
    var r = f;
    if (_) if (_.discussionIndex) {
     var i = -1;
-    M.some(function(e, t) {
+    I.some(function(e, t) {
      return e === _.commentElt ? (i = t, !0) : void 0;
-    }), r = e(M[i + 1]);
-   } else r = e(t.first(M)); else b.selectionStart === b.selectionEnd && M.length && (r = e(t.first(M)));
+    }), r = e(I[i + 1]);
+   } else r = e(t.first(I)); else b.selectionStart === b.selectionEnd && I.length && (r = e(t.first(I)));
    0 === r.length ? (d(), v.focus(), v.adjustCursorPosition(!0)) : r.click(), n.stopPropagation();
-  }), D = I.find("i");
+  }), D = N.find("i");
  }, f;
 }), define("text!html/findReplace.html", [], function() {
  return '<button type="button" class="close button-find-replace-dismiss">\xd7</button>\r\n<div class="form-inline">\r\n    <div class="form-group">\r\n        <label for="input-find-replace-search-for">Search for</label>\r\n        <input class="form-control" id="input-find-replace-search-for" placeholder="Search for">\r\n    </div>\r\n    <div class="form-group">\r\n        <label for="input-find-replace-replace-with">Replace with</label>\r\n        <input class="form-control" id="input-find-replace-replace-with" placeholder="Replace with">\r\n    </div>\r\n</div>\r\n<div class="pull-right">\r\n    <div class="help-block text-right">\r\n        <span class="found-counter">0</span> found\r\n    </div>\r\n    <div>\r\n        <button type="button" class="btn btn-primary search-button">Search</button>\r\n        <button type="button" class="btn btn-default replace-button">Replace</button>\r\n        <button type="button" class="btn btn-default replace-all-button">All</button>\r\n    </div>\r\n</div>\r\n<div class="pull-left">\r\n    <div class="checkbox">\r\n        <label>\r\n            <input type="checkbox" class="checkbox-case-sensitive"> Case sensitive\r\n        </label>\r\n    </div>\r\n    <div class="checkbox">\r\n        <label>\r\n            <input type="checkbox" class="checkbox-regexp"> Regular expression\r\n        </label>\r\n    </div>\r\n</div>\r\n';
@@ -21064,11 +20701,11 @@ function() {
  return '<p>Helps find and replace text in the current document.</p>\r\n<div class="form-horizontal">\r\n	<div class="form-group">\r\n		<label class="col-sm-5 control-label"\r\n			for="input-find-replace-shortcut">Shortcut <a href="http://craig.is/killing/mice#keys" target="_blank">(?)</a></label>\r\n		<div class="col-sm-6">\r\n			<input type="text" id="input-find-replace-shortcut"\r\n				class="form-control">\r\n		</div>\r\n	</div>\r\n</div>';
 }), define("extensions/findReplace", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "rangy", "text!html/findReplace.html", "text!html/findReplaceSettingsBlock.html" ], function(e, t, n, r, i, o, a, s, l) {
  function c() {
-  u(), M.forEach(function(e) {
+  u(), I.forEach(function(e) {
    try {
     x.undoToRange(e);
    } catch (t) {}
-  }), M = [];
+  }), I = [];
  }
  function u() {
   if (S) {
@@ -21086,8 +20723,8 @@ function() {
     offset: e.offset
    } : e;
   }
-  if (O) {
-   var n = k.val(), r = I.prop("checked"), i = D.prop("checked");
+  if (F) {
+   var n = k.val(), r = N.prop("checked"), i = D.prop("checked");
    if (e || n != A || r != R || i != P) {
     A = n, R = r, P = i, c();
     var o, s = {};
@@ -21095,8 +20732,8 @@ function() {
     var l = 0, u = n.length;
     if (u) try {
      var d = r ? "gm" : "gmi";
-     if (n = i ? n : n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"), N = new RegExp(n, d), 
-     b.getValue().replace(N, function(e, t) {
+     if (n = i ? n : n.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"), M = new RegExp(n, d), 
+     b.getValue().replace(M, function(e, t) {
       L.push({
        start: t,
        end: t + e.length
@@ -21109,7 +20746,7 @@ function() {
       for (var h = 0; h < p.length; h += 2) {
        var f = p[h], m = p[h + 1], g = t(f), v = t(m), y = a.createRange();
        y.setStart(g.container, g.offsetInContainer), y.setEnd(v.container, v.offsetInContainer), 
-       s = m, o = y, x.applyToRange(y), M[f.offset] = y;
+       s = m, o = y, x.applyToRange(y), I[f.offset] = y;
       }
       b.selectionMgr.hasFocus && b.selectionMgr.updateSelectionRange();
      }
@@ -21119,11 +20756,11 @@ function() {
   }
  }
  function p() {
-  y.onEditorPopover(), O = !0, _.show(), k.focus()[0].setSelectionRange(0, k.val().length), 
+  y.onEditorPopover(), F = !0, _.show(), k.focus()[0].setSelectionRange(0, k.val().length), 
   b.selectionMgr.adjustTop = 50, b.selectionMgr.adjustBottom = 220, d(!0);
  }
  function h() {
-  O = !1, _.hide(), c(), b.selectionMgr.adjustTop = 0, b.selectionMgr.adjustBottom = 0, 
+  F = !1, _.hide(), c(), b.selectionMgr.adjustTop = 0, b.selectionMgr.adjustBottom = 0, 
   b.focus();
  }
  function f() {
@@ -21132,7 +20769,7 @@ function() {
    return t.start > e;
   });
   if (n || (n = t.first(L)), n) {
-   if (S = M[n.start], !S) {
+   if (S = I[n.start], !S) {
     var r = b.selectionMgr.createRange(n.start, n.end);
     S = a.createRange(), S.setStart(r.startContainer, r.startOffset), S.setEnd(r.endContainer, r.endOffset);
    }
@@ -21149,7 +20786,7 @@ function() {
  }
  function g() {
   var e = E.val();
-  b.replaceAll(N, e);
+  b.replaceAll(M, e);
  }
  var v = new i("findReplace", "Find and Replace", !0, !0);
  v.settingsBlock = l, v.defaultConfig = {
@@ -21167,7 +20804,7 @@ function() {
  v.onEventMgrCreated = function(e) {
   y = e;
  };
- var x, w, S, C, _, k, E, T, I, D, N, M = [], L = [], A = "", R = !1, P = !1, O = !1;
+ var x, w, S, C, _, k, E, T, N, D, M, I = [], L = [], A = "", R = !1, P = !1, F = !1;
  return v.onEditorPopover = function() {
   h();
  }, v.onContentChanged = t.bind(d, null, !0), v.onFileOpen = t.bind(d, null, !0), 
@@ -21183,7 +20820,7 @@ function() {
   _ = e(r).hide(), r.innerHTML = s, document.querySelector(".layout-wrapper-l2").appendChild(r), 
   e(".button-find-replace-dismiss").click(function() {
    h();
-  }), T = r.querySelector(".found-counter"), I = _.find(".checkbox-case-sensitive").change(t.bind(d, null, !1)), 
+  }), T = r.querySelector(".found-counter"), N = _.find(".checkbox-case-sensitive").change(t.bind(d, null, !1)), 
   D = _.find(".checkbox-regexp").change(t.bind(d, null, !1)), _.find(".search-button").click(f), 
   k = e("#input-find-replace-search-for").keyup(t.bind(d, null, !1)), _.find(".replace-button").click(m), 
   E = e("#input-find-replace-replace-with"), _.find(".replace-all-button").click(g), 
@@ -21208,8 +20845,8 @@ function() {
  }
  function l(e, t) {
   function n(e, n, i, o) {
-   if (n = n && n.toLowerCase(), D[n]) for (;s.last() && N[s.last()]; ) r("", s.last());
-   I[n] && s.last() == n && r("", n), o = k[n] || !!o, o || s.push(n);
+   if (n = n && n.toLowerCase(), D[n]) for (;s.last() && M[s.last()]; ) r("", s.last());
+   N[n] && s.last() == n && r("", n), o = k[n] || !!o, o || s.push(n);
    var a = {};
    i.replace(b, function(e, t, n, r, i) {
     var o = n || r || i || "";
@@ -21228,7 +20865,7 @@ function() {
   for (s.last = function() {
    return s[s.length - 1];
   }; e; ) {
-   if (o = !0, s.last() && M[s.last()]) e = e.replace(new RegExp("(.*)<\\s*\\/\\s*" + s.last() + "[^>]*>", "i"), function(e, n) {
+   if (o = !0, s.last() && I[s.last()]) e = e.replace(new RegExp("(.*)<\\s*\\/\\s*" + s.last() + "[^>]*>", "i"), function(e, n) {
     return n = n.replace(w, "$1").replace(C, "$1"), t.chars && t.chars(c(n)), "";
    }), r("", s.last()); else if (0 === e.indexOf("<!--") ? (i = e.indexOf("--", 4), 
    i >= 0 && e.lastIndexOf("-->", i) === i && (t.comment && t.comment(e.substring(4, i)), 
@@ -21249,7 +20886,7 @@ function() {
  }
  function c(e) {
   if (!e) return "";
-  var t = O.exec(e), n = t[1], r = t[3], i = t[2];
+  var t = F.exec(e), n = t[1], r = t[3], i = t[2];
   return i && (P.innerHTML = i.replace(/</g, "&lt;"), i = "textContent" in P ? P.textContent : P.innerText), 
   n + i + r;
  }
@@ -21262,7 +20899,7 @@ function() {
   var r = !1, i = t.bind(e.push, e);
   return {
    start: function(e, o, a) {
-    e = e && e.toLowerCase(), !r && M[e] && (r = e), r || L[e] !== !0 || (i("<"), i(e), 
+    e = e && e.toLowerCase(), !r && I[e] && (r = e), r || L[e] !== !0 || (i("<"), i(e), 
     t.forEach(o, function(t, r) {
      var o = r && r.toLowerCase(), a = "img" === e && "src" === o || "background" === o;
      R[o] !== !0 || A[o] === !0 && !n(t, a) || (i(" "), i(r), i('="'), i(u(t)), i('"'));
@@ -21292,12 +20929,28 @@ function() {
    }), h.slice(0, -1).join("");
   });
  };
- var f = /^\s*(https?|ftp|mailto|tel|file):/, m = /^\s*(https?|ftp|file):|data:image\//, g = /^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)\s*>/, v = /^<\s*\/\s*([\w:-]+)[^>]*>/, b = /([\w:-]+)(?:\s*=\s*(?:(?:"((?:[^"])*)")|(?:'((?:[^'])*)')|([^>\s]+)))?/g, y = /^</, x = /^<\s*\//, w = /<!--(.*?)-->/g, S = /<!DOCTYPE([^>]*?)>/i, C = /<!\[CDATA\[(.*?)]]>/g, _ = /([^\#-~| |!])/g, k = s("area,br,col,hr,img,wbr"), E = s("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"), T = s("rp,rt"), I = t.extend({}, T, E), D = t.extend({}, E, s("address,article,aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul")), N = t.extend({}, T, s("a,abbr,acronym,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,samp,small,span,strike,strong,sub,sup,time,tt,u,var")), M = s("script,style");
+ var f = /^\s*(https?|ftp|mailto|tel|file):/, m = /^\s*(https?|ftp|file):|data:image\//, g = /^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)\s*>/, v = /^<\s*\/\s*([\w:-]+)[^>]*>/, b = /([\w:-]+)(?:\s*=\s*(?:(?:"((?:[^"])*)")|(?:'((?:[^'])*)')|([^>\s]+)))?/g, y = /^</, x = /^<\s*\//, w = /<!--(.*?)-->/g, S = /<!DOCTYPE([^>]*?)>/i, C = /<!\[CDATA\[(.*?)]]>/g, _ = /([^\#-~| |!])/g, k = s("area,br,col,hr,img,wbr"), E = s("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"), T = s("rp,rt"), N = t.extend({}, T, E), D = t.extend({}, E, s("address,article,aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul")), M = t.extend({}, T, s("a,abbr,acronym,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,samp,small,span,strike,strong,sub,sup,time,tt,u,var")), I = s("script,style");
  D.iframe = !0;
- var L = t.extend({}, k, D, N, I), A = s("background,cite,href,longdesc,src,usemap"), R = t.extend({}, A, s("abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,scope,scrolling,shape,size,span,start,summary,target,title,type,valign,value,vspace,width"));
+ var L = t.extend({}, k, D, M, N), A = s("background,cite,href,longdesc,src,usemap"), R = t.extend({}, A, s("abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,scope,scrolling,shape,size,span,start,summary,target,title,type,valign,value,vspace,width"));
  R.id = !0, R.allowfullscreen = !0;
- var P = document.createElement("pre"), O = /^(\s*)([\s\S]*?)(\s*)$/;
+ var P = document.createElement("pre"), F = /^(\s*)([\s\S]*?)(\s*)$/;
  return p;
+}), define("extensions/pageTitle", [ "jquery", "underscore", "classes/Extension" ], function(e, t, n) {
+ var r = new n("pageTitle", "Page Title", !0), i = null;
+ r.onFileMgrCreated = function(e) {
+  i = e;
+ };
+ var o = null;
+ return r.onEventMgrCreated = function(e) {
+  o = e;
+ }, r.onPagedownConfigure = function(t) {
+  t.hooks.chain("onPreviewRefresh", function() {
+   var t = e("#preview-contents"), n = t.find("h1").first().text();
+   n = n || "Untitled";
+   var r = n + " - Notedown";
+   document.title = r, i && i.currentFile && (i.currentFile.title = n), o && o.onTitleChanged(n);
+  });
+ }, r;
 }), function(e) {
  var t = "waitForImages";
  e.waitForImages = {
@@ -21338,7 +20991,7 @@ function() {
    });
   });
  };
-}(jQuery), define("jquery-waitforimages", function() {}), define("eventMgr", [ "jquery", "underscore", "crel", "mousetrap", "utils", "logger", "classes/Extension", "settings", "text!html/settingsExtensionsAccordion.html", "extensions/yamlFrontMatterParser", "extensions/markdownSectionParser", "extensions/partialRendering", "extensions/buttonMarkdownSyntax", "extensions/googleAnalytics", "extensions/twitter", "extensions/dialogAbout", "extensions/dialogManagePublication", "extensions/dialogManageSynchronization", "extensions/dialogManageSharing", "extensions/dialogOpenHarddrive", "extensions/documentTitle", "extensions/documentSelector", "extensions/documentPanel", "extensions/documentManager", "extensions/workingIndicator", "extensions/notifications", "extensions/umlDiagrams", "extensions/markdownExtra", "extensions/toc", "extensions/mathJax", "extensions/emailConverter", "extensions/scrollSync", "extensions/buttonSync", "extensions/buttonPublish", "extensions/buttonStat", "extensions/buttonHtmlCode", "extensions/buttonViewer", "extensions/welcomeTour", "extensions/shortcuts", "extensions/userCustom", "extensions/comments", "extensions/findReplace", "extensions/htmlSanitizer", "bootstrap", "jquery-waitforimages" ], function(e, t, n, r, i, o, a, s, l) {
+}(jQuery), define("jquery-waitforimages", function() {}), define("eventMgr", [ "jquery", "underscore", "crel", "mousetrap", "utils", "logger", "classes/Extension", "settings", "text!html/settingsExtensionsAccordion.html", "extensions/yamlFrontMatterParser", "extensions/markdownSectionParser", "extensions/partialRendering", "extensions/buttonMarkdownSyntax", "extensions/dialogAbout", "extensions/dialogManagePublication", "extensions/dialogManageSynchronization", "extensions/dialogManageSharing", "extensions/dialogOpenHarddrive", "extensions/documentPanel", "extensions/workingIndicator", "extensions/notifications", "extensions/umlDiagrams", "extensions/markdownExtra", "extensions/toc", "extensions/mathJax", "extensions/emailConverter", "extensions/scrollSync", "extensions/buttonSync", "extensions/buttonStat", "extensions/buttonHtmlCode", "extensions/buttonViewer", "extensions/welcomeTour", "extensions/shortcuts", "extensions/userCustom", "extensions/comments", "extensions/findReplace", "extensions/htmlSanitizer", "extensions/pageTitle", "bootstrap", "jquery-waitforimages" ], function(e, t, n, r, i, o, a, s, l) {
  function c(e) {
   return t.chain(h).map(function(t) {
    return t.enabled && t[e];
@@ -21392,15 +21045,13 @@ function() {
    s && s(o, n), e[r.extensionId] = o;
   });
  }, d("onMessage"), d("onError"), d("onOfflineChanged"), d("onUserActive"), d("onAsyncRunning"), 
- d("onPeriodicRun"), d("onEditorCreated"), d("onFileMgrCreated"), d("onSynchronizerCreated"), 
- d("onPublisherCreated"), d("onSharingCreated"), d("onEventMgrCreated"), d("onFileCreated"), 
- d("onFileDeleted"), d("onFileSelected"), d("onFileOpen"), d("onFileClosed"), d("onContentChanged"), 
- d("onTitleChanged"), d("onFoldersChanged"), d("onSyncRunning"), d("onSyncSuccess"), 
- d("onSyncImportSuccess"), d("onSyncExportSuccess"), d("onSyncRemoved"), d("onPublishRunning"), 
- d("onPublishSuccess"), d("onNewPublishSuccess"), d("onPublishRemoved"), d("onLayoutCreated"), 
- d("onLayoutResize"), d("onExtensionButtonResize"), d("onPagedownConfigure"), d("onSectionsCreated"), 
- d("onCursorCoordinates"), d("onEditorPopover"), d("onDiscussionCreated"), d("onDiscussionRemoved"), 
- d("onCommentsChanged"), d("onTweet");
+ d("onPeriodicRun"), d("onEditorCreated"), d("onFileMgrCreated"), d("onEventMgrCreated"), 
+ d("onFileCreated"), d("onFileDeleted"), d("onFileSelected"), d("onFileOpen"), d("onFileClosed"), 
+ d("onContentChanged"), d("onTitleChanged"), d("onFileSystemCreated"), d("onFoldersChanged"), 
+ d("onSyncRunning"), d("onSyncSuccess"), d("onSyncImportSuccess"), d("onSyncExportSuccess"), 
+ d("onSyncRemoved"), d("onLayoutCreated"), d("onLayoutResize"), d("onExtensionButtonResize"), 
+ d("onPagedownConfigure"), d("onSectionsCreated"), d("onCursorCoordinates"), d("onEditorPopover"), 
+ d("onTweet"), d("onNoteMgrCreated"), d("onNotesRefresh");
  var g, v, b = u("onPreviewFinished"), y = c("onAsyncPreview");
  p.onAsyncPreview = function() {
   function e(n) {
@@ -23218,7 +22869,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.isWatching = !1;
   var e;
   this.startWatching = function() {
-   this.isWatching = !0, e = e || new MutationObserver(S), e.observe(N, {
+   this.isWatching = !0, e = e || new MutationObserver(w), e.observe(D, {
     childList: !0,
     subtree: !0,
     characterData: !0
@@ -23235,7 +22886,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.adjustBottom = 0, this.findOffsets = function(e) {
    var t = [];
    if (!e.length) return t;
-   for (var n = e.shift(), r = document.createTreeWalker(N, 4, null, !1), i = "", o = 0; r.nextNode(); ) {
+   for (var n = e.shift(), r = document.createTreeWalker(D, 4, null, !1), i = "", o = 0; r.nextNode(); ) {
     i = r.currentNode.nodeValue || "";
     for (var a = o + i.length; a > n; ) {
      if (t.push({
@@ -23265,15 +22916,15 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    o;
   };
   var s, l = n.debounce(function() {
-   D.toggleClass("has-selection", this.selectionStart !== this.selectionEnd);
+   N.toggleClass("has-selection", this.selectionStart !== this.selectionEnd);
    var e = this.getCoordinates(this.selectionEnd, this.selectionEndContainer, this.selectionEndOffset);
    if (this.cursorY !== e.y && (this.cursorY = e.y, i.onCursorCoordinates(e.x, e.y)), 
    s) {
     var t, n;
-    if (t = n = I.offsetHeight / 2 * r.cursorFocusRatio, t = this.adjustTop || t, n = this.adjustBottom || t, 
+    if (t = n = T.offsetHeight / 2 * r.cursorFocusRatio, t = this.adjustTop || t, n = this.adjustBottom || t, 
     t && n) {
-     var o = I.scrollTop + t, a = I.scrollTop + I.offsetHeight - n;
-     V.cursorY < o ? I.scrollTop += V.cursorY - o : V.cursorY > a && (I.scrollTop += V.cursorY - a);
+     var o = T.scrollTop + t, a = T.scrollTop + T.offsetHeight - n;
+     z.cursorY < o ? T.scrollTop += z.cursorY - o : z.cursorY > a && (T.scrollTop += z.cursorY - a);
     }
    }
    s = !1;
@@ -23289,18 +22940,18 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   }, 50);
   this.setSelectionStartEnd = function(e, t) {
    void 0 === e && (e = this.selectionStart), 0 > e && (e = 0), void 0 === t && (t = this.selectionEnd), 
-   0 > t && (t = 0), this.selectionStart = e, this.selectionEnd = t, q.editorStart = e, 
-   q.editorEnd = t, u();
+   0 > t && (t = 0), this.selectionStart = e, this.selectionEnd = t, $.editorStart = e, 
+   $.editorEnd = t, u();
   }, this.saveSelectionState = function() {
    function t() {
     if (G === !1) {
      var t = e.selectionStart, n = e.selectionEnd, r = c.getSelection();
      if (r.rangeCount > 0) {
       var i = r.getRangeAt(0), o = i.startContainer;
-      if (N.compareDocumentPosition(o) & Node.DOCUMENT_POSITION_CONTAINED_BY || N === o) {
+      if (D.compareDocumentPosition(o) & Node.DOCUMENT_POSITION_CONTAINED_BY || D === o) {
        var a = i.startOffset;
        o.hasChildNodes() && a > 0 && (o = o.childNodes[a - 1], a = o.textContent.length);
-       for (var s = o; o != N; ) {
+       for (var s = o; o != D; ) {
         for (;o = o.previousSibling; ) o.textContent && (a += o.textContent.length);
         o = s = s.parentNode;
        }
@@ -23311,7 +22962,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
      }
      e.setSelectionStartEnd(t, n);
     }
-    X.saveSelectionState();
+    W.saveSelectionState();
    }
    var r = !1, i = n.debounce(function() {
     t(), e.updateCursorCoordinates(r), s();
@@ -23324,7 +22975,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    };
   }(), this.getSelectedText = function() {
    var e = Math.min(this.selectionStart, this.selectionEnd), t = Math.max(this.selectionStart, this.selectionEnd);
-   return W.substring(e, t);
+   return V.substring(e, t);
   }, this.getCoordinates = function(e, t, n) {
    if (!t) {
     var r = this.findOffsets([ e ])[0];
@@ -23332,7 +22983,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    }
    var i = 0, o = 0;
    if ("\n" == t.textContent) o = t.parentNode.offsetTop + t.parentNode.offsetHeight / 2; else {
-    var a = W[e], s = {
+    var a = V[e], s = {
      container: t,
      offsetInContainer: n,
      offset: e
@@ -23343,7 +22994,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     };
     e > 0 && (void 0 === a || "\n" == a) ? 0 === s.offset ? s = e - 1 : s.offsetInContainer -= 1 : l.offset === t.textContent.length ? l = e + 1 : l.offsetInContainer += 1;
     var c = this.createRange(s, l), u = c.getBoundingClientRect();
-    o = u.top + u.height / 2 - I.getBoundingClientRect().top + I.scrollTop;
+    o = u.top + u.height / 2 - T.getBoundingClientRect().top + T.scrollTop;
    }
    return {
     x: i,
@@ -23351,7 +23002,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    };
   }, this.getClosestWordOffset = function(e) {
    var t = 0, n = 0, r = 0;
-   return W.split(/\s/).some(function(i) {
+   return V.split(/\s/).some(function(i) {
     return i && (t = r, n = r + i.length, n > e) ? !0 : void (r += i.length + 1);
    }), {
     start: t,
@@ -23360,62 +23011,62 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   };
  }
  function p(e) {
-  void 0 !== I && V.saveSelectionState(!0, !0, e);
+  void 0 !== T && z.saveSelectionState(!0, !0, e);
  }
  function h(e) {
-  var t = U.diff_commonPrefix(W, e);
-  t === W.length && t--;
-  var n = Math.min(U.diff_commonSuffix(W, e), W.length - t, e.length - t), r = e.substring(t, e.length - n), i = V.createRange(t, W.length - n);
+  var t = q.diff_commonPrefix(V, e);
+  t === V.length && t--;
+  var n = Math.min(q.diff_commonSuffix(V, e), V.length - t, e.length - t), r = e.substring(t, e.length - n), i = z.createRange(t, V.length - n);
   return i.deleteContents(), i.insertNode(document.createTextNode(r)), {
    start: t,
    end: e.length - n
   };
  }
  function f(e, t, n) {
-  X.currentMode = X.currentMode || "replace";
-  var r = V.createRange(Math.min(e, t), Math.max(e, t));
+  W.currentMode = W.currentMode || "replace";
+  var r = z.createRange(Math.min(e, t), Math.max(e, t));
   "" + r != n && (r.deleteContents(), r.insertNode(document.createTextNode(n)));
   var i = e + n.length;
-  V.setSelectionStartEnd(i, i), V.updateSelectionRange(), V.updateCursorCoordinates(!0);
+  z.setSelectionStartEnd(i, i), z.updateSelectionRange(), z.updateCursorCoordinates(!0);
  }
  function m(e, t) {
-  X.currentMode = X.currentMode || "replace";
-  var n = W.replace(e, t);
-  if (n != W) {
+  W.currentMode = W.currentMode || "replace";
+  var n = V.replace(e, t);
+  if (n != V) {
    var r = F.setValue(n);
-   V.setSelectionStartEnd(r.end, r.end), V.updateSelectionRange(), V.updateCursorCoordinates(!0);
+   z.setSelectionStartEnd(r.end, r.end), z.updateSelectionRange(), z.updateCursorCoordinates(!0);
   }
  }
  function g(e, t) {
-  var n = V.selectionStart;
-  if (n !== V.selectionEnd) return !1;
-  var r = V.createRange(n - e.length, n);
+  var n = z.selectionStart;
+  if (n !== z.selectionEnd) return !1;
+  var r = z.createRange(n - e.length, n);
   return "" + r != e ? !1 : (r.deleteContents(), r.insertNode(document.createTextNode(t)), 
-  n = n - e.length + t.length, V.setSelectionStartEnd(n, n), V.updateSelectionRange(), 
-  V.updateCursorCoordinates(!0), !0);
+  n = n - e.length + t.length, z.setSelectionStartEnd(n, n), z.updateSelectionRange(), 
+  z.updateCursorCoordinates(!0), !0);
  }
  function v(e) {
-  h(e), W = e;
+  h(e), V = e;
  }
  function b() {
-  return W;
+  return V;
  }
  function y() {
-  M.focus(), V.updateSelectionRange(), I.scrollTop = B;
+  M.focus(), z.updateSelectionRange(), T.scrollTop = O;
  }
  function x() {
   function e(e, n, r) {
    H.noWatch(function() {
-    W != e.content && (v(e.content), q.content = e.content, i.onContentChanged(q, e.content)), 
-    V.setSelectionStartEnd(n, r), V.updateSelectionRange(), V.updateCursorCoordinates(!0);
-    var o = q.discussionListJSON;
+    V != e.content && (v(e.content), $.content = e.content, i.onContentChanged($, e.content)), 
+    z.setSelectionStartEnd(n, r), z.updateSelectionRange(), z.updateCursorCoordinates(!0);
+    var o = $.discussionListJSON;
     if (o != e.discussionListJSON) {
-     var a = q.discussionList;
-     q.discussionListJSON = e.discussionListJSON;
-     var s = q.discussionList, l = z.diff(a, s), c = !1;
+     var a = $.discussionList;
+     $.discussionListJSON = e.discussionListJSON;
+     var s = $.discussionList, l = U.diff(a, s), c = !1;
      t.each(l, function(e, n) {
-      t.isArray(e) ? 1 === e.length ? i.onDiscussionCreated(q, s[n]) : i.onDiscussionRemoved(q, a[n]) : c = !0;
-     }), c && i.onCommentsChanged(q);
+      t.isArray(e) ? 1 === e.length ? i.onDiscussionCreated($, s[n]) : i.onDiscussionRemoved($, a[n]) : c = !0;
+     }), c && i.onCommentsChanged($);
     }
    }), s = n, l = r, a = e, this.currentMode = void 0, o = void 0, this.onButtonStateChange(), 
    p();
@@ -23431,13 +23082,13 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    a = {
     selectionStartBefore: s,
     selectionEndBefore: l,
-    selectionStartAfter: V.selectionStart,
-    selectionEndAfter: V.selectionEnd,
-    content: W,
-    discussionListJSON: q.discussionListJSON
+    selectionStartAfter: z.selectionStart,
+    selectionEndAfter: z.selectionEnd,
+    content: V,
+    discussionListJSON: $.discussionListJSON
    }, r = e, o = this.currentMode, this.currentMode = void 0, this.onButtonStateChange();
   }, this), this.saveSelectionState = t.debounce(function() {
-   void 0 === this.currentMode && (s = V.selectionStart, l = V.selectionEnd);
+   void 0 === this.currentMode && (s = z.selectionStart, l = z.selectionEnd);
   }, 50), this.canUndo = function() {
    return c.length;
   }, this.canRedo = function() {
@@ -23449,38 +23100,35 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    var t = u.pop();
    t && (c.push(a), e.call(this, t, t.selectionStartAfter, t.selectionEndAfter));
   }, this.init = function() {
-   var e = q.content;
+   var e = $.content;
    c = [], u = [], r = 0, a = {
-    selectionStartAfter: q.selectionStart,
-    selectionEndAfter: q.selectionEnd,
+    selectionStartAfter: $.selectionStart,
+    selectionEndAfter: $.selectionEnd,
     content: e,
-    discussionListJSON: q.discussionListJSON
-   }, this.currentMode = void 0, o = void 0, N.textContent = e, S();
+    discussionListJSON: $.discussionListJSON
+   }, this.currentMode = void 0, o = void 0, D.textContent = e, w();
   };
  }
  function w() {
-  H.isWatching === !0 && (X.currentMode = X.currentMode || "comment", X.saveState());
- }
- function S() {
-  var e = I.textContent;
-  if (N.lastChild === O && "\n" == O.textContent.slice(-1) && (e = e.slice(0, -1)), 
+  var e = T.textContent;
+  if (D.lastChild === P && "\n" == P.textContent.slice(-1) && (e = e.slice(0, -1)), 
   e = e.replace(/\r\n?/g, "\n"), G === !1) {
-   if (e == W) return void (0 === N.children.length && (N.innerHTML = "", K.forEach(function(e) {
-    N.appendChild(e.elt);
-   }), E()));
-   X.currentMode = X.currentMode || "typing";
-   var n = t.values(q.discussionList);
-   q.newDiscussion && n.push(q.newDiscussion);
-   var r = C(W, e, n);
-   W = e, r === !0 && (q.discussionList = q.discussionList), q.content = W, V.saveSelectionState(), 
-   i.onContentChanged(q, W), r && i.onCommentsChanged(q), X.saveState(), Q();
-  } else W = e, q.content = W, V.setSelectionStartEnd(q.editorStart, q.editorEnd), 
-  V.updateSelectionRange(), V.updateCursorCoordinates(), X.saveSelectionState(), i.onFileOpen(q, W), 
-  R.scrollTop = q.previewScrollTop, B = q.editorScrollTop, I.scrollTop = B, G = !1;
+   if (e == V) return void (0 === D.children.length && (D.innerHTML = "", K.forEach(function(e) {
+    D.appendChild(e.elt);
+   }), k()));
+   W.currentMode = W.currentMode || "typing";
+   var n = t.values($.discussionList);
+   $.newDiscussion && n.push($.newDiscussion);
+   var r = S(V, e, n);
+   V = e, r === !0 && ($.discussionList = $.discussionList), $.content = V, z.saveSelectionState(), 
+   i.onContentChanged($, V), r && i.onCommentsChanged($), W.saveState(), Q();
+  } else V = e, $.content = V, z.setSelectionStartEnd($.editorStart, $.editorEnd), 
+  z.updateSelectionRange(), z.updateCursorCoordinates(), W.saveSelectionState(), i.onFileOpen($, V), 
+  A.scrollTop = $.previewScrollTop, O = $.editorScrollTop, T.scrollTop = O, G = !1;
  }
- function C(e, t, n) {
+ function S(e, t, n) {
   if (n.length) {
-   var r = U.diff_main(e, t), i = !1, o = 0;
+   var r = q.diff_main(e, t), i = !1, o = 0;
    return r.forEach(function(e) {
     var t = e[0], r = e[1];
     if (0 === t) return void (o += r.length);
@@ -23494,52 +23142,52 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    }), i;
   }
  }
- function _(e) {
-  if (Z = [], J = [], Y = void 0, G === !0) return J = K, K = e, void (Z = e);
+ function C(e) {
+  if (J = [], Y = [], X = void 0, G === !0) return Y = K, K = e, void (J = e);
   var n = K.length;
   t.some(K, function(t, r) {
    var i = e[r];
-   return r >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== N || t.elt.textContent != i.textWithFrontMatter ? (n = r, 
+   return r >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== D || t.elt.textContent != i.textWithFrontMatter ? (n = r, 
    !0) : void 0;
   });
   var r = -K.length;
   t.some(K.slice().reverse(), function(t, n) {
    var i = e[e.length - n - 1];
-   return n >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== N || t.elt.textContent != i.textWithFrontMatter ? (r = -n, 
+   return n >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== D || t.elt.textContent != i.textWithFrontMatter ? (r = -n, 
    !0) : void 0;
   }), n - r > K.length && (r = n - K.length);
   var i = K.slice(0, n);
-  Z = e.slice(n, e.length + r);
+  J = e.slice(n, e.length + r);
   var o = K.slice(K.length + r, K.length);
-  Y = t.first(o), J = K.slice(n, K.length + r), K = i.concat(Z).concat(o);
+  X = t.first(o), Y = K.slice(n, K.length + r), K = i.concat(J).concat(o);
  }
- function k() {
+ function _() {
   var e = document.createDocumentFragment();
-  Z.forEach(function(t) {
-   T(t), e.appendChild(t.elt);
+  J.forEach(function(t) {
+   E(t), e.appendChild(t.elt);
   }), H.noWatch(function() {
-   if (G === !0) N.innerHTML = "", N.appendChild(e); else {
-    J.forEach(function(e) {
-     e.elt.parentNode === N && N.removeChild(e.elt), e.elt.generated = !1;
-    }), void 0 !== Y ? N.insertBefore(e, Y.elt) : N.appendChild(e);
-    for (var t = N.firstChild; t; ) {
+   if (G === !0) D.innerHTML = "", D.appendChild(e); else {
+    Y.forEach(function(e) {
+     e.elt.parentNode === D && D.removeChild(e.elt), e.elt.generated = !1;
+    }), void 0 !== X ? D.insertBefore(e, X.elt) : D.appendChild(e);
+    for (var t = D.firstChild; t; ) {
      var n = t.nextSibling;
-     t.generated || N.removeChild(t), t = n;
+     t.generated || D.removeChild(t), t = n;
     }
    }
-   E(), V.updateSelectionRange(), V.updateCursorCoordinates();
+   k(), z.updateSelectionRange(), z.updateCursorCoordinates();
   });
  }
- function E() {
-  O = l("span", {
+ function k() {
+  P = l("span", {
    "class": "token lf"
-  }), O.textContent = "\n", N.appendChild(O);
+  }), P.textContent = "\n", D.appendChild(P);
  }
- function T(e) {
-  var t = ee(e.text);
+ function E(e) {
+  var t = Z(e.text);
   window.viewerMode || (t = o.highlight(t, o.languages.md));
   var n = e.textWithFrontMatter.substring(0, e.textWithFrontMatter.length - e.text.length);
-  n.length && (n = ee(n), n = n.replace(/\n/g, '<span class="token lf">\n</span>'), 
+  n.length && (n = Z(n), n = n.replace(/\n/g, '<span class="token lf">\n</span>'), 
   t = '<span class="token md">' + n + "</span>" + t);
   var r = l("span", {
    id: "wmd-input-section-" + e.id,
@@ -23547,29 +23195,29 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   });
   r.generated = !0, r.innerHTML = t, e.elt = r;
  }
- var I, D, N, M, L, A, R, P, O, F = {}, B = 0, j = function() {
+ var T, N, D, M, I, L, A, R, P, F = {}, O = 0, B = function() {
   var e, n = 0, i = function() {
    var e = Date.now();
-   P.refreshPreview(), n = Date.now() - e;
+   R.refreshPreview(), n = Date.now() - e;
   };
   return r.lazyRendering === !0 ? t.debounce(i, 500) : function() {
    clearTimeout(e), e = setTimeout(i, 2e3 > n ? n : 2e3);
   };
  }();
  i.addListener("onPagedownConfigure", function(e) {
-  P = e;
+  R = e;
  });
- var $ = 0;
+ var j = 0;
  i.addListener("onSectionsCreated", function(e) {
-  $ || (_(e), k()), G === !0 ? P.refreshPreview() : j();
+  j || (C(e), _()), G === !0 ? R.refreshPreview() : B();
  });
- var q, G = !0;
+ var $, G = !0;
  i.addListener("onFileSelected", function(e) {
-  G = !0, q = e;
+  G = !0, $ = e;
  });
  var H = new u();
  F.watcher = H;
- var U = new a(), z = s.create({
+ var q = new a(), U = s.create({
   objectHash: function(e) {
    return JSON.stringify(e);
   },
@@ -23579,54 +23227,53 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   textDiff: {
    minLength: 9999999
   }
- }), V = new d();
- F.selectionMgr = V, e(document).on("selectionchange", ".editor-content", t.bind(V.saveSelectionState, V, !0, !1)), 
+ }), z = new d();
+ F.selectionMgr = z, e(document).on("selectionchange", ".editor-content", t.bind(z.saveSelectionState, z, !0, !1)), 
  F.adjustCursorPosition = p;
- var W;
+ var V;
  F.setValue = h, F.replace = f, F.replaceAll = m, F.replacePreviousText = g, F.setValueNoWatch = v, 
  F.getValue = b, F.focus = y;
- var X = new x();
- F.undoMgr = X, i.addListener("onDiscussionCreated", w), i.addListener("onDiscussionRemoved", w), 
- i.addListener("onCommentsChanged", w);
+ var W = new x();
+ F.undoMgr = W;
  var Q = t.debounce(function() {
   var e = window.getSelection();
-  V.hasFocus && !$ && V.selectionStart === V.selectionEnd && e.modify && (V.selectionStart ? (e.modify("move", "backward", "character"), 
+  z.hasFocus && !j && z.selectionStart === z.selectionEnd && e.modify && (z.selectionStart ? (e.modify("move", "backward", "character"), 
   e.modify("move", "forward", "character")) : (e.modify("move", "forward", "character"), 
   e.modify("move", "backward", "character")));
  }, 10);
- F.adjustCommentOffsets = C, F.init = function() {
-  if (I = document.getElementById("wmd-input"), D = e(I), N = I.querySelector(".editor-content"), 
-  M = e(N), L = I.querySelector(".editor-margin"), A = e(L), R = document.querySelector(".preview-container"), 
-  D.addClass(r.editorFontClass), H.startWatching(), e(I).scroll(function() {
-   B = I.scrollTop, G === !1 && (q.editorScrollTop = B);
-  }), e(R).scroll(function() {
-   G === !1 && (q.previewScrollTop = R.scrollTop);
+ F.adjustCommentOffsets = S, F.init = function() {
+  if (T = document.getElementById("wmd-input"), N = e(T), D = T.querySelector(".editor-content"), 
+  M = e(D), I = T.querySelector(".editor-margin"), L = e(I), A = document.querySelector(".preview-container"), 
+  N.addClass(r.editorFontClass), H.startWatching(), e(T).scroll(function() {
+   O = T.scrollTop, G === !1 && ($.editorScrollTop = O);
+  }), e(A).scroll(function() {
+   G === !1 && ($.previewScrollTop = A.scrollTop);
   }), /AppleWebKit\/([\d.]+)/.exec(navigator.userAgent)) {
    var n = e('<input style="width:1px;height:1px;border:none;margin:0;padding:0;" tabIndex="-1">').appendTo("html");
    M.blur(function() {
     n[0].setSelectionRange(0, 0), n.blur();
    });
   }
-  I.focus = y, I.adjustCursorPosition = p, Object.defineProperty(I, "value", {
+  T.focus = y, T.adjustCursorPosition = p, Object.defineProperty(T, "value", {
    get: function() {
-    return W;
+    return V;
    },
    set: h
-  }), Object.defineProperty(I, "selectionStart", {
+  }), Object.defineProperty(T, "selectionStart", {
    get: function() {
-    return Math.min(V.selectionStart, V.selectionEnd);
+    return Math.min(z.selectionStart, z.selectionEnd);
    },
    set: function(e) {
-    V.setSelectionStartEnd(e), V.updateSelectionRange(), V.updateCursorCoordinates();
+    z.setSelectionStartEnd(e), z.updateSelectionRange(), z.updateCursorCoordinates();
    },
    enumerable: !0,
    configurable: !0
-  }), Object.defineProperty(I, "selectionEnd", {
+  }), Object.defineProperty(T, "selectionEnd", {
    get: function() {
-    return Math.max(V.selectionStart, V.selectionEnd);
+    return Math.max(z.selectionStart, z.selectionEnd);
    },
    set: function(e) {
-    V.setSelectionStartEnd(void 0, e), V.updateSelectionRange(), V.updateCursorCoordinates();
+    z.setSelectionStartEnd(void 0, e), z.updateSelectionRange(), z.updateCursorCoordinates();
    },
    enumerable: !0,
    configurable: !0
@@ -23634,7 +23281,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   var i = !1;
   M.on("keydown", function(e) {
    if (17 !== e.which && 91 !== e.which && 18 !== e.which && 16 !== e.which) {
-    V.saveSelectionState(), p();
+    z.saveSelectionState(), p();
     var t = e.metaKey || e.ctrlKey;
     switch (e.which) {
     case 9:
@@ -23649,33 +23296,33 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     13 !== e.which && (i = !1);
    }
   }).on("compositionstart", function() {
-   $++;
+   j++;
   }).on("compositionend", function() {
    setTimeout(function() {
-    $--;
+    j--;
    }, 0);
-  }).on("mouseup", t.bind(V.saveSelectionState, V, !0, !1)).on("paste", function(e) {
-   X.currentMode = "paste", e.preventDefault();
+  }).on("mouseup", t.bind(z.saveSelectionState, z, !0, !1)).on("paste", function(e) {
+   W.currentMode = "paste", e.preventDefault();
    var t, n = (e.originalEvent || e).clipboardData;
    n ? t = n.getData("text/plain") : (n = window.clipboardData, t = n && n.getData("Text")), 
-   t && (f(V.selectionStart, V.selectionEnd, t), p());
+   t && (f(z.selectionStart, z.selectionEnd, t), p());
   }).on("cut", function() {
-   X.currentMode = "cut", p();
+   W.currentMode = "cut", p();
   }).on("focus", function() {
-   V.hasFocus = !0;
+   z.hasFocus = !0;
   }).on("blur", function() {
-   V.hasFocus = !1;
+   z.hasFocus = !1;
   });
   var o = function(e, t) {
-   var n = b(), r = Math.min(V.selectionStart, V.selectionEnd), i = Math.max(V.selectionStart, V.selectionEnd), o = {
+   var n = b(), r = Math.min(z.selectionStart, z.selectionEnd), i = Math.max(z.selectionStart, z.selectionEnd), o = {
     selectionStart: r,
     selectionEnd: i,
     before: n.slice(0, r),
     after: n.slice(i),
     selection: n.slice(r, i)
    };
-   s[e](o, t || {}), h(o.before + o.selection + o.after), V.setSelectionStartEnd(o.selectionStart, o.selectionEnd), 
-   V.updateSelectionRange();
+   s[e](o, t || {}), h(o.before + o.selection + o.after), z.setSelectionStartEnd(o.selectionStart, o.selectionEnd), 
+   z.updateSelectionRange();
   }, a = /^ {0,3}>[ ]*|^[ \t]*(?:[*+\-]|(\d+)\.)[ \t]|^\s+/, s = {
    indent: function(e, t) {
     function n(e, t, n, r) {
@@ -23701,12 +23348,12 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
      var s = parseInt(r[1], 10);
      o = o.replace(/\d+/, s + 1);
     }
-    o.length && (i = !0), X.currentMode = "newlines", e.before += "\n" + o, e.selection = "", 
+    o.length && (i = !0), W.currentMode = "newlines", e.before += "\n" + o, e.selection = "", 
     e.selectionStart += o.length + 1, e.selectionEnd = e.selectionStart;
    }
   };
  };
- var Y, K = [], J = [], Z = [], ee = function() {
+ var X, K = [], Y = [], J = [], Z = function() {
   var e = {
    "&": "&amp;",
    "<": "&lt;",
@@ -24184,9 +23831,9 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   }).maxWidth;
  }
  function f() {
-  var e = x.height - 60, t = (_.elt.offsetWidth - h()) / 2;
+  var e = 60, t = (_.elt.offsetWidth - h()) / 2;
   t < r.EDITOR_DEFAULT_PADDING && (t = r.EDITOR_DEFAULT_PADDING), V.style.paddingLeft = t + "px", 
-  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", X.style.width = t + "px";
+  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", Q.style.width = t + "px";
   var n = (E.elt.offsetWidth - h()) / 2;
   n < r.EDITOR_DEFAULT_PADDING && (n = r.EDITOR_DEFAULT_PADDING), W.style.paddingLeft = n + "px", 
   W.style.paddingRight = n + "px", W.style.paddingBottom = e + "px";
@@ -24194,11 +23841,11 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   window.viewerMode && (i = ie + se + $ + ae);
   var a = v.width - i + $;
   ne.forEach(function(e, t) {
-   i += e.width, t === ne.length - 1 && (i -= oe), v.width < i ? Y.appendChild(e.elt) : (Q.insertBefore(e.elt, J), 
+   i += e.width, t === ne.length - 1 && (i -= oe), v.width < i ? K.appendChild(e.elt) : (X.insertBefore(e.elt, J), 
    a = v.width - i + $);
   }), Z.css({
    maxWidth: a
-  }), K.toggleClass("hide", 0 === Y.children.length), o.onLayoutResize();
+  }), Y.toggleClass("hide", 0 === K.children.length), o.onLayoutResize();
  }
  function m() {
   b.width = v.width + B + (C.isShown ? j : 0), b.elt.style.width = b.width + "px", 
@@ -24214,13 +23861,13 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    x.width = v.width, x.height = b.height - P, b.applyCss(), y.applyCss(), x.applyCss(), 
    window.viewerMode) return k.width = x.width, k.height = x.height, E.width = x.width, 
    E.height = x.height, k.applyCss(), E.applyCss(), f();
-   if (!(w.isOpen && x.height < O.height + A)) {
+   if (!(w.isOpen && x.height < F.height + A)) {
     if (le) {
      if (k.isOpen) {
-      if (k.halfSize && (k.height = (x.height + A) / 2), k.height < F.height && (k.height = F.height), 
-      k.y = x.height - k.height, k.y < O.height) {
-       var e = x.height - O.height;
-       if (e < F.height) {
+      if (k.halfSize && (k.height = (x.height + A) / 2), k.height < O.height && (k.height = O.height), 
+      k.y = x.height - k.height, k.y < F.height) {
+       var e = x.height - F.height;
+       if (e < O.height) {
         k.isOpen = !1, k.$elt.trigger("hide.layout.toggle").trigger("hidden.layout.toggle");
         continue;
        }
@@ -24228,13 +23875,13 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
       }
      } else k.y = x.height - A;
      k.width = x.width, _.height = k.y, _.width = x.width, E.top = A, E.height = k.height - A, 
-     E.width = k.width, T.width = R, I.width = R, I.x = (k.width - R) / 2, D.width = E.width;
+     E.width = k.width, T.width = R, N.width = R, N.x = (k.width - R) / 2, D.width = E.width;
     } else {
      if (k.isOpen) {
-      if (k.halfSize && (k.width = (x.width + A) / 2), k.width < F.width && (k.width = F.width), 
-      k.x = x.width - k.width, k.x < O.width) {
-       var t = x.width - O.width;
-       if (t < F.width) {
+      if (k.halfSize && (k.width = (x.width + A) / 2), k.width < O.width && (k.width = O.width), 
+      k.x = x.width - k.width, k.x < F.width) {
+       var t = x.width - F.width;
+       if (t < O.width) {
         k.isOpen = !1, k.$elt.trigger("hide.layout.toggle").trigger("hidden.layout.toggle");
         continue;
        }
@@ -24242,23 +23889,23 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
       }
      } else k.x = x.width - A;
      k.height = x.height, _.width = k.x, _.height = x.height, E.left = A, E.width = k.width - A, 
-     E.height = k.height, T.height = R, I.height = R, I.y = (k.height - R) / 2, D.height = E.height;
+     E.height = k.height, T.height = R, N.height = R, N.y = (k.height - R) / 2, D.height = E.height;
     }
     break;
    }
    w.isOpen = !1, w.$elt.trigger("hide.layout.toggle").trigger("hidden.layout.toggle");
   }
-  T.$elt.toggleClass("open", w.isOpen), I.$elt.toggleClass("open", k.isOpen), D.$elt.toggleClass("open", k.isOpen), 
-  _.applyCss(), k.applyCss(), E.applyCss(), I.applyCss(), D.applyCss(), T.applyCss(), 
-  m(), N.adjustPosition(), f();
+  T.$elt.toggleClass("open", w.isOpen), N.$elt.toggleClass("open", k.isOpen), D.$elt.toggleClass("open", k.isOpen), 
+  _.applyCss(), k.applyCss(), E.applyCss(), N.applyCss(), D.applyCss(), T.applyCss(), 
+  m(), M.adjustPosition(), f();
  }
- var v, b, y, x, w, S, C, _, k, E, T, I, D, N, M, L = {}, A = 32, R = 60, P = 50, O = {
+ var v, b, y, x, w, S, C, _, k, E, T, N, D, M, I, L = {}, A = 32, R = 60, P = 50, F = {
   width: 250,
   height: 140
- }, F = {
+ }, O = {
   width: 330,
   height: 160
- }, B = 280, j = 320, $ = 200, q = 18, G = 130, H = {
+ }, B = 280, j = 320, $ = 200, G = 18, H = 130, q = {
   x: -45,
   y: -6
  }, U = !1, z = [];
@@ -24274,7 +23921,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.oldWidth = this.width, U && this.height < this.oldHeight ? z.push(t.bind(function() {
    this.elt.style.height = this.height + "px";
   }, this)) : void 0 !== this.height && (this.elt.style.height = this.height + "px"), 
-  this.oldHeight = this.height, clearTimeout(M), U && (M = setTimeout(p, 800));
+  this.oldHeight = this.height, clearTimeout(I), U && (I = setTimeout(p, 800));
  }, d.prototype.createToggler = function(r) {
   var i, o = 0;
   this.toggle = function(a) {
@@ -24301,7 +23948,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    transform: !1
   });
  };
- var V, W, X, Q, Y, K, J, Z, ee = [ {
+ var V, W, Q, X, K, Y, J, Z, ee = [ {
   screenWidth: 0,
   maxWidth: 600 * i.maxWidthRatio
  }, {
@@ -24331,10 +23978,10 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   y = new d(".layout-wrapper-l2"), x = new d(".layout-wrapper-l3"), w = new d(".navbar"), 
   S = new d(".menu-panel"), C = new d(".document-panel"), _ = new d("#wmd-input"), 
   k = new d(".preview-panel"), E = new d(".preview-container"), T = new d(".layout-toggler-navbar"), 
-  I = new d(".layout-toggler-preview"), D = new d(".layout-resizer-preview"), N = new d(".extension-preview-buttons"), 
+  N = new d(".layout-toggler-preview"), D = new d(".layout-resizer-preview"), M = new d(".extension-preview-buttons"), 
   V = _.elt.querySelector(".editor-content"), W = document.getElementById("preview-contents"), 
-  X = _.elt.querySelector(".editor-margin"), Q = w.elt.querySelector(".navbar-inner"), 
-  Y = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), K = w.$elt.find(".buttons-dropdown"), 
+  Q = _.elt.querySelector(".editor-margin"), X = w.elt.querySelector(".navbar-inner"), 
+  K = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), Y = w.$elt.find(".buttons-dropdown"), 
   J = w.elt.querySelector(".title-container"), Z = w.$elt.find(".file-title-navbar, .input-file-title"), 
   e([ b.elt, y.elt, x.elt ]).on("scroll", function() {
    this.scrollLeft = 0;
@@ -24350,7 +23997,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    });
   }), b.$elt.toggleClass("layout-vertical", le), b.$elt.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", p), 
   w.isOpen = !0, w.createToggler(), T.$elt.click(t.bind(w.toggle, w)), k.isOpen = !0, 
-  k.createToggler(), k.halfSize = !0, I.$elt.click(t.bind(k.toggle, k)), k.$elt.on("show.layout.toggle", function() {
+  k.createToggler(), k.halfSize = !0, N.$elt.click(t.bind(k.toggle, k)), k.$elt.on("show.layout.toggle", function() {
    t.defer(function() {
     k.isOpen || (window.location.href = "viewer");
    });
@@ -24375,25 +24022,25 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     e.gesture.preventDefault(), k.halfSize = !1, g();
    });
   }
-  N.initHammer(!0), N.adjustPosition = function() {
-   if (N.isDragged) {
-    var e = -v.width + N.elt.offsetWidth, t = -v.height + N.elt.offsetHeight;
+  M.initHammer(!0), M.adjustPosition = function() {
+   if (M.isDragged) {
+    var e = -v.width + M.elt.offsetWidth, t = -v.height + M.elt.offsetHeight;
     this.x < e && (this.x = e), this.y < t && (this.y = t), this.x > 0 && (this.x = 0), 
     this.y > 0 && (this.y = 0), this.applyCss();
    }
   };
   var l;
-  N.hammer.on("dragstart", function() {
-   N.isOpen = !0, N.isDragged = !0, N.$elt.removeClass("closed animate"), y.$elt.addClass("dragging"), 
+  M.hammer.on("dragstart", function() {
+   M.isOpen = !0, M.isDragged = !0, M.$elt.removeClass("closed animate"), y.$elt.addClass("dragging"), 
    l = {
-    x: N.x,
-    y: N.y
+    x: M.x,
+    y: M.y
    };
   }).on("drag", function(e) {
-   N.x = l.x + e.gesture.deltaX, N.y = l.y + e.gesture.deltaY, N.adjustPosition(), 
+   M.x = l.x + e.gesture.deltaX, M.y = l.y + e.gesture.deltaY, M.adjustPosition(), 
    e.gesture.preventDefault();
   }).on("dragend", function() {
-   y.$elt.removeClass("dragging"), N.$elt.find(".btn-group").toggleClass("dropup", v.height / 2 > -N.y);
+   y.$elt.removeClass("dragging"), M.$elt.find(".btn-group").toggleClass("dropup", v.height / 2 > -M.y);
   }), s.stopCallback = function() {
    return S.isOpen || C.isOpen || r;
   }, e(window).resize(g).focus(function() {
@@ -24407,42 +24054,42 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   u.innerHTML = c, document.head.appendChild(u), g();
  }, o.addListener("onReady", function() {
   function n() {
-   clearTimeout(i), N.isDragged || (N.isOpen = !0, N.x = H.x, N.applyCss(), N.$elt.removeClass("closed"));
+   clearTimeout(i), M.isDragged || (M.isOpen = !0, M.x = q.x, M.applyCss(), M.$elt.removeClass("closed"));
   }
   function r() {
    clearTimeout(i), i = setTimeout(function() {
-    N.isDragged || o || (N.isOpen = !1, N.x = H.x + N.elt.offsetWidth + q, N.applyCss(), 
-    N.$elt.addClass("closed"));
+    M.isDragged || o || (M.isOpen = !1, M.x = q.x + M.elt.offsetWidth + G, M.applyCss(), 
+    M.$elt.addClass("closed"));
    }, 3e3);
   }
-  N.x = H.x, N.y = H.y, N.applyCss(), setTimeout(function() {
-   N.$elt.addClass("animate");
+  M.x = q.x, M.y = q.y, M.applyCss(), setTimeout(function() {
+   M.$elt.addClass("animate");
   }, 0);
   var i, o = !1;
-  n(), r(), N.$elt.hover(n, r).on("show.bs.dropdown", function() {
+  n(), r(), M.$elt.hover(n, r).on("show.bs.dropdown", function() {
    o = !0;
   }).on("hidden.bs.dropdown", function() {
    o = !1, r();
-  }), t.each(N.elt.querySelectorAll(".btn-group"), function(t) {
+  }), t.each(M.elt.querySelectorAll(".btn-group"), function(t) {
    var n = e(t);
    n.on("shown.bs.dropdown", function() {
     n.find(".dropdown-menu").css({
-     right: -N.elt.offsetWidth + n.width() + n.position().left
+     right: -M.elt.offsetWidth + n.width() + n.position().left
     });
-    var e = -N.y - G;
-    v.height / 2 > -N.y && (e = v.height + N.y - N.elt.offsetHeight - G), n.find(".markdown-syntax, .table-of-contents").css({
+    var e = -M.y - H;
+    v.height / 2 > -M.y && (e = v.height + M.y - M.elt.offsetHeight - H), n.find(".markdown-syntax, .table-of-contents").css({
      maxHeight: e
     });
    }).addClass("dropup");
   });
  }), o.addListener("onExtensionButtonResize", function() {
-  N.isDragged ? N.adjustPosition() : N.isOpen || (N.$elt.removeClass("animate"), N.x = H.x + N.elt.offsetWidth + q, 
-  N.applyCss(), setTimeout(function() {
-   N.$elt.addClass("animate");
+  M.isDragged ? M.adjustPosition() : M.isOpen || (M.$elt.removeClass("animate"), M.x = q.x + M.elt.offsetWidth + G, 
+  M.applyCss(), setTimeout(function() {
+   M.$elt.addClass("animate");
   }, 0));
  }), o.onLayoutCreated(L), L;
 }), define("text!html/bodyEditor.html", [], function() {
- return '<div class="layout-wrapper-l1">\r\n	<div class="layout-wrapper-l2">\r\n		<div class="navbar navbar-default">\r\n			<div class="navbar-inner">\r\n				<div class="nav left-space"></div>\r\n				<div class="nav right-space pull-right"></div>\r\n				<div class="buttons-dropdown dropdown">\r\n		    		<div class="nav">\r\n		        		<button class="btn btn-success" data-toggle="dropdown"\r\n		            		title="Show buttons">\r\n		            		<i class="icon-th-large"></i>\r\n		            	</button>\r\n		    		    <div class="dropdown-menu">\r\n		        		</div>\r\n		        	</div>\r\n				</div>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group1 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group2 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group3 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group5 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group4 btn-group">\r\n						<a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\r\n					</li>\r\n				</ul>\r\n				<ul class="nav pull-right right-buttons">\r\n					<li class="offline-status hide">\r\n					    <div class="text-danger">\r\n					        <i class="icon-attention-circled"></i>offline\r\n					    </div>\r\n					</li>\r\n					<li class="extension-buttons"></li>\r\n				</ul>\r\n				<ul class="nav pull-right title-container">\r\n					<li><div class="working-indicator"></div></li>\r\n					<li><a class="btn btn-success file-title-navbar" href="#"\r\n						title="Rename document"> </a></li>\r\n					<li><div class="input-file-title-container"><input type="text"\r\n						class="col-sm-4 form-control hide input-file-title"\r\n						placeholder="Document title" /></div></li>\r\n				</ul>\r\n			</div>\r\n		</div>\r\n		<div class="layout-wrapper-l3">\r\n			<pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\r\n			<div class="preview-panel">\r\n				<div class="layout-resizer layout-resizer-preview"></div>\r\n				<div class="layout-toggler layout-toggler-navbar btn btn-info" title="Toggle navigation bar"><i class="icon-th"></i></div>\r\n				<div class="layout-toggler layout-toggler-preview btn btn-info" title="Toggle preview"><i class="icon-none"></i></div>\r\n				<div class="preview-container">\r\n					<div id="preview-contents">\r\n						<div id="wmd-preview" class="preview-content"></div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n		</div>\r\n		<div class="extension-preview-buttons">\r\n			<div class="btn-group drag-me" title="Drag me!">\r\n				<i class="icon-ellipsis-vert"></i>\r\n			</div>\r\n		</div>\r\n	</div>\r\n	<div id="wmd-button-bar" class="hide"></div>\r\n\r\n	<div class="menu-panel">\r\n		<button class="btn toggle-button" title="Menu">\r\n			<img\r\n				data-stackedit-src="menu-icon.png" width="24" height="24" />\r\n		</button>\r\n		<div class="panel-content">\r\n			<div class="list-group">\r\n\r\n				<a href="viewer" title="StackEdit Viewer"\r\n					class="list-group-item">\r\n					<i class="icon-resize-full"></i> StackEdit Viewer\r\n				</a>\r\n\r\n			</div>\r\n			<div class="list-group">\r\n\r\n				<a href="#" data-toggle="collapse" data-target=".collapse-synchronize"\r\n					class="list-group-item">\r\n					<div><i class="icon-refresh"></i> Synchronize</div>\r\n					<small>Open, save, collaborate in the Cloud</small>\r\n				</a>\r\n				<div class="sub-menu collapse collapse-synchronize clearfix">\r\n					<ul class="nav alert alert-danger show-already-synchronized">\r\n						<li><div>"<span class="file-title"></span>" is already synchronized.</div></li>\r\n						<li><a href="#" class="action-force-synchronization"><i class="icon-refresh"></i>\r\n							Force synchronization</a></li>\r\n	                    <li><a href="#" data-toggle="modal" data-target=".modal-manage-sync"\r\n	                        class="action-reset-input"><i\r\n	                        class="icon-refresh"></i> Manage synchronization</a></li>\r\n	                </ul>\r\n					<ul class="nav">\r\n						<li><a href="#" class="action-sync-import-dialog-couchdb"><i\r\n							class="icon-provider-couchdb"></i> Open from CouchDB <sup class="text-danger">new</sup></a></li>\r\n						<li><a href="#" class="action-sync-export-dialog-couchdb"><i\r\n					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">new</sup></a></li>\r\n						<li><a href="#" class="action-sync-import-dropbox"><i\r\n							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>\r\n						<li><a href="#" class="action-sync-export-dialog-dropbox"><i\r\n					        class="icon-provider-dropbox"></i> Save on Dropbox</a></li>\r\n						<li><a href="#" class="submenu-sync-gdrive action-sync-import-gdrive"><i\r\n							class="icon-provider-gdrive"></i> Open from Google Drive</a></li>\r\n						<li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i\r\n							class="icon-provider-gdrive"></i> Save on Google Drive</a></li>\r\n						<li><a href="#" class="submenu-sync-gdrivesec action-sync-import-gdrivesec"><i\r\n							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(2nd account)</small></a></li>\r\n						<li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i\r\n							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(2nd account)</small></a></li>\r\n						<li><a href="#" class="submenu-sync-gdriveter action-sync-import-gdriveter"><i\r\n							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(3rd account)</small></a></li>\r\n						<li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i\r\n							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(3rd account)</small></a></li>\r\n					</ul>\r\n				</div>\r\n				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"\r\n					class="list-group-item">\r\n					<div><i class="icon-upload"></i>Publish</div>\r\n					<small>Export to the web</small>\r\n				</a>\r\n				<div class="sub-menu collapse collapse-publish-on clearfix">\r\n					<ul class="nav alert alert-danger show-already-published">\r\n	                    <li><div>"<span class="file-title"></span>" is already published.</div></li>\r\n	                    <li><a href="#" class="action-update-publication"><i class="icon-upload"></i>\r\n	                        Update publication</a></li>\r\n	                    <li><a href="#" data-toggle="modal" data-target=".modal-manage-publish"\r\n	                        class="action-reset-input"><i class="icon-upload"></i>\r\n	                        Manage publication</a></li>\r\n					</ul>\r\n					<ul class="nav publish-on-provider-list">\r\n					</ul>\r\n				</div>\r\n				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"\r\n					class="action-reset-input list-group-item">\r\n					<div><i class="icon-link"></i>Sharing</div>\r\n					<small>Share document links</small>\r\n				</a>\r\n			</div>\r\n			<div class="list-group">\r\n\r\n				<a data-toggle="modal"\r\n					data-target=".modal-import-harddrive-markdown"\r\n					class="list-group-item action-reset-input" href="#"><i\r\n					class="icon-hdd"></i> Import from disk</a>\r\n				<a href="#" data-toggle="collapse" data-target=".collapse-save-as"\r\n					class="list-group-item"><i class="icon-hdd"></i> Export to disk</a>\r\n				<div class="sub-menu collapse collapse-save-as clearfix">\r\n					<ul class="nav">\r\n						<li><a class="action-download-md" href="#"><i\r\n					        class="icon-download"></i> As Markdown</a></li>\r\n						<li><a class="action-download-html" href="#"><i\r\n					        class="icon-download"></i> As HTML</a></li>\r\n						<li><a class="action-download-template" href="#"><i\r\n					        class="icon-download"></i> Using template</a></li>\r\n						<li><a class="action-download-pdf" href="#"><i\r\n					        class="icon-download"></i> As PDF <sup class="text-danger">sponsor</sup></a></li>\r\n					</ul>\r\n				</div>\r\n\r\n	            <a data-toggle="modal" data-target=".modal-import-url"\r\n	                class="list-group-item action-reset-input" href="#"><i\r\n					class="icon-globe"></i> Import from URL</a>\r\n	            <a data-toggle="modal"\r\n					data-target=".modal-import-harddrive-html"\r\n					class="list-group-item action-reset-input" href="#"><i\r\n					class="icon-code"></i> Convert HTML to Markdown</a>\r\n			</div>\r\n			<ul class="nav">\r\n				<li><a href="#" data-toggle="modal"\r\n					data-target=".modal-settings" class="action-load-settings"><i\r\n						class="icon-cog"></i> Settings</a></li>\r\n				<li><a href="#" data-toggle="modal" data-target=".modal-about"><i\r\n						class="icon-help-circled"></i> About</a></li>\r\n			</ul>\r\n\r\n		</div>\r\n	</div>\r\n\r\n\r\n	<div class="document-panel">\r\n		<button class="btn toggle-button" title="Select document Ctrl+[ Ctrl+]">\r\n			<i class="icon-folder-open"></i>\r\n		</button>\r\n		<div class="search-bar clearfix">\r\n			<ul class="nav">\r\n				<li><a href="#" class="action-create-file"><i\r\n						class="icon-file"></i> New document</a></li>\r\n				<li><a href="#" class="action-remove-file-confirm"><i\r\n						class="icon-trash"></i> Delete document</a></li>\r\n				<li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i\r\n						class="icon-layers"></i> Manage documents</a></li>\r\n	        </ul>\r\n			<div class="input-group">\r\n				<span class="input-group-addon"><i class="icon-search"></i></span><input\r\n					type="text" class="form-control" placeholder="Find document" />\r\n			</div>\r\n		</div>\r\n		<div class="panel-content">\r\n			<div class="list-group document-list"></div>\r\n			<div class="list-group document-list-filtered hide"></div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n<div class="modal fade modal-document-manager">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Manage documents</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div></div>\r\n				<ul class="nav nav-pills document-list">\r\n					<li class="pull-right dropdown"><a href="#"\r\n						data-toggle="dropdown"><i class="icon-check"></i> Selection <b\r\n							class="caret"></b></a>\r\n						<ul class="dropdown-menu">\r\n							<li><a href="#" class="action-select-all"><i\r\n									class="icon-check"></i> Select all</a></li>\r\n							<li><a href="#" class="action-unselect-all"><i\r\n									class="icon-check-empty"></i> Unselect all</a></li>\r\n							<li class="divider"></li>\r\n							<li><a href="#" class="action-move-items"><i\r\n									class="icon-forward"></i> Move to folder</a></li>\r\n							<li><a href="#" class="action-delete-items"><i\r\n									class="icon-trash"></i> Delete</a></li>\r\n						</ul></li>\r\n					<li class="pull-right"><a href="#"\r\n						class="action-create-folder"> <i class="icon-folder"></i>\r\n							Create folder\r\n					</a></li>\r\n					<li class="disabled"><a><i class="icon-file"></i> <span\r\n							class="document-count"></span></a></li>\r\n					<li class="disabled"><a><i class="icon-folder"></i> <span\r\n							class="folder-count"></span></a></li>\r\n				</ul>\r\n				<div class="list-group document-list"></div>\r\n				<p class="confirm-delete hide">The following documents will be\r\n					deleted locally:</p>\r\n				<p class="choose-folder hide">Please choose a destination\r\n					folder:</p>\r\n				<div class="list-group selected-document-list hide"></div>\r\n				<div class="list-group select-folder-list hide"></div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#"\r\n					class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\r\n				<a href="#"\r\n					class="btn btn-primary confirm-delete action-delete-items-confirm hide">OK</a>\r\n				<a href="#" class="btn btn-primary document-list"\r\n					data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-insert-link">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Hyperlink</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide the link URL and an optional title:</p>\r\n				<div class="input-group">\r\n					<span class="input-group-addon"><i class="icon-globe"></i></span><input\r\n						id="input-insert-link" type="text" class="col-sm-5 form-control"\r\n						placeholder=\'http://example.com/ "optional title"\' />\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-insert-link"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-insert-image">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Image</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide the image URL and an optional title:</p>\r\n				<div class="input-group">\r\n					<span class="input-group-addon"><i class="icon-picture"></i></span><input\r\n						id="input-insert-image" type="text" class="col-sm-5 form-control"\r\n						placeholder=\'http://example.com/image.jpg "optional title"\' />\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default pull-left action-import-image-gplus"\r\n					data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\r\n					from Google+</a> <a href="#" class="btn btn-default"\r\n					data-dismiss="modal">Cancel</a> <a href="#"\r\n					class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-image">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Google+ image import</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<div class="col-sm-7">\r\n							<img>\r\n						</div>\r\n					</div>\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-import-image-title">Title (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-import-image-title"\r\n								placeholder="Image title" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-import-image-size">Size limit (optional)</label>\r\n						<div class="col-sm-7 form-inline">\r\n							<input type="text" id="input-import-image-size" placeholder="0"\r\n								class="col-sm-3 form-control"> px\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-import-image"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-remove-file-confirm">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Delete</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					Are you sure you want to delete "<span class="file-title"></span>"?\r\n				</p>\r\n				<blockquote>\r\n					<p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-remove-file"\r\n					data-dismiss="modal">Delete</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-url">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Import from URL</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide a link to a Markdown document.</p>\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<label class="col-sm-3 control-label" for="input-import-url">URL</label>\r\n						<div class="col-sm-8">\r\n							<input type="text" id="input-import-url"\r\n								placeholder="http://www.abc.com/xyz.md" class="form-control">\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-import-url">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-harddrive-markdown">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Import from disk</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please select your Markdown files here:</p>\r\n				<p>\r\n					<input type="file" id="input-file-import-harddrive-markdown"\r\n						multiple class="form-control" />\r\n				</p>\r\n				<p>Or drag and drop your Markdown files here:</p>\r\n				<p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop\r\n					files here</p>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-harddrive-html">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Convert HTML to Markdown</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please select your HTML files here:</p>\r\n				<p>\r\n					<input type="file" id="input-file-import-harddrive-html" multiple\r\n						class="form-control" />\r\n				</p>\r\n				<p>Or drag and drop your HTML files here:</p>\r\n				<p id="dropzone-import-harddrive-html" class="drop-zone">Drop\r\n					files here</p>\r\n				<p>Or insert your HTML code here:</p>\r\n				<textarea id="input-convert-html" class="form-control"></textarea>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Close</a> <a\r\n					href="#" class="btn btn-primary action-convert-html"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-upload-gdrive">\r\n</div>\r\n<div class="modal fade modal-upload-gdrivesec">\r\n</div>\r\n<div class="modal fade modal-upload-gdriveter">\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-autosync-gdrive">\r\n</div>\r\n<div class="modal fade modal-autosync-gdrivesec">\r\n</div>\r\n<div class="modal fade modal-autosync-gdriveter">\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-upload-dropbox">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Save on Dropbox</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					This will save "<span class="file-title"></span>" to your <i\r\n						class="icon-provider-dropbox"></i>\r\n					<code>Dropbox</code>\r\n					account and keep it synchronized.\r\n				</p>\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<label class="col-sm-3 control-label"\r\n							for="input-sync-export-dropbox-path">File path</label>\r\n						<div class="col-sm-8">\r\n							<input type="text" id="input-sync-export-dropbox-path"\r\n								placeholder="/path/to/My Document.md" class="form-control">\r\n							<span class="help-block"> File path is composed of both\r\n								folder and filename. </span>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<blockquote>\r\n					<b>Note:</b>\r\n					<ul>\r\n						<li>Dropbox file path does not depend on document title.</li>\r\n						<li>The title of your document will not be synchronized.</li>\r\n						<li>Destination folder must exist.</li>\r\n						<li>Any existing file at this location will be overwritten.</li>\r\n					</ul>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-sync-export-dropbox">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-download-couchdb">\r\n    <div class="modal-dialog">\r\n        <div class="modal-content">\r\n\r\n            <div class="modal-header">\r\n                <button type="button" class="close" data-dismiss="modal"\r\n                        aria-hidden="true">&times;</button>\r\n                <h2 class="modal-title">Open from CouchDB</h2>\r\n                <div class="form-horizontal list-mode">\r\n                    <br>\r\n                    <div class="form-group form-inline">\r\n                        <label for="input-sync-import-couchdb-tag" class="col-sm-3 control-label">Filter by tag</label>\r\n                        <select id="input-sync-import-couchdb-tag" class="col-sm-4 form-control">\r\n                        </select>\r\n                        <span class="col-sm-5">\r\n                            <a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\r\n                            </a>\r\n                            <a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\r\n                            </a>\r\n                        </span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class="modal-body">\r\n                <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>\r\n                    You\'re using the public CouchDB instance.\r\n                    <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a\r\n                            target="blank" href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click\r\n                        here</a>.\r\n                </p>\r\n\r\n                <div class="form-horizontal byid-mode">\r\n                    <div class="form-group">\r\n                        <label for="input-sync-import-couchdb-documentid" class="col-sm-3 control-label">Document\r\n                            ID</label>\r\n\r\n                        <div class="col-sm-9">\r\n                            <input id="input-sync-import-couchdb-documentid" class="form-control"\r\n                                   placeholder="DocumentID">\r\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                    <ul class="list-mode nav nav-pills">\r\n                        <li class="pull-right dropdown"><a href="#"\r\n                                                           data-toggle="dropdown"><i class="icon-check"></i> Selection\r\n                            <b class="caret"></b></a>\r\n                            <ul class="dropdown-menu">\r\n                                <li><a href="#" class="action-unselect-all"><i\r\n                                        class="icon-check-empty"></i> Unselect all</a></li>\r\n                                <li class="divider"></li>\r\n                                <li><a href="#" class="action-delete-items"><i\r\n                                        class="icon-trash"></i> Delete</a></li>\r\n                            </ul>\r\n                        </li>\r\n                    </ul>\r\n                    <p class="list-mode">\r\n                    </p>\r\n                    <div class="list-group document-list list-mode"></div>\r\n                <div class="list-mode text-center">\r\n                    <div class="please-wait"><b>Please wait...</b></div>\r\n                    <div class="no-document"><b>No document.</b></div>\r\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More documents!</button>\r\n                </div>\r\n                <p class="delete-mode hide">The following documents will be\r\n                    removed from CouchDB:</p>\r\n\r\n                <div class="delete-mode list-group selected-document-list hide"></div>\r\n            </div>\r\n            <div class="modal-footer">\r\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode">Open by ID...</a>\r\n                <a href="#"\r\n                   class="btn btn-default delete-mode action-cancel hide">Cancel</a>\r\n                <a href="#"\r\n                   class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\r\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\r\n                <a href="#" data-dismiss="modal"\r\n                   class="btn btn-primary action-sync-import-couchdb byid-mode">Open</a>\r\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\r\n                <a href="#" data-dismiss="modal"\r\n                   class="btn btn-primary action-sync-import-couchdb list-mode">Open</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-upload-couchdb">\r\n    <div class="modal-dialog">\r\n        <div class="modal-content">\r\n\r\n            <div class="modal-header">\r\n                <button type="button" class="close" data-dismiss="modal"\r\n                        aria-hidden="true">&times;</button>\r\n                <h2 class="modal-title">Save on CouchDB</h2>\r\n            </div>\r\n            <div class="modal-body">\r\n                <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>\r\n                    You\'re using the public CouchDB instance.\r\n                    <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a\r\n                            target="blank" href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click\r\n                        here</a>.\r\n                </p>\r\n\r\n                <p>\r\n                    This will save "<span class="file-title"></span>" to CouchDB and keep it synchronized.\r\n                </p>\r\n                <blockquote>\r\n                    <p><b>Tip:</b> You can use a\r\n                    <a href="http://jekyllrb.com/docs/frontmatter/"\r\n                       target="_blank">YAML front matter</a> to specify tags for your document.</p>\r\n                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the document title.</p>\r\n                </blockquote>\r\n            </div>\r\n            <div class="modal-footer">\r\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n                <a href="#" data-dismiss="modal"\r\n                   class="btn btn-primary action-sync-export-couchdb">OK</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-sync">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Synchronization</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					"<span class="file-title"></span>" is synchronized with the\r\n					following location(s):\r\n				</p>\r\n				<div class="sync-list"></div>\r\n				<blockquote>\r\n					<p><b>Note:</b> Removing a synchronized location will not delete any\r\n					file.</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-publish">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">\r\n					Publish on <span class="publish-provider-name"></span>\r\n				</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div class="form-horizontal">\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-ssh-host"\r\n								placeholder="hostname.or.ip" class="form-control"> <span\r\n								class="help-block"> Host must be accessible publicly,\r\n								unless you\'re hosting your own StackEdit instance.\r\n							</span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label" for="input-publish-ssh-port">Port\r\n							(optional)</label>\r\n						<div class="col-sm-2">\r\n							<input type="text" id="input-publish-ssh-port" placeholder="22"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-ssh-username">Username</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-ssh-username"\r\n								placeholder="username" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-ssh-password">Password</label>\r\n						<div class="col-sm-7">\r\n							<input type="password" id="input-publish-ssh-password"\r\n								placeholder="password" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-github-repo">Repository</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-github-repo"\r\n								placeholder="Repository name or URL" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-github-branch">Branch</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-github-branch"\r\n								placeholder="branch-name" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-file-path">File path</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-file-path"\r\n								placeholder="path/to/file.md" class="form-control">\r\n							<span class="help-block"> File path is composed of both\r\n								folder and filename. </span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-filename"\r\n								placeholder="filename" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label" for="input-publish-gist-id">Existing\r\n							ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gist-id"\r\n								placeholder="GistID" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gist-public">Public</label>\r\n						<div class="col-sm-7">\r\n							<div class="checkbox">\r\n								<input type="checkbox" id="input-publish-gist-public"\r\n									checked="checked" />\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-blogger modal-publish-bloggerpage">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-blogger-url">Blog URL</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-blogger-url"\r\n								placeholder="http://exemple.blogger.com/" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-tumblr">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-tumblr-hostname">Blog hostname</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-tumblr-hostname"\r\n								placeholder="exemple.tumblr.com" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-wordpress">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-tumblr-hostname">WordPress site</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-wordpress-site"\r\n								placeholder="exemple.wordpress.com" class="form-control">\r\n							<span class="help-block"> <a target="_blank"\r\n								href="http://jetpack.me/">Jetpack plugin</a> is required for\r\n								self-hosted sites.\r\n							</span>\r\n						</div>\r\n					</div>\r\n					<div\r\n						class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\r\n						<label class="col-sm-4 control-label" for="input-publish-postid">Update\r\n							existing post ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-postid" placeholder="PostID"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div\r\n						class="form-group modal-publish-bloggerpage">\r\n						<label class="col-sm-4 control-label" for="input-publish-pageid">Update\r\n							existing page ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-pageid" placeholder="PageID"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-dropbox">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-dropbox-path">File path</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-dropbox-path"\r\n								placeholder="/path/to/My Document.html" class="form-control">\r\n							<span class="help-block"> File path is composed of both\r\n								folder and filename. </span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gdrive">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gdrive-fileid">File ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gdrive-fileid"\r\n								placeholder="FileID" class="form-control"> <span\r\n								class="help-block">If no file ID is supplied, a new file\r\n								will be created in your Google Drive root folder. You can move\r\n								the file afterwards within Google Drive.</span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gdrive">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gdrive-filename">Force filename\r\n							(optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gdrive-filename"\r\n								placeholder="Filename" class="form-control"> <span\r\n								class="help-block">If no file name is supplied, the\r\n								document title will be used.</span>\r\n						</div>\r\n					</div>\r\n\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label">Format</label>\r\n						<div class="col-sm-7">\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="markdown"> Markdown\r\n								</label>\r\n							</div>\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="html"> HTML\r\n								</label>\r\n							</div>\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="template"> Template\r\n								</label>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="collapse publish-custom-template-collapse">\r\n						<div class="form-group">\r\n							<div class="col-sm-4"></div>\r\n							<div class="col-sm-7">\r\n								<div class="checkbox">\r\n									<label> <input type="checkbox"\r\n										id="checkbox-publish-custom-template"> Custom template\r\n									</label> <a href="#" class="tooltip-template">(?)</a>\r\n								</div>\r\n							</div>\r\n						</div>\r\n						<div class="form-group">\r\n							<div class="col-sm-4"></div>\r\n							<div class="col-sm-7">\r\n								<textarea class="form-control"\r\n									id="textarea-publish-custom-template"></textarea>\r\n							</div>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\r\n                    <p><b>Tip:</b> You can use a\r\n                    <a href="http://jekyllrb.com/docs/frontmatter/"\r\n                    target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>\r\n                    <p><b>Interpreted variables:</b> <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>\r\n				</blockquote>\r\n				<blockquote class="front-matter-info modal-publish-bloggerpage">\r\n                    <p><b>Tip:</b> You can use a\r\n                    <a href="http://jekyllrb.com/docs/frontmatter/"\r\n                    target="_blank">YAML front matter</a> to specify the title of your page.</p>\r\n                    <p><b>Interpreted variables:</b> <code>title</code>.</p>\r\n				</blockquote>\r\n				<blockquote class="url-info modal-publish-bloggerpage">\r\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with StackEdit specifying the pageId when publishing.\r\n                    </p>\r\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\r\n                    </p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-process-publish">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-publish">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Publication</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					"<span class="file-title"></span>" is published on the following\r\n					location(s):\r\n				</p>\r\n				<div class="publish-list"></div>\r\n				<blockquote>\r\n					<p><b>Note:</b> Removing a publish location will not delete the actual publication.</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-sharing">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Sharing</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n                <p>Collaborate on "<span class="file-title"></span>" using the following link(s):</p>\r\n            	<p class="msg-no-share-editor"><b>No sharing link yet!</b>\r\n            	</p>\r\n                <div class="share-editor-list"></div>\r\n            	<blockquote>\r\n                    <p><b>Note:</b> To collaborate on this document, just <a\r\n                        href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on CouchDB</a>.\r\n                    To collaborate via Google Drive or Dropbox, you have to share the file manually from Google Drive/Dropbox websites.</p>\r\n            	</blockquote>\r\n                <hr>\r\n                <p>Share a read-only version of "<span class="file-title"></span>" using the following link(s):</p>\r\n            	<p class="msg-no-share-viewer"><b>No sharing link yet!</b>\r\n            	</p>\r\n                <div class="share-viewer-list"></div>\r\n            	<blockquote>\r\n                    <p><b>Note:</b> To share a read-only version of this document, just <a\r\n                        href="#" class="action-publish-gist" data-dismiss="modal">publish it as a Gist</a> in\r\n                    Markdown format.</p>\r\n            	</blockquote>\r\n            	<blockquote>\r\n            		<p><b>Tip:</b> You can open any markdown URL within StackEdit Viewer using <a\r\n            			href="viewer#!url=https://raw.github.com/benweet/stackedit/master/README.md"\r\n            			title="Sharing example"><code>viewer#!url=</code></a>.</p>\r\n            	</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-settings">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Settings</h2>\r\n				<ul class="nav nav-tabs">\r\n					<li class="active"><a class="action-load-settings"\r\n						href="#tabpane-settings-basic" data-toggle="tab">Basic</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-advanced" data-toggle="tab">Advanced</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-extensions" data-toggle="tab">Extensions</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-utils" data-toggle="tab">Utils</a></li>\r\n				</ul>\r\n			</div>\r\n			<div class="modal-body">\r\n\r\n				<div class="tab-content clearfix">\r\n					<div class="tab-pane active" id="tabpane-settings-basic">\r\n						<div class="form-horizontal">\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Layout orientation</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-layout-orientation" value="horizontal">\r\n											Horizontal\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-layout-orientation" value="vertical">\r\n											Vertical\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label" for="input-settings-theme">Theme</label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-theme" class="form-control">\r\n									</select>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n									    <label>\r\n										    <input type="checkbox" id="input-settings-markdown-extra" />\r\n										    <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n									    <label>\r\n										    <input type="checkbox" id="input-settings-mathjax" />\r\n										    <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-gdrive-multiaccount">Google Drive multi-accounts\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-gdrive-multiaccount" class="form-control">\r\n    									<option value="1">1 account</option>\r\n    									<option value="2">2 accounts</option>\r\n    									<option value="3">3 accounts</option>\r\n									</select>\r\n									<span class="help-block"><b>Please sign in first with Google.</b> Once linked with your Google accounts, changing account is not possible unless you reset the application.</span>\r\n								</div>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-advanced">\r\n						<div class="form-horizontal">\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Edit mode</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-edit-mode" value="ltr">\r\n											Left-To-Right\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-edit-mode" value="rtl">\r\n											Right-To-Left\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Editor\'s font style</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-editor-font-class" value="font-rich">\r\n											Rich\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-editor-font-class" value="font-monospaced">\r\n											Monospaced\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-font-size">Font size ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-font-size"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-max-width">Max width ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-max-width"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-cursor-focus">Cursor focus ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-cursor-focus"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-lazy-rendering">Lazy rendering <a\r\n									href="#" class="tooltip-lazy-rendering">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<input type="checkbox" id="input-settings-lazy-rendering" />\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-default-content">Default content\r\n									<a href="#" class="tooltip-default-content">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-default-content"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-publish-template">Default\r\n									template <a href="#" class="tooltip-template">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-publish-template"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-pdf-template">PDF\r\n									template <a href="#" class="tooltip-template">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-pdf-template"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options\r\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\r\n                                </label>\r\n								<div class="col-sm-7">\r\n                                    <textarea id="textarea-settings-pdf-options"\r\n                                              class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-markdown-mime-type">Markdown MIME type\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-markdown-mime-type" class="form-control">\r\n										<option value="text/plain">text/plain</option>\r\n										<option value="text/x-markdown">text/x-markdown</option>\r\n									</select>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Permissions</label>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n									    <label>\r\n										    <input type="checkbox" id="input-settings-gdrive-full-access" />\r\n										    Allow StackEdit to open any document in Google Drive\r\n										</label> <span class="help-block">Existing authorization has to be revoked in\r\n										<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\r\n										for this change to take effect.</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n									    <label>\r\n										    <input type="checkbox" id="input-settings-dropbox-full-access" />\r\n										    Allow StackEdit to open any document in Dropbox\r\n										</label> <span class="help-block">If unchecked, access will be restricted to folder\r\n										<b>/Applications/StackEdit</b> for existing files.</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n									    <label>\r\n										    <input type="checkbox" id="input-settings-github-full-access" />\r\n										    Allow StackEdit to access private repositories in GitHub\r\n										</label> <span class="help-block">Existing authorization has to be revoked in\r\n										<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\r\n										for this change to take effect.</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-publish-commit-msg">GitHub commit message</label>\r\n								<div class="col-sm-7">\r\n									<input type="text" id="input-settings-publish-commit-msg"\r\n										class="form-control">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-couchdb-url">CouchDB URL</label>\r\n								<div class="col-sm-7">\r\n									<input type="text" id="input-settings-couchdb-url"\r\n										class="form-control">\r\n                                    <span class="help-block pull-right"><a\r\n                                            target="blank"\r\n                                            href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">Setup\r\n                                        your own CouchDB...</a></span>\r\n                                </div>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-extensions">\r\n						<div class="panel-group accordion-extensions"></div>\r\n						<span class="help-block pull-right"><a target="_blank"\r\n							href="https://github.com/benweet/stackedit/blob/master/doc/developer-guide.md#developer-guide">Create\r\n								your own extension...</a></span>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-utils">\r\n						<div class="tab-pane-button-container">\r\n							<a href="#" class="btn btn-block btn-default action-welcome-file"\r\n								data-dismiss="modal"><i class="icon-help-circled"></i>\r\n								Hello! document</a> <a href="#"\r\n								class="btn btn-block btn-default action-welcome-tour"\r\n								data-dismiss="modal"><i\r\n								class="icon-help-circled"></i> Welcome tour</a>\r\n						</div>\r\n						<div class="tab-pane-button-container">\r\n							<a href="#"\r\n								class="btn btn-block btn-default action-import-docs-settings"><i\r\n								class="icon-cog-alt"></i> Import docs & settings</a> <a href="#"\r\n								class="btn btn-block btn-default action-export-docs-settings"\r\n								data-dismiss="modal"><i class="icon-cog-alt"></i>\r\n								Export docs & settings</a> <input type="file"\r\n								id="input-file-import-docs-settings" class="hide">\r\n						</div>\r\n						<div class="tab-pane-button-container">\r\n							<a href="#"\r\n								class="btn btn-block btn-default action-default-settings"\r\n								data-dismiss="modal"><i class="icon-wrench"></i>\r\n								Load default settings</a> <a href="#" class="btn btn-block btn-default"\r\n								data-dismiss="modal" data-toggle="modal"\r\n								data-target=".modal-app-reset"><i\r\n								class="icon-fire"></i> Reset application</a> <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i\r\n								class="icon-medkit"></i> StackEdit recovery</a>\r\n						</div>\r\n					</div>\r\n				</div>\r\n\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-apply-settings"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-non-unique">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Ooops...</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>StackEdit has stopped because another instance was running in\r\n					the same browser.</p>\r\n				<blockquote>\r\n                    <p>If you want to reopen StackEdit, click on\r\n					"Reload".</p>\r\n                </blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="javascript:window.location.reload();"\r\n					class="btn btn-primary">Reload</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-redirect-confirm">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Redirection</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n			    <p class="redirect-msg"></p>\r\n				<blockquote>\r\n                    <p>Please click <b>OK</b> to proceed.</p>\r\n                </blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-app-reset">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Reset application</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This will delete all your local documents.</p>\r\n				<blockquote><b>Are you sure?</b></blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-app-reset"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-docs-settings">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Import documents and settings</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This will delete all existing local documents.</p>\r\n				<blockquote><b>Are you sure?</b></blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-import-docs-settings-confirm"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-add-google-drive-account">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Add Google Drive account</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>To perform this request, you need to configure another Google Drive account in StackEdit.</p>\r\n				<blockquote><b>Do you want to proceed?</b></blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default action-remove-google-drive-state"\r\n					data-dismiss="modal">No</a>\r\n				<a href="#" class="btn btn-primary action-add-google-drive-account"\r\n					data-dismiss="modal">Yes</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-sponsor-only">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Sponsor only!</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This feature is restricted to sponsor users as it\'s a web service hosted on Amazon EC2.\r\n                    Note that sponsoring StackEdit would cost you only $5/year.</p>\r\n				<p>To see how a PDF looks <a target="_blank" href="/Welcome%20document.pdf">click here</a>.</p>\r\n				<blockquote>\r\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\r\n                </blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary"\r\n					data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div id="dropboxjs" data-app-key="x0k2l8puemfvg0o"></div>\r\n';
+ return '<div class="layout-wrapper-l1">\r\n	<div class="layout-wrapper-l2">\r\n		<div class="navbar navbar-default">\r\n			<div class="navbar-inner">\r\n				<div class="nav left-space"></div>\r\n				<div class="nav right-space pull-right"></div>\r\n				<div class="buttons-dropdown dropdown">\r\n					<div class="nav">\r\n						<button class="btn btn-success" data-toggle="dropdown"\r\n							title="Show buttons">\r\n							<i class="icon-th-large"></i>\r\n						</button>\r\n						<div class="dropdown-menu"></div>\r\n					</div>\r\n				</div>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group1 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group2 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group3 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group5 btn-group"></li>\r\n				</ul>\r\n				<ul class="nav left-buttons">\r\n					<li class="wmd-button-group4 btn-group"><a\r\n						class="btn btn-success button-open-discussion"\r\n						title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a></li>\r\n				</ul>\r\n				<ul class="nav pull-right right-buttons">\r\n					<li class="offline-status hide">\r\n						<div class="text-danger">\r\n							<i class="icon-attention-circled"></i>offline\r\n						</div>\r\n					</li>\r\n					<li class="extension-buttons"></li>\r\n				</ul>\r\n				<ul class="nav pull-right title-container">\r\n					<li><div class="working-indicator"></div></li>\r\n					<li><a class="btn btn-success file-title-navbar" href="#"\r\n						title="Rename document"> </a></li>\r\n					<li><div class="input-file-title-container">\r\n							<input type="text"\r\n								class="col-sm-4 form-control hide input-file-title"\r\n								placeholder="Document title" />\r\n						</div></li>\r\n				</ul>\r\n			</div>\r\n		</div>\r\n		<div class="layout-wrapper-l3">\r\n			<pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\r\n			<div class="preview-panel">\r\n				<div class="layout-resizer layout-resizer-preview"></div>\r\n				<div class="layout-toggler layout-toggler-navbar btn btn-info"\r\n					title="Toggle navigation bar">\r\n					<i class="icon-th"></i>\r\n				</div>\r\n				<div class="layout-toggler layout-toggler-preview btn btn-info"\r\n					title="Toggle preview">\r\n					<i class="icon-none"></i>\r\n				</div>\r\n				<div class="preview-container">\r\n					<div id="preview-contents">\r\n						<div id="wmd-preview" class="preview-content"></div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n		</div>\r\n		<div class="extension-preview-buttons">\r\n			<div class="btn-group drag-me" title="Drag me!">\r\n				<i class="icon-ellipsis-vert"></i>\r\n			</div>\r\n		</div>\r\n	</div>\r\n	<div id="wmd-button-bar" class="hide"></div>\r\n\r\n	<div class="menu-panel">\r\n		<button class="btn toggle-button" title="Menu">\r\n			<img data-stackedit-src="menu-icon.png" width="24" height="24" />\r\n		</button>\r\n		<div class="panel-content">\r\n			<div class="list-group">\r\n\r\n				<a id="evernote-connector" href="javascript:void(0);" title="Connnect to Evernote"\r\n					class="list-group-item action-connect-evernote"> <i class="icon-evernote"></i> Connnect\r\n					to Evernote\r\n				</a>\r\n				<a id="user-name-wrapper" href="javascript:void(0);" \r\n					class="list-group-item " style="display:none;"> <i class="icon-evernote"></i><span id="user-name"></span>\r\n				</a>\r\n\r\n			</div>\r\n\r\n			<ul class="nav">\r\n				<li><a href="javascript:void(0);" class="action-create-note"><i\r\n						class="icon-cog"></i>New Documents</a></li>\r\n				<li><a href="javascript:void(0);"  class="action-delete-note"><i\r\n						class="icon-help-circled"></i>Delete Document</a></li>\r\n					<li><a href="javascript:void(0);" class="action-share-note" ><i\r\n						class="icon-help-circled"></i>Share</a></li>\r\n			</ul>\r\n\r\n			<!-- <ul class="nav">\r\n				<li><a href="#" data-toggle="modal"\r\n					data-target=".modal-settings" class="action-load-settings"><i\r\n						class="icon-cog"></i> Settings</a></li>\r\n				<li><a href="#" data-toggle="modal" data-target=".modal-about"><i\r\n						class="icon-help-circled"></i> About</a></li>\r\n			</ul> -->\r\n\r\n		</div>\r\n	</div>\r\n\r\n\r\n	<div class="document-panel">\r\n		<button class="btn toggle-button"\r\n			title="Select document Ctrl+[ Ctrl+]">\r\n			<i class="icon-folder-open"></i>\r\n		</button>\r\n		<!-- <div class="search-bar clearfix">\r\n			<ul class="nav">\r\n				<li><a href="#" class="action-create-file"><i\r\n						class="icon-file"></i> New document</a></li>\r\n				<li><a href="#" class="action-remove-file-confirm"><i\r\n						class="icon-trash"></i> Delete document</a></li>\r\n				<li><a href="#" data-toggle="modal"\r\n					data-target=".modal-document-manager"><i class="icon-layers"></i>\r\n						Manage documents</a></li>\r\n			</ul>\r\n			<div class="input-group">\r\n				<span class="input-group-addon"><i class="icon-search"></i></span><input\r\n					type="text" class="form-control" placeholder="Find document" />\r\n			</div>\r\n		</div> -->\r\n		<div>\r\n			<a href="javascript:void(0);" class="btn action-fresh-notes"><i class="icon-refresh"></i></a>\r\n		</div>\r\n		<div class="panel-content">\r\n			<div class="list-group document-list"></div>\r\n			<div class="list-group document-list-filtered hide"></div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n<div class="modal fade modal-document-manager">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Manage documents</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div></div>\r\n				<ul class="nav nav-pills document-list">\r\n					<li class="pull-right dropdown"><a href="#"\r\n						data-toggle="dropdown"><i class="icon-check"></i> Selection <b\r\n							class="caret"></b></a>\r\n						<ul class="dropdown-menu">\r\n							<li><a href="#" class="action-select-all"><i\r\n									class="icon-check"></i> Select all</a></li>\r\n							<li><a href="#" class="action-unselect-all"><i\r\n									class="icon-check-empty"></i> Unselect all</a></li>\r\n							<li class="divider"></li>\r\n							<li><a href="#" class="action-move-items"><i\r\n									class="icon-forward"></i> Move to folder</a></li>\r\n							<li><a href="#" class="action-delete-items"><i\r\n									class="icon-trash"></i> Delete</a></li>\r\n						</ul></li>\r\n					<li class="pull-right"><a href="#"\r\n						class="action-create-folder"> <i class="icon-folder"></i>\r\n							Create folder\r\n					</a></li>\r\n					<li class="disabled"><a><i class="icon-file"></i> <span\r\n							class="document-count"></span></a></li>\r\n					<li class="disabled"><a><i class="icon-folder"></i> <span\r\n							class="folder-count"></span></a></li>\r\n				</ul>\r\n				<div class="list-group document-list"></div>\r\n				<p class="confirm-delete hide">The following documents will be\r\n					deleted locally:</p>\r\n				<p class="choose-folder hide">Please choose a destination\r\n					folder:</p>\r\n				<div class="list-group selected-document-list hide"></div>\r\n				<div class="list-group select-folder-list hide"></div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#"\r\n					class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\r\n				<a href="#"\r\n					class="btn btn-primary confirm-delete action-delete-items-confirm hide">OK</a>\r\n				<a href="#" class="btn btn-primary document-list"\r\n					data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-insert-link">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Hyperlink</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide the link URL and an optional title:</p>\r\n				<div class="input-group">\r\n					<span class="input-group-addon"><i class="icon-globe"></i></span><input\r\n						id="input-insert-link" type="text" class="col-sm-5 form-control"\r\n						placeholder=\'http://example.com/ "optional title"\' />\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-insert-link"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-insert-image">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Image</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide the image URL and an optional title:</p>\r\n				<div class="input-group">\r\n					<span class="input-group-addon"><i class="icon-picture"></i></span><input\r\n						id="input-insert-image" type="text" class="col-sm-5 form-control"\r\n						placeholder=\'http://example.com/image.jpg "optional title"\' />\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#"\r\n					class="btn btn-default pull-left action-import-image-gplus"\r\n					data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\r\n					from Google+</a> <a href="#" class="btn btn-default"\r\n					data-dismiss="modal">Cancel</a> <a href="#"\r\n					class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-image">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Google+ image import</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<div class="col-sm-7">\r\n							<img>\r\n						</div>\r\n					</div>\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-import-image-title">Title (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-import-image-title"\r\n								placeholder="Image title" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-import-image-size">Size limit (optional)</label>\r\n						<div class="col-sm-7 form-inline">\r\n							<input type="text" id="input-import-image-size" placeholder="0"\r\n								class="col-sm-3 form-control"> px\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-import-image"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-remove-file-confirm">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Delete</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					Are you sure you want to delete "<span class="file-title"></span>"?\r\n				</p>\r\n				<blockquote>\r\n					<p>\r\n						<b>Note:</b> It won\'t delete the file on synchronized locations.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-remove-file"\r\n					data-dismiss="modal">Delete</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-url">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Import from URL</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please provide a link to a Markdown document.</p>\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<label class="col-sm-3 control-label" for="input-import-url">URL</label>\r\n						<div class="col-sm-8">\r\n							<input type="text" id="input-import-url"\r\n								placeholder="http://www.abc.com/xyz.md" class="form-control">\r\n						</div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-import-url">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-harddrive-markdown">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Import from disk</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please select your Markdown files here:</p>\r\n				<p>\r\n					<input type="file" id="input-file-import-harddrive-markdown"\r\n						multiple class="form-control" />\r\n				</p>\r\n				<p>Or drag and drop your Markdown files here:</p>\r\n				<p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop\r\n					files here</p>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-harddrive-html">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Convert HTML to Markdown</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>Please select your HTML files here:</p>\r\n				<p>\r\n					<input type="file" id="input-file-import-harddrive-html" multiple\r\n						class="form-control" />\r\n				</p>\r\n				<p>Or drag and drop your HTML files here:</p>\r\n				<p id="dropzone-import-harddrive-html" class="drop-zone">Drop\r\n					files here</p>\r\n				<p>Or insert your HTML code here:</p>\r\n				<textarea id="input-convert-html" class="form-control"></textarea>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Close</a> <a\r\n					href="#" class="btn btn-primary action-convert-html"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-upload-gdrive"></div>\r\n<div class="modal fade modal-upload-gdrivesec"></div>\r\n<div class="modal fade modal-upload-gdriveter"></div>\r\n\r\n\r\n<div class="modal fade modal-autosync-gdrive"></div>\r\n<div class="modal fade modal-autosync-gdrivesec"></div>\r\n<div class="modal fade modal-autosync-gdriveter"></div>\r\n\r\n\r\n<div class="modal fade modal-upload-dropbox">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Save on Dropbox</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					This will save "<span class="file-title"></span>" to your <i\r\n						class="icon-provider-dropbox"></i>\r\n					<code>Dropbox</code>\r\n					account and keep it synchronized.\r\n				</p>\r\n				<div class="form-horizontal">\r\n					<div class="form-group">\r\n						<label class="col-sm-3 control-label"\r\n							for="input-sync-export-dropbox-path">File path</label>\r\n						<div class="col-sm-8">\r\n							<input type="text" id="input-sync-export-dropbox-path"\r\n								placeholder="/path/to/My Document.md" class="form-control">\r\n							<span class="help-block"> File path is composed of both\r\n								folder and filename. </span>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<blockquote>\r\n					<b>Note:</b>\r\n					<ul>\r\n						<li>Dropbox file path does not depend on document title.</li>\r\n						<li>The title of your document will not be synchronized.</li>\r\n						<li>Destination folder must exist.</li>\r\n						<li>Any existing file at this location will be overwritten.</li>\r\n					</ul>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-sync-export-dropbox">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-download-couchdb">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Open from CouchDB</h2>\r\n				<div class="form-horizontal list-mode">\r\n					<br>\r\n					<div class="form-group form-inline">\r\n						<label for="input-sync-import-couchdb-tag"\r\n							class="col-sm-3 control-label">Filter by tag</label> <select\r\n							id="input-sync-import-couchdb-tag" class="col-sm-4 form-control">\r\n						</select> <span class="col-sm-5"> <a\r\n							class="btn btn-link action-add-tag"><i class="icon-tag"></i>\r\n								Add </a> <a class="btn btn-link action-remove-tag"><i\r\n								class="icon-tag"></i> Remove </a>\r\n						</span>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p class="msg-default-couchdb hide alert alert-danger">\r\n					<i class="icon-attention"></i> <b>Careful:</b> You\'re using the\r\n					public CouchDB instance. <b>Anybody can open, edit and delete\r\n						your files there!</b> To setup your own CouchDB instance <a\r\n						target="blank"\r\n						href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click\r\n						here</a>.\r\n				</p>\r\n\r\n				<div class="form-horizontal byid-mode">\r\n					<div class="form-group">\r\n						<label for="input-sync-import-couchdb-documentid"\r\n							class="col-sm-3 control-label">Document ID</label>\r\n\r\n						<div class="col-sm-9">\r\n							<input id="input-sync-import-couchdb-documentid"\r\n								class="form-control" placeholder="DocumentID"> <span\r\n								class="help-block">Multiple IDs can be provided (space\r\n								separated)</span>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<ul class="list-mode nav nav-pills">\r\n					<li class="pull-right dropdown"><a href="#"\r\n						data-toggle="dropdown"><i class="icon-check"></i> Selection <b\r\n							class="caret"></b></a>\r\n						<ul class="dropdown-menu">\r\n							<li><a href="#" class="action-unselect-all"><i\r\n									class="icon-check-empty"></i> Unselect all</a></li>\r\n							<li class="divider"></li>\r\n							<li><a href="#" class="action-delete-items"><i\r\n									class="icon-trash"></i> Delete</a></li>\r\n						</ul></li>\r\n				</ul>\r\n				<p class="list-mode"></p>\r\n				<div class="list-group document-list list-mode"></div>\r\n				<div class="list-mode text-center">\r\n					<div class="please-wait">\r\n						<b>Please wait...</b>\r\n					</div>\r\n					<div class="no-document">\r\n						<b>No document.</b>\r\n					</div>\r\n					<button class="more-documents btn btn-link">\r\n						<i class="icon-angle-double-down"></i> More documents!\r\n					</button>\r\n				</div>\r\n				<p class="delete-mode hide">The following documents will be\r\n					removed from CouchDB:</p>\r\n\r\n				<div class="delete-mode list-group selected-document-list hide"></div>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#"\r\n					class="btn btn-default pull-left list-mode action-byid-mode">Open\r\n					by ID...</a> <a href="#"\r\n					class="btn btn-default delete-mode action-cancel hide">Cancel</a> <a\r\n					href="#"\r\n					class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\r\n				<a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-sync-import-couchdb byid-mode">Open</a>\r\n				<a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-sync-import-couchdb list-mode">Open</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-upload-couchdb">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Save on CouchDB</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p class="msg-default-couchdb hide alert alert-danger">\r\n					<i class="icon-attention"></i> <b>Careful:</b> You\'re using the\r\n					public CouchDB instance. <b>Anybody can open, edit and delete\r\n						your files there!</b> To setup your own CouchDB instance <a\r\n						target="blank"\r\n						href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click\r\n						here</a>.\r\n				</p>\r\n\r\n				<p>\r\n					This will save "<span class="file-title"></span>" to CouchDB and\r\n					keep it synchronized.\r\n				</p>\r\n				<blockquote>\r\n					<p>\r\n						<b>Tip:</b> You can use a <a\r\n							href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML\r\n							front matter</a> to specify tags for your document.\r\n					</p>\r\n					<p>Alternatively, you can place comma separated tags in square\r\n						brackets at the beginning of the document title.</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-sync-export-couchdb">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-sync">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Synchronization</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					"<span class="file-title"></span>" is synchronized with the\r\n					following location(s):\r\n				</p>\r\n				<div class="sync-list"></div>\r\n				<blockquote>\r\n					<p>\r\n						<b>Note:</b> Removing a synchronized location will not delete any\r\n						file.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-publish">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">\r\n					Publish on <span class="publish-provider-name"></span>\r\n				</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<div class="form-horizontal">\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-ssh-host"\r\n								placeholder="hostname.or.ip" class="form-control"> <span\r\n								class="help-block"> Host must be accessible publicly,\r\n								unless you\'re hosting your own StackEdit instance. </span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label" for="input-publish-ssh-port">Port\r\n							(optional)</label>\r\n						<div class="col-sm-2">\r\n							<input type="text" id="input-publish-ssh-port" placeholder="22"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-ssh-username">Username</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-ssh-username"\r\n								placeholder="username" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-ssh-password">Password</label>\r\n						<div class="col-sm-7">\r\n							<input type="password" id="input-publish-ssh-password"\r\n								placeholder="password" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-github-repo">Repository</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-github-repo"\r\n								placeholder="Repository name or URL" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-github-branch">Branch</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-github-branch"\r\n								placeholder="branch-name" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-ssh modal-publish-github">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-file-path">File path</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-file-path"\r\n								placeholder="path/to/file.md" class="form-control"> <span\r\n								class="help-block"> File path is composed of both folder\r\n								and filename. </span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-filename"\r\n								placeholder="filename" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label" for="input-publish-gist-id">Existing\r\n							ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gist-id"\r\n								placeholder="GistID" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gist">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gist-public">Public</label>\r\n						<div class="col-sm-7">\r\n							<div class="checkbox">\r\n								<input type="checkbox" id="input-publish-gist-public"\r\n									checked="checked" />\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div\r\n						class="form-group modal-publish-blogger modal-publish-bloggerpage">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-blogger-url">Blog URL</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-blogger-url"\r\n								placeholder="http://exemple.blogger.com/" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-tumblr">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-tumblr-hostname">Blog hostname</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-tumblr-hostname"\r\n								placeholder="exemple.tumblr.com" class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-wordpress">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-tumblr-hostname">WordPress site</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-wordpress-site"\r\n								placeholder="exemple.wordpress.com" class="form-control">\r\n							<span class="help-block"> <a target="_blank"\r\n								href="http://jetpack.me/">Jetpack plugin</a> is required for\r\n								self-hosted sites.\r\n							</span>\r\n						</div>\r\n					</div>\r\n					<div\r\n						class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\r\n						<label class="col-sm-4 control-label" for="input-publish-postid">Update\r\n							existing post ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-postid" placeholder="PostID"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-bloggerpage">\r\n						<label class="col-sm-4 control-label" for="input-publish-pageid">Update\r\n							existing page ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-pageid" placeholder="PageID"\r\n								class="form-control">\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-dropbox">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-dropbox-path">File path</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-dropbox-path"\r\n								placeholder="/path/to/My Document.html" class="form-control">\r\n							<span class="help-block"> File path is composed of both\r\n								folder and filename. </span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gdrive">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gdrive-fileid">File ID (optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gdrive-fileid"\r\n								placeholder="FileID" class="form-control"> <span\r\n								class="help-block">If no file ID is supplied, a new file\r\n								will be created in your Google Drive root folder. You can move\r\n								the file afterwards within Google Drive.</span>\r\n						</div>\r\n					</div>\r\n					<div class="form-group modal-publish-gdrive">\r\n						<label class="col-sm-4 control-label"\r\n							for="input-publish-gdrive-filename">Force filename\r\n							(optional)</label>\r\n						<div class="col-sm-7">\r\n							<input type="text" id="input-publish-gdrive-filename"\r\n								placeholder="Filename" class="form-control"> <span\r\n								class="help-block">If no file name is supplied, the\r\n								document title will be used.</span>\r\n						</div>\r\n					</div>\r\n\r\n					<div class="form-group">\r\n						<label class="col-sm-4 control-label">Format</label>\r\n						<div class="col-sm-7">\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="markdown"> Markdown\r\n								</label>\r\n							</div>\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="html"> HTML\r\n								</label>\r\n							</div>\r\n							<div class="radio">\r\n								<label> <input type="radio" name="radio-publish-format"\r\n									value="template"> Template\r\n								</label>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="collapse publish-custom-template-collapse">\r\n						<div class="form-group">\r\n							<div class="col-sm-4"></div>\r\n							<div class="col-sm-7">\r\n								<div class="checkbox">\r\n									<label> <input type="checkbox"\r\n										id="checkbox-publish-custom-template"> Custom template\r\n									</label> <a href="#" class="tooltip-template">(?)</a>\r\n								</div>\r\n							</div>\r\n						</div>\r\n						<div class="form-group">\r\n							<div class="col-sm-4"></div>\r\n							<div class="col-sm-7">\r\n								<textarea class="form-control"\r\n									id="textarea-publish-custom-template"></textarea>\r\n							</div>\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<blockquote\r\n					class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\r\n					<p>\r\n						<b>Tip:</b> You can use a <a\r\n							href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML\r\n							front matter</a> to specify the title and the tags/labels of your\r\n						publication.\r\n					</p>\r\n					<p>\r\n						<b>Interpreted variables:</b>\r\n						<code>title</code>\r\n						,\r\n						<code>tags</code>\r\n						,\r\n						<code>published</code>\r\n						,\r\n						<code>date</code>\r\n						.\r\n					</p>\r\n				</blockquote>\r\n				<blockquote class="front-matter-info modal-publish-bloggerpage">\r\n					<p>\r\n						<b>Tip:</b> You can use a <a\r\n							href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML\r\n							front matter</a> to specify the title of your page.\r\n					</p>\r\n					<p>\r\n						<b>Interpreted variables:</b>\r\n						<code>title</code>\r\n						.\r\n					</p>\r\n				</blockquote>\r\n				<blockquote class="url-info modal-publish-bloggerpage">\r\n					<p>\r\n						<b>About URL:</b> For newly created page , Blogger API will append\r\n						a generated number to the url like\r\n						<code>about-me-1234.html</code>\r\n						, if you deeply care about your URL naming, you should first\r\n						create the page on Blogger and then update them with StackEdit\r\n						specifying the pageId when publishing.\r\n					</p>\r\n					<p>\r\n						<b>About page visibility:</b> Blogger API does not respect\r\n						published status for pages.When publishing the page to Blogger,\r\n						the page will be <strong>live</strong> but not added to the page\r\n						listing. You should arrange the page listing from Blogger\r\n						dashboard.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" data-dismiss="modal"\r\n					class="btn btn-primary action-process-publish">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-publish">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Publication</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					"<span class="file-title"></span>" is published on the following\r\n					location(s):\r\n				</p>\r\n				<div class="publish-list"></div>\r\n				<blockquote>\r\n					<p>\r\n						<b>Note:</b> Removing a publish location will not delete the\r\n						actual publication.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-manage-sharing">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Sharing</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>\r\n					Collaborate on "<span class="file-title"></span>" using the\r\n					following link(s):\r\n				</p>\r\n				<p class="msg-no-share-editor">\r\n					<b>No sharing link yet!</b>\r\n				</p>\r\n				<div class="share-editor-list"></div>\r\n				<blockquote>\r\n					<p>\r\n						<b>Note:</b> To collaborate on this document, just <a href="#"\r\n							class="action-sync-export-dialog-couchdb" data-dismiss="modal">save\r\n							it on CouchDB</a>. To collaborate via Google Drive or Dropbox, you\r\n						have to share the file manually from Google Drive/Dropbox\r\n						websites.\r\n					</p>\r\n				</blockquote>\r\n				<hr>\r\n				<p>\r\n					Share a read-only version of "<span class="file-title"></span>"\r\n					using the following link(s):\r\n				</p>\r\n				<p class="msg-no-share-viewer">\r\n					<b>No sharing link yet!</b>\r\n				</p>\r\n				<div class="share-viewer-list"></div>\r\n				<blockquote>\r\n					<p>\r\n						<b>Note:</b> To share a read-only version of this document, just <a\r\n							href="#" class="action-publish-gist" data-dismiss="modal">publish\r\n							it as a Gist</a> in Markdown format.\r\n					</p>\r\n				</blockquote>\r\n				<blockquote>\r\n					<p>\r\n						<b>Tip:</b> You can open any markdown URL within StackEdit Viewer\r\n						using <a\r\n							href="viewer#!url=https://raw.github.com/benweet/stackedit/master/README.md"\r\n							title="Sharing example"><code>viewer#!url=</code></a>.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-settings">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<button type="button" class="close" data-dismiss="modal"\r\n					aria-hidden="true">&times;</button>\r\n				<h2 class="modal-title">Settings</h2>\r\n				<ul class="nav nav-tabs">\r\n					<li class="active"><a class="action-load-settings"\r\n						href="#tabpane-settings-basic" data-toggle="tab">Basic</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-advanced" data-toggle="tab">Advanced</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-extensions" data-toggle="tab">Extensions</a></li>\r\n					<li><a class="action-load-settings"\r\n						href="#tabpane-settings-utils" data-toggle="tab">Utils</a></li>\r\n				</ul>\r\n			</div>\r\n			<div class="modal-body">\r\n\r\n				<div class="tab-content clearfix">\r\n					<div class="tab-pane active" id="tabpane-settings-basic">\r\n						<div class="form-horizontal">\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Layout orientation</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-layout-orientation" value="horizontal">\r\n											Horizontal\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-layout-orientation" value="vertical">\r\n											Vertical\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label" for="input-settings-theme">Theme</label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-theme" class="form-control">\r\n									</select>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<label> <input type="checkbox"\r\n											id="input-settings-markdown-extra" /> <b>Markdown\r\n												Extra/GitHub Flavored Markdown</b> syntax\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<label> <input type="checkbox"\r\n											id="input-settings-mathjax" /> <b>LaTeX mathematical\r\n												expressions</b> using <code>$</code> and <code>$$</code>\r\n											delimiters\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-gdrive-multiaccount">Google Drive\r\n									multi-accounts </label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-gdrive-multiaccount"\r\n										class="form-control">\r\n										<option value="1">1 account</option>\r\n										<option value="2">2 accounts</option>\r\n										<option value="3">3 accounts</option>\r\n									</select> <span class="help-block"><b>Please sign in first\r\n											with Google.</b> Once linked with your Google accounts, changing\r\n										account is not possible unless you reset the application.</span>\r\n								</div>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-advanced">\r\n						<div class="form-horizontal">\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Edit mode</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-edit-mode" value="ltr">\r\n											Left-To-Right\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-edit-mode" value="rtl">\r\n											Right-To-Left\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Editor\'s font\r\n									style</label>\r\n								<div class="col-sm-7">\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-editor-font-class" value="font-rich">\r\n											Rich\r\n										</label>\r\n									</div>\r\n									<div class="radio">\r\n										<label> <input type="radio"\r\n											name="radio-settings-editor-font-class"\r\n											value="font-monospaced"> Monospaced\r\n										</label>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-font-size">Font size ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-font-size"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-max-width">Max width ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-max-width"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-cursor-focus">Cursor focus ratio</label>\r\n								<div class="col-sm-8 form-inline">\r\n									<input type="text" id="input-settings-cursor-focus"\r\n										class="form-control col-sm-2">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-lazy-rendering">Lazy rendering <a\r\n									href="#" class="tooltip-lazy-rendering">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<input type="checkbox" id="input-settings-lazy-rendering" />\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-default-content">Default content\r\n									<a href="#" class="tooltip-default-content">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-default-content"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-publish-template">Default\r\n									template <a href="#" class="tooltip-template">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-publish-template"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-pdf-template">PDF template <a\r\n									href="#" class="tooltip-template">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-pdf-template"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="textarea-settings-pdf-options">PDF options <a\r\n									href="#" class="tooltip-pdf-options">(?)</a>\r\n								</label>\r\n								<div class="col-sm-7">\r\n									<textarea id="textarea-settings-pdf-options"\r\n										class="form-control"></textarea>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-markdown-mime-type">Markdown MIME\r\n									type </label>\r\n								<div class="col-sm-7">\r\n									<select id="input-settings-markdown-mime-type"\r\n										class="form-control">\r\n										<option value="text/plain">text/plain</option>\r\n										<option value="text/x-markdown">text/x-markdown</option>\r\n									</select>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label">Permissions</label>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<label> <input type="checkbox"\r\n											id="input-settings-gdrive-full-access" /> Allow StackEdit to\r\n											open any document in Google Drive\r\n										</label> <span class="help-block">Existing authorization has to\r\n											be revoked in <a\r\n											href="https://www.google.com/settings/dashboard"\r\n											target="_blank">Google Dashboard</a> for this change to take\r\n											effect.\r\n										</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<label> <input type="checkbox"\r\n											id="input-settings-dropbox-full-access" /> Allow StackEdit\r\n											to open any document in Dropbox\r\n										</label> <span class="help-block">If unchecked, access will be\r\n											restricted to folder <b>/Applications/StackEdit</b> for\r\n											existing files.\r\n										</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<div class="col-sm-4"></div>\r\n								<div class="col-sm-7">\r\n									<div class="checkbox">\r\n										<label> <input type="checkbox"\r\n											id="input-settings-github-full-access" /> Allow StackEdit to\r\n											access private repositories in GitHub\r\n										</label> <span class="help-block">Existing authorization has to\r\n											be revoked in <a\r\n											href="https://github.com/settings/applications"\r\n											target="_blank">GitHub settings</a> for this change to take\r\n											effect.\r\n										</span>\r\n									</div>\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-publish-commit-msg">GitHub commit\r\n									message</label>\r\n								<div class="col-sm-7">\r\n									<input type="text" id="input-settings-publish-commit-msg"\r\n										class="form-control">\r\n								</div>\r\n							</div>\r\n							<div class="form-group">\r\n								<label class="col-sm-4 control-label"\r\n									for="input-settings-couchdb-url">CouchDB URL</label>\r\n								<div class="col-sm-7">\r\n									<input type="text" id="input-settings-couchdb-url"\r\n										class="form-control"> <span\r\n										class="help-block pull-right"><a target="blank"\r\n										href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">Setup\r\n											your own CouchDB...</a></span>\r\n								</div>\r\n							</div>\r\n						</div>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-extensions">\r\n						<div class="panel-group accordion-extensions"></div>\r\n						<span class="help-block pull-right"><a target="_blank"\r\n							href="https://github.com/benweet/stackedit/blob/master/doc/developer-guide.md#developer-guide">Create\r\n								your own extension...</a></span>\r\n					</div>\r\n					<div class="tab-pane" id="tabpane-settings-utils">\r\n						<div class="tab-pane-button-container">\r\n							<a href="#" class="btn btn-block btn-default action-welcome-file"\r\n								data-dismiss="modal"><i class="icon-help-circled"></i>\r\n								Hello! document</a> <a href="#"\r\n								class="btn btn-block btn-default action-welcome-tour"\r\n								data-dismiss="modal"><i class="icon-help-circled"></i>\r\n								Welcome tour</a>\r\n						</div>\r\n						<div class="tab-pane-button-container">\r\n							<a href="#"\r\n								class="btn btn-block btn-default action-import-docs-settings"><i\r\n								class="icon-cog-alt"></i> Import docs & settings</a> <a href="#"\r\n								class="btn btn-block btn-default action-export-docs-settings"\r\n								data-dismiss="modal"><i class="icon-cog-alt"></i> Export\r\n								docs & settings</a> <input type="file"\r\n								id="input-file-import-docs-settings" class="hide">\r\n						</div>\r\n						<div class="tab-pane-button-container">\r\n							<a href="#"\r\n								class="btn btn-block btn-default action-default-settings"\r\n								data-dismiss="modal"><i class="icon-wrench"></i> Load\r\n								default settings</a> <a href="#" class="btn btn-block btn-default"\r\n								data-dismiss="modal" data-toggle="modal"\r\n								data-target=".modal-app-reset"><i class="icon-fire"></i>\r\n								Reset application</a> <a target="_blank" href="recovery.html"\r\n								class="btn btn-block btn-default"><i class="icon-medkit"></i>\r\n								StackEdit recovery</a>\r\n						</div>\r\n					</div>\r\n				</div>\r\n\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-apply-settings"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-non-unique">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Ooops...</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>StackEdit has stopped because another instance was running in\r\n					the same browser.</p>\r\n				<blockquote>\r\n					<p>If you want to reopen StackEdit, click on "Reload".</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="javascript:window.location.reload();"\r\n					class="btn btn-primary">Reload</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-redirect-confirm">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Redirection</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p class="redirect-msg"></p>\r\n				<blockquote>\r\n					<p>\r\n						Please click <b>OK</b> to proceed.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a class="btn btn-default" data-dismiss="modal">Cancel</a> <a\r\n					class="btn btn-primary action-redirect-confirm"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-app-reset">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Reset application</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This will delete all your local documents.</p>\r\n				<blockquote>\r\n					<b>Are you sure?</b>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#" class="btn btn-primary action-app-reset"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-import-docs-settings">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Import documents and settings</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This will delete all existing local documents.</p>\r\n				<blockquote>\r\n					<b>Are you sure?</b>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n				<a href="#"\r\n					class="btn btn-primary action-import-docs-settings-confirm"\r\n					data-dismiss="modal">OK</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-add-google-drive-account">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Add Google Drive account</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>To perform this request, you need to configure another Google\r\n					Drive account in StackEdit.</p>\r\n				<blockquote>\r\n					<b>Do you want to proceed?</b>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-default action-remove-google-drive-state"\r\n					data-dismiss="modal">No</a> <a href="#"\r\n					class="btn btn-primary action-add-google-drive-account"\r\n					data-dismiss="modal">Yes</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div class="modal fade modal-sponsor-only">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h2 class="modal-title">Sponsor only!</h2>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>This feature is restricted to sponsor users as it\'s a web\r\n					service hosted on Amazon EC2. Note that sponsoring StackEdit would\r\n					cost you only $5/year.</p>\r\n				<p>\r\n					To see how a PDF looks <a target="_blank"\r\n						href="/Welcome%20document.pdf">click here</a>.\r\n				</p>\r\n				<blockquote>\r\n					<p>\r\n						<b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF\r\n						template/options.\r\n					</p>\r\n				</blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n\r\n\r\n<div id="dropboxjs" data-app-key="x0k2l8puemfvg0o"></div>\r\n';
 }), define("text!html/bodyViewer.html", [], function() {
  return '<div class="layout-wrapper-l1">\r\n	<div class="layout-wrapper-l2">\r\n		<div class="navbar navbar-default">\r\n			<div class="navbar-inner">\r\n				<div class="nav left-space"></div>\r\n				<div class="nav right-space pull-right"></div>\r\n				<div class="buttons-dropdown dropdown">\r\n					<div class="nav">\r\n						<button class="btn btn-success" data-toggle="dropdown"\r\n							title="Show buttons">\r\n							<i class="icon-th-large"></i>\r\n						</button>\r\n						<div class="dropdown-menu">\r\n						</div>\r\n					</div>\r\n				</div>\r\n				<ul class="nav pull-right">\r\n					<li class="btn-group">\r\n						<button class="btn btn-success action-edit-document hide"\r\n							title="Edit this document">\r\n							<i class="icon-pencil"></i>\r\n						</button>\r\n					</li>\r\n					<li class="btn-group">\r\n						<button class="btn btn-success dropdown-toggle"\r\n							data-toggle="dropdown" title="Save this document">\r\n							<i class="icon-download"></i>\r\n						</button>\r\n						<ul class="dropdown-menu">\r\n							<li><a class="action-download-md" href="#"><i\r\n								class="icon-download"></i> Export as Markdown</a></li>\r\n							<li><a class="action-download-html" href="#"><i\r\n								class="icon-download"></i> Export as HTML</a></li>\r\n							<li><a class="action-download-template" href="#"><i\r\n								class="icon-download"></i> Export using template</a></li>\r\n						</ul>\r\n					</li>\r\n				</ul>\r\n				<ul class="nav pull-right title-container">\r\n					<li><div class="working-indicator"></div></li>\r\n					<li><span class="btn btn-success file-title-navbar"></span></li>\r\n				</ul>\r\n			</div>\r\n		</div>\r\n		<div class="layout-wrapper-l3">\r\n			<pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>\r\n			<div class="preview-panel">\r\n				<div class="preview-container">\r\n					<div id="preview-contents">\r\n						<div id="wmd-preview" class="preview-content"></div>\r\n					</div>\r\n				</div>\r\n			</div>\r\n		</div>\r\n		<div class="extension-preview-buttons">\r\n			<div class="btn-group drag-me" title="Drag me!">\r\n				<i class="icon-ellipsis-vert"></i>\r\n			</div>\r\n		</div>\r\n	</div>\r\n	<div id="wmd-button-bar" class="hide"></div>\r\n\r\n	<div class="menu-panel">\r\n		<button class="btn toggle-button action-open-stackedit"\r\n			title="Open StackEdit">\r\n			<img\r\n				data-stackedit-src="menu-icon.png" width="24" height="24" />\r\n		</button>\r\n	</div>\r\n\r\n\r\n	<div class="document-panel">\r\n		<button class="btn toggle-button" title="Select document Ctrl+[ Ctrl+]">\r\n			<i class="icon-folder-open"></i>\r\n		</button>\r\n		<div class="search-bar clearfix">\r\n			<div class="input-group">\r\n				<span class="input-group-addon"><i class="icon-search"></i></span><input\r\n					type="text" class="form-control" placeholder="Find document"></input>\r\n			</div>\r\n		</div>\r\n		<div class="panel-content">\r\n			<div class="list-group document-list"></div>\r\n			<div class="list-group document-list-filtered hide"></div>\r\n		</div>\r\n	</div>\r\n</div>\r\n<div id="wmd-button-bar" class="hide"></div>\r\n\r\n<div class="modal modal-non-unique">\r\n	<div class="modal-dialog">\r\n		<div class="modal-content">\r\n\r\n			<div class="modal-header">\r\n				<h3 class="modal-title">Ooops...</h3>\r\n			</div>\r\n			<div class="modal-body">\r\n				<p>StackEdit has stopped because another instance was running in\r\n					the same browser.</p>\r\n				<blockquote>\r\n                    <p>If you want to reopen StackEdit, click on\r\n					"Reload".</p>\r\n                </blockquote>\r\n			</div>\r\n			<div class="modal-footer">\r\n				<a href="javascript:window.location.reload();"\r\n					class="btn btn-primary">Reload</a>\r\n			</div>\r\n		</div>\r\n	</div>\r\n</div>\r\n';
 }), define("text!html/tooltipSettingsTemplate.html", [], function() {
@@ -25004,39 +24651,39 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
  }, y.doHorizontalRule = function(e, t) {
   e.startTag = "----------\n", e.selection = "", e.skipLines(2, 1, !0);
  };
-}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, r, i, o, a, s, l, c, u, d, p, h, f) {
- function m() {
-  I = !0, D = !0;
+}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, r, i, o, a, s, l, c, u, d, p, h) {
+ function f() {
+  _ = !0, k = !0;
   var e = a.currentTime;
-  e > M + 1e3 && (M = e, c.onUserActive());
+  e > T + 1e3 && (T = e, c.onUserActive());
+ }
+ function m() {
+  return a.currentTime - T > o.USER_IDLE_THRESHOLD && (k = !1), k && E;
  }
  function g() {
-  return a.currentTime - M > o.USER_IDLE_THRESHOLD && (D = !1), D && N;
- }
- function v() {
-  if (I !== !1 && N !== !1) {
-   void 0 === E && (E = a.id(), s.frontWindowId = E);
+  if (_ !== !1 && E !== !1) {
+   void 0 === S && (S = a.id(), s.frontWindowId = S);
    var t = s.frontWindowId;
-   t != E && (N = !1, void 0 !== k && clearInterval(k), e(".modal").modal("hide"), 
+   t != S && (E = !1, void 0 !== w && clearInterval(w), e(".modal").modal("hide"), 
    e(".modal-non-unique").modal("show"), window.close());
   }
  }
- function b() {
-  L === !0 && (L = !1, c.onOfflineChanged(!1));
+ function v() {
+  N === !0 && (N = !1, c.onOfflineChanged(!1));
  }
- function y() {
-  L === !0 && navigator.onLine === !0 && A + o.CHECK_ONLINE_PERIOD < a.currentTime && (A = a.currentTime, 
+ function b() {
+  N === !0 && navigator.onLine === !0 && D + o.CHECK_ONLINE_PERIOD < a.currentTime && (D = a.currentTime, 
   e.ajax({
    url: "//www.google.com/jsapi",
    timeout: o.AJAX_TIMEOUT,
    dataType: "script"
   }).done(function() {
-   b();
+   v();
   }));
  }
- function x() {
-  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(R, window.theme), 
-  R.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
+ function y() {
+  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(M, window.theme), 
+  M.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
   a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass), a.setInputValue("#input-settings-font-size", l.fontSizeRatio), 
   a.setInputValue("#input-settings-max-width", l.maxWidthRatio), a.setInputValue("#input-settings-cursor-focus", l.cursorFocusRatio), 
   a.setInputValue("#textarea-settings-default-content", l.defaultContent), a.setInputRadio("radio-settings-edit-mode", l.editMode), 
@@ -25047,10 +24694,10 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   a.setInputValue("#textarea-settings-pdf-options", l.pdfOptions), a.setInputValue("#input-settings-couchdb-url", l.couchdbUrl), 
   c.onLoadSettings();
  }
- function w(t) {
+ function x(t) {
   var n = {};
   n.layoutOrientation = a.getInputRadio("radio-layout-orientation");
-  var r = a.getInputValue(R);
+  var r = a.getInputValue(M);
   n.lazyRendering = a.getInputChecked("#input-settings-lazy-rendering"), n.editorFontClass = a.getInputRadio("radio-settings-editor-font-class"), 
   n.fontSizeRatio = a.getInputFloatValue("#input-settings-font-size", t, .1, 10), 
   n.maxWidthRatio = a.getInputFloatValue("#input-settings-max-width", t, .1, 10), 
@@ -25065,44 +24712,30 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   c.onSaveSettings(n.extensionSettings, t), t.isPropagationStopped() || (l.dropboxFullAccess !== n.dropboxFullAccess && s.removeItem("dropbox.lastChangeId"), 
   e.extend(l, n), s.settings = JSON.stringify(l), s.themeV4 = r);
  }
- function S(e) {
-  var t = e && e.app == F && (e.chargeOption && "once" == e.chargeOption.alias || e.subscriptionOption && "yearly" == e.subscriptionOption.alias);
-  return c.isSponsor = t, t;
- }
- function C() {
-  j.remove(), j = e();
- }
- function _() {
-  B.getPayments({
-   pricingOptions: [ "once", "yearly" ]
-  }, function(e, t) {
-   S(t) && (c.onMessage("Thank you for sponsoring StackEdit!"), C());
-  });
- }
- var k, E, T = {}, I = !1, D = !1, N = !0, M = 0, L = !1, A = a.currentTime;
- T.setOffline = function() {
-  A = a.currentTime, L === !1 && (L = !0, c.onOfflineChanged(!0));
+ var w, S, C = {}, _ = !1, k = !1, E = !0, T = 0, N = !1, D = a.currentTime;
+ C.setOffline = function() {
+  D = a.currentTime, N === !1 && (N = !0, c.onOfflineChanged(!0));
  };
- var R, P, O;
- T.initEditor = function(t) {
-  if (void 0 !== O && c.onFileClosed(O), O = t, void 0 !== P) return r.undoMgr.init(), 
-  P.uiManager.setUndoRedoButtonStates();
+ var M, I, L;
+ return C.initEditor = function(t) {
+  if (void 0 !== L && c.onFileClosed(L), L = t, void 0 !== I) return r.undoMgr.init(), 
+  I.uiManager.setUndoRedoButtonStates();
   var n = new Markdown.Converter(), i = {
    _DoItalicsAndBold: function(e) {
     return e = e.replace(/(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g, "<strong>$2</strong>"), 
     e = e.replace(/(\*|_)(?=\S)(.+?)(?=\S)\1/g, "<em>$2</em>");
    }
   };
-  n.setOptions(i), P = new Markdown.Editor(n, void 0, {
+  n.setOptions(i), I = new Markdown.Editor(n, void 0, {
    undoManager: r.undoMgr
-  }), P.hooks.set("insertLinkDialog", function(t) {
-   return T.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
+  }), I.hooks.set("insertLinkDialog", function(t) {
+   return C.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
    !0;
-  }), P.hooks.set("insertImageDialog", function(t) {
-   return T.insertLinkCallback = t, T.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
+  }), I.hooks.set("insertImageDialog", function(t) {
+   return C.insertLinkCallback = t, C.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
    !0);
-  }), c.onPagedownConfigure(P), P.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
-  P.run(), r.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-success").css("left", 0).find("span").hide();
+  }), c.onPagedownConfigure(I), I.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
+  I.run(), r.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-success").css("left", 0).find("span").hide();
   var o = e(".wmd-button-group1");
   e("#wmd-bold-button").append(e('<i class="icon-bold">')).appendTo(o), e("#wmd-italic-button").append(e('<i class="icon-italic">')).appendTo(o), 
   o = e(".wmd-button-group2"), e("#wmd-link-button").append(e('<i class="icon-globe">')).appendTo(o), 
@@ -25112,25 +24745,14 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   e("#wmd-ulist-button").append(e('<i class="icon-list-bullet">')).appendTo(o), e("#wmd-heading-button").append(e('<i class="icon-text-height">')).appendTo(o), 
   e("#wmd-hr-button").append(e('<i class="icon-ellipsis">')).appendTo(o), o = e(".wmd-button-group5"), 
   e("#wmd-undo-button").append(e('<i class="icon-reply">')).appendTo(o), e("#wmd-redo-button").append(e('<i class="icon-forward">')).appendTo(o);
- }, T.onReady = function() {
-  document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? p : d, 
-  a.init(), e(window).on("offline", T.setOffline), e(window).on("online", b), navigator.onLine === !1 && T.setOffline(), 
-  e(document).mousemove(m).keypress(m), i.init(), r.init(), k = window.setInterval(function() {
-   a.updateCurrentTime(), v(), (g() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
-   y());
+ }, C.onReady = function() {
+  document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? d : u, 
+  a.init(), e(window).on("offline", C.setOffline), e(window).on("online", v), navigator.onLine === !1 && C.setOffline(), 
+  e(document).mousemove(f).keypress(f), i.init(), r.init(), w = window.setInterval(function() {
+   a.updateCurrentTime(), g(), (m() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
+   b());
   }, 1e3), c.onReady();
- };
- var F = "ESTHdCYOi18iLhhO", B = new u({
-  applicationID: F
- }), j = e(), $ = t.debounce(function() {
-  L || B.getPaymentsImmediate(function(n, r) {
-   C(), S(r) || t.each(document.querySelectorAll(".modal-body"), function(t) {
-    var n = e('<div class="alert alert-danger">Please consider <a href="#">sponsoring StackEdit</a> for $5/year (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
-    n.find("a").click(_), t.insertBefore(n[0], t.firstChild), j = j.add(n);
-   });
-  });
- }, 3e3);
- return c.addListener("onOfflineChanged", $), c.addListener("onReady", function() {
+ }, c.addListener("onReady", function() {
   function n(e) {
    if (e = e || "default", i != e) {
     var t = "less!themes/" + e;
@@ -25149,22 +24771,22 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    13 != t.which || e(t.target).is("textarea") || e(this).find(".modal-footer a:last").click();
   }), e(".action-insert-link").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-link"), t);
-   void 0 !== n && (T.insertLinkCallback(n), T.insertLinkCallback = void 0);
+   void 0 !== n && (C.insertLinkCallback(n), C.insertLinkCallback = void 0);
   }), e(".action-insert-image").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-image"), t);
-   void 0 !== n && (T.insertLinkCallback(n), T.insertLinkCallback = void 0);
+   void 0 !== n && (C.insertLinkCallback(n), C.insertLinkCallback = void 0);
   }), e(".modal-insert-link, .modal-insert-image").on("hidden.bs.modal", function() {
-   void 0 !== T.insertLinkCallback && (T.insertLinkCallback(null), T.insertLinkCallback = void 0);
+   void 0 !== C.insertLinkCallback && (C.insertLinkCallback(null), C.insertLinkCallback = void 0);
   }), e(".action-load-settings").click(function() {
-   x();
+   y();
   }), e(".action-apply-settings").click(function(e) {
-   w(e), e.isPropagationStopped() || window.location.reload();
+   x(e), e.isPropagationStopped() || window.location.reload();
   }), e(".action-add-google-drive-account").click(function() {
    3 !== l.gdriveMultiAccount && (l.gdriveMultiAccount++, s.settings = JSON.stringify(l), 
    window.location.reload());
   });
   var i = window.theme;
-  R = e("#input-settings-theme"), R.on("change", function() {
+  M = e("#input-settings-theme"), M.on("change", function() {
    n(this.value);
   }), e(".action-import-docs-settings").click(function() {
    e("#input-file-import-docs-settings").click();
@@ -25204,7 +24826,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    a.resetModalInputs();
   }), a.createTooltip(".tooltip-lazy-rendering", "Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity."), 
   a.createTooltip(".tooltip-default-content", [ "Thanks for supporting StackEdit by adding a backlink in your documents!<br/><br/>", '<b class="text-danger">NOTE: Backlinks in Stack Exchange Q/A are not welcome.</b>' ].join("")), 
-  a.createTooltip(".tooltip-template", h), a.createTooltip(".tooltip-pdf-options", f), 
+  a.createTooltip(".tooltip-template", p), a.createTooltip(".tooltip-pdf-options", h), 
   e("div.dropdown-menu").click(function(e) {
    e.stopPropagation();
   }), e(".modal-non-unique").modal({
@@ -25220,228 +24842,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    }, "");
    document.getElementById("input-settings-theme").innerHTML = d;
   }
-  $();
- }), T;
-}), define("text!WELCOME.md", [], function() {
- return 'Welcome to StackEdit!\r\n===================\r\n\r\n\r\nHey! I\'m your first Markdown document in **StackEdit**[^stackedit]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n----------\r\n\r\n\r\nDocuments\r\n-------------\r\n\r\nStackEdit stores your documents in your browser, which means all your documents are automatically saved locally and are accessible **offline!**\r\n\r\n> **Note:**\r\n\r\n> - StackEdit is accessible offline after the application has been loaded for the first time.\r\n> - Your local documents are not shared between different browsers or computers.\r\n> - Clearing your browser\'s data may **delete all your local documents!** Make sure your documents are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\r\n\r\n#### <i class="icon-file"></i> Create a document\r\n\r\nThe document panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new document by clicking <i class="icon-file"></i> **New document** in the document panel.\r\n\r\n#### <i class="icon-folder-open"></i> Switch to another document\r\n\r\nAll your local documents are listed in the document panel. You can switch from one to another by clicking a document in the list or you can toggle documents using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\r\n\r\n#### <i class="icon-pencil"></i> Rename a document\r\n\r\nYou can rename the current document by clicking the document title in the navigation bar.\r\n\r\n#### <i class="icon-trash"></i> Delete a document\r\n\r\nYou can delete the current document by clicking <i class="icon-trash"></i> **Delete document** in the document panel.\r\n\r\n#### <i class="icon-hdd"></i> Export a document\r\n\r\nYou can save the current document to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-stackedit"></i> menu panel.\r\n\r\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a document](#publish-a-document) section for a description of the different output formats.\r\n\r\n\r\n----------\r\n\r\n\r\nSynchronization\r\n-------------------\r\n\r\nStackEdit can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your documents saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your documents.\r\n\r\n> **Note:**\r\n\r\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any document in StackEdit. Permission restrictions can be configured in the settings.\r\n> - Imported documents are downloaded in your browser and are not transmitted to a server.\r\n> - If you experience problems saving your documents on Google Drive, check and optionally disable browser extensions, such as Disconnect.\r\n\r\n#### <i class="icon-refresh"></i> Open a document\r\n\r\nYou can open a document from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your document will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\r\n\r\n#### <i class="icon-refresh"></i> Save a document\r\n\r\nYou can save any document by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your document is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. StackEdit can synchronize one document with multiple locations and accounts.\r\n\r\n#### <i class="icon-refresh"></i> Synchronize a document\r\n\r\nOnce your document is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, StackEdit will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\r\n\r\nIf you just have modified your document and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\r\n\r\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no document to synchronize.\r\n\r\n#### <i class="icon-refresh"></i> Manage document synchronization\r\n\r\nSince one document can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your document.\r\n\r\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the document will no longer be synchronized with that location.\r\n\r\n----------\r\n\r\n\r\nPublication\r\n-------------\r\n\r\nOnce you are happy with your document, you can publish it on different websites directly from StackEdit. As for now, StackEdit can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\r\n\r\n#### <i class="icon-upload"></i> Publish a document\r\n\r\nYou can publish your document by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\r\n\r\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\r\n- HTML, to publish the document converted into HTML (on a blog for example),\r\n- Template, to have a full control of the output.\r\n\r\n> **Note:** The default template is a simple webpage wrapping your document in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n#### <i class="icon-upload"></i> Update a publication\r\n\r\nAfter publishing, StackEdit will keep your document linked to that publication which makes it easy for you to update it. Once you have modified your document and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\r\n\r\n> **Note:** The <i class="icon-upload"></i> button is disabled when your document has not been published yet.\r\n\r\n#### <i class="icon-upload"></i> Manage document publication\r\n\r\nSince one document can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-stackedit"></i> menu panel. This will let you remove publication locations that are associated to your document.\r\n\r\n> **Note:** If the file has been removed from the website or the blog, the document will no longer be published on that location.\r\n\r\n----------\r\n\r\n\r\nMarkdown Extra\r\n--------------------\r\n\r\nStackEdit supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\r\n\r\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\r\n\r\n\r\n### Tables\r\n\r\n**Markdown Extra** has a special syntax for tables:\r\n\r\nItem     | Value\r\n-------- | ---\r\nComputer | $1600\r\nPhone    | $12\r\nPipe     | $1\r\n\r\nYou can specify column alignment with one or two colons:\r\n\r\n| Item     | Value | Qty   |\r\n| :------- | ----: | :---: |\r\n| Computer | $1600 |  5    |\r\n| Phone    | $12   |  12   |\r\n| Pipe     | $1    |  234  |\r\n\r\n\r\n### Definition Lists\r\n\r\n**Markdown Extra** has a special syntax for definition lists too:\r\n\r\nTerm 1\r\nTerm 2\r\n:   Definition A\r\n:   Definition B\r\n\r\nTerm 3\r\n\r\n:   Definition C\r\n\r\n:   Definition D\r\n\r\n	> part of definition D\r\n\r\n\r\n### Fenced code blocks\r\n\r\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\r\n\r\n```\r\n// Foo\r\nvar bar = 0;\r\n```\r\n\r\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n> **Note:** You can find more information:\r\n\r\n> - about **Prettify** syntax highlighting [here][5],\r\n> - about **Highlight.js** syntax highlighting [here][6].\r\n\r\n\r\n### Footnotes\r\n\r\nYou can create footnotes like this[^footnote].\r\n\r\n  [^footnote]: Here is the *text* of the **footnote**.\r\n\r\n\r\n### SmartyPants\r\n\r\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\r\n\r\n|                  | ASCII                        | HTML              |\r\n ----------------- | ---------------------------- | ------------------\r\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\r\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\r\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\r\n\r\n\r\n### Table of contents\r\n\r\nYou can insert a table of contents using the marker `[TOC]`:\r\n\r\n[TOC]\r\n\r\n\r\n### MathJax\r\n\r\nYou can render *LaTeX* mathematical expressions using **MathJax**, as on [math.stackexchange.com][1]:\r\n\r\nThe *Gamma function* satisfying $\\Gamma(n) = (n-1)!\\quad\\forall n\\in\\mathbb N$ is via the Euler integral\r\n\r\n$$\r\n\\Gamma(z) = \\int_0^\\infty t^{z-1}e^{-t}dt\\,.\r\n$$\r\n\r\n> **Tip:** To make sure mathematical expressions are rendered properly on your website, include **MathJax** into your template:\r\n\r\n```\r\n<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>\r\n```\r\n\r\n> **Note:** You can find more information about **LaTeX** mathematical expressions [here][4].\r\n\r\n\r\n### UML diagrams\r\n\r\nYou can also render sequence diagrams like this:\r\n\r\n```sequence\r\nAlice->Bob: Hello Bob, how are you?\r\nNote right of Bob: Bob thinks\r\nBob-->Alice: I am good thanks!\r\n```\r\n\r\nAnd flow charts like this:\r\n\r\n```flow\r\nst=>start: Start\r\ne=>end\r\nop=>operation: My Operation\r\ncond=>condition: Yes or No?\r\n\r\nst->op->cond\r\ncond(yes)->e\r\ncond(no)->op\r\n```\r\n\r\n> **Note:** You can find more information:\r\n\r\n> - about **Sequence diagrams** syntax [here][7],\r\n> - about **Flow charts** syntax [here][8].\r\n\r\n### Support StackEdit\r\n\r\n[![](https://cdn.monetizejs.com/resources/button-32.png)](https://monetizejs.com/authorize?client_id=ESTHdCYOi18iLhhO&summary=true)\r\n\r\n  [^stackedit]: [StackEdit](https://stackedit.io/) is a full-featured, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.\r\n\r\n\r\n  [1]: http://math.stackexchange.com/\r\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\r\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\r\n  [4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference\r\n  [5]: https://code.google.com/p/google-code-prettify/\r\n  [6]: http://highlightjs.org/\r\n  [7]: http://bramp.github.io/js-sequence-diagrams/\r\n  [8]: http://adrai.github.io/flowchart.js/\r\n';
-}), define("fileMgr", [ "jquery", "underscore", "constants", "core", "utils", "storage", "settings", "eventMgr", "fileSystem", "classes/FileDescriptor", "text!WELCOME.md" ], function(e, t, n, r, i, o, a, s, l, c, u) {
- var d = {};
- return d.currentFile = void 0, d.selectFile = function(i) {
-  if (i = i || d.currentFile, void 0 === i) {
-   var o = t.size(l);
-   i = 0 === o ? d.createFile(n.WELCOME_DOCUMENT_TITLE, u) : t.max(l, function(e) {
-    return e.selectTime || 0;
-   });
-  }
-  d.currentFile !== i && (d.currentFile = i, i.selectTime = new Date().getTime(), 
-  s.onFileSelected(i), e(".action-edit-document").toggleClass("hide", i.fileIndex != n.TEMPORARY_FILE_INDEX)), 
-  r.initEditor(i);
- }, d.createFile = function(e, r, u, d, p) {
-  if (r = void 0 !== r ? r : a.defaultContent, !e) {
-   e = n.DEFAULT_FILE_TITLE;
-   for (var h = 2, f = function(t) {
-    return t.title == e;
-   }; t.some(l, f); ) e = n.DEFAULT_FILE_TITLE + h++;
-  }
-  var m = n.TEMPORARY_FILE_INDEX;
-  if (!p) do m = "file." + i.id(); while (t.has(l, m));
-  d = d || {};
-  var g = t.reduce(d, function(e, t) {
-   return i.storeAttributes(t), e + t.syncIndex + ";";
-  }, ";");
-  o[m + ".title"] = e, o[m + ".content"] = r, o[m + ".sync"] = g, o[m + ".publish"] = ";";
-  var v = new c(m, e, d);
-  return u && (v.discussionListJSON = u), p || (i.appendIndexToArray("file.list", m), 
-  l[m] = v, s.onFileCreated(v)), v;
- }, d.deleteFile = function(e) {
-  e = e || d.currentFile, e.folder && (e.folder.removeFile(e), s.onFoldersChanged()), 
-  i.removeIndexFromArray("file.list", e.fileIndex), delete l[e.fileIndex], d.currentFile === e && (d.currentFile = void 0, 
-  d.selectFile()), s.onFileDeleted(e);
- }, d.getFileFromSyncIndex = function(e) {
-  return t.find(l, function(n) {
-   return t.has(n.syncLocations, e);
-  });
- }, d.getFileFromPublishIndex = function(e) {
-  return t.find(l, function(n) {
-   return t.has(n.publishLocations, e);
-  });
- }, s.addListener("onReady", function() {
-  function t() {
-   if (a) {
-    o.addClass("hide"), i.removeClass("hide");
-    var t = e.trim(o.val()), n = d.currentFile;
-    t && t != n.title && (n.title = t, s.onTitleChanged(n)), o.val(n.title), r.focus(), 
-    a = !1;
-   }
-  }
-  var r = e("#wmd-input");
-  d.selectFile();
-  var i = e(".file-title-navbar"), o = e(".input-file-title");
-  e(".action-create-file").click(function() {
-   setTimeout(function() {
-    var e = d.createFile();
-    d.selectFile(e), i.click();
-   }, 400);
-  }), e(".action-remove-file-confirm").click(function() {
-   e(".modal-remove-file-confirm").modal("show");
-  }), e(".action-remove-file").click(function() {
-   d.deleteFile();
-  });
-  var a;
-  i.click(function() {
-   if (window.viewerMode !== !0) {
-    i.addClass("hide");
-    var e = o.removeClass("hide");
-    a = !0, setTimeout(function() {
-     e.focus().get(0).select();
-    }, 10);
-   }
-  }), o.blur(function() {
-   setTimeout(function() {
-    t();
-   }, 0);
-  }).keypress(function(e) {
-   13 == e.keyCode && (t(), e.preventDefault()), 27 == e.keyCode && (o.val(""), t());
-  }), e(".action-open-stackedit").click(function() {
-   window.location.href = "editor";
-  }), e(".action-edit-document").click(function() {
-   var e = r.val(), t = d.currentFile.title, n = d.createFile(t, e);
-   d.selectFile(n), window.location.href = "editor";
-  }), e(".action-welcome-file").click(function() {
-   var e = d.createFile(n.WELCOME_DOCUMENT_TITLE, u);
-   d.selectFile(e);
-  });
- }), s.onFileMgrCreated(d), d;
-}), define("classes/Provider", [ "underscore", "utils", "settings", "eventMgr", "fileMgr", "editor", "diff_match_patch_uncompressed", "jsondiffpatch" ], function(e, t, n, r, i, o, a, s) {
- function l(e, t) {
-  this.providerId = e, this.providerName = t, this.isPublishEnabled = !0;
- }
- l.prototype.parseDiscussionList = function(t) {
-  try {
-   var n = JSON.parse(t);
-   return e.each(n, function(t, n) {
-    if (t.discussionIndex != n || !e.isNumber(t.selectionStart) || !e.isNumber(t.selectionEnd)) throw "invalid";
-    t.commentList && t.commentList.forEach(function(t) {
-     if (t.author && !e.isString(t.author) || !e.isString(t.content)) throw "invalid";
-    });
-   }), n;
-  } catch (r) {}
- }, l.prototype.serializeContent = function(e, t) {
-  return t.length > 2 ? e + "<!--se_discussion_list:" + t + "-->" : e;
- }, l.prototype.parseContent = function(e) {
-  var t, n = "{}", r = /<!--se_discussion_list:([\s\S]+)-->$/.exec(e);
-  return r && (t = this.parseDiscussionList(r[1])) && (e = e.substring(0, r.index), 
-  n = r[1]), {
-   content: e,
-   discussionList: t || {},
-   discussionListJSON: n
-  };
- };
- var c = new a();
- c.Match_Threshold = 0, c.Patch_DeleteThreshold = 0;
- var u = s.create({
-  objectHash: function(e) {
-   return JSON.stringify(e);
-  },
-  textDiff: {
-   minLength: 9999999
-  }
- }), d = "merge" == n.conflictMode;
- return l.prototype.syncMerge = function(n, a, s, l, p, h) {
-  function f(e) {
-   function t() {
-    (r[1] || i[1]) && (r[1] && i[1] ? (r[1] = "\u29f8\u29f8" + r[1] + "\u29f8\u29f8", 
-    i[1] += "\u29f8\u29f8", n.push(r), n.push(i)) : n.push([ 0, r[1] + i[1] ]), r = [ -1, "" ], 
-    i = [ 1, "" ]);
-   }
-   var n = [], r = [ -1, "" ], i = [ 1, "" ], o = 20;
-   return e.forEach(function(a, s) {
-    function l() {
-     return 0 === s || s === e.length - 1;
-    }
-    var c = a[0], u = a[1];
-    if (0 === c) if (l() || u.length > o) {
-     if (r[1] || i[1]) {
-      var d = /\s/.exec(u);
-      if (d) {
-       var p = d.index, h = u.substring(0, p);
-       u = u.substring(p), r[1] += h, i[1] += h;
-      }
-     }
-     if (u) {
-      for (var f = u.length; f && /\S/.test(u[f - 1]); ) f--;
-      var m = u.substring(f);
-      u = u.substring(0, f), l() || u.length > o ? (t(), n.push([ 0, u ])) : (r[1] += u, 
-      i[1] += u), r[1] += m, i[1] += m;
-     }
-    } else r[1] += u, i[1] += u; else -1 === c ? r[1] += u : 1 === c && (i[1] += u);
-   }), r[1] == i[1] ? n.push([ 0, i[1] ]) : t(), n;
-  }
-  var m = n.content, g = n.title, v = n.discussionListJSON, b = n.discussionList, y = t.crc32(m), x = t.crc32(g), w = t.crc32(v), S = t.crc32(s), C = t.crc32(l), _ = t.crc32(h), k = a.contentCRC != y, E = a.contentCRC != S, T = m != s && E, I = T && k;
-  a.titleCRC = a.titleCRC || x;
-  var D, N, M = a.titleCRC != x, L = a.titleCRC != C, A = g != l && L, R = A && M, P = a.discussionListCRC != w, O = a.discussionListCRC != _, F = v != h && O, B = F && P, j = [], $ = s, q = l, G = p, H = !1, U = !1, z = !1;
-  if (!d && (I || R || B) || I && void 0 === a.content || R && void 0 === a.title || B && void 0 === a.discussionList) i.createFile(g + " (backup)", m, v), 
-  r.onMessage('Conflict detected on "' + g + '". A backup has been created locally.'); else {
-   if (I) {
-    var V = a.content;
-    D = c.diff_main(V, m), c.diff_cleanupSemantic(D), N = c.patch_make(V, D);
-    var W = c.patch_apply(N, s);
-    if ($ = W[0], !W[1].every(e.identity)) {
-     D = c.diff_main(m, $), D = f(D), $ = "";
-     var X;
-     D.forEach(function(e) {
-      var t = e[0], n = e[1];
-      0 === t || X ? 0 === t && X && (X.selectionEnd = $.length, j.push(X), X = void 0) : X = {
-       selectionStart: $.length,
-       type: "conflict"
-      }, $ += n;
-     }), X && (X.selectionEnd = $.length, j.push(X));
-    }
-   }
-   T && (P && (H = !0), O ? U = !0 : (H = !0, G = b)), B && (z = !0), R && (N = c.patch_make(a.title, g), 
-   q = c.patch_apply(N, l)[0]);
-  }
-  var Q;
-  if (T) {
-   var Y = [];
-   i.currentFile === n && (Q = {
-    selectionStart: o.selectionMgr.selectionStart,
-    selectionEnd: o.selectionMgr.selectionEnd
-   }, Y.push(Q), n.newDiscussion && Y.push(n.newDiscussion)), H && (Y = Y.concat(e.values(b))), 
-   F |= o.adjustCommentOffsets(m, $, Y);
-  }
-  if (U) {
-   var K = e.values(p);
-   o.adjustCommentOffsets(s, $, K);
-  }
-  if (z) {
-   var J = JSON.parse(a.discussionList);
-   D = u.diff(J, b), u.patch(p, D), e.each(p, function(e, t) {
-    e || delete p[t];
-   });
-  }
-  return j.length && (F = !0, j.forEach(function(n) {
-   var r;
-   do r = t.id(); while (e.has(G, r));
-   n.discussionIndex = r, G[r] = n;
-  })), A && (n.title = q, r.onTitleChanged(n), r.onMessage('"' + g + '" has been renamed to "' + q + '" on ' + this.providerName + ".")), 
-  (T || F) && o.watcher.noWatch(e.bind(function() {
-   if (T && (i.currentFile === n && (o.setValueNoWatch($), Q && o.selectionMgr.setSelectionStartEnd(Q.selectionStart, Q.selectionEnd)), 
-   n.content = $, r.onContentChanged(n, $)), F) {
-    n.discussionList = G;
-    var t = u.diff(b, G), a = !1;
-    e.each(t, function(t, i) {
-     e.isArray(t) ? 1 === t.length ? r.onDiscussionCreated(n, G[i]) : r.onDiscussionRemoved(n, b[i]) : a = !0;
-    }), a && r.onCommentsChanged(n);
-   }
-   o.undoMgr.currentMode = "sync", o.undoMgr.saveState(), r.onMessage('"' + l + '" has been updated from ' + this.providerName + "."), 
-   j.length && r.onMessage('"' + l + '" has conflicts that you have to review.');
-  }, this)), {
-   contentCRC: S,
-   titleCRC: C,
-   discussionListCRC: _
-  };
- }, l;
+ }), C;
 }), define("classes/AsyncTask", [ "underscore", "constants", "utils", "eventMgr" ], function(e, t, n, r) {
  function i(e) {
   this.finished = !1, this.timeout = t.ASYNC_TASK_DEFAULT_TIMEOUT, this.retryCounter = 0, 
@@ -25498,2454 +24899,206 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
  return r.addListener("onUserActive", function() {
   p = !0;
  }), r.addListener("onPeriodicRun", o), i;
-}), define("helpers/dropboxHelper", [ "jquery", "underscore", "constants", "core", "utils", "storage", "logger", "settings", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s, l, c) {
- function u(t) {
-  t.onRun(function() {
-   return v === !0 ? (f = void 0, t.error(new Error("Operation not available in offline mode.|stopPublish"))) : void 0 !== f ? t.chain() : void e.ajax({
-    url: "libs/dropbox.min.js",
-    dataType: "script",
-    timeout: n.AJAX_TIMEOUT
-   }).done(function() {
-    f = new Dropbox.Client({
-     key: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_KEY : n.DROPBOX_RESTRICTED_APP_KEY,
-     secret: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_SECRET : n.DROPBOX_RESTRICTED_APP_SECRET
-    }), f.authDriver(new Dropbox.AuthDriver.Popup({
-     receiverUrl: n.BASE_URL + "html/dropbox-oauth-receiver.html",
-     rememberUser: !0
-    })), t.chain();
-   }).fail(function(e) {
-    var n = {
-     status: e.status,
-     responseText: e.statusText
-    };
-    p(n, t);
-   });
-  });
- }
- function d(e) {
-  e.onRun(function() {
-   function t() {
-    i.redirectConfirm("You are being redirected to <strong>Dropbox</strong> authorization page.", function() {
-     e.chain(r);
-    }, function() {
-     e.error(new Error("Operation canceled."));
-    });
-   }
-   function r() {
-    o === !1 ? e.timeout = n.ASYNC_TASK_LONG_TIMEOUT : f.reset(), f.authenticate({
-     interactive: !o
-    }, function(n, r) {
-     return r.isAuthenticated() === !0 ? (m = !0, e.chain()) : o === !0 ? (o = !1, e.chain(t)) : void e.error(new Error("Access to Dropbox account is not authorized."));
-    });
-   }
-   if (m === !0) return e.chain();
-   var o = !0;
-   e.chain(r);
-  });
- }
- function p(e, n) {
-  var i = !0;
-  if (e) if (a.error(e), "string" == typeof e) i = e; else {
-   if (i = "Dropbox error (" + e.status + ": " + e.responseText + ").", 401 === e.status || 403 === e.status) return m = !1, 
-   i = "Access to Dropbox account is not authorized.", n.retry(new Error(i), 1);
-   if (400 === e.status && -1 !== e.responseText.indexOf("oauth_nonce")) return t.each(t.keys(o), function(e) {
-    0 === e.indexOf("dropbox-auth") && o.removeItem(e);
-   }), m = !1, n.retry(new Error(i), 1);
-   e.status <= 0 && (f = void 0, m = !1, r.setOffline(), i = "|stopPublish");
-  }
-  n.error(new Error(i));
- }
- function h(t) {
-  t.onRun(function() {
-   function r() {
-    i.redirectConfirm("You are being redirected to <strong>Dropbox Chooser</strong> page.", function() {
-     t.chain();
-    }, function() {
-     t.error(new Error("Operation canceled."));
-    });
-   }
-   return b === !0 ? t.chain() : void e.ajax({
-    url: "https://www.dropbox.com/static/api/1/dropbox.js",
-    dataType: "script",
-    timeout: n.AJAX_TIMEOUT
-   }).done(function() {
-    b = !0, t.chain(r);
-   }).fail(function(e) {
-    var n = {
-     status: e.status,
-     responseText: e.statusText
-    };
-    p(n, t);
-   });
-  });
- }
- var f, m = !1, g = {}, v = !1;
- l.addListener("onOfflineChanged", function(e) {
-  v = e;
- }), g.upload = function(e, t, n) {
-  var r, i = new c();
-  u(i), d(i), i.onRun(function() {
-   f.writeFile(e, t, function(t, n) {
-    return t ? (400 === t.status && (t = 'Could not upload document into path "' + e + '".'), 
-    void p(t, i)) : (r = n, i.chain());
-   });
-  }), i.onSuccess(function() {
-   n(void 0, r);
-  }), i.onError(function(e) {
-   n(e);
-  }), i.enqueue();
- }, g.checkChanges = function(e, t) {
-  var n = [], r = e || 0, i = new c();
-  u(i), d(i), i.onRun(function() {
-   function e() {
-    f.pullChanges(r, function(t, o) {
-     return t ? p(t, i) : (r = o.cursor(), void 0 !== o.changes && (n = n.concat(o.changes)), 
-     void (o.shouldPullAgain ? i.chain(e) : i.chain()));
-    });
-   }
-   i.chain(e);
-  }), i.onSuccess(function() {
-   t(void 0, n, r);
-  }), i.onError(function(e) {
-   t(e);
-  }), i.enqueue();
- }, g.downloadMetadata = function(e, t) {
-  var n = [], r = new c();
-  u(r), d(r), r.onRun(function() {
-   function t() {
-    if (0 === e.length) return r.chain();
-    var i = e[0];
-    f.stat(i, function(i, o) {
-     return o ? (n.push(o), e.shift(), r.chain(t)) : void p(i, r);
-    });
-   }
-   r.chain(t);
-  }), r.onSuccess(function() {
-   t(void 0, n);
-  }), r.onError(function(e) {
-   t(e);
-  }), r.enqueue();
- }, g.downloadContent = function(e, n) {
-  var r = [], i = new c();
-  u(i), d(i), i.onRun(function() {
-   function n() {
-    if (0 === e.length) return i.chain();
-    var o = e[0];
-    r.push(o);
-    var a;
-    return o.isFile === !0 ? a = o : void 0 !== o.wasRemoved && (a = o.stat), a ? void f.readFile(a.path, function(r, o) {
-     return t.isString(o) ? (a.content = o, e.shift(), i.chain(n)) : void p(r, i);
-    }) : (e.shift(), i.chain(n));
-   }
-   i.chain(n);
-  }), i.onSuccess(function() {
-   n(void 0, r);
-  }), i.onError(function(e) {
-   n(e);
-  }), i.enqueue();
- };
- var b = !1;
- return g.picker = function(e) {
-  var t = [], r = new c();
-  r.timeout = n.ASYNC_TASK_LONG_TIMEOUT, u(r), h(r), r.onRun(function() {
-   var e = {};
-   e.multiselect = !0, e.linkType = "direct", e.success = function(e) {
-    for (var n = 0; n < e.length; n++) {
-     var i = e[n].link;
-     i = i.replace(/.*\/view\/[^\/]*/, ""), t.push(decodeURI(i));
-    }
-    r.chain();
-   }, e.cancel = function() {
-    r.chain();
-   }, Dropbox.choose(e);
-  }), r.onSuccess(function() {
-   e(void 0, t);
-  }), r.onError(function(t) {
-   e(t);
-  }), r.enqueue();
- }, g;
-}), define("providers/dropboxProvider", [ "underscore", "utils", "storage", "settings", "classes/Provider", "eventMgr", "fileMgr", "helpers/dropboxHelper" ], function(e, t, n, r, i, o, a, s) {
- function l(e) {
-  return void 0 === e ? void 0 : e.match(/^[^\\<>:"\|?\*]+$/) ? 0 !== e.indexOf("/") ? "/" + e : e : void o.onError('"' + e + '" contains invalid characters.');
- }
+}), define("helpers/evernoteHelper", [ "jquery", "underscore", "constants", "core", "utils", "storage", "logger", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s, l) {
  function c(e) {
-  return "sync." + p + "." + encodeURIComponent(e.toLowerCase());
+  o["evernote.login"] || e.error(new Error("Please connect to Evernote first!"));
  }
- function u(e, n, r, i) {
-  i = i || "{}";
-  var o = {};
-  return o.provider = h, o.path = e, o.version = n, o.contentCRC = t.crc32(r), o.discussionListCRC = t.crc32(i), 
-  o.syncIndex = c(e), f === !0 && (o.content = r, o.discussionList = i), o;
- }
- function d(t) {
-  s.downloadMetadata(t, function(t, n) {
-   t || s.downloadContent(n, function(t, n) {
-    if (!t) {
-     var r = [];
-     e.each(n, function(e) {
-      var t = h.parseContent(e.content), n = u(e.path, e.versionTag, t.content, t.discussionListJSON), i = {};
-      i[n.syncIndex] = n;
-      var o = a.createFile(e.name, t.content, t.discussionListJSON, i);
-      a.selectFile(o), r.push(o);
-     }), 0 !== r.length && o.onSyncImportSuccess(r, h);
-    }
-   });
-  });
- }
- var p = "dropbox", h = new i(p, "Dropbox");
- h.defaultPublishFormat = "template", h.getSyncLocationLink = h.getPublishLocationLink = function(e) {
-  var t = e.path.split("/").map(encodeURIComponent), n = t.pop();
-  return [ "https://www.dropbox.com/home", t.join("/"), "?select=", n ].join("");
- };
- var f = "merge" == r.conflictMode;
- return h.importFiles = function() {
-  s.picker(function(t, n) {
-   if (!t && 0 !== n.length) {
-    var r = [];
-    e.each(n, function(e) {
-     var t = c(e), n = a.getFileFromSyncIndex(t);
-     return void 0 !== n ? o.onError('"' + n.title + '" is already in your local documents.') : void r.push(e);
-    }), d(r);
-   }
-  });
- }, h.exportFile = function(e, n, r, i, d, p) {
-  var f = t.getInputTextValue("#input-sync-export-dropbox-path", e);
-  if (f = l(f), void 0 === f) return p(!0);
-  var m = c(f), g = a.getFileFromSyncIndex(m);
-  if (void 0 !== g) {
-   var v = g.title;
-   return o.onError('File path is already synchronized with "' + v + '".'), p(!0);
-  }
-  var b = h.serializeContent(r, i);
-  s.upload(f, b, function(e, t) {
-   if (e) return p(e);
-   var n = u(t.path, t.versionTag, r, i);
-   p(void 0, n);
-  });
- }, h.syncUp = function(e, t, n, r, i, o, a, l, c) {
-  if (l.contentCRC == t && l.discussionListCRC == o) return c(void 0, !1);
-  var u = h.serializeContent(e, i);
-  s.upload(l.path, u, function(n, a) {
-   return n ? c(n, !0) : (l.version = a.versionTag, f === !0 && (l.content = e, l.discussionList = i), 
-   l.contentCRC = t, l.titleCRC = r, l.discussionListCRC = o, void c(void 0, !0));
-  });
- }, h.syncDown = function(r) {
-  var i = n[p + ".lastChangeId"];
-  s.checkChanges(i, function(i, l, u) {
-   if (i) return r(i);
-   var d = [];
-   e.each(l, function(e) {
-    var t = c(e.path), n = a.getFileFromSyncIndex(t), r = n && n.syncLocations[t];
-    return r ? (e.fileDesc = n, e.syncAttributes = r, e.wasRemoved === !0 ? void d.push(e) : void (r.version != e.stat.versionTag && d.push(e))) : void 0;
-   }), s.downloadContent(d, function(e, i) {
-    function a() {
-     if (0 === i.length) return n[p + ".lastChangeId"] = u, r();
-     var e = i.pop(), s = e.fileDesc, l = e.syncAttributes;
-     if (e.wasRemoved === !0) return o.onError('"' + s.title + '" has been removed from Dropbox.'), 
-     s.removeSyncLocation(l), o.onSyncRemoved(s, l);
-     var c = e.stat, d = h.parseContent(c.content), m = d.content, g = d.discussionListJSON, v = d.discussionList, b = h.syncMerge(s, l, m, s.title, v, g);
-     l.version = c.versionTag, f === !0 && (l.content = m, l.discussionList = v), l.contentCRC = b.contentCRC, 
-     l.discussionListCRC = b.discussionListCRC, t.storeAttributes(l), setTimeout(a, 5);
-    }
-    return e ? void r(e) : void setTimeout(a, 5);
-   });
-  });
- }, h.publish = function(e, t, n, r, i) {
-  var o = l(e.path);
-  return void 0 === o ? i(!0) : void s.upload(o, r, i);
- }, h.newPublishAttributes = function(e) {
-  var n = {};
-  return n.path = t.getInputTextValue("#input-publish-dropbox-path", e), e.isPropagationStopped() ? void 0 : n;
- }, h;
-}), function(e, t) {
- var n, r = e.document;
- n = function() {
-  var n, i, o, a, s, l, c, u, d, p, h, f, m, g = {}, v = {}, b = !1, y = {
-   ENTER: 13,
-   ESC: 27,
-   SPACE: 32
-  }, x = [];
-  return v = {
-   buttons: {
-    holder: '<nav class="alertify-buttons">{{buttons}}</nav>',
-    submit: '<button type="submit" class="alertify-button alertify-button-ok" id="alertify-ok">{{ok}}</button>',
-    ok: '<button class="alertify-button alertify-button-ok" id="alertify-ok">{{ok}}</button>',
-    cancel: '<button class="alertify-button alertify-button-cancel" id="alertify-cancel">{{cancel}}</button>'
-   },
-   input: '<div class="alertify-text-wrapper"><input type="text" class="alertify-text" id="alertify-text"></div>',
-   message: '<p class="alertify-message">{{message}}</p>',
-   log: '<article class="alertify-log{{class}}">{{message}}</article>'
-  }, m = function() {
-   var e, n, i = !1, o = r.createElement("fakeelement"), a = {
-    WebkitTransition: "webkitTransitionEnd",
-    MozTransition: "transitionend",
-    OTransition: "otransitionend",
-    transition: "transitionend"
-   };
-   for (e in a) if (o.style[e] !== t) {
-    n = a[e], i = !0;
-    break;
-   }
-   return {
-    type: n,
-    supported: i
-   };
-  }, n = function(e) {
-   return r.getElementById(e);
-  }, g = {
-   labels: {
-    ok: "OK",
-    cancel: "Cancel"
-   },
-   delay: 5e3,
-   buttonReverse: !1,
-   buttonFocus: "ok",
-   transition: t,
-   addListeners: function(e) {
-    var t, n, l, c, u, d = "undefined" != typeof o, p = "undefined" != typeof i, h = "undefined" != typeof f, m = "", g = this;
-    t = function(t) {
-     return "undefined" != typeof t.preventDefault && t.preventDefault(), l(t), "undefined" != typeof f && (m = f.value), 
-     "function" == typeof e && ("undefined" != typeof f ? e(!0, m) : e(!0)), !1;
-    }, n = function(t) {
-     return "undefined" != typeof t.preventDefault && t.preventDefault(), l(t), "function" == typeof e && e(!1), 
-     !1;
-    }, l = function(e) {
-     g.hide(), g.unbind(r.body, "keyup", c), g.unbind(a, "focus", u), d && g.unbind(o, "click", t), 
-     p && g.unbind(i, "click", n);
-    }, c = function(e) {
-     var r = e.keyCode;
-     (r === y.SPACE && !h || h && r === y.ENTER) && t(e), r === y.ESC && p && n(e);
-    }, u = function(e) {
-     h ? f.focus() : !p || g.buttonReverse ? o.focus() : i.focus();
-    }, this.bind(a, "focus", u), this.bind(s, "focus", u), d && this.bind(o, "click", t), 
-    p && this.bind(i, "click", n), this.bind(r.body, "keyup", c), this.transition.supported || this.setFocus();
-   },
-   bind: function(e, t, n) {
-    "function" == typeof e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent && e.attachEvent("on" + t, n);
-   },
-   handleErrors: function() {
-    if ("undefined" != typeof e.onerror) {
-     var t = this;
-     return e.onerror = function(e, n, r) {
-      t.error("[" + e + " on line " + r + " of " + n + "]", 0);
-     }, !0;
-    }
-    return !1;
-   },
-   appendButtons: function(e, t) {
-    return this.buttonReverse ? t + e : e + t;
-   },
-   build: function(e) {
-    var t = "", n = e.type, r = e.message, i = e.cssClass || "";
-    switch (t += '<div class="alertify-dialog">', t += '<a id="alertify-resetFocusBack" class="alertify-resetFocus" href="#">Reset Focus</a>', 
-    "none" === g.buttonFocus && (t += '<a href="#" id="alertify-noneFocus" class="alertify-hidden"></a>'), 
-    "prompt" === n && (t += '<div id="alertify-form">'), t += '<article class="alertify-inner">', 
-    t += v.message.replace("{{message}}", r), "prompt" === n && (t += v.input), t += v.buttons.holder, 
-    t += "</article>", "prompt" === n && (t += "</div>"), t += '<a id="alertify-resetFocus" class="alertify-resetFocus" href="#">Reset Focus</a>', 
-    t += "</div>", n) {
-    case "confirm":
-     t = t.replace("{{buttons}}", this.appendButtons(v.buttons.cancel, v.buttons.ok)), 
-     t = t.replace("{{ok}}", this.labels.ok).replace("{{cancel}}", this.labels.cancel);
-     break;
-
-    case "prompt":
-     t = t.replace("{{buttons}}", this.appendButtons(v.buttons.cancel, v.buttons.submit)), 
-     t = t.replace("{{ok}}", this.labels.ok).replace("{{cancel}}", this.labels.cancel);
-     break;
-
-    case "alert":
-     t = t.replace("{{buttons}}", v.buttons.ok), t = t.replace("{{ok}}", this.labels.ok);
-    }
-    return d.className = "alertify alertify-" + n + " " + i, u.className = "alertify-cover", 
-    t;
-   },
-   close: function(e, t) {
-    var n, r, i = t && !isNaN(t) ? +t : this.delay, o = this;
-    this.bind(e, "click", function() {
-     n(e);
-    }), r = function(e) {
-     e.stopPropagation(), o.unbind(this, o.transition.type, r), p.removeChild(this), 
-     p.hasChildNodes() || (p.className += " alertify-logs-hidden");
-    }, n = function(e) {
-     "undefined" != typeof e && e.parentNode === p && (o.transition.supported ? (o.bind(e, o.transition.type, r), 
-     e.className += " alertify-log-hide") : (p.removeChild(e), p.hasChildNodes() || (p.className += " alertify-logs-hidden")));
-    }, 0 !== t && setTimeout(function() {
-     n(e);
-    }, i);
-   },
-   dialog: function(e, t, n, i, o) {
-    c = r.activeElement;
-    var a = function() {
-     p && null !== p.scrollTop && u && null !== u.scrollTop || a();
-    };
-    if ("string" != typeof e) throw new Error("message must be a string");
-    if ("string" != typeof t) throw new Error("type must be a string");
-    if ("undefined" != typeof n && "function" != typeof n) throw new Error("fn must be a function");
-    return this.init(), a(), x.push({
-     type: t,
-     message: e,
-     callback: n,
-     placeholder: i,
-     cssClass: o
-    }), b || this.setup(), this;
-   },
-   extend: function(e) {
-    if ("string" != typeof e) throw new Error("extend method must have exactly one paramter");
-    return function(t, n) {
-     return this.log(t, e, n), this;
-    };
-   },
-   hide: function() {
-    var e, t = this;
-    x.splice(0, 1), x.length > 0 ? this.setup(!0) : (b = !1, e = function(n) {
-     n.stopPropagation(), t.unbind(d, t.transition.type, e);
-    }, this.transition.supported ? (this.bind(d, this.transition.type, e), d.className = "alertify alertify-hide alertify-hidden") : d.className = "alertify alertify-hide alertify-hidden alertify-isHidden", 
-    u.className = "alertify-cover alertify-cover-hidden", c.focus());
-   },
-   init: function() {
-    r.createElement("nav"), r.createElement("article"), r.createElement("section"), 
-    null == n("alertify-cover") && (u = r.createElement("div"), u.setAttribute("id", "alertify-cover"), 
-    u.className = "alertify-cover alertify-cover-hidden", r.body.appendChild(u)), null == n("alertify") && (b = !1, 
-    x = [], d = r.createElement("section"), d.setAttribute("id", "alertify"), d.className = "alertify alertify-hidden", 
-    r.body.appendChild(d)), null == n("alertify-logs") && (p = r.createElement("section"), 
-    p.setAttribute("id", "alertify-logs"), p.className = "alertify-logs alertify-logs-hidden", 
-    r.body.appendChild(p)), r.body.setAttribute("tabindex", "0"), this.transition = m();
-   },
-   log: function(e, t, n) {
-    var r = function() {
-     p && null !== p.scrollTop || r();
-    };
-    return this.init(), r(), p.className = "alertify-logs", this.notify(e, t, n), this;
-   },
-   notify: function(e, t, n) {
-    var i = r.createElement("article");
-    i.className = "alertify-log" + ("string" == typeof t && "" !== t ? " alertify-log-" + t : ""), 
-    i.innerHTML = e, p.appendChild(i), setTimeout(function() {
-     i.className = i.className + " alertify-log-show";
-    }, 50), this.close(i, n);
-   },
-   set: function(e) {
-    var t;
-    if ("object" != typeof e && e instanceof Array) throw new Error("args must be an object");
-    for (t in e) e.hasOwnProperty(t) && (this[t] = e[t]);
-   },
-   setFocus: function() {
-    f ? (f.focus(), f.select()) : l.focus();
-   },
-   setup: function(e) {
-    var r, c = x[0], u = this;
-    b = !0, r = function(e) {
-     e.stopPropagation(), u.setFocus(), u.unbind(d, u.transition.type, r);
-    }, this.transition.supported && !e && this.bind(d, this.transition.type, r), d.innerHTML = this.build(c), 
-    a = n("alertify-resetFocus"), s = n("alertify-resetFocusBack"), o = n("alertify-ok") || t, 
-    i = n("alertify-cancel") || t, l = "cancel" === g.buttonFocus ? i : "none" === g.buttonFocus ? n("alertify-noneFocus") : o, 
-    f = n("alertify-text") || t, h = n("alertify-form") || t, "string" == typeof c.placeholder && "" !== c.placeholder && (f.value = c.placeholder), 
-    e && this.setFocus(), this.addListeners(c.callback);
-   },
-   unbind: function(e, t, n) {
-    "function" == typeof e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent && e.detachEvent("on" + t, n);
-   }
-  }, {
-   alert: function(e, t, n) {
-    return g.dialog(e, "alert", t, "", n), this;
-   },
-   confirm: function(e, t, n) {
-    return g.dialog(e, "confirm", t, "", n), this;
-   },
-   extend: g.extend,
-   init: g.init,
-   log: function(e, t, n) {
-    return g.log(e, t, n), this;
-   },
-   prompt: function(e, t, n, r) {
-    return g.dialog(e, "prompt", t, n, r), this;
-   },
-   success: function(e, t) {
-    return g.log(e, "success", t), this;
-   },
-   error: function(e, t) {
-    return g.log(e, "error", t), this;
-   },
-   set: function(e) {
-    g.set(e);
-   },
-   labels: g.labels,
-   debug: g.handleErrors
-  };
- }, "function" == typeof define ? define("alertify", [], function() {
-  return new n();
- }) : "undefined" == typeof e.alertify && (e.alertify = new n());
-}(this), define("helpers/couchdbHelper", [ "jquery", "underscore", "core", "utils", "storage", "logger", "constants", "settings", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s, l, c) {
- function u(e, t) {
-  var n, r = {
-   code: e.status,
-   message: e.statusText,
-   reason: (e.responseJSON || {}).reason
-  };
-  r && (o.error(r), n = "string" == typeof r ? r : "Error " + r.code + ": " + (r.reason || r.message)), 
-  t.error(new Error(n));
- }
- var d = {}, p = !1;
- return l.addListener("onOfflineChanged", function(e) {
-  p = e;
- }), d.uploadDocument = function(n, i, o, a, l, d) {
-  var p, h = new c();
-  h.onRun(function() {
-   a ? (t.isArray(a) || (a = t.chain(("" + a).split(/,/)).compact().unique().value()), 
-   a = a.filter(function(e) {
-    return t.isString(e) && e.length < 32;
-   }), a = a.slice(0, 16)) : a = void 0, e.ajax({
-    type: "POST",
-    url: s.couchdbUrl,
-    contentType: "application/json",
-    dataType: "json",
-    data: JSON.stringify({
-     _id: n || r.id(),
-     title: i,
-     tags: a,
-     updated: Date.now(),
-     _rev: l,
-     _attachments: {
-      content: {
-       content_type: "text/plain",
-       data: r.encodeBase64(o)
-      }
-     }
-    })
-   }).done(function(e) {
-    p = e, h.chain();
-   }).fail(function(e) {
-    u(e, h);
-   });
-  }), h.onSuccess(function() {
-   d(void 0, p);
-  }), h.onError(function(e) {
-   d(e);
-  }), h.enqueue();
- }, d.checkChanges = function(n, r, i) {
-  var o, a = n || 0, l = new c();
-  l.onRun(function() {
-   e.ajax({
-    type: "POST",
-    url: s.couchdbUrl + "/_changes?" + e.param({
-     filter: "_doc_ids",
-     since: a,
-     include_docs: !0,
-     attachments: !0
-    }),
-    contentType: "application/json",
-    dataType: "json",
-    data: JSON.stringify({
-     doc_ids: Object.keys(r)
-    })
-   }).done(function(e) {
-    a = e.last_seq, o = t.map(e.results, function(e) {
-     return e.deleted ? {
-      _id: e.id,
-      deleted: !0
-     } : e.doc;
-    }), l.chain();
-   }).fail(function(e) {
-    u(e, l);
-   });
-  }), l.onSuccess(function() {
-   i(void 0, o, a);
-  }), l.onError(function(e) {
-   i(e);
-  }), l.enqueue();
- }, d.downloadContent = function(n, r) {
-  var i = [], o = new c();
-  o.onRun(function() {
-   function r() {
-    if (0 === n.length) return o.chain();
-    var a = n[0];
-    return i.push(a), a.deleted || void 0 !== ((a._attachments || {}).content || {}).data ? (n.shift(), 
-    o.chain(r)) : void e.ajax({
-     url: s.couchdbUrl + "/" + encodeURIComponent(a._id),
-     headers: {
-      Accept: "application/json"
-     },
-     contentType: "application/json",
-     dataType: "json",
-     data: {
-      attachments: !0
-     }
-    }).done(function(e) {
-     n.shift(), t.extend(a, e), o.chain(r);
-    }).fail(function(e) {
-     u(e, o);
-    });
-   }
-   o.chain(r);
-  }), o.onSuccess(function() {
-   r(void 0, i);
-  }), o.onError(function(e) {
-   r(e);
-  }), o.enqueue();
- }, d.listDocuments = function(n, r, i) {
-  var o, l = new c();
-  l.onRun(function() {
-   var i = "/_design/by_" + (n ? "tag_and_" : "") + "update/_view/default", c = n ? JSON.stringify([ n, r || [] ]) : r, d = n ? JSON.stringify([ n ]) : void 0;
-   e.ajax({
-    url: s.couchdbUrl + i,
-    data: {
-     start_key: c,
-     end_key: d,
-     descending: !0,
-     include_docs: !0,
-     limit: a.COUCHDB_PAGE_SIZE,
-     reduce: !1
-    },
-    dataType: "json"
-   }).done(function(e) {
-    o = t.pluck(e.rows, "doc"), l.chain();
-   }).fail(function(e) {
-    u(e, l);
-   });
-  }), l.onSuccess(function() {
-   i(void 0, o);
-  }), l.onError(function(e) {
-   i(e);
-  }), l.enqueue();
- }, d.deleteDocuments = function(t) {
-  var n = new c();
+ var u = {}, d = !1;
+ return u.authenticate = function() {
+  d || (window.addEventListener("message", function(e) {
+   e.origin == location.origin && "evernote.authenticate.success" === e.data && (u.getUser(), 
+   o["evernote.login"] = !0);
+  }), d = !0), window.open("/evernote/authenticate", "_blank", "height=600px, width=800px");
+ }, u.listNotes = function(t) {
+  var n = new l();
+  c(n);
+  var r = null;
   n.onRun(function() {
    e.ajax({
-    type: "POST",
-    url: s.couchdbUrl + "/_bulk_docs",
-    data: JSON.stringify({
-     docs: t.map(function(e) {
-      return {
-       _id: e._id,
-       _rev: e._rev,
-       _deleted: !0
-      };
-     })
-    }),
-    contentType: "application/json",
-    dataType: "json"
-   }).done(function() {
-    n.chain();
-   }).fail(function(e) {
-    u(e, n);
-   });
-  }), n.enqueue();
- }, d;
-}), define("providers/couchdbProvider", [ "jquery", "underscore", "crel", "alertify", "constants", "utils", "storage", "logger", "classes/Provider", "settings", "eventMgr", "fileMgr", "fileSystem", "editor", "helpers/couchdbHelper" ], function(e, t, n, r, i, o, a, s, l, c, u, d, p, h, f) {
- function m(e) {
-  return "sync." + y + "." + e;
- }
- function g(e, t, n, r, i) {
-  i = i || "{}";
-  var a = {};
-  return a.provider = x, a.id = e, a.rev = t, a.contentCRC = o.crc32(n), a.titleCRC = o.crc32(r), 
-  a.discussionListCRC = o.crc32(i), a.syncIndex = m(e), S === !0 && (a.content = n, 
-  a.title = r, a.discussionList = i), a;
- }
- function v(e, n) {
-  var r = [];
-  return t.each(e, function(e) {
-   var t = m(e), n = d.getFileFromSyncIndex(t);
-   return void 0 !== n ? u.onError('"' + n.title + '" is already in your local documents.') : void r.push(e);
-  }), 0 === e.length ? n && n() : void f.downloadContent(r.map(function(e) {
-   return {
-    _id: e
-   };
-  }), function(e, r) {
-   if (e) return n && n(e);
-   var i, a = [];
-   t.each(r, function(e) {
-    var t, n = o.decodeBase64(e._attachments.content.data), r = x.parseContent(n), s = g(e._id, e._rev, r.content, e.title, r.discussionListJSON);
-    t = {}, t[s.syncIndex] = s, i = d.createFile(e.title, r.content, r.discussionListJSON, t), 
-    a.push(i);
-   }), void 0 !== i && (u.onSyncImportSuccess(a, x), d.selectFile(i)), n && n();
-  });
- }
- function b(e, t) {
-  var n = e && e.tags, r = t.match(/^\s*\[(.*?)\]/);
-  return r && (n = r[1]), n;
- }
- var y = "couchdb", x = new l(y, "CouchDB");
- x.importPreferencesInputIds = [ y + "-tag" ], x.editorSharingAttributes = [ "id" ], 
- x.getSyncLocationLink = function(e) {
-  return [ c.couchdbUrl, "/", e.id, "/content" ].join("");
- };
- var w, S = "merge" == c.conflictMode;
- return x.importFiles = function() {
-  var n = e("#select-sync-import-couchdb-tag").val();
-  if (!n) {
-   var r = t.chain((w.val() || "").split(/\s+/)).compact().unique().value();
-   v(r);
-  }
- }, x.exportFile = function(e, t, n, r, i, o) {
-  var a = x.serializeContent(n, r), s = b(i, t);
-  f.uploadDocument(void 0, t, a, s, void 0, function(e, i) {
-   if (e) return o(e);
-   var a = g(i.id, i.rev, n, t, r);
-   o(void 0, a);
-  });
- }, x.syncUp = function(e, t, n, r, i, o, a, s, l) {
-  if (s.contentCRC == t && s.titleCRC == r && s.discussionListCRC == o) return l(void 0, !1);
-  var c = x.serializeContent(e, i), u = b(a, n);
-  f.uploadDocument(s.id, n, c, u, s.rev, function(a, c) {
-   return a ? l(a, !0) : (s.rev = c.rev, S === !0 && (s.content = e, s.title = n, s.discussionList = i), 
-   s.contentCRC = t, s.titleCRC = r, s.discussionListCRC = o, void l(void 0, !0));
-  });
- }, x.syncDown = function(e) {
-  var n = parseInt(a[y + ".lastChangeId"], 10), r = {};
-  t.each(p, function(e) {
-   t.each(e.syncLocations, function(e) {
-    e.provider === x && (r[e.id] = e);
-   });
-  }), f.checkChanges(n, r, function(n, r, i) {
-   if (n) return e(n);
-   var s = [];
-   t.each(r, function(e) {
-    var t = m(e._id), n = d.getFileFromSyncIndex(t), r = n && n.syncLocations[t];
-    r && (e.fileDesc = n, e.syncAttributes = r, s.push(e));
-   }), f.downloadContent(s, function(t, n) {
-    function r() {
-     if (0 === n.length) return a[y + ".lastChangeId"] = i, e();
-     var t = n.pop(), s = t.fileDesc, l = t.syncAttributes;
-     if (t.deleted === !0) return u.onError('"' + s.title + '" has been removed from CouchDB.'), 
-     s.removeSyncLocation(l), u.onSyncRemoved(s, l);
-     var c = t, d = o.decodeBase64(c._attachments.content.data), p = x.parseContent(d), h = p.content, f = c.title, m = p.discussionListJSON, g = p.discussionList, v = x.syncMerge(s, l, h, f, g, m);
-     l.rev = c._rev, S === !0 && (l.content = h, l.title = f, l.discussionList = m), 
-     l.contentCRC = v.contentCRC, l.titleCRC = v.titleCRC, l.discussionListCRC = v.discussionListCRC, 
-     o.storeAttributes(l), setTimeout(r, 5);
-    }
-    return t ? e(t) : void setTimeout(r, 5);
-   });
-  });
- }, x.importPrivate = function(e, t) {
-  v([ e.id ], t);
- }, u.addListener("onReady", function() {
-  function s() {
-   v = x.children(".active").clone(), g = [];
-   var t = [];
-   v.each(function() {
-    var n = e(this).data("documentId");
-    t.push(n), g.push(h[n]);
-   }), w.val(t.join(" ")), S.empty().append(v), e(b.querySelectorAll(".action-delete-items")).parent().toggleClass("disabled", 0 === g.length);
-  }
-  function l() {
-   h = {}, m = void 0, x.empty(), s();
-  }
-  function u(t) {
-   e(b.querySelectorAll(".list-mode")).toggleClass("hide", "list" != t), e(b.querySelectorAll(".delete-mode")).toggleClass("hide", "delete" != t), 
-   e(b.querySelectorAll(".byid-mode")).toggleClass("hide", "byid" != t);
-  }
-  function d() {
-   I.empty().append(n("option", {
-    value: ""
-   }, "none")), t.sortBy(T, function(e) {
-    return e.toLowerCase();
-   }).forEach(function(e) {
-    I.append(n("option", {
-     value: e
-    }, e));
-   });
-  }
-  i.COUCHDB_URL == c.couchdbUrl && e(".msg-default-couchdb").removeClass("hide");
-  var p = [ '<a href="#" class="list-group-item document clearfix" data-document-id="<%= document._id %>">', '<div class="date pull-right"><%= date %></div></div>', '<div class="name"><i class="icon-file"></i> ', "<%= document.title %></div>", "</a>" ].join("");
-  w = e("#input-sync-import-couchdb-documentid");
-  var h, m, g, v, b = document.querySelector(".modal-download-couchdb"), x = e(b.querySelector(".document-list")), S = e(b.querySelector(".selected-document-list")), C = e(b.querySelector(".please-wait")), _ = e(b.querySelector(".no-document")), k = e(b.querySelector(".more-documents"));
-  l();
-  var E = t.debounce(function() {
-   C.removeClass("hide"), _.addClass("hide"), k.addClass("hide"), f.listDocuments(I.val(), m && m.updated, function(e, n) {
-    if (C.addClass("hide"), e) return void k.removeClass("hide");
-    n.length === i.COUCHDB_PAGE_SIZE && (k.removeClass("hide"), m = n.pop());
-    var r = t.reduce(n, function(e, n) {
-     return h[n._id] = n, e + t.template(p, {
-      document: n,
-      date: o.formatDate(n.updated)
-     });
-    }, "");
-    x.append(r), 0 === x.children().length && _.removeClass("hide");
-   }), u("list");
-  }, 10, !0), T = o.retrieveIgnoreError(y + ".tagList") || [], I = e("#input-sync-import-couchdb-tag").on("change", function() {
-   l(), E();
-  });
-  d(), e(b).on("show.bs.modal", function() {
-   l(), E();
-  }).on("click", ".document-list .document", function() {
-   e(this).toggleClass("active"), s();
-  }).on("click", ".more-documents", E).on("click", ".action-unselect-all", function() {
-   x.children().removeClass("active"), s();
-  }).on("click", ".action-byid-mode", function() {
-   u("byid");
-  }).on("click", ".action-add-tag", function() {
-   r.prompt("Enter a tag (case sensitive):", function(e, n) {
-    e && n && (T.push(n), T = t.chain(T).sortBy(function(e) {
-     return e.toLowerCase();
-    }).unique(!0).value(), a[y + ".tagList"] = JSON.stringify(T), d(), I.val(n).change());
-   }, "Tag");
-  }).on("click", ".action-remove-tag", function() {
-   var e = I.val();
-   e && r.confirm("You are removing <b>" + I.val() + "</b> from your list of filters.", function(n) {
-    n && (T = t.without(T, e), a[y + ".tagList"] = JSON.stringify(T), d(), I.val("").change());
-   });
-  }).on("click", ".action-delete-items", function() {
-   v.length && u("delete");
-  }).on("click", ".action-delete-items-confirm", function() {
-   f.deleteDocuments(g), l(), E();
-  }).on("click", ".action-cancel", function() {
-   u("list");
-  });
- }), x;
-}), define("helpers/googleHelper", [ "underscore", "jquery", "constants", "core", "utils", "storage", "logger", "settings", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s, l, c) {
- function u(t) {
-  var n = {
-   profile: !0
-  }, r = !0;
-  e.each((o[t + ".permissions"] || "").split(";"), function(e) {
-   e && (n[e] = !0);
-  }), this.setRefreshFlag = function() {
-   r = !0;
-  }, this.isAuthorized = function(t) {
-   return r === !1 && e.has(n, t);
-  }, this.add = function(i) {
-   n[i] = !0, o[t + ".permissions"] = e.keys(n).join(";"), r = !1;
-  }, this.getListWithNew = function(t) {
-   var r = e.keys(n);
-   return e.has(n, t) || r.push(t), r;
-  };
-  var i = o[t + ".userId"];
-  this.setUserId = function(e) {
-   i = e, o[t + ".userId"] = i;
-  }, this.getUserId = function() {
-   return i;
-  };
-  var a = parseInt(o[t + ".authUser"] || 0);
-  this.setAuthUser = function(e) {
-   a = e, o[t + ".authUser"] = a;
-  }, this.getAuthUser = function() {
-   return a;
-  };
- }
- function d(e) {
-  e.onRun(function() {
-   return y === !0 ? (g = !1, e.error(new Error("Operation not available in offline mode.|stopPublish"))) : g === !0 ? e.chain() : (window.delayedFunction = function() {
-    gapi.load("client", function() {
-     gapi.client.load("drive", "v2", function() {
-      g = !0, e.chain();
-     });
-    });
-   }, void t.ajax({
-    url: "https://apis.google.com/js/api.js?onload=runDelayedFunction",
-    dataType: "script",
-    timeout: n.AJAX_TIMEOUT
-   }).fail(function(t) {
-    var n = {
-     code: t.status,
-     message: t.statusText
-    };
-    f(n, e);
-   }));
-  });
- }
- function p(r, o, a) {
-  var s = b.getAuthorizationMgr(a);
-  r.onRun(function() {
-   function a() {
-    t.ajax({
-     url: "https://www.googleapis.com/oauth2/v1/tokeninfo",
-     data: {
-      access_token: d.access_token
-     },
-     timeout: n.AJAX_TIMEOUT,
-     type: "GET"
-    }).done(function(e) {
-     s.getUserId() && s.getUserId() != e.user_id ? u() : (s.setUserId(e.user_id), s.add(o), 
-     s.token = d, r.chain());
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     f(t, r);
-    });
-   }
-   function l() {
-    if (m > 5) return r.error(new Error("Unable to authenticate user " + s.getUserId() + ", please sign in with Google."));
-    p === !1 && (r.timeout = n.ASYNC_TASK_LONG_TIMEOUT);
-    var t = e.chain(x).pick(s.getListWithNew(o)).flatten().value();
-    gapi.auth.authorize({
-     client_id: n.GOOGLE_CLIENT_ID,
-     scope: t,
-     immediate: p,
-     authuser: p === !1 ? "" : m
-    }, function(e) {
-     d = gapi.auth.getToken(), gapi.auth.setToken(h), !e || e.error ? g === !0 && p === !0 ? (5 > m && s.getUserId() ? m++ : p = !1, 
-     r.chain(c)) : r.error(new Error("Access to Google account is not authorized.")) : (s.setAuthUser(m), 
-     p === !0 && m++, r.chain(a));
-    });
-   }
-   function c() {
-    return p === !0 ? r.chain(l) : void i.redirectConfirm("You are being redirected to <strong>Google</strong> authorization page.", function() {
-     r.chain(l);
-    }, function() {
-     r.error(new Error("Operation canceled."));
-    });
-   }
-   function u() {
-    return p = !0, s.token && s.isAuthorized(o) ? r.chain() : (s.getUserId() || (p = !1), 
-    void r.chain(c));
-   }
-   var d, p, h = gapi.auth.getToken(), m = 0;
-   u();
-  });
- }
- function h(e, t) {
-  var n = gapi.auth.getToken(), r = v[e];
-  gapi.auth.setToken(r.token), t(), gapi.auth.setToken(n);
- }
- function f(t, n) {
-  var i;
-  if (t) if (a.error(t), "string" == typeof t) i = t; else {
-   if (i = "Google error (" + t.code + ": " + t.message + ").", t.code >= 500 && t.code < 600) return n.retry(new Error(i));
-   if (401 === t.code || 403 === t.code || "token_refresh_required" == t.code) return e.each(v, function(e) {
-    e.setRefreshFlag();
-   }), i = "Access to Google account is not authorized.", n.retry(new Error(i), 1);
-   (0 === t.code || -1 === t.code) && (g = !1, e.each(v, function(e) {
-    e.setRefreshFlag();
-   }), r.setOffline(), i = "|stopPublish");
-  }
-  n.error(new Error(i));
- }
- function m(e) {
-  e.onRun(function() {
-   return w === !0 ? e.chain() : void t.ajax({
-    url: "//www.google.com/jsapi",
-    data: {
-     key: n.GOOGLE_API_KEY
+    url: "/evernote/notes",
+    success: function(e) {
+     r = e, n.chain();
     },
-    dataType: "script",
-    timeout: n.AJAX_TIMEOUT
-   }).done(function() {
-    google.load("picker", "1", {
-     callback: function() {
-      e.chain();
-     }
-    }), w = !0;
-   }).fail(function(t) {
-    var n = {
-     code: t.status,
-     message: t.statusText
-    };
-    f(n, e);
+    error: function() {
+     n.error();
+    }
    });
-  });
- }
- var g = !1, v = {}, b = {}, y = !1;
- l.addListener("onOfflineChanged", function(e) {
-  y = e;
- });
- var x = {
-  profile: [ "https://www.googleapis.com/auth/userinfo.profile" ],
-  gdrive: [ "https://www.googleapis.com/auth/drive.install", s.gdriveFullAccess === !0 ? "https://www.googleapis.com/auth/drive" : "https://www.googleapis.com/auth/drive.file" ],
-  blogger: [ "https://www.googleapis.com/auth/blogger" ],
-  picasa: [ "https://www.googleapis.com/auth/photos" ]
- };
- b.getAuthorizationMgr = function(e) {
-  var t = v[e];
-  return t || (t = new u(e), v[e] = t), t;
- }, b.refreshGdriveToken = function(e) {
-  var t = new c();
-  d(t);
-  var n = v[e];
-  n && n.setRefreshFlag(), p(t, "gdrive", e), t.enqueue();
- }, b.upload = function(e, t, n, r, a, l, u, m) {
-  var g, v = new c();
-  d(v), p(v, "gdrive", u), v.onRun(function() {
-   var l = "-------314159265358979323846", c = "\r\n--" + l + "\r\n", d = "\r\n--" + l + "--";
-   a = a || s.markdownMimeType;
-   var p = {
-    title: n,
-    mimeType: a
-   };
-   t && (p.parents = [ {
-    kind: "drive#fileLink",
-    id: t
-   } ]);
-   var m = "/upload/drive/v2/files", b = "POST";
-   e && (m += "/" + e, b = "PUT");
-   var y = {
-    "Content-Type": 'multipart/mixed; boundary="' + l + '"'
-   }, x = i.encodeBase64(r), w = [ c, "Content-Type: application/json\r\n\r\n", JSON.stringify(p), c, "Content-Type: ", a, "\r\n", "Content-Transfer-Encoding: base64\r\n", "\r\n", x, d ].join("");
-   h(u, function() {
-    var t = gapi.client.request({
-     path: m,
-     method: b,
-     params: {
-      uploadType: "multipart"
-     },
-     headers: y,
-     body: w
-    });
-    t.execute(function(t) {
-     if (t && t.id) return g = t, g.content = r, v.chain();
-     var n = t.error;
-     void 0 !== n && void 0 !== e && (404 === n.code ? n = 'File ID "' + e + '" not found on Google Drive.|removePublish' : 412 === n.code && (o.removeItem(u + ".gdrive.lastChangeId"), 
-     n = 'Conflict on file ID "' + e + '". Please restart the synchronization.')), f(n, v);
-    });
+  }), n.onError(function(e) {
+   t(e);
+  }), n.onSuccess(function() {
+   t(void 0, r);
+  }), n.enqueue();
+ }, u.downloadNote = function(t, n) {
+  var r = new l();
+  c(r);
+  var i = null;
+  r.onRun(function() {
+   e.ajax({
+    url: "/evernote/notes/" + t,
+    success: function(e) {
+     i = e, r.chain();
+    },
+    error: function() {
+     r.error();
+    }
    });
-  }), v.onSuccess(function() {
-   m(void 0, g);
-  }), v.onError(function(e) {
-   m(e);
-  }), v.enqueue();
- }, b.rename = function(e, t, n, r) {
-  var i, o = new c();
-  d(o), p(o, "gdrive", n), o.onRun(function() {
-   var r = {
-    title: t
-   };
-   h(n, function() {
-    var t = gapi.client.drive.files.patch({
-     fileId: e,
-     resource: r
-    });
-    t.execute(function(t) {
-     if (t && t.id) return i = t, o.chain();
-     var n = t.error;
-     void 0 !== n && void 0 !== e && 404 === n.code && (n = 'File ID "' + e + '" not found on Google Drive.|removePublish'), 
-     f(n, o);
-    });
-   });
-  }), o.onSuccess(function() {
-   r(void 0, i);
-  }), o.onError(function(e) {
-   r(e);
-  }), o.enqueue();
- }, b.checkChanges = function(e, t, n) {
-  var r = [], i = e || 0, o = new c();
-  d(o), p(o, "gdrive", t), o.onRun(function() {
-   function e() {
-    h(t, function() {
-     var t;
-     t = gapi.client.drive.changes.list(void 0 === n ? {
-      startChangeId: i + 1
-     } : {
-      pageToken: n
-     }), t.execute(function(t) {
-      return t && t.largestChangeId ? (i = t.largestChangeId, n = t.nextPageToken, void 0 !== t.items && (r = r.concat(t.items)), 
-      void (void 0 !== n ? o.chain(e) : o.chain())) : f(t.error, o);
-     });
-    });
-   }
-   var n;
-   o.chain(e);
-  }), o.onSuccess(function() {
-   n(void 0, r, i);
-  }), o.onError(function(e) {
+  }), r.onError(function(e) {
    n(e);
-  }), o.enqueue();
- }, b.downloadMetadata = function(e, r, i, o) {
-  var a = [], s = new c();
-  d(s), o || p(s, "gdrive", r), s.onRun(function() {
-   function i() {
-    if (0 === e.length) return s.chain();
-    var o = e[0], l = {}, c = v[r];
-    c && c.token && (l.Authorization = "Bearer " + c.token.access_token), t.ajax({
-     url: "https://www.googleapis.com/drive/v2/files/" + o,
-     headers: l,
-     data: {
-      key: n.GOOGLE_API_KEY
-     },
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(t) {
-     a.push(t), e.shift(), s.chain(i);
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     404 === t.code && (t = 'File ID "' + o + '" not found on Google Drive.'), f(t, s);
-    });
-   }
-   s.chain(i);
-  }), s.onSuccess(function() {
-   i(void 0, a);
-  }), s.onError(function(e) {
-   i(e);
-  }), s.enqueue();
- }, b.downloadContent = function(e, r, i, o) {
-  var a = [], s = new c();
-  s.timeout = n.ASYNC_TASK_LONG_TIMEOUT, d(s), o || p(s, "gdrive", r), s.onRun(function() {
-   function i() {
-    if (0 === e.length) return s.chain();
-    var o = e[0];
-    a.push(o);
-    var l;
-    if ("drive#file" == o.kind ? l = o : "drive#change" == o.kind && (l = o.file), !l) return e.shift(), 
-    s.chain(i);
-    var c = l.downloadUrl;
-    0 === l.mimeType.indexOf("application/vnd.google-apps.drive-sdk") && (l.isRealtime = !0, 
-    c = "https://www.googleapis.com/drive/v2/files/" + l.id + "/realtime");
-    var u = {}, d = v[r];
-    d && d.token && (u.Authorization = "Bearer " + d.token.access_token), t.ajax({
-     url: c,
-     headers: u,
-     data: {
-      key: n.GOOGLE_API_KEY
-     },
-     dataType: l.isRealtime ? "json" : "text",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(t) {
-     l.content = l.isRealtime ? t.data.value.content.value : t, e.shift(), s.chain(i);
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     f(t, s);
-    });
-   }
-   s.chain(i);
-  }), s.onSuccess(function() {
-   i(void 0, a);
-  }), s.onError(function(e) {
-   i(e);
-  }), s.enqueue();
- }, b.uploadImg = function(e, r, i, o) {
-  var a, s = "google.picasa0", l = new c();
-  d(l), p(l, "picasa", s), l.onRun(function() {
-   var o = {
-    Slug: e
-   };
-   e.match(/.jpe?g$/i) ? o["Content-Type"] = "image/jpeg" : e.match(/.png$/i) ? o["Content-Type"] = "image/png" : e.match(/.gif$/i) && (o["Content-Type"] = "image/gif");
-   var c = v[s];
-   c && c.token && (o.Authorization = "Bearer " + c.token.access_token), t.ajax({
-    url: n.PICASA_IMPORT_IMG_URL + "?" + t.param({
-     albumId: i
-    }),
-    headers: o,
-    data: r,
-    processData: !1,
-    dataType: "xml",
-    timeout: n.AJAX_TIMEOUT,
-    type: "POST"
-   }).done(function(e) {
-    a = e, l.chain();
-   }).fail(function(e) {
-    var t = {
-     code: e.status,
-     message: e.statusText
-    };
-    200 == t.code && (t.message = e.responseText), f(t, l);
+  }), r.onSuccess(function() {
+   n(void 0, i);
+  }), r.enqueue();
+ }, u.postNote = function(n, r) {
+  function i(t, n) {
+   t.removeAttr(n), t.children().each(function(t, r) {
+    i(e(r), n);
    });
-  }), l.onSuccess(function() {
-   o(void 0, a);
-  }), l.onError(function(e) {
-   o(e);
-  }), l.enqueue();
- };
- var w = !1;
- return b.picker = function(e, r, o) {
-  function a() {
-   void 0 !== s && (s.setVisible(!1), t(".modal-backdrop, .picker").remove());
   }
-  var s, l = [], u = new c();
-  u.timeout = n.ASYNC_TASK_LONG_TIMEOUT, d(u), "doc" == r || "folder" == r ? p(u, "gdrive", o) : (o = "google.picasa0", 
-  p(u, "picasa", o)), m(u), u.onRun(function() {
-   var e = v[o], c = new google.picker.PickerBuilder();
-   c.setAppId(n.GOOGLE_DRIVE_APP_ID);
-   var d;
-   "doc" == r ? (d = new google.picker.DocsView(google.picker.ViewId.DOCS), d.setParent("root"), 
-   d.setIncludeFolders(!0), d.setMimeTypes([ "text/x-markdown", "text/plain", "application/octet-stream", "application/vnd.google-apps.drive-sdk." + n.GOOGLE_DRIVE_APP_ID ].join(",")), 
-   c.enableFeature(google.picker.Feature.NAV_HIDDEN), c.enableFeature(google.picker.Feature.MULTISELECT_ENABLED), 
-   c.addView(d), e && e.token && c.setOAuthToken(e.token.access_token)) : "folder" == r ? (d = new google.picker.DocsView(google.picker.ViewId.FOLDERS), 
-   d.setParent("root"), d.setIncludeFolders(!0), d.setSelectFolderEnabled(!0), d.setMimeTypes("application/vnd.google-apps.folder"), 
-   c.enableFeature(google.picker.Feature.NAV_HIDDEN), c.addView(d), e && e.token && c.setOAuthToken(e.token.access_token)) : "img" == r && (d = new google.picker.PhotosView(), 
-   d.setType("flat"), c.addView(d), d = new google.picker.PhotosView(), d.setType("ofuser"), 
-   c.addView(d), c.addView(google.picker.ViewId.PHOTO_UPLOAD), e && e.token && c.setOAuthToken(e.token.access_token)), 
-   c.setCallback(function(e) {
-    (e.action == google.picker.Action.PICKED || e.action == google.picker.Action.CANCEL) && (e.action == google.picker.Action.PICKED && (l = e.docs), 
-    a(), u.chain());
-   }), s = c.build(), t(i.createBackdrop()).on("click.backdrop", function() {
-    a(), u.chain();
-   }), s.setVisible(!0);
-  }), u.onSuccess(function() {
-   e(void 0, l);
-  }), u.onError(function(t) {
-   a(), e(t);
-  }), u.enqueue();
- }, b.uploadBlogger = function(e, r, i, o, a, s, l, u, h) {
-  var m = "google.blogger0", g = new c();
-  d(g), p(g, "blogger", m), g.onRun(function() {
-   function c() {
-    var e = "https://www.googleapis.com/blogger/v3/blogs/" + r + "/posts/", a = {
-     kind: "blogger#post",
-     blog: {
-      id: r
-     },
-     labels: o,
-     title: l,
-     content: u
-    };
-    s && (a.published = s.toISOString());
-    var c = "POST";
-    void 0 !== i && (e += i, a.id = i, c = "PUT"), t.ajax({
-     url: e,
-     data: JSON.stringify(a),
-     headers: h,
-     type: c,
-     contentType: "application/json",
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(e) {
-     i = e.id, g.chain(d);
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     404 === t.code && void 0 !== i && (t = "Post " + i + " not found on Blogger.|removePublish"), 
-     f(t, g);
-    });
-   }
-   function d() {
-    var e = "https://www.googleapis.com/blogger/v3/blogs/" + r + "/posts/" + i;
-    a ? e += "/revert" : (e += "/publish", s && (e += "?publishDate=" + s.toISOString())), 
-    t.ajax({
-     url: e,
-     headers: h,
-     type: "POST",
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function() {
-     g.chain();
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     404 === t.code && (t = "Post " + i + " not found on Blogger.|removePublish"), f(t, g);
-    });
-   }
-   function p() {
-    return void 0 !== r ? void g.chain(c) : void t.ajax({
-     url: "https://www.googleapis.com/blogger/v3/blogs/byurl",
-     data: {
-      url: e
-     },
-     headers: h,
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(e) {
-     r = e.id, g.chain(c);
-    }).fail(function(t) {
-     var n = {
-      code: t.status,
-      message: t.statusText
-     };
-     404 === n.code && (n = 'Blog "' + e + '" not found on Blogger.|removePublish'), 
-     f(n, g);
-    });
-   }
-   var h = {}, b = v[m];
-   b && b.token && (h.Authorization = "Bearer " + b.token.access_token), g.chain(p);
-  }), g.onSuccess(function() {
-   h(void 0, r, i);
-  }), g.onError(function(e) {
-   h(e);
-  }), g.enqueue();
- }, b.uploadBloggerPage = function(e, r, i, o, a, s, l, u) {
-  var h = "google.blogger0", m = new c();
-  d(m), p(m, "blogger", h), m.onRun(function() {
-   function o() {
-    var e = "https://www.googleapis.com/blogger/v3/blogs/" + r + "/pages/", o = {
-     kind: "blogger#page",
-     blog: {
-      id: r
-     },
-     title: s,
-     content: l
-    }, a = "POST";
-    void 0 !== i && (e += i, o.id = i, a = "PUT"), t.ajax({
-     url: e,
-     data: JSON.stringify(o),
-     headers: c,
+  if (n) {
+   var o = n.guid ? "/evernote/notes/" + n.guid : "/evernote/notes", a = n.guid ? "PUT" : "POST", s = n.content, u = e("#preview-contents").clone();
+   i(u, "id"), i(u, "class");
+   var d = u.html().replace(/<br>/g, "<br/>").replace(/<hr>/g, "<hr/>");
+   console.info(d), d = [ "<div>", d, '<center style="display:none;">', s, "</center>", "</div>" ].join("");
+   var p = new l();
+   c(p), p.onRun(function() {
+    e.ajax({
+     url: o,
      type: a,
      contentType: "application/json",
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(e) {
-     i = e.id, m.chain();
-    }).fail(function(e) {
-     var t = {
-      code: e.status,
-      message: e.statusText
-     };
-     404 === t.code && void 0 !== i && (t = "Page " + i + " not found on Blogger.|removePublish"), 
-     f(t, m);
-    });
-   }
-   function a() {
-    return void 0 !== r ? void m.chain(o) : void t.ajax({
-     url: "https://www.googleapis.com/blogger/v3/blogs/byurl",
-     data: {
-      url: e
+     beforeSend: function(e) {
+      e.setRequestHeader("Content-Type", "application/json"), e.setRequestHeader("Accept", "application/json");
      },
-     headers: c,
-     dataType: "json",
-     timeout: n.AJAX_TIMEOUT
-    }).done(function(e) {
-     r = e.id, m.chain(o);
-    }).fail(function(t) {
-     var n = {
-      code: t.status,
-      message: t.statusText
-     };
-     404 === n.code && (n = 'Blog "' + e + '" not found on Blogger.|removePublish'), 
-     f(n, m);
-    });
-   }
-   var c = {}, u = v[h];
-   u && u.token && (c.Authorization = "Bearer " + u.token.access_token), m.chain(a);
-  }), m.onSuccess(function() {
-   u(void 0, r, i);
-  }), m.onError(function(e) {
-   u(e);
-  }), m.enqueue();
- }, window.delayedFunction = void 0, window.runDelayedFunction = function() {
-  void 0 !== window.delayedFunction && window.delayedFunction();
- }, b;
-}), define("text!html/dialogExportGdrive.html", [], function() {
- return '<div class="modal-dialog">\r\n	<div class="modal-content">\r\n\r\n		<div class="modal-header">\r\n			<button type="button" class="close" data-dismiss="modal"\r\n				aria-hidden="true">&times;</button>\r\n			<h2 class="modal-title">Save on <%= providerName %></h2>\r\n		</div>\r\n		<div class="modal-body">\r\n			<p>\r\n				This will save "<span class="file-title"></span>" to your <i\r\n					class="icon-provider-<%= providerId %>"></i>\r\n				<b>Google Drive</b>\r\n				account and keep it synchronized.\r\n			</p>\r\n			<div class="collapse form-horizontal sync-export-<%= providerId %>-options-collapse">\r\n				<div class="form-group">\r\n					<label class="col-lg-3 control-label"\r\n						for="input-sync-export-<%= providerId %>-parentid">Folder ID\r\n						(optional)</label>\r\n					<div class="col-lg-8">\r\n                        <input type="text" id="input-sync-export-<%= providerId %>-parentid"\r\n                            placeholder="FolderID" class="form-control">\r\n                        <div class="text-right">\r\n                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"\r\n                               title="Choose folder" data-dismiss="modal"><i\r\n                                    class="icon-folder-open"></i> Open folder</a>\r\n                        </div>\r\n						<span class="help-block"> If no folder ID is supplied, the\r\n							file will be created in your root folder. </span>\r\n					</div>\r\n				</div>\r\n				<div class="form-group">\r\n					<label class="col-lg-3 control-label"\r\n						for="input-sync-export-<%= providerId %>-fileid">Existing file ID\r\n						(optional)</label>\r\n					<div class="col-lg-8">\r\n						<input type="text" id="input-sync-export-<%= providerId %>-fileid"\r\n							placeholder="FileID" class="form-control"> <span\r\n							class="help-block"> This will overwrite the existing file\r\n							on the server. </span>\r\n					</div>\r\n				</div>\r\n			</div>\r\n			<p class="align-right">\r\n				<a href="#" data-toggle="collapse" data-target=".sync-export-<%= providerId %>-options-collapse" class="collapsed">\r\n					Options <i class="icon-up-dir"></i>\r\n				</a>\r\n			</p>\r\n			<blockquote>\r\n				<p><b>Tip:</b> You can move or rename the file afterwards within Google\r\n						Drive.</p>\r\n			</blockquote>\r\n		</div>\r\n		<div class="modal-footer">\r\n			<a href="#" class="btn btn-default pull-left action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i\r\n				class="icon-provider-gdrive"></i> Setup AutoSync</a>\r\n			<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n			<a href="#" data-dismiss="modal"\r\n				class="btn btn-primary action-sync-export-<%= providerId %>">OK</a>\r\n		</div>\r\n	</div>\r\n</div>\r\n';
-}), define("text!html/dialogAutoSyncGdrive.html", [], function() {
- return '<div class="modal-dialog">\r\n	<div class="modal-content">\r\n\r\n		<div class="modal-header">\r\n			<button type="button" class="close" data-dismiss="modal"\r\n				aria-hidden="true">&times;</button>\r\n			<h2 class="modal-title">AutoSync to <%= providerName %></h2>\r\n		</div>\r\n		<div class="modal-body">\r\n			<p>\r\n				<b>AutoSync</b> feature automatically saves all documents to your <i\r\n					class="icon-provider-<%= providerId %>"></i>\r\n				<b>Google Drive</b>\r\n				account and keep them synchronized.\r\n			</p>\r\n			<div class="form-horizontal">\r\n    			<div class="form-group">\r\n    				<div class="col-lg-3 control-label"></div>\r\n    				<div class="col-lg-8">\r\n						<div class="radio">\r\n							<label> <input type="radio"\r\n								name="radio-autosync-<%= providerId %>-mode" value="off">\r\n								Disabled\r\n							</label>\r\n						</div>\r\n						<div class="radio">\r\n							<label> <input type="radio"\r\n								name="radio-autosync-<%= providerId %>-mode" value="new">\r\n								New documents (not current)\r\n							</label>\r\n						</div>\r\n						<div class="radio">\r\n							<label> <input type="radio"\r\n								name="radio-autosync-<%= providerId %>-mode" value="all">\r\n								Every document not yet synchronized\r\n							</label>\r\n						</div>\r\n    				</div>\r\n    			</div>\r\n			    <br/>\r\n    			<div class="form-group">\r\n    				<label class="col-lg-3 control-label"\r\n    					for="input-autosync-<%= providerId %>-parentid">Folder ID\r\n    					(optional)</label>\r\n    				<div class="col-lg-8">\r\n    					<div class="input-group">\r\n    						<input type="text" id="input-autosync-<%= providerId %>-parentid"\r\n    							placeholder="FolderID" class="form-control">\r\n    						<div class="input-group-btn">\r\n    							<a class="btn btn-link action-autosync-<%= providerId %>-choose-folder"\r\n    								title="Choose folder" data-dismiss="modal"><i\r\n    								class="icon-folder-open"></i></a>\r\n    						</div>\r\n    					</div>\r\n    					<span class="help-block"> If no folder ID is supplied,\r\n    						files will be created in your root folder. </span>\r\n    				</div>\r\n    			</div>\r\n    		</div>\r\n			<blockquote>\r\n				<p><b>Note:</b> Removing a local document will not delete the linked file on Google\r\n						Drive.</p>\r\n			</blockquote>\r\n		</div>\r\n		<div class="modal-footer">\r\n			<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\r\n			<a href="#" data-dismiss="modal"\r\n				class="btn btn-primary action-autosync-<%= providerId %>">OK</a>\r\n		</div>\r\n	</div>\r\n</div>\r\n';
-}), define("providers/gdriveProviderBuilder", [ "jquery", "underscore", "constants", "utils", "storage", "logger", "classes/Provider", "settings", "eventMgr", "fileMgr", "editor", "helpers/googleHelper", "text!html/dialogExportGdrive.html", "text!html/dialogAutoSyncGdrive.html" ], function(e, t, n, r, i, o, a, s, l, c, u, d, p, h) {
- return function(o, u, f) {
-  function m(e) {
-   return "sync." + o + "." + e;
-  }
-  function g(e, t, n, i, o) {
-   o = o || "{}";
-   var a = {};
-   return a.provider = y, a.id = e, a.etag = t, a.contentCRC = r.crc32(n), a.titleCRC = r.crc32(i), 
-   a.discussionListCRC = r.crc32(o), a.syncIndex = m(e), x === !0 && (a.content = n, 
-   a.title = i, a.discussionList = o), a;
-  }
-  function v(e, n) {
-   d.downloadMetadata(e, b, function(e, r) {
-    return e ? n && n(e) : void d.downloadContent(r, b, function(e, r) {
-     if (e) return n && n(e);
-     var i, o = [];
-     t.each(r, function(e) {
-      var t, n = y.parseContent(e.content);
-      if (e.isRealtime) l.onError("Real time synchronization is not supported anymore. Please use standard synchronization."); else {
-       var r = g(e.id, e.etag, n.content, e.title, n.discussionListJSON);
-       t = {}, t[r.syncIndex] = r;
-      }
-      i = c.createFile(e.title, n.content, n.discussionListJSON, t), o.push(i);
-     }), void 0 !== i && (l.onSyncImportSuccess(o, y), c.selectFile(i)), n && n();
-    });
-   });
-  }
-  var b = "google.gdrive" + f, y = new a(o, u);
-  y.defaultPublishFormat = "template", y.exportPreferencesInputIds = [ o + "-parentid" ], 
-  y.getSyncLocationLink = y.getPublishLocationLink = function(e) {
-   var t = d.getAuthorizationMgr(b).getAuthUser();
-   return [ "https://docs.google.com/file/d/", e.id, "/edit", t ? "?authuser=" + t : "" ].join("");
-  };
-  var x = "merge" == s.conflictMode;
-  return y.importFiles = function() {
-   d.picker(function(e, n) {
-    if (!e && 0 !== n.length) {
-     var r = [];
-     t.each(n, function(e) {
-      var t = m(e.id), n = c.getFileFromSyncIndex(t);
-      return void 0 !== n ? l.onError('"' + n.title + '" is already in your local documents.') : void r.push(e.id);
-     }), v(r);
-    }
-   }, "doc", b);
-  }, y.exportFile = function(e, t, n, i, a, s) {
-   var u = r.getInputTextValue("#input-sync-export-" + o + "-fileid");
-   if (u) {
-    var p = m(u), h = c.getFileFromSyncIndex(p);
-    if (void 0 !== h) return l.onError('File ID is already synchronized with "' + h.title + '".'), 
-    s(!0);
-   }
-   var f = r.getInputTextValue("#input-sync-export-" + o + "-parentid"), v = y.serializeContent(n, i);
-   d.upload(u, f, t, v, void 0, void 0, b, function(e, r) {
-    if (e) return s(e);
-    var o = g(r.id, r.etag, n, t, i);
-    s(void 0, o);
-   });
-  }, y.syncUp = function(e, t, n, r, i, o, a, s, u) {
-   if (s.contentCRC == t && s.titleCRC == r && s.discussionListCRC == o) return u(void 0, !1);
-   if (s.isRealtime) {
-    var p = c.getFileFromSyncIndex(s.syncIndex);
-    return p.removeSyncLocation(s), l.onSyncRemoved(p, s), l.onError("Real time synchronization is not supported anymore. Please use standard synchronization.");
-   }
-   var h = y.serializeContent(e, i);
-   d.upload(s.id, void 0, n, h, void 0, s.etag, b, function(a, l) {
-    return a ? u(a, !0) : (s.etag = l.etag, delete s.isRealtime, x === !0 && (s.content = e, 
-    s.title = n, s.discussionList = i), s.contentCRC = t, s.titleCRC = r, s.discussionListCRC = o, 
-    void u(void 0, !0));
-   });
-  }, y.syncDown = function(e) {
-   var n = parseInt(i[b + ".gdrive.lastChangeId"], 10);
-   d.checkChanges(n, b, function(n, o, a) {
-    if (n) return e(n);
-    var s = [];
-    t.each(o, function(e) {
-     var t = m(e.fileId), n = c.getFileFromSyncIndex(t), r = n && n.syncLocations[t];
-     return r ? (e.fileDesc = n, e.syncAttributes = r, e.deleted === !0 ? void s.push(e) : void (r.etag != e.file.etag && s.push(e))) : void 0;
-    }), d.downloadContent(s, b, function(t, n) {
-     function o() {
-      if (0 === n.length) return i[b + ".gdrive.lastChangeId"] = a, e();
-      var t = n.pop(), s = t.fileDesc, c = t.syncAttributes;
-      if (t.deleted === !0) return l.onError('"' + s.title + '" has been removed from ' + u + "."), 
-      s.removeSyncLocation(c), l.onSyncRemoved(s, c);
-      var d = t.file, p = y.parseContent(d.content), h = p.content, f = d.title, m = p.discussionListJSON, g = p.discussionList, v = y.syncMerge(s, c, h, f, g, m);
-      c.etag = d.etag, x === !0 && (c.content = h, c.title = f, c.discussionList = m), 
-      c.contentCRC = v.contentCRC, c.titleCRC = v.titleCRC, c.discussionListCRC = v.discussionListCRC, 
-      r.storeAttributes(c), setTimeout(o, 5);
+     data: JSON.stringify(t.extend(t.clone(n.note), {
+      content: d
+     })),
+     success: function(e) {
+      n.update(e), console.info(e), r();
      }
-     return t ? void e(t) : void setTimeout(o, 5);
     });
-   });
-  }, y.publish = function(e, t, n, r, i) {
-   var o = "markdown" != e.format ? "text/html" : void 0;
-   d.upload(e.id, void 0, e.fileName || n, r, o, void 0, b, function(t, n) {
-    return t ? void i(t) : (e.id = n.id, void i());
-   });
-  }, y.newPublishAttributes = function(e) {
-   var t = {};
-   return t.id = r.getInputTextValue("#input-publish-" + o + "-fileid"), t.fileName = r.getInputTextValue("#input-publish-" + o + "-filename"), 
-   e.isPropagationStopped() ? void 0 : t;
-  }, y.setAutosyncDialogConfig = function() {
-   var e = y.autosyncConfig;
-   r.setInputRadio("radio-autosync-" + o + "-mode", e.mode || "off"), r.setInputValue("#input-autosync-" + o + "-parentid", e.parentId);
-  }, y.getAutosyncDialogConfig = function() {
-   var e = {};
-   return e.mode = r.getInputRadio("radio-autosync-" + o + "-mode"), e.parentId = r.getInputTextValue("#input-autosync-" + o + "-parentid"), 
-   e;
-  }, y.autosyncFile = function(e, t, n, r, i) {
-   var o = r.parentId;
-   d.upload(void 0, o, e, t, void 0, void 0, b, function(r, o) {
-    if (r) return void i(r);
-    var a = g(o.id, o.etag, t, e, n);
-    i(void 0, a);
-   });
-  }, y.isPublishEnabled = s.gdriveMultiAccount > f, l.addListener("onReady", function() {
-   e(".submenu-sync-" + o).toggle(s.gdriveMultiAccount > f);
-   var a = document.querySelector(".modal-upload-" + o);
-   a && (a.innerHTML = t.template(p, {
-    providerId: o,
-    providerName: u
-   }));
-   var y = document.querySelector(".modal-autosync-" + o);
-   if (y && (y.innerHTML = t.template(h, {
-    providerId: o,
-    providerName: u
-   })), e(".action-export-" + o + "-choose-folder").click(function() {
-    d.picker(function(t, n) {
-     t || 0 === n.length || (e(".modal-upload-" + o).modal(), r.setInputValue("#input-sync-export-" + o + "-parentid", n[0].id));
-    }, "folder", b);
-   }), e(".action-autosync-" + o + "-choose-folder").click(function() {
-    d.picker(function(t, n) {
-     t || 0 === n.length || (e(".modal-autosync-" + o).modal(), r.setInputValue("#input-autosync-" + o + "-parentid", n[0].id));
-    }, "folder", b);
-   }), e(".action-remove-google-drive-state").click(function() {
-    i.removeItem("gdrive.state");
-   }), !(f >= s.gdriveMultiAccount)) {
-    var x = r.retrieveIgnoreError("gdrive.state"), w = i[b + ".userId"];
-    if (void 0 !== x) {
-     if (w && x.userId != w) return void (f === s.gdriveMultiAccount - 1 && (3 === s.gdriveMultiAccount ? (l.onError("None of your 3 Google Drive accounts is able to perform this request."), 
-     i.removeItem("gdrive.state")) : e(".modal-add-google-drive-account").modal()));
-     if (i.removeItem("gdrive.state"), "create" == x.action) d.upload(void 0, x.folderId, n.GDRIVE_DEFAULT_FILE_TITLE, s.defaultContent, void 0, void 0, b, r.lockUI(function(e, t) {
-      if (!e) {
-       var n = g(t.id, t.etag, t.content, t.title), r = {};
-       r[n.syncIndex] = n;
-       var i = c.createFile(t.title, t.content, void 0, r);
-       c.selectFile(i), l.onMessage('"' + t.title + '" created successfully on ' + u + ".");
-      }
-     })); else if ("open" == x.action) {
-      var S = [];
-      t.each(x.ids, function(e) {
-       var t = m(e), n = c.getFileFromSyncIndex(t);
-       void 0 !== n ? n !== c.currentFile && c.selectFile(n) : S.push(e);
-      }), v(S, r.lockUI());
-     }
-    }
-   }
-  }), y;
- };
-}), define("providers/gdriveProvider", [ "providers/gdriveProviderBuilder" ], function(e) {
- return e("gdrive", "Google Drive", 0);
-}), define("providers/gdrivesecProvider", [ "providers/gdriveProviderBuilder" ], function(e) {
- return e("gdrivesec", "Google Drive (2nd account)", 1);
-}), define("providers/gdriveterProvider", [ "providers/gdriveProviderBuilder" ], function(e) {
- return e("gdriveter", "Google Drive (3rd account)", 2);
-}), define("synchronizer", [ "jquery", "underscore", "utils", "storage", "eventMgr", "fileSystem", "fileMgr", "classes/Provider", "providers/dropboxProvider", "providers/couchdbProvider", "providers/gdriveProvider", "providers/gdrivesecProvider", "providers/gdriveterProvider" ], function(e, t, n, r, i, o, a, s) {
- function l(e) {
-  function r() {
-   function o() {
-    if (0 === s.length) return r();
-    var t = s.pop();
-    t.provider.syncUp(c, u, d, p, h, f, m, t, function(r, i) {
-     return i === !0 && (g = !0), r ? e(r) : (i && n.storeAttributes(t), void o());
-    });
-   }
-   if (0 === i.length) return l(e);
-   var a = i.pop(), s = t.values(a.syncLocations);
-   if (0 === s.length) return r();
-   var c = a.content, u = n.crc32(c), d = a.title, p = n.crc32(d), h = a.discussionListJSON, f = n.crc32(h), m = a.frontMatter;
-   o();
+   }), p.onError(function(e) {
+    r(e);
+   }), p.onSuccess(function() {
+    r();
+   }), p.enqueue();
   }
-  var i = [];
-  g === !0 ? (g = !1, i = t.values(o), r()) : e();
- }
- function c(e) {
-  function n() {
-   if (0 === r.length) return e();
-   var t = r.pop();
-   return f.hasSync(t) ? void t.syncDown(function(t) {
-    return t ? e(t) : void n();
-   }) : n();
-  }
-  var r = t.values(m);
-  n();
- }
- function u(e) {
-  function n() {
-   function o() {
-    if (0 === s.length) return n();
-    var t = s.pop();
-    t.autosyncFile(a.title, a.content, a.discussionListJSON, t.autosyncConfig, function(t, n) {
-     return t ? e(t) : (a.addSyncLocation(n), i.onSyncExportSuccess(a, n), void o());
-    });
-   }
-   if (0 === r.length) return e();
-   var a = r.pop(), s = t.filter(m, function(e) {
-    return "all" == e.autosyncConfig.mode;
-   });
-   o();
-  }
-  var r = t.filter(o, function(e) {
-   return 0 === t.size(e.syncLocations);
-  });
-  n();
- }
- function d(e, r) {
-  n.resetModalInputs();
-  var i = n.retrieveIgnoreError(e.providerId + "." + r + "Preferences");
-  i && t.each(e[r + "PreferencesInputIds"], function(e) {
-   var o = i[e], a = n.setInputValue;
-   t.isBoolean(o) && (a = n.setInputChecked), a("#input-sync-" + r + "-" + e, o);
-  });
- }
- function p(t) {
-  d(t, "import"), e(".modal-download-" + t.providerId).modal();
- }
- function h(t) {
-  d(t, "export"), e(".modal-upload-" + t.providerId).modal();
- }
- var f = {}, m = t.chain(arguments).map(function(e) {
-  return e instanceof s && [ e.providerId, e ];
- }).compact().object().value();
- !function() {
-  var e = {};
-  t.each(o, function(t) {
-   n.retrieveIndexArray(t.fileIndex + ".sync").forEach(function(o) {
-    try {
-     var a = JSON.parse(r[o]);
-     a.syncIndex = o;
-     var s = m[a.provider];
-     if (!s) throw new Error("Invalid provider ID: " + a.provider);
-     a.provider = s, t.syncLocations[o] = a, e[o] = a;
-    } catch (l) {
-     i.onError(l), n.removeIndexFromArray(t.fileIndex + ".sync", o);
+ }, u.getUser = function() {
+  var t = new l();
+  t.onRun(function() {
+   e.ajax({
+    url: "/evernote/user",
+    dataType: "JSON",
+    success: function(n) {
+     e("#user-name").text(n.name), e("#user-name-wrapper").show(), e("#evernote-connector").hide(), 
+     t.chain();
+    },
+    error: function() {
+     t.error("Error occurred while fetch user info");
     }
    });
-  }), Object.keys(r).forEach(function(t) {
-   var n = t.match(/sync\.\S+/);
-   n && !e.hasOwnProperty(n[0]) && r.removeItem(t);
-  });
- }(), t.each(m, function(e) {
-  e.autosyncConfig = n.retrieveIgnoreError(e.providerId + ".autosyncConfig") || {};
- }), f.hasSync = function(e) {
-  return t.some(o, function(n) {
-   return t.some(n.syncLocations, function(t) {
-    return void 0 === e || t.provider === e;
-   });
-  });
- };
- var g = !1, v = !1;
- i.addListener("onOfflineChanged", function(e) {
-  v = e;
- });
- var b = !1;
- return f.sync = function() {
-  function e(e) {
-   return void 0 !== e ? (b = !1, i.onSyncRunning(!1), !0) : !1;
-  }
-  return b === !0 || v === !0 ? !1 : (b = !0, i.onSyncRunning(!0), g = !0, u(function(t) {
-   e(t) || c(function(t) {
-    e(t) || l(function(t) {
-     e(t) || (b = !1, i.onSyncRunning(!1), i.onSyncSuccess());
-    });
-   });
-  }), !0);
- }, i.addListener("onFileCreated", function(e) {
-  0 === t.size(e.syncLocations) && t.each(m, function(t) {
-   "new" == t.autosyncConfig.mode && t.autosyncFile(e.title, e.content, e.discussionListJSON, t.autosyncConfig, function(t, n) {
-    t || (e.addSyncLocation(n), i.onSyncExportSuccess(e, n));
-   });
-  });
- }), i.addListener("onReady", function() {
-  t.each(m, function(o) {
-   e(".action-sync-import-" + o.providerId).click(function(e) {
-    o.importFiles(e);
-    var n = {};
-    t.each(o.importPreferencesInputIds, function(e) {
-     var t = document.getElementById("input-sync-import-" + e);
-     n[e] = "checkbox" == t.type ? t.checked : t.value;
-    }), r[o.providerId + ".importPreferences"] = JSON.stringify(n);
-   }), e(".action-sync-import-dialog-" + o.providerId).click(function() {
-    p(o);
-   }), e(".action-sync-export-dialog-" + o.providerId).click(function() {
-    h(o);
-   }), e(".action-autosync-dialog-" + o.providerId).click(function() {
-    n.resetModalInputs(), o.setAutosyncDialogConfig(o), e(".modal-autosync-" + o.providerId).modal();
-   }), e(".action-sync-export-" + o.providerId).click(function(e) {
-    var n = a.currentFile;
-    o.exportFile(e, n.title, n.content, n.discussionListJSON, n.frontMatter, function(e, t) {
-     e || (n.addSyncLocation(t), i.onSyncExportSuccess(n, t));
+  }), t.enqueue();
+ }, u;
+}), define("noteMgr", [ "underscore", "eventMgr", "helpers/evernoteHelper", "fileSystem", "classes/FileDescriptor", "utils" ], function(e, t, n, r, i, o) {
+ var a = {};
+ return a.listNots = function(e) {
+  n.listNotes(e);
+ }, a.refreshNotes = function() {
+  a.listNots(function(n, a) {
+   return n ? void t.onError(n) : void r.listFiles(function(n) {
+    var r = {};
+    e.each(a, function(e) {
+     r[e.guid] = e;
     });
     var s = {};
-    t.each(o.exportPreferencesInputIds, function(e) {
-     var t = document.getElementById("input-sync-export-" + e);
-     s[e] = "checkbox" == t.type ? t.checked : t.value;
-    }), r[o.providerId + ".exportPreferences"] = JSON.stringify(s);
-   }), e(".action-autosync-" + o.providerId).click(function(e) {
-    var t = o.getAutosyncDialogConfig(e);
-    void 0 !== t && (r[o.providerId + ".autosyncConfig"] = JSON.stringify(t), o.autosyncConfig = t);
+    e.each(n, function(e) {
+     s[e.guid] = e;
+    });
+    var l = [], c = e.filter(a, function(e) {
+     return !s[e.guid];
+    });
+    e.each(c, function(e) {
+     var t = new i("file." + o.id());
+     t.update(e), l.push(t);
+    });
+    var u = e.filter(n, function(t) {
+     return e.has(r, t.guid);
+    });
+    e.each(u, function(e) {
+     e.update(r[e.guid]);
+    }), t.onNotesRefresh();
    });
   });
- }), i.onSynchronizerCreated(f), f;
-}), define("providers/bloggerProvider", [ "underscore", "utils", "classes/Provider", "helpers/googleHelper" ], function(e, t, n, r) {
- var i = new n("blogger", "Blogger");
- return i.defaultPublishFormat = "html", i.publishPreferencesInputIds = [ "blogger-url" ], 
- i.getPublishLocationLink = function(e) {
-  return [ "https://www.blogger.com/blogger.g?blogID=", e.blogId, "#editor/target=post;postID=", e.postId ].join("");
- }, i.publish = function(t, n, i, o, a) {
-  var s = t.labelList || [];
-  n && void 0 !== n.tags && (s = n.tags), e.isString(s) && (s = e.compact(s.split(/[\s,]/)));
-  var l = n && n.published === !1, c = n && n.date;
-  r.uploadBlogger(t.blogUrl, t.blogId, t.postId, s, l, c, i, o, function(e, n, r) {
-   return e ? void a(e) : (t.blogId = n, t.postId = r, void a());
-  });
- }, i.newPublishAttributes = function(e) {
-  var n = {}, r = t.getInputTextValue("#input-publish-blogger-url", e);
-  return void 0 !== r && (n.blogUrl = t.checkUrl(r)), n.postId = t.getInputTextValue("#input-publish-postid"), 
-  e.isPropagationStopped() ? void 0 : n;
- }, i;
-}), define("providers/bloggerPageProvider", [ "underscore", "utils", "classes/Provider", "helpers/googleHelper" ], function(e, t, n, r) {
- var i = new n("bloggerpage", "Blogger Page");
- return i.defaultPublishFormat = "html", i.publishPreferencesInputIds = [ "blogger-url" ], 
- i.getPublishLocationLink = function(e) {
-  return [ "https://www.blogger.com/blogger.g?blogID=", e.blogId, "#editor/target=page;pageID=", e.pageId ].join("");
- }, i.publish = function(e, t, n, i, o) {
-  var a = t && t.published === !1, s = t && t.date;
-  r.uploadBloggerPage(e.blogUrl, e.blogId, e.pageId, a, s, n, i, function(t, n, r) {
-   return t ? void o(t) : (e.blogId = n, e.pageId = r, void o());
-  });
- }, i.newPublishAttributes = function(e) {
-  var n = {}, r = t.getInputTextValue("#input-publish-blogger-url", e);
-  return void 0 !== r && (n.blogUrl = t.checkUrl(r)), n.pageId = t.getInputTextValue("#input-publish-pageid"), 
-  e.isPropagationStopped() ? void 0 : n;
- }, i;
-}), define("helpers/githubHelper", [ "jquery", "constants", "core", "utils", "storage", "logger", "settings", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s, l) {
- function c(n) {
-  n.onRun(function() {
-   return m === !0 ? (p = !1, void n.error(new Error("Operation not available in offline mode.|stopPublish"))) : p === !0 ? void n.chain() : void e.ajax({
-    url: "libs/github.js",
-    dataType: "script",
-    timeout: t.AJAX_TIMEOUT
-   }).done(function() {
-    p = !0, n.chain();
-   }).fail(function(e) {
-    var t = {
-     error: e.status,
-     message: e.statusText
-    };
-    d(t, n);
-   });
-  });
- }
- function u(n) {
-  var o, s;
-  n.onRun(function() {
-   function l() {
-    r.redirectConfirm("You are being redirected to <strong>GitHub</strong> authorization page.", function() {
-     n.chain(c);
-    }, function() {
-     n.error(new Error("Operation canceled."));
-    });
+ }, a.downloadNote = function(e, t) {
+  n.downloadNote(e, t);
+ }, a.postNote = function(e, t) {
+  n.postNote(e, t);
+ }, t.onNoteMgrCreated(a), a;
+}), define("text!WELCOME.md", [], function() {
+ return 'Welcome to StackEdit!\r\n===================\r\n\r\n\r\nHey! I\'m your first Markdown document in **StackEdit**[^stackedit]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n----------\r\n\r\n\r\nDocuments\r\n-------------\r\n\r\nStackEdit stores your documents in your browser, which means all your documents are automatically saved locally and are accessible **offline!**\r\n\r\n> **Note:**\r\n\r\n> - StackEdit is accessible offline after the application has been loaded for the first time.\r\n> - Your local documents are not shared between different browsers or computers.\r\n> - Clearing your browser\'s data may **delete all your local documents!** Make sure your documents are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\r\n\r\n#### <i class="icon-file"></i> Create a document\r\n\r\nThe document panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new document by clicking <i class="icon-file"></i> **New document** in the document panel.\r\n\r\n#### <i class="icon-folder-open"></i> Switch to another document\r\n\r\nAll your local documents are listed in the document panel. You can switch from one to another by clicking a document in the list or you can toggle documents using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\r\n\r\n#### <i class="icon-pencil"></i> Rename a document\r\n\r\nYou can rename the current document by clicking the document title in the navigation bar.\r\n\r\n#### <i class="icon-trash"></i> Delete a document\r\n\r\nYou can delete the current document by clicking <i class="icon-trash"></i> **Delete document** in the document panel.\r\n\r\n#### <i class="icon-hdd"></i> Export a document\r\n\r\nYou can save the current document to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-stackedit"></i> menu panel.\r\n\r\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a document](#publish-a-document) section for a description of the different output formats.\r\n\r\n\r\n----------\r\n\r\n\r\nSynchronization\r\n-------------------\r\n\r\nStackEdit can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your documents saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your documents.\r\n\r\n> **Note:**\r\n\r\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any document in StackEdit. Permission restrictions can be configured in the settings.\r\n> - Imported documents are downloaded in your browser and are not transmitted to a server.\r\n> - If you experience problems saving your documents on Google Drive, check and optionally disable browser extensions, such as Disconnect.\r\n\r\n#### <i class="icon-refresh"></i> Open a document\r\n\r\nYou can open a document from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your document will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\r\n\r\n#### <i class="icon-refresh"></i> Save a document\r\n\r\nYou can save any document by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your document is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. StackEdit can synchronize one document with multiple locations and accounts.\r\n\r\n#### <i class="icon-refresh"></i> Synchronize a document\r\n\r\nOnce your document is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, StackEdit will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\r\n\r\nIf you just have modified your document and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\r\n\r\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no document to synchronize.\r\n\r\n#### <i class="icon-refresh"></i> Manage document synchronization\r\n\r\nSince one document can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your document.\r\n\r\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the document will no longer be synchronized with that location.\r\n\r\n----------\r\n\r\n\r\nPublication\r\n-------------\r\n\r\nOnce you are happy with your document, you can publish it on different websites directly from StackEdit. As for now, StackEdit can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\r\n\r\n#### <i class="icon-upload"></i> Publish a document\r\n\r\nYou can publish your document by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\r\n\r\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\r\n- HTML, to publish the document converted into HTML (on a blog for example),\r\n- Template, to have a full control of the output.\r\n\r\n> **Note:** The default template is a simple webpage wrapping your document in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n#### <i class="icon-upload"></i> Update a publication\r\n\r\nAfter publishing, StackEdit will keep your document linked to that publication which makes it easy for you to update it. Once you have modified your document and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\r\n\r\n> **Note:** The <i class="icon-upload"></i> button is disabled when your document has not been published yet.\r\n\r\n#### <i class="icon-upload"></i> Manage document publication\r\n\r\nSince one document can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-stackedit"></i> menu panel. This will let you remove publication locations that are associated to your document.\r\n\r\n> **Note:** If the file has been removed from the website or the blog, the document will no longer be published on that location.\r\n\r\n----------\r\n\r\n\r\nMarkdown Extra\r\n--------------------\r\n\r\nStackEdit supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\r\n\r\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\r\n\r\n\r\n### Tables\r\n\r\n**Markdown Extra** has a special syntax for tables:\r\n\r\nItem     | Value\r\n-------- | ---\r\nComputer | $1600\r\nPhone    | $12\r\nPipe     | $1\r\n\r\nYou can specify column alignment with one or two colons:\r\n\r\n| Item     | Value | Qty   |\r\n| :------- | ----: | :---: |\r\n| Computer | $1600 |  5    |\r\n| Phone    | $12   |  12   |\r\n| Pipe     | $1    |  234  |\r\n\r\n\r\n### Definition Lists\r\n\r\n**Markdown Extra** has a special syntax for definition lists too:\r\n\r\nTerm 1\r\nTerm 2\r\n:   Definition A\r\n:   Definition B\r\n\r\nTerm 3\r\n\r\n:   Definition C\r\n\r\n:   Definition D\r\n\r\n	> part of definition D\r\n\r\n\r\n### Fenced code blocks\r\n\r\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\r\n\r\n```\r\n// Foo\r\nvar bar = 0;\r\n```\r\n\r\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\r\n\r\n> **Note:** You can find more information:\r\n\r\n> - about **Prettify** syntax highlighting [here][5],\r\n> - about **Highlight.js** syntax highlighting [here][6].\r\n\r\n\r\n### Footnotes\r\n\r\nYou can create footnotes like this[^footnote].\r\n\r\n  [^footnote]: Here is the *text* of the **footnote**.\r\n\r\n\r\n### SmartyPants\r\n\r\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\r\n\r\n|                  | ASCII                        | HTML              |\r\n ----------------- | ---------------------------- | ------------------\r\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\r\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\r\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\r\n\r\n\r\n### Table of contents\r\n\r\nYou can insert a table of contents using the marker `[TOC]`:\r\n\r\n[TOC]\r\n\r\n\r\n### MathJax\r\n\r\nYou can render *LaTeX* mathematical expressions using **MathJax**, as on [math.stackexchange.com][1]:\r\n\r\nThe *Gamma function* satisfying $\\Gamma(n) = (n-1)!\\quad\\forall n\\in\\mathbb N$ is via the Euler integral\r\n\r\n$$\r\n\\Gamma(z) = \\int_0^\\infty t^{z-1}e^{-t}dt\\,.\r\n$$\r\n\r\n> **Tip:** To make sure mathematical expressions are rendered properly on your website, include **MathJax** into your template:\r\n\r\n```\r\n<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>\r\n```\r\n\r\n> **Note:** You can find more information about **LaTeX** mathematical expressions [here][4].\r\n\r\n\r\n### UML diagrams\r\n\r\nYou can also render sequence diagrams like this:\r\n\r\n```sequence\r\nAlice->Bob: Hello Bob, how are you?\r\nNote right of Bob: Bob thinks\r\nBob-->Alice: I am good thanks!\r\n```\r\n\r\nAnd flow charts like this:\r\n\r\n```flow\r\nst=>start: Start\r\ne=>end\r\nop=>operation: My Operation\r\ncond=>condition: Yes or No?\r\n\r\nst->op->cond\r\ncond(yes)->e\r\ncond(no)->op\r\n```\r\n\r\n> **Note:** You can find more information:\r\n\r\n> - about **Sequence diagrams** syntax [here][7],\r\n> - about **Flow charts** syntax [here][8].\r\n\r\n### Support StackEdit\r\n\r\n[![](https://cdn.monetizejs.com/resources/button-32.png)](https://monetizejs.com/authorize?client_id=ESTHdCYOi18iLhhO&summary=true)\r\n\r\n  [^stackedit]: [StackEdit](https://stackedit.io/) is a full-featured, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.\r\n\r\n\r\n  [1]: http://math.stackexchange.com/\r\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\r\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\r\n  [4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference\r\n  [5]: https://code.google.com/p/google-code-prettify/\r\n  [6]: http://highlightjs.org/\r\n  [7]: http://bramp.github.io/js-sequence-diagrams/\r\n  [8]: http://adrai.github.io/flowchart.js/\r\n';
+}), define("fileMgr", [ "jquery", "underscore", "constants", "core", "utils", "storage", "settings", "eventMgr", "noteMgr", "fileSystem", "DBRunner", "classes/FileDescriptor", "text!WELCOME.md" ], function(e, t, n, r, i, o, a, s, l, c, u, d, p) {
+ var h = {};
+ return h.currentFile = void 0, h.selectFile = function(t) {
+  function i(t) {
+   function n(e) {
+    console.info("selected fiile " + e.key), h.currentFile = e, e.selectTime = new Date().getTime(), 
+    s.onFileSelected(e), r.initEditor(e);
    }
-   function c() {
-    i.removeItem("githubCode");
-    var e = a.githubFullAccess ? "repo,gist" : "public_repo,gist";
-    o = r.popupWindow("html/github-oauth-client.html?client_id=" + t.GITHUB_CLIENT_ID + "&scope=" + e, "stackedit-github-oauth", 960, 600), 
-    o.focus(), s = setInterval(function() {
-     if (o.closed === !0) {
-      if (clearInterval(s), o = void 0, s = void 0, f = i.githubCode, void 0 === f) return void n.error(new Error(p));
-      i.removeItem("githubCode"), n.chain(u);
-     }
-    }, 500);
-   }
-   function u() {
-    e.getJSON(t.GATEKEEPER_URL + "authenticate/" + f, function(e) {
-     void 0 !== e.token ? (d = e.token, i.githubToken = d, h = new Github({
-      token: d,
-      auth: "oauth"
-     }), n.chain()) : n.error(new Error(p));
-    });
-   }
-   if (void 0 !== h) return void n.chain();
-   var d = i.githubToken;
-   if (void 0 !== d) return h = new Github({
-    token: d,
-    auth: "oauth"
-   }), void n.chain();
-   var p = "Failed to retrieve a token from GitHub.";
-   n.timeout = t.ASYNC_TASK_LONG_TIMEOUT;
-   var f;
-   n.chain(l);
-  }), n.onError(function() {
-   void 0 !== s && clearInterval(s), void 0 !== o && o.close();
-  });
- }
- function d(e, t) {
-  var r;
-  if (e) if (o.error(e), "string" == typeof e) r = e; else {
-   if (r = "Could not publish on GitHub.", 401 === e.error || 403 === e.error) return h = void 0, 
-   i.removeItem("githubToken"), r = "Access to GitHub account is not authorized.", 
-   void t.retry(new Error(r), 1);
-   e.error <= 0 && (p = !1, h = void 0, n.setOffline(), r = "|stopPublish");
+   t.guid ? l.downloadNote(t.guid, function(r, i) {
+    r ? s.onMessage("download note error with message " + r + "! using local content") : (i.content = e(i.content).find("center").text(), 
+    t.update(i)), n(t);
+   }) : n(t);
   }
-  t.error(new Error(r));
- }
- var p, h, f = {}, m = !1;
- return s.addListener("onOfflineChanged", function(e) {
-  m = e;
- }), f.upload = function(e, t, n, r, i, o, a) {
-  var s = new l();
-  c(s), u(s), s.onRun(function() {
-   function a() {
-    var e = h.getUser();
-    e.show(void 0, function(e, n) {
-     return e ? void d(e, s) : (t = n.login, void s.chain(l));
-    });
-   }
-   function l() {
-    var a = h.getRepo(t, e);
-    a.write(n, r, i, o, function(e) {
-     return e ? void d(e, s) : void s.chain();
-    });
-   }
-   s.chain(t ? l : a);
-  }), s.onSuccess(function() {
-   a(void 0, t);
-  }), s.onError(function(e) {
-   a(e);
-  }), s.enqueue();
- }, f.uploadGist = function(e, t, n, r, i, o) {
-  var a = new l();
-  c(a), u(a), a.onRun(function() {
-   var o = h.getGist(e), s = {};
-   s[t] = {
-    content: i
+  if (!h.currentFile || h.currentFile.key !== t) return void 0 === t ? void c.getLastFile(function(e) {
+   e || (e = h.createFile(n.WELCOME_DOCUMENT_TITLE)), i(e);
+  }) : void (h.currentFile && h.currentFile.key === t || u.run(function(e) {
+   var n = e.transaction("notes", "readwrite"), r = n.objectStore("notes"), o = r.get(t);
+   o.onsuccess = function() {
+    var e = o.result, t = new d();
+    t.note = e, t.selectTime = new Date().getTime(), i(t);
    };
-   var l = o.update;
-   void 0 === e && (l = o.create), l({
-    description: r,
-    "public": n,
-    files: s
-   }, function(t, n) {
-    return t ? (404 === t.error && void 0 !== e && (t = "Gist " + e + " not found on GitHub.|removePublish"), 
-    void d(t, a)) : (e = n.id, void a.chain());
-   });
-  }), a.onSuccess(function() {
-   o(void 0, e);
-  }), a.onError(function(e) {
-   o(e);
-  }), a.enqueue();
- }, f.downloadGist = function(e, t, n) {
-  var r = new l(!0);
-  c(r);
-  var i, o;
-  r.onRun(function() {
-   var n = new Github({}), a = n.getGist(e);
-   a.read(function(n, a) {
-    if (n) return void r.error(new Error("Error trying to access Gist " + e + "."));
-    i = a.description;
-    var s = a.files[t];
-    return void 0 === s ? void r.error(new Error("Gist " + e + ' does not contain "' + t + '".')) : (o = s.content, 
-    void r.chain());
-   });
-  }), r.onSuccess(function() {
-   n(void 0, i, o);
-  }), r.onError(function(e) {
-   n(e);
-  }), r.enqueue();
- }, f;
-}), define("providers/gistProvider", [ "utils", "classes/Provider", "helpers/githubHelper" ], function(e, t, n) {
- var r = new t("gist", "Gist");
- return r.publishPreferencesInputIds = [ "gist-public" ], r.viewerSharingAttributes = [ "gistId", "filename" ], 
- r.getPublishLocationLink = function(e) {
-  return [ "https://gist.github.com/", e.gistId ].join("");
- }, r.publish = function(e, t, r, i, o) {
-  n.uploadGist(e.gistId, e.filename, e.isPublic, r, i, function(t, n) {
-   return t ? void o(t) : (e.gistId = n, void o());
-  });
- }, r.newPublishAttributes = function(t) {
-  var n = {};
-  return n.gistId = e.getInputTextValue("#input-publish-gist-id"), n.filename = e.getInputTextValue("#input-publish-filename", t), 
-  n.isPublic = e.getInputChecked("#input-publish-gist-public"), t.isPropagationStopped() ? void 0 : n;
- }, r.importPublic = function(e, t) {
-  n.downloadGist(e.gistId, e.filename, t);
- }, r;
-}), define("providers/githubProvider", [ "utils", "classes/Provider", "settings", "helpers/githubHelper" ], function(e, t, n, r) {
- var i = new t("github", "GitHub");
- return i.publishPreferencesInputIds = [ "github-repo", "github-branch" ], i.getPublishLocationLink = function(e) {
-  var t = [ "https://github.com", e.username, e.repository, "blob", e.branch ];
-  return t.concat(e.path.split("/").map(encodeURIComponent)).join("/");
- }, i.publish = function(e, t, i, o, a) {
-  var s = n.commitMsg;
-  r.upload(e.repository, e.username, e.branch, e.path, o, s, function(t, n) {
-   e.username = n, a(t);
-  });
- }, i.newPublishAttributes = function(t) {
-  var n = {};
-  if (n.repository = e.getInputTextValue("#input-publish-github-repo", t), n.branch = e.getInputTextValue("#input-publish-github-branch", t), 
-  n.path = e.getInputTextValue("#input-publish-file-path", t), t.isPropagationStopped()) return void 0;
-  var r = n.repository.match(/[\/:]?([^\/:]+)\/([^\/]+?)(?:\.git)?$/);
-  return r && (n.repository = r[2], n.username = r[1]), n;
- }, i;
-}), define("helpers/sshHelper", [ "jquery", "constants", "core", "logger", "eventMgr", "settings", "classes/AsyncTask" ], function(e, t, n, r, i, o, a) {
- function s(e) {
-  e.onRun(function() {
-   return u === !0 ? e.error(new Error("Operation not available in offline mode.|stopPublish")) : void e.chain();
-  });
- }
- function l(e, t) {
-  var i;
-  e && (r.error(e), "string" == typeof e ? i = "SSH error: " + e + "." : (i = "Could not publish on SSH server.", 
-  e.code <= 0 && (n.setOffline(), i = "|stopPublish"))), t.error(new Error(i));
- }
- var c = {}, u = !1;
- return i.addListener("onOfflineChanged", function(e) {
-  u = e;
- }), c.upload = function(n, r, i, o, c, u, d, p) {
-  var h = new a();
-  s(h), h.onRun(function() {
-   var a = t.SSH_PUBLISH_URL + "?" + e.param({
-    host: n,
-    port: r,
-    username: i,
-    password: o,
-    path: c,
-    title: u
-   });
-   e.ajax({
-    url: a,
-    data: d,
-    type: "POST",
-    timeout: t.AJAX_TIMEOUT
-   }).done(function(e) {
-    return void 0 === e.error ? h.chain() : void l(e.error, h);
-   }).fail(function(e) {
-    var t = {
-     code: e.status,
-     message: e.statusText
-    };
-    l(t, h);
-   });
-  }), h.onSuccess(function() {
-   p();
-  }), h.onError(function(e) {
-   p(e);
-  }), h.enqueue();
- }, c;
-}), define("providers/sshProvider", [ "utils", "classes/Provider", "helpers/sshHelper" ], function(e, t, n) {
- var r = new t("ssh", "SSH server");
- return r.publishPreferencesInputIds = [ "ssh-host", "ssh-port", "ssh-username", "ssh-password" ], 
- r.publish = function(e, t, r, i, o) {
-  n.upload(e.host, e.port, e.username, e.password, e.path, r, i, o);
- }, r.newPublishAttributes = function(t) {
-  var n = {};
-  return n.host = e.getInputTextValue("#input-publish-ssh-host", t, /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/), 
-  n.port = e.getInputIntValue("#input-publish-ssh-port", void 0, 0), n.username = e.getInputTextValue("#input-publish-ssh-username", t), 
-  n.password = e.getInputTextValue("#input-publish-ssh-password", t), n.path = e.getInputTextValue("#input-publish-file-path", t), 
-  t.isPropagationStopped() ? void 0 : n;
- }, r;
-}), define("helpers/tumblrHelper", [ "jquery", "constants", "core", "utils", "storage", "logger", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s) {
- function l(e) {
-  e.onRun(function() {
-   return h === !0 ? void e.error(new Error("Operation not available in offline mode.|stopPublish")) : void e.chain();
-  });
- }
- function c(n) {
-  var o, a;
-  n.onRun(function() {
-   function s() {
-    e.getJSON(t.TUMBLR_PROXY_URL + "request_token", function(e) {
-     void 0 !== e.oauth_token ? (f = e, n.chain(l)) : n.error(new Error(h));
-    });
-   }
-   function l() {
-    r.redirectConfirm("You are being redirected to <strong>Tumblr</strong> authorization page.", function() {
-     n.chain(c);
-    }, function() {
-     n.error(new Error("Operation canceled."));
-    });
-   }
-   function c() {
-    i.removeItem("tumblrVerifier"), o = r.popupWindow("html/tumblr-oauth-client.html?oauth_token=" + f.oauth_token, "stackedit-tumblr-oauth", 800, 600), 
-    o.focus(), a = setInterval(function() {
-     if (o.closed === !0) {
-      if (clearInterval(a), o = void 0, a = void 0, f.oauth_verifier = i.tumblrVerifier, 
-      void 0 === f.oauth_verifier) return void n.error(new Error(h));
-      i.removeItem("tumblrVerifier"), n.chain(u);
-     }
-    }, 500);
-   }
-   function u() {
-    e.getJSON(t.TUMBLR_PROXY_URL + "access_token", f, function(e) {
-     void 0 !== e.access_token && void 0 !== e.access_token_secret ? (i.tumblrOauthParams = JSON.stringify(e), 
-     d = e, n.chain()) : n.error(new Error(h));
-    });
-   }
-   if (void 0 !== d) return void n.chain();
-   var p = i.tumblrOauthParams;
-   if (void 0 !== p) return d = JSON.parse(p), void n.chain();
-   var h = "Failed to retrieve a token from Tumblr.";
-   n.timeout = t.ASYNC_TASK_LONG_TIMEOUT;
-   var f;
-   n.chain(s);
-  }), n.onError(function() {
-   void 0 !== a && clearInterval(a), void 0 !== o && o.close();
-  });
- }
- function u(e, t) {
-  var r;
-  if (e) if (o.error(e), "string" == typeof e) r = e; else {
-   if (r = "Could not publish on Tumblr.", 401 === e.code || 403 === e.code) return d = void 0, 
-   i.removeItem("tumblrOauthParams"), r = "Access to Tumblr account is not authorized.", 
-   void t.retry(new Error(r), 1);
-   e.code <= 0 && (n.setOffline(), r = "|stopPublish");
-  }
-  t.error(new Error(r));
- }
- var d, p = {}, h = !1;
- return a.addListener("onOfflineChanged", function(e) {
-  h = e;
- }), p.upload = function(n, r, i, o, a, p, h, f, m) {
-  var g = new s();
-  l(g), c(g), g.onRun(function() {
-   var s = e.extend({
-    blog_hostname: n,
-    post_id: r,
-    tags: i,
-    format: o,
-    state: a,
-    date: p,
-    title: h,
-    content: f
-   }, d);
-   e.ajax({
-    url: t.TUMBLR_PROXY_URL + "post",
-    data: s,
-    type: "POST",
-    dataType: "json",
-    timeout: t.AJAX_TIMEOUT
-   }).done(function(e) {
-    r = e.id, g.chain();
-   }).fail(function(e) {
-    var t = {
-     code: e.status,
-     message: e.statusText
-    };
-    404 === t.code && void 0 !== r && (t = "Post " + r + " not found on Tumblr.|removePublish"), 
-    u(t, g);
-   });
-  }), g.onSuccess(function() {
-   m(void 0, r);
-  }), g.onError(function(e) {
-   m(e);
-  }), g.enqueue();
- }, p;
-}), define("providers/tumblrProvider", [ "underscore", "settings", "utils", "classes/Provider", "helpers/tumblrHelper" ], function(e, t, n, r, i) {
- var o = new r("tumblr", "Tumblr");
- return o.publishPreferencesInputIds = [ "tumblr-hostname" ], o.getPublishLocationLink = function(e) {
-  return [ "http://", e.blogHostname, "/post/", e.postId ].join("");
- }, o.publish = function(n, r, o, a, s) {
-  var l = n.tags || [];
-  r && void 0 !== r.tags && (l = r.tags), e.isString(l) && (l = e.compact(l.split(/[\s,]/)));
-  var c = function() {
-   if ("html" == n.format) return "html";
-   if ("template" == n.format) {
-    var e = n.customTmpl || t.template;
-    if (-1 !== e.indexOf("documentHTML")) return "html";
-   }
-   return "markdown";
-  }(), u = r && r.published === !1 ? "draft" : "published", d = r && r.date;
-  i.upload(n.blogHostname, n.postId, l.join(","), c, u, d, o, a, function(e, t) {
-   return e ? void s(e) : (n.postId = t, void s());
-  });
- }, o.newPublishAttributes = function(e) {
-  var t = {};
-  return t.blogHostname = n.getInputTextValue("#input-publish-tumblr-hostname", e, /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/), 
-  t.postId = n.getInputTextValue("#input-publish-postid"), e.isPropagationStopped() ? void 0 : t;
- }, o;
-}), define("helpers/wordpressHelper", [ "jquery", "constants", "core", "utils", "storage", "logger", "eventMgr", "classes/AsyncTask" ], function(e, t, n, r, i, o, a, s) {
- function l(e) {
-  e.onRun(function() {
-   return h === !0 ? e.error(new Error("Operation not available in offline mode.|stopPublish")) : void e.chain();
-  });
- }
- function c(n) {
-  var o, a;
-  n.onRun(function() {
-   function s() {
-    r.redirectConfirm("You are being redirected to <strong>WordPress</strong> authorization page.", function() {
-     n.chain(l);
-    }, function() {
-     n.error(new Error("Operation canceled."));
-    });
-   }
-   function l() {
-    i.removeItem("wordpressCode"), o = r.popupWindow("html/wordpress-oauth-client.html?client_id=" + t.WORDPRESS_CLIENT_ID, "stackedit-wordpress-oauth", 960, 600), 
-    o.focus(), a = setInterval(function() {
-     if (o.closed === !0) {
-      if (clearInterval(a), o = void 0, a = void 0, p = i.wordpressCode, void 0 === p) return n.error(new Error(u));
-      i.removeItem("wordpressCode"), n.chain(c);
-     }
-    }, 500);
-   }
-   function c() {
-    e.getJSON(t.WORDPRESS_PROXY_URL + "authenticate/" + p, function(e) {
-     void 0 !== e.token ? (d = e.token, i.wordpressToken = d, n.chain()) : n.error(new Error(u));
-    });
-   }
-   if (d = i.wordpressToken, void 0 !== d) return n.chain();
-   var u = "Failed to retrieve a token from Wordpress.";
-   n.timeout = t.ASYNC_TASK_LONG_TIMEOUT;
-   var p;
-   n.chain(s);
-  }), n.onError(function() {
-   void 0 !== a && clearInterval(a), void 0 !== o && o.close();
-  });
- }
- function u(e, t) {
-  var r;
-  if (e) if (o.error(e), "string" == typeof e) r = e; else {
-   if (r = "Could not publish on WordPress.", 400 === e.code && "invalid_token" == e.message || 401 === e.code || 403 === e.code) return i.removeItem("wordpressToken"), 
-   r = "Access to WordPress account is not authorized.", t.retry(new Error(r), 1);
-   e.code <= 0 && (n.setOffline(), r = "|stopPublish");
-  }
-  t.error(new Error(r));
- }
- var d, p = {}, h = !1;
- return a.addListener("onOfflineChanged", function(e) {
-  h = e;
- }), p.upload = function(n, r, i, o, a, p, h, f) {
-  var m = new s();
-  l(m), c(m);
-  var g;
-  m.onRun(function() {
-   var s = t.WORDPRESS_PROXY_URL + "post", l = {
-    token: d,
-    site: n,
-    postId: r,
-    tags: i,
-    status: o,
-    date: a,
-    title: p,
-    content: h
-   };
-   e.ajax({
-    url: s,
-    data: l,
-    type: "POST",
-    dataType: "json",
-    timeout: t.AJAX_TIMEOUT
-   }).done(function(e) {
-    if (e.body.ID) return r = e.body.ID, g = e.body.site_ID, m.chain();
-    var t = {
-     code: e.code,
-     message: e.body.error
-    };
-    404 === t.code && ("unknown_blog" == t.message ? t = 'Site "' + n + '" not found on WordPress.|removePublish' : "unknown_post" == t.message && (t = "Post " + r + " not found on WordPress.|removePublish")), 
-    u(t, m);
-   }).fail(function(e) {
-    var t = {
-     code: e.status,
-     message: e.statusText
-    };
-    u(t, m);
-   });
-  }), m.onSuccess(function() {
-   f(void 0, g, r);
-  }), m.onError(function(e) {
-   f(e);
-  }), m.enqueue();
- }, p;
-}), define("providers/wordpressProvider", [ "underscore", "utils", "classes/Provider", "helpers/wordpressHelper" ], function(e, t, n, r) {
- var i = new n("wordpress", "WordPress");
- return i.defaultPublishFormat = "html", i.publishPreferencesInputIds = [ "wordpress-site" ], 
- i.getPublishLocationLink = function(e) {
-  return e.siteId && [ "https://wordpress.com/post", e.siteId, e.postId ].join("/");
- }, i.publish = function(t, n, i, o, a) {
-  var s = t.tags || [];
-  n && void 0 !== n.tags && (s = n.tags);
-  var l = n && n.published === !1 ? "draft" : "publish", c = n && n.date;
-  e.isString(s) && (s = e.compact(s.split(/[\s,]/))), r.upload(t.site, t.postId, s.join(","), l, c, i, o, function(e, n, r) {
-   return e ? a(e) : (t.siteId = n, t.postId = r, void a());
-  });
- }, i.newPublishAttributes = function(e) {
-  var n = {};
-  return n.site = t.getInputTextValue("#input-publish-wordpress-site", e, /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/), 
-  n.postId = t.getInputTextValue("#input-publish-postid"), e.isPropagationStopped() ? void 0 : n;
- }, i;
-}), define("publisher", [ "jquery", "underscore", "constants", "utils", "storage", "settings", "eventMgr", "fileSystem", "fileMgr", "monetizejs", "classes/Provider", "classes/AsyncTask", "providers/bloggerProvider", "providers/bloggerPageProvider", "providers/dropboxProvider", "providers/gistProvider", "providers/githubProvider", "providers/gdriveProvider", "providers/gdrivesecProvider", "providers/gdriveterProvider", "providers/sshProvider", "providers/tumblrProvider", "providers/wordpressProvider" ], function(e, t, n, r, i, o, a, s, l, c, u, d) {
- function p(e, t, n) {
-  return void 0 === t.format && (t.format = r.getInputRadio("radio-publish-format"), 
-  "template" == t.format && r.getInputChecked("#checkbox-publish-custom-template") && (t.customTmpl = r.getInputValue("#textarea-publish-custom-template"))), 
-  "markdown" == t.format ? e.content : "html" == t.format ? n.withoutComments : v.applyTemplate(e, t, n);
- }
- function h(e, t) {
-  if (0 === S.length) return void e(t);
-  var n = S.pop(), r = p(y, n, x), i = (y.frontMatter || {}).title || y.title;
-  n.provider.publish(n, y.frontMatter, i, r, function(r) {
-   if (void 0 !== r) {
-    var i = r.toString();
-    if (-1 !== i.indexOf("|removePublish") && (y.removePublishLocation(n), a.onPublishRemoved(y, n)), 
-    -1 !== i.indexOf("|stopPublish")) return void e(r);
-   }
-   h(e, t || r);
-  });
- }
- function f(e, n) {
-  var o;
-  do o = "publish." + r.id(); while (t.has(i, o));
-  n.publishIndex = o, e.addPublishLocation(n), a.onNewPublishSuccess(e, n);
- }
- function m(n) {
-  var i = n.defaultPublishFormat || "markdown";
-  k = n, e(".publish-provider-name").text(n.providerName), e('.modal-publish [class*=" modal-publish-"]').hide().filter(".modal-publish-" + n.providerId).show(), 
-  r.resetModalInputs(), r.setInputRadio("radio-publish-format", i), r.setInputChecked("#checkbox-publish-custom-template", !1), 
-  r.setInputValue("#textarea-publish-custom-template", o.template);
-  var a = r.retrieveIgnoreError(n.providerId + ".publishPreferences");
-  a && (t.each(n.publishPreferencesInputIds, function(e) {
-   var n = a[e];
-   t.isBoolean(n) ? r.setInputChecked("#input-publish-" + e, n) : r.setInputValue("#input-publish-" + e, n);
-  }), r.setInputRadio("radio-publish-format", a.format), r.setInputChecked("#checkbox-publish-custom-template", void 0 !== a.customTmpl), 
-  r.setInputValue("#textarea-publish-custom-template", a.customTmpl || o.template)), 
-  e(".modal-publish").modal();
- }
- function g(e) {
-  var n = k, r = n.newPublishAttributes(e);
-  if (void 0 !== r) {
-   var o = l.currentFile, a = p(o, r, w), s = o.frontMatter && o.frontMatter.title || o.title;
-   n.publish(r, o.frontMatter, s, a, function(e) {
-    void 0 === e && (r.provider = n, f(o, r));
-   });
-   var c = {};
-   t.each(n.publishPreferencesInputIds, function(e) {
-    var t = document.getElementById("input-publish-" + e);
-    c[e] = "checkbox" == t.type ? t.checked : t.value;
-   }), c.format = r.format, c.customTmpl = r.customTmpl, i[n.providerId + ".publishPreferences"] = JSON.stringify(c);
-  }
- }
- var v = {}, b = t.chain(arguments).map(function(e) {
-  return e instanceof u && e.isPublishEnabled === !0 && [ e.providerId, e ];
- }).compact().object().value();
- !function() {
-  var e = {};
-  t.each(s, function(t) {
-   r.retrieveIndexArray(t.fileIndex + ".publish").forEach(function(n) {
-    try {
-     var o = JSON.parse(i[n]);
-     o.publishIndex = n;
-     var s = b[o.provider];
-     if (!s) throw new Error("Invalid provider ID: " + o.provider);
-     o.provider = s, t.publishLocations[n] = o, e[n] = o;
-    } catch (l) {
-     a.onError(l), r.removeIndexFromArray(t.fileIndex + ".publish", n);
-    }
-   });
-  }), Object.keys(i).forEach(function(t) {
-   var n = t.match(/publish\.\S+/);
-   n && !e.hasOwnProperty(n[0]) && i.removeItem(t);
-  });
- }(), v.applyTemplate = function(e, n, r) {
-  try {
-   var i = n && n.customTmpl || o.template;
-   return t.template(i, {
-    documentTitle: e.title,
-    documentMarkdown: e.content,
-    strippedDocumentMarkdown: e.content.substring(e.frontMatter ? e.frontMatter._frontMatter.length : 0),
-    documentHTML: r.withoutComments,
-    documentHTMLWithFrontMatter: (e.frontMatter ? e.frontMatter._frontMatter : "") + r.withoutComments,
-    documentHTMLWithComments: r.withComments,
-    frontMatter: e.frontMatter,
-    publishAttributes: n
-   });
-  } catch (s) {
-   return a.onError(s), s.message;
-  }
- };
- var y, x, w, S = [];
- a.addListener("onPreviewFinished", function(e, t) {
-  w = {
-   withComments: e,
-   withoutComments: t
-  };
- });
- var C = !1;
- a.addListener("onOfflineChanged", function(e) {
-  C = e;
- });
- var _ = !1;
- v.publish = function() {
-  _ !== !0 && C !== !0 && (_ = !0, a.onPublishRunning(!0), y = l.currentFile, x = w, 
-  S = t.values(y.publishLocations), h(function(e) {
-   _ = !1, a.onPublishRunning(!1), void 0 === e && a.onPublishSuccess(y);
   }));
- };
- var k, E = [ "<li>", '   <a href="#"', '    class="action-init-publish-<%= provider.providerId %>">', '       <i class="icon-provider-<%= provider.providerId %>"></i> <%= provider.providerName %>', "   </a>", "</li>" ].join("");
- return a.addListener("onReady", function() {
-  if (window.viewerMode === !1) {
-   var i = document.querySelector(".menu-panel .publish-on-provider-list"), s = t.reduce(b, function(e, n) {
-    return e + t.template(E, {
-     provider: n
-    });
-   }, "");
-   i.innerHTML = s, t.each(b, function(t) {
-    e(i.querySelector(".action-init-publish-" + t.providerId)).click(function() {
-     m(t);
-    }), e(".action-publish-" + t.providerId).click(function() {
-     m(t);
-    });
-   });
-  }
-  e(".action-process-publish").click(g);
-  var u = e(".publish-custom-template-collapse").collapse({
-   toggle: !1
-  }), p = e("#textarea-publish-custom-template"), h = t.debounce(function() {
-   u.collapse("template" == r.getInputRadio("radio-publish-format") ? "show" : "hide");
-  }, 100);
-  e("#checkbox-publish-custom-template").change(function() {
-   p.prop("disabled", !this.checked);
-  }), e("input:radio[name=radio-publish-format]").change(function() {
-   h();
-  }), e(".modal-publish").on("hidden.bs.modal", function() {
-   u.collapse("hide");
-  }), e(".action-download-md").click(function() {
-   var e = l.currentFile.content, t = l.currentFile.title;
-   r.saveAs(e, t + ".md");
-  }), e(".action-download-html").click(function() {
-   var e = l.currentFile.title;
-   r.saveAs(w.withoutComments, e + ".html");
-  }), e(".action-download-template").click(function() {
-   var e = l.currentFile, t = v.applyTemplate(e, void 0, w);
-   r.saveAs(t, e.title + (-1 === o.template.indexOf("documentHTML") ? ".md" : ".html"));
-  });
-  var f = new c({
-   applicationID: "ESTHdCYOi18iLhhO"
-  });
-  e(".action-download-pdf").click(function() {
-   var t, i, s = l.currentFile, c = v.applyTemplate(s, {
-    customTmpl: o.pdfTemplate
-   }, w), u = new d();
-   u.onRun(function() {
-    return C === !0 ? (a.onError("Operation not available in offline mode."), u.chain()) : a.isSponsor ? void f.getTokenImmediate(function(e, t) {
-     i = t, u.chain();
-    }) : (e(".modal-sponsor-only").modal("show"), u.chain());
-   }), u.onRun(function() {
-    if (!i) return u.chain();
-    var r = new XMLHttpRequest();
-    r.open("POST", n.PDF_EXPORT_URL + "?" + e.param({
-     token: i,
-     options: o.pdfOptions
-    }), !0), r.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), 
-    r.responseType = "blob", r.onreadystatechange = function() {
-     4 == this.readyState && (200 == this.status ? t = this.response : a.onError("Error when trying to generate PDF: " + this.statusText), 
-     u.chain());
-    }, r.send(c);
-   }), u.onSuccess(function() {
-    t && r.saveAs(t, l.currentFile.title + ".pdf");
-   }), u.enqueue();
-  });
- }), a.onPublisherCreated(v), v;
-}), define("providers/downloadProvider", [ "jquery", "constants", "eventMgr", "utils", "fileMgr", "classes/Provider", "classes/AsyncTask" ], function(e, t, n, r, i, o, a) {
- var s = new o("download");
- return s.viewerSharingAttributes = [ "url" ], s.importPublic = function(n, r) {
-  var i, o, s = new a(!0);
-  s.onRun(function() {
-   var r = n.url, a = r.lastIndexOf("/");
-   return -1 === a ? void s.error(new Error("Invalid URL parameter.")) : (i = r.substring(a + 1), 
-   void e.ajax({
-    url: t.DOWNLOAD_IMPORT_URL + "?" + e.param({
-     url: r
-    }),
-    dataType: "text",
-    timeout: t.AJAX_TIMEOUT
-   }).done(function(e) {
-    o = e, s.chain();
-   }).fail(function() {
-    s.error(new Error("Unable to access URL " + r));
-   }));
-  }), s.onSuccess(function() {
-   r(void 0, i, o);
-  }), s.onError(function(e) {
-   r(e);
-  }), s.enqueue();
- }, n.addListener("onReady", function() {
-  e(".action-import-url").click(function(e) {
-   var t = r.getInputTextValue("#input-import-url", e);
-   t && s.importPublic({
-    url: t
-   }, function(e, t, n) {
-    if (!e) {
-     var r = i.createFile(t, n);
-     i.selectFile(r);
-    }
+ }, h.createFile = function(e, t) {
+  e = void 0 !== e ? e : a.defaultContent;
+  var r = n.TEMPORARY_FILE_INDEX;
+  r = "file." + i.id(), o[r + ".content"] = e;
+  var l = new d(r);
+  return l.store(function() {
+   t && t(l), s.onFileCreated(l);
+  }), l;
+ }, h.deleteFile = function(e, t) {
+  e = e || h.currentFile, i.removeIndexFromArray("file.list", e.fileIndex), delete c[e.fileIndex], 
+  h.currentFile === e && (h.currentFile = void 0, h.selectFile()), s.onFileDeleted(e), 
+  t();
+ }, s.addListener("onReady", function() {
+  var t = e("#wmd-input");
+  h.selectFile(), e(".action-create-file").click(function() {
+   setTimeout(function() {
+    var e = h.createFile();
+    h.selectFile(e);
+   }, 400);
+  }), e(".action-remove-file-confirm").click(function() {
+   e(".modal-remove-file-confirm").modal("show");
+  }), e(".action-remove-file").click(function() {
+   h.deleteFile();
+  }), e(".action-open-stackedit").click(function() {
+   window.location.href = "editor";
+  }), e(".action-edit-document").click(function() {
+   var e = t.val(), n = h.currentFile.title, r = h.createFile(n, e);
+   h.selectFile(r), window.location.href = "editor";
+  }), e(".action-welcome-file").click(function() {
+   var e = h.createFile(p, function() {
+    h.selectFile(e);
    });
   });
- }), s;
-}), define("sharing", [ "jquery", "underscore", "constants", "utils", "eventMgr", "fileMgr", "classes/AsyncTask", "classes/Provider", "providers/couchdbProvider", "providers/downloadProvider", "providers/gistProvider" ], function(e, t, n, r, i, o, a, s) {
- var l = {}, c = t.chain(arguments).map(function(e) {
-  return e instanceof s && [ e.providerId, e ];
- }).compact().object().value(), u = !1;
- return i.addListener("onOfflineChanged", function(e) {
-  u = e;
- }), l.getEditorParams = function(e) {
-  var n = e.provider, r = {
-   provider: n.providerId
-  };
-  return n.editorSharingAttributes ? (t.each(n.editorSharingAttributes, function(t) {
-   r[t] = e[t];
-  }), r) : void 0;
- }, l.getViewerParams = function(e) {
-  var n = e.provider;
-  if ("markdown" == e.format) {
-   var r = {
-    provider: n.providerId
-   };
-   if (n.viewerSharingAttributes) return t.each(n.viewerSharingAttributes, function(t) {
-    r[t] = e[t];
-   }), r;
-  }
- }, i.addListener("onReady", function() {
-  var e, n, i = r.getURLParameter("provider");
-  if (window.viewerMode) {
-   if (void 0 === i && (i = "download"), n = c[i], void 0 === n) return;
-   if (e = {}, t.some(n.viewerSharingAttributes, function(t) {
-    var n = r.getURLParameter(t);
-    return n ? void (e[t] = n) : 1;
-   })) return;
-   n.importPublic(e, r.lockUI(function(e, t, n) {
-    if (!e) {
-     var r = o.createFile(t, n, void 0, void 0, !0);
-     o.selectFile(r);
-    }
-   }));
-  } else if (i) {
-   if (n = c[i], void 0 === n) return;
-   if (e = {}, t.some(n.editorSharingAttributes, function(t) {
-    var n = r.getURLParameter(t);
-    return n ? void (e[t] = n) : 1;
-   })) return;
-   n.importPrivate(e, r.lockUI());
-  }
- }), i.onSharingCreated(l), l;
-}), define("providers/gplusProvider", [ "jquery", "underscore", "utils", "storage", "classes/Provider", "eventMgr", "helpers/googleHelper" ], function(e, t, n, r, i, o, a) {
- function s(e, n) {
-  var r;
-  return t.find(e.thumbnails, function(e) {
-   var t = !1;
-   return e.url.replace(/^(.*[\/=]s)\d.*?(\/[^\/]+)?$/, function(e, i, o) {
-    r = i + n + (o || ""), t = !0;
-   }), t;
-  }), r;
- }
- function l() {
-  return c.thumbnails ? (n.resetModalInputs(), e(".modal-import-image img").prop("src", s(c, 128)), 
-  n.setInputValue("#input-import-image-title", c.name), h && n.setInputValue("#input-import-image-size", h.size), 
-  void e(".modal-import-image").modal()) : (o.onError("Image " + c.name + " is not accessible."), 
-  void u(!0));
- }
- var c, u, d = "gplus", p = new i(d, "Google+"), h = n.retrieveIgnoreError(d + ".importImagePreferences");
- return p.importImage = function(e) {
-  u = e, a.picker(function(t, n) {
-   return t || 0 === n.length ? void e(t) : (c = n[0], void l());
-  }, "img");
- }, p.uploadImage = function(t, n, r) {
-  u = r, a.uploadImg(t, n, "default", function(n, i) {
-   return n || !i ? void r(n) : (c = {
-    name: t,
-    thumbnails: []
-   }, e(i).find("thumbnail").each(function() {
-    c.thumbnails.push({
-     url: e(this).attr("url")
-    });
-   }), void l());
-  });
- }, o.addListener("onReady", function() {
-  e(".action-import-image").click(function() {
-   var e = n.getInputIntValue("#input-import-image-size", void 0, 0) || 0, t = n.getInputTextValue("#input-import-image-title"), i = s(c, e);
-   t && (i += ' "' + t + '"'), u(void 0, i), h = {}, e && (h.size = e), r[d + ".importImagePreferences"] = JSON.stringify(h);
-  });
- }), p;
-}), define("mediaImporter", [ "jquery", "underscore", "constants", "classes/Provider", "core", "eventMgr", "providers/gplusProvider" ], function(e, t, n, r, i, o) {
- var a = {}, s = t.chain(arguments).map(function(e) {
-  return e instanceof r && [ e.providerId, e ];
- }).compact().object().value();
- return o.addListener("onReady", function() {
-  function r(r) {
-   var o = (r.dataTransfer || r.target).files, a = t.first(o);
-   if (a.name.match(/.(jpe?g|png|gif)$/i)) {
-    r.stopPropagation(), r.preventDefault();
-    var l = new FileReader();
-    l.onload = function(t) {
-     return function(n) {
-      var r = new Uint8Array(n.target.result);
-      s.gplus.uploadImage(t.name, r, function(t, n) {
-       if (!t) {
-        i.catchModal = !0, e("#wmd-image-button").click(), i.catchModal = !1;
-        var r = i.insertLinkCallback;
-        i.insertLinkCallback = void 0, r(n || null);
-       }
-      });
-     };
-    }(a);
-    var c = a.slice(0, n.IMPORT_IMG_MAX_CONTENT_SIZE);
-    l.readAsArrayBuffer(c);
-   }
-  }
-  function o(e) {
-   e.stopPropagation(), e.preventDefault(), e.dataTransfer.dropEffect = "copy";
-  }
-  t.each(s, function(t) {
-   e(".action-import-image-" + t.providerId).click(function() {
-    var e = i.insertLinkCallback;
-    i.insertLinkCallback = void 0, t.importImage(function(t, n) {
-     return t ? void e(null) : void e(n || null);
-    });
+ }), s.onFileMgrCreated(h), h;
+}), define("uiActions", [ "jquery", "eventMgr", "fileMgr", "helpers/evernoteHelper" ], function(e, t, n, r) {
+ t.addListener("onReady", function() {
+  e(".action-connect-evernote").click(function() {
+   r.authenticate();
+  }), e(".action-create-note").click(function() {
+   n.createFile("", function(e) {
+    n.selectFile(e.key);
    });
-  }), !window.viewerMode && function(e) {
-   e.addEventListener("dragover", o, !1), e.addEventListener("drop", r, !1);
-  }(document.querySelector(".layout-wrapper-l3"));
- }), a;
+  }), e(".action-delete-note").click(function() {}), e(".action-share-note").click(function() {});
+ });
 }), define("css/css", [], function() {
  if ("undefined" == typeof window) return {
   load: function(e, t, n) {
@@ -28054,11 +25207,11 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   return (D(e) || 1 != e.nodeType && D(e.parentNode)) && !f(e);
  }
  function g(e) {
-  return e && 1 == e.nodeType && !N.test(k(e, "display"));
+  return e && 1 == e.nodeType && !M.test(k(e, "display"));
  }
  function v(e) {
   if (0 == e.data.length) return !0;
-  if (M.test(e.data)) return !1;
+  if (I.test(e.data)) return !1;
   var t = k(e.parentNode, "whiteSpace");
   switch (t) {
   case "pre":
@@ -28135,7 +25288,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   return new C(e, t, n);
  }
  e.requireModules([ "WrappedSelection", "WrappedRange" ]);
- var k, E = e.dom, T = "span", I = function() {
+ var k, E = e.dom, T = "span", N = function() {
   function e(e, t, n) {
    return t && n ? " " : "";
   }
@@ -28157,7 +25310,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    return e && 1 == e.nodeType && "false" != e.contentEditable ? "true" == e.contentEditable || D(e.parentNode) : !1;
   };
  }();
- var N = /^inline(-block|-table)?$/i, M = /[^\r\n\t\f \u200B]/, L = w(!1), A = w(!0);
+ var M = /^inline(-block|-table)?$/i, I = /[^\r\n\t\f \u200B]/, L = w(!1), A = w(!0);
  S.prototype = {
   doMerge: function() {
    for (var e, t, n, r = [], i = 0, o = this.textNodes.length; o > i; ++i) e = this.textNodes[i], 
@@ -28227,7 +25380,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     r.selectNode(n), r.isPointInRange(t.endContainer, t.endOffset) && (y(n, t.endContainer, t.endOffset, [ t ]), 
     t.setEndAfter(n)), r.isPointInRange(t.startContainer, t.startOffset) && (n = y(n, t.startContainer, t.startOffset, [ t ]));
    }
-   this.isRemovable(n) ? l(n) : I(n, this.cssClass);
+   this.isRemovable(n) ? l(n) : N(n, this.cssClass);
   },
   applyToRange: function(e) {
    e.splitBoundaries();
@@ -28285,7 +25438,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
  }, C.util = {
   hasClass: r,
   addClass: i,
-  removeClass: I,
+  removeClass: N,
   hasSameClasses: s,
   replaceWithOwnChildren: l,
   elementsHaveSameNonClassAttributes: d,
@@ -28440,7 +25593,7 @@ window.viewerMode = /(^| )viewer($| )/.test(document.body.className), window.the
 var themeModule = "less!themes/" + window.theme;
 
 -1 !== window.baseDir.indexOf("-min") && (themeModule = "css!themes/" + window.theme), 
-require([ "jquery", "rangy", "core", "eventMgr", "synchronizer", "publisher", "sharing", "mediaImporter", "css", "rangy-cssclassapplier", themeModule ], function(e, t, n, r) {
+require([ "jquery", "rangy", "core", "eventMgr", "fileMgr", "noteMgr", "uiActions", "css", "rangy-cssclassapplier", themeModule ], function(e, t, n, r) {
  window.noStart || e(function() {
   t.init(), n.onReady(), window.applicationCache && window.applicationCache.addEventListener("updateready", function() {
    window.applicationCache.status === window.applicationCache.UPDATEREADY && (window.applicationCache.swapCache(), 

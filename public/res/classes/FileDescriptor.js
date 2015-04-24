@@ -29,7 +29,7 @@ define([
 			get: function() {
 				return this.note.guid;
 			},
-			set: function(selectTime) {
+			set: function(guid) {
 				this.update({guid:guid});
 			}
 		});
@@ -98,7 +98,7 @@ define([
 		_.extend(this.note, target);
 		if(target.content){
 			this.content = target.content;
-			delete this.note['content'];
+			delete this.note.content;
 		}
 		this.store();
 		
@@ -115,7 +115,7 @@ define([
 				logger.log("save note to indexdDB success");
 			};
 		});
-	}
+	};
 	
 	return FileDescriptor;
 });

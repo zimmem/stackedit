@@ -36,7 +36,7 @@ define([
 				onFileSelected(file);
 				
 			});
-			return 
+			return; 
 
 		}
 
@@ -94,7 +94,7 @@ define([
 	};
 
 	fileMgr.createFile = function(content , callback) {
-		var content = content !== undefined ? content : settings.defaultContent;
+		content = content !== undefined ? content : settings.defaultContent;
 
 		// Generate a unique fileIndex
 		var fileIndex = constants.TEMPORARY_FILE_INDEX;
@@ -128,6 +128,7 @@ define([
 		}
 
 		eventMgr.onFileDeleted(fileDesc);
+		callaback();
 	};
 
 
@@ -135,13 +136,10 @@ define([
 		var $editorElt = $("#wmd-input");
 		fileMgr.selectFile();
 
-		var $fileTitleElt = $('.file-title-navbar');
-		var $fileTitleInputElt = $(".input-file-title");
 		$(".action-create-file").click(function() {
 			setTimeout(function() {
 				var fileDesc = fileMgr.createFile();
 				fileMgr.selectFile(fileDesc);
-				$fileTitleElt.click();
 			}, 400);
 		});
 		$('.action-remove-file-confirm').click(function() {

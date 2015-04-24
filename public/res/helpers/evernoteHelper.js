@@ -1,5 +1,5 @@
-define([ "jquery", "constants", "core", "utils", "storage", "logger",
-		"eventMgr", "classes/AsyncTask" ], function($, C, core, utils, storage,
+define([ "jquery",'underscore', "constants", "core", "utils", "storage", "logger", 
+		"eventMgr", "classes/AsyncTask" ], function($, _, C, core, utils, storage,
 		log, eventMgr, AsyncTask) {
 
 	var evernoteHelper = {};
@@ -22,7 +22,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 
 		window.open('/evernote/authenticate', '_blank',
 				'height=600px, width=800px');
-	}
+	};
 
 	evernoteHelper.listNotes = function(callback) {
 		var task = new AsyncTask();
@@ -37,7 +37,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 					task.chain();
 				},
 				error : function(){
-					task.error()
+					task.error();
 				}
 			});
 		});
@@ -46,7 +46,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 		});
 		task.onSuccess(function(){
 			callback(undefined, result);
-		})
+		});
 		task.enqueue();
 	};
 	
@@ -63,7 +63,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 					task.chain();
 				},
 				error : function(){
-					task.error()
+					task.error();
 				}
 			});
 		});
@@ -72,9 +72,9 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 		});
 		task.onSuccess(function(){
 			callback(undefined, result);
-		})
+		});
 		task.enqueue();
-	}
+	};
 	
 	evernoteHelper.postNote = function(file, callback){
 		
@@ -101,7 +101,7 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 		//暂时这么处理 br吧
 		var html =  $clone.html().replace(/<br>/g, "<br/>").replace(/<hr>/g, "<hr/>");
 		console.info(html);
-		var html = [
+		html = [
             '<div>',
             html,
             '<center style="display:none;">',
@@ -110,22 +110,34 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
             '</div>'
         ].join('');
 		
-		$.ajax({
-			url : url ,
-			type : method,
-			contentType: "application/json",
-			beforeSend: function(xhrObj){
-				xhrObj.setRequestHeader("Content-Type","application/json");
-				xhrObj.setRequestHeader("Accept","application/json");
-			},
-			data : JSON.stringify(_.extend(_.clone(file.note), {content: html})),
-			success : function(note){
-				file.update(note);
-				console.info(note);
-			}
-			
-		})
-	}
+		var task = new AsyncTask();
+		checkAuth(task);
+		task.onRun(function(){
+			$.ajax({
+				url : url ,
+				type : method,
+				contentType: "application/json",
+				beforeSend: function(xhrObj){
+					xhrObj.setRequestHeader("Content-Type","application/json");
+					xhrObj.setRequestHeader("Accept","application/json");
+				},
+				data : JSON.stringify(_.extend(_.clone(file.note), {content: html})),
+				success : function(note){
+					file.update(note);
+					console.info(note);
+					callback();
+				}
+				
+			});
+		});
+		task.onError(function(e){
+			callback(e);
+		});
+		task.onSuccess(function(){
+			callback();
+		});
+		task.enqueue();
+	};
 
 	function checkAuth(task) {
 		if(storage['evernote.login'] ){
@@ -150,10 +162,10 @@ define([ "jquery", "constants", "core", "utils", "storage", "logger",
 				error: function(){
 					task.error("Error occurred while fetch user info");
 				}
-			})
+			});
 		});
 		task.enqueue();
-	}
+	};
 
 	return evernoteHelper;
 });

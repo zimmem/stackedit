@@ -8,13 +8,13 @@ define([
 	var fileMgr = null;
 	
 	pageTitle.onFileMgrCreated = function(theFileMgr){
-		fileMgr = theFileMgr
-	}
+		fileMgr = theFileMgr;
+	};
 	
-	var eventMgr = null
+	var eventMgr = null;
 	pageTitle.onEventMgrCreated = function(p){
 		eventMgr = p;
-	}
+	};
 	
 	
 	pageTitle.onPagedownConfigure = function(editor){
@@ -32,6 +32,6 @@ define([
 		});
 	};
 	
-	return pageTitle
+	return pageTitle;
 	
 });

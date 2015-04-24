@@ -43,7 +43,7 @@ define([
         if($button === undefined) {
             return;
         }
-        if(syncRunning === true || synchronizer.hasSync() === false || isOffline) {
+        if(syncRunning === true || isOffline) {
             $button.addClass("disabled");
         }
         else {

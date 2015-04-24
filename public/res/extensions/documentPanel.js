@@ -20,21 +20,21 @@ define([
     };
     
 
-    var folderEltTmpl = [
-        '<a href="#"',
-        ' class="list-group-item folder clearfix"',
-        ' data-folder-index="<%= folderDesc.folderIndex %>"',
-        ' data-toggle="collapse"',
-        ' data-target=".file-list.<%= id %>">',
-        '   <div class="pull-right file-count">',
-        '       <%= _.size(folderDesc.fileList) %>',
-        '   </div>',
-        '   <i class="icon-folder"></i> <%= folderDesc.name %>',
-        '</a>',
-        '<div class="file-list collapse <%= id %> clearfix">',
-        '   <%= fileListHtml %>',
-        '</div>'
-    ].join('');
+//    var folderEltTmpl = [
+//        '<a href="#"',
+//        ' class="list-group-item folder clearfix"',
+//        ' data-folder-index="<%= folderDesc.folderIndex %>"',
+//        ' data-toggle="collapse"',
+//        ' data-target=".file-list.<%= id %>">',
+//        '   <div class="pull-right file-count">',
+//        '       <%= _.size(folderDesc.fileList) %>',
+//        '   </div>',
+//        '   <i class="icon-folder"></i> <%= folderDesc.name %>',
+//        '</a>',
+//        '<div class="file-list collapse <%= id %> clearfix">',
+//        '   <%= fileListHtml %>',
+//        '</div>'
+//    ].join('');
     var documentEltTmpl = [
         '<a href="#"',
         ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"',

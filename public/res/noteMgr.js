@@ -1,16 +1,17 @@
 define([
+        'underscore',
         'eventMgr',
         'helpers/evernoteHelper',
         'fileSystem',
         'classes/FileDescriptor',
         'utils'
-], function(eventMgr, helper, fileSystem, FileDescriptor, utils){
+], function(_, eventMgr, helper, fileSystem, FileDescriptor, utils){
 	
 	var noteMgr = {};
 	
 	noteMgr.listNots = function(callback){
 		helper.listNotes(callback);
-	}
+	};
 	
 	noteMgr.refreshNotes = function(){
 		noteMgr.listNots(function(error, notes){
@@ -22,7 +23,7 @@ define([
 				var noteMap = {};
 				_.each(notes, function(note){
 					noteMap[note.guid] = note;
- 				})
+ 				});
  				
  				var fileMap = {};
 				_.each(files, function(file){
@@ -31,36 +32,36 @@ define([
 				
 				var filesToCreate = [];
 				var filteredNotes = _.filter(notes, function(note){
-					return fileMap[note.guid] == null;
+					return !fileMap[note.guid];
 				});
 				_.each(filteredNotes, function(note){
 					var file = new FileDescriptor('file.'+utils.id());
 					file.update(note);
 					// TODO 改面批量异步
 					filesToCreate.push(file);
-				})
+				});
 				
-				var filesToUpdate = [];
+				//update file
 				var filteredFile = _.filter(files, function(file){
-					return noteMap[file.guid] != null;
+					return _.has(noteMap, file.guid);
 				});
 				_.each(filteredFile, function(file){
 					//TODO 改面批量异步
 					file.update(noteMap[file.guid]);
-				})
+				});
 				
 				eventMgr.onNotesRefresh();
 				
 			});
 		});
-	}
+	};
 	noteMgr.downloadNote = function(guid, callback){
 		helper.downloadNote(guid, callback);
-	}
+	};
 	
 	noteMgr.postNote = function(file, callback){
 		helper.postNote(file, callback);
-	}
+	};
 	
 	eventMgr.onNoteMgrCreated(noteMgr);
 	

@@ -645,13 +645,6 @@ define([
 	var undoMgr = new UndoMgr();
 	editor.undoMgr = undoMgr;
 
-	function onComment() {
-		if(watcher.isWatching === true) {
-			undoMgr.currentMode = undoMgr.currentMode || 'comment';
-			undoMgr.saveState();
-		}
-	}
-
 	var triggerSpellCheck = _.debounce(function() {
 		var selection = window.getSelection();
 		if(!selectionMgr.hasFocus || isComposing || selectionMgr.selectionStart !== selectionMgr.selectionEnd || !selection.modify) {
