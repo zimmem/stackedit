@@ -62,7 +62,7 @@ define([
         $button = $(button);
         $button.click(function() {
             if(!$button.hasClass("disabled")) {
-            	noteMgr.postNote(fileMgr.currentFile);
+            	postNote();
             }
         });
         return button;
@@ -85,13 +85,21 @@ define([
 
     buttonSync.onReady = function() {
         mousetrap.bind(buttonSync.config.syncShortcut, function(e) {
-        	noteMgr.postNote(fileMgr.currentFile);
-            e.preventDefault();
+        	e.preventDefault();
+        	postNote();
         });
         $(".action-force-synchronization").click(function() {
-        	noteMgr.postNote(fileMgr.currentFile);
+        	postNote();
         });
     };
+    
+    function postNote(){
+    	noteMgr.postNote(fileMgr.currentFile, function(error){
+    		if(!error){
+    			console.info("post note success");
+    		}
+    	});
+    }
 
     return buttonSync;
 

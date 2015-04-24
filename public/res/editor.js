@@ -544,8 +544,7 @@ define([
 				selectionEndBefore: selectionEndBefore,
 				selectionStartAfter: selectionMgr.selectionStart,
 				selectionEndAfter: selectionMgr.selectionEnd,
-				content: textContent,
-				discussionListJSON: fileDesc.discussionListJSON
+				content: textContent
 			};
 			lastTime = currentTime;
 			lastMode = this.currentMode;
@@ -576,26 +575,6 @@ define([
 				selectionMgr.setSelectionStartEnd(selectionStart, selectionEnd);
 				selectionMgr.updateSelectionRange();
 				selectionMgr.updateCursorCoordinates(true);
-				var discussionListJSON = fileDesc.discussionListJSON;
-				if(discussionListJSON != state.discussionListJSON) {
-					var oldDiscussionList = fileDesc.discussionList;
-					fileDesc.discussionListJSON = state.discussionListJSON;
-					var newDiscussionList = fileDesc.discussionList;
-					var diff = jsonDiffPatch.diff(oldDiscussionList, newDiscussionList);
-					var commentsChanged = false;
-					_.each(diff, function(discussionDiff, discussionIndex) {
-						if(!_.isArray(discussionDiff)) {
-							commentsChanged = true;
-						}
-						else if(discussionDiff.length === 1) {
-							eventMgr.onDiscussionCreated(fileDesc, newDiscussionList[discussionIndex]);
-						}
-						else {
-							eventMgr.onDiscussionRemoved(fileDesc, oldDiscussionList[discussionIndex]);
-						}
-					});
-					commentsChanged && eventMgr.onCommentsChanged(fileDesc);
-				}
 			});
 
 			selectionStartBefore = selectionStart;
@@ -631,8 +610,7 @@ define([
 			currentState = {
 				selectionStartAfter: fileDesc.selectionStart,
 				selectionEndAfter: fileDesc.selectionEnd,
-				content: content,
-				discussionListJSON: fileDesc.discussionListJSON
+				content: content
 			};
 			this.currentMode = undefined;
 			lastMode = undefined;
@@ -681,17 +659,14 @@ define([
 				return;
 			}
 			undoMgr.currentMode = undoMgr.currentMode || 'typing';
-			var discussionList = _.values(fileDesc.discussionList);
-			fileDesc.newDiscussion && discussionList.push(fileDesc.newDiscussion);
-			var updateDiscussionList = adjustCommentOffsets(textContent, newTextContent, discussionList);
 			textContent = newTextContent;
-			if(updateDiscussionList === true) {
-				fileDesc.discussionList = fileDesc.discussionList; // Write discussionList in localStorage
-			}
 			fileDesc.content = textContent;
+			fileDesc.update({
+				content : textContent,
+				localEdite : true
+			});
 			selectionMgr.saveSelectionState();
 			eventMgr.onContentChanged(fileDesc, textContent);
-			updateDiscussionList && eventMgr.onCommentsChanged(fileDesc);
 			undoMgr.saveState();
 			triggerSpellCheck();
 		}

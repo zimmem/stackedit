@@ -15,7 +15,7 @@ define([
 			var store = tx.objectStore("notes");
 			var index = store.index('by_selectTime');
 			
-			var request = index.openCursor(null, IDBCursor.prev);
+			var request = index.openCursor(null, 'prev');
 			request.onsuccess = function(event) {
 				var cursor = event.target.result;
 				if (cursor) {

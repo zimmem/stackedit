@@ -91,10 +91,18 @@ define([
 			}
 		});
 		
+		Object.defineProperty(this, 'localEdite', {
+			get: function() {
+				return this.note.localEdite;
+			},
+			set: function(localEdite) {
+				this.update({localEdite:localEdite});
+			}
+		});
+		
 	}
 
 	FileDescriptor.prototype.update = function(target){
-		target.selectTime = target.selectTime || 1;
 		_.extend(this.note, target);
 		if(target.content){
 			this.content = target.content;

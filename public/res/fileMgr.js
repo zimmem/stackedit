@@ -51,7 +51,6 @@ define([
 					var file = new FileDescriptor();
 					file.note = note;
 					
-					file.selectTime = new Date().getTime();
 					onFileSelected(file);
 				};
 			});
@@ -68,7 +67,7 @@ define([
 				core.initEditor(file);
 			}
 			
-			if(file.guid){
+			if(file.guid && !file.localEdite){
 				noteMgr.downloadNote(file.guid, function(error, note){
 					
 					if(!error){

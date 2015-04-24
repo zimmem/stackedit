@@ -123,9 +123,11 @@ define([ "jquery",'underscore', "constants", "core", "utils", "storage", "logger
 				},
 				data : JSON.stringify(_.extend(_.clone(file.note), {content: html})),
 				success : function(note){
-					file.update(note);
-					console.info(note);
-					callback();
+					file.update(_.extend(note, {localEdite: false}));
+					task.chain();
+				},
+				error : function(){
+					task.error();
 				}
 				
 			});

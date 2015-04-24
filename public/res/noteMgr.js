@@ -36,7 +36,7 @@ define([
 				});
 				_.each(filteredNotes, function(note){
 					var file = new FileDescriptor('file.'+utils.id());
-					file.update(note);
+					file.update(_.extend(note, {selectTime:0}));
 					// TODO 改面批量异步
 					filesToCreate.push(file);
 				});
@@ -46,8 +46,11 @@ define([
 					return _.has(noteMap, file.guid);
 				});
 				_.each(filteredFile, function(file){
-					//TODO 改面批量异步
-					file.update(noteMap[file.guid]);
+					// 如果本地修改过， 就不变更了
+					if(!file.localEdite){
+						//TODO 改面批量异步
+						file.update(noteMap[file.guid]);
+					}
 				});
 				
 				eventMgr.onNotesRefresh();

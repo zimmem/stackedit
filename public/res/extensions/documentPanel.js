@@ -39,6 +39,7 @@ define([
         '<a href="#"',
         ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"',
         ' data-file-index="<%= fileDesc.fileIndex %>">',
+        '<i class="icon-doc"></i>',
         '   <%= fileDesc.title %>',
         '</a>',
     ].join('');
