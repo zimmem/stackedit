@@ -102,17 +102,6 @@ define([
 	editor.watcher = watcher;
 
 	var diffMatchPatch = new diff_match_patch();
-	var jsonDiffPatch = jsondiffpatch.create({
-		objectHash: function(obj) {
-			return JSON.stringify(obj);
-		},
-		arrays: {
-			detectMove: false
-		},
-		textDiff: {
-			minLength: 9999999
-		}
-	});
 
 	function SelectionMgr() {
 		var self = this;

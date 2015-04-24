@@ -168,6 +168,11 @@ define([ "jquery",'underscore', "constants", "core", "utils", "storage", "logger
 		});
 		task.enqueue();
 	};
+	
+	// ready 时尝试拉取用户信息
+	eventMgr.addListener('onReady', function(){
+		evernoteHelper.getUser();
+	});
 
 	return evernoteHelper;
 });

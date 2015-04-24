@@ -6,6 +6,7 @@ define([
 ], function($,eventMgr, fileMgr, evernoteHelper) {
 
 	eventMgr.addListener("onReady", function() {
+		
 
 		$('.action-connect-evernote').click(function() {
 			evernoteHelper.authenticate();
