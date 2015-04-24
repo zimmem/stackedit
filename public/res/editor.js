@@ -674,54 +674,6 @@ define([
 		}
 	}
 
-	function adjustCommentOffsets(oldTextContent, newTextContent, discussionList) {
-		if(!discussionList.length) {
-			return;
-		}
-		var changes = diffMatchPatch.diff_main(oldTextContent, newTextContent);
-		var changed = false;
-		var startOffset = 0;
-		changes.forEach(function(change) {
-			var changeType = change[0];
-			var changeText = change[1];
-			if(changeType === 0) {
-				startOffset += changeText.length;
-				return;
-			}
-			var endOffset = startOffset;
-			var diffOffset = changeText.length;
-			if(changeType === -1) {
-				endOffset += diffOffset;
-				diffOffset = -diffOffset;
-			}
-			discussionList.forEach(function(discussion) {
-				// selectionEnd
-				if(discussion.selectionEnd > endOffset) {
-					discussion.selectionEnd += diffOffset;
-					discussion.discussionIndex && (changed = true);
-				}
-				else if(discussion.selectionEnd > startOffset) {
-					discussion.selectionEnd = startOffset;
-					discussion.discussionIndex && (changed = true);
-				}
-				// selectionStart
-				if(discussion.selectionStart >= endOffset) {
-					discussion.selectionStart += diffOffset;
-					discussion.discussionIndex && (changed = true);
-				}
-				else if(discussion.selectionStart > startOffset) {
-					discussion.selectionStart = startOffset;
-					discussion.discussionIndex && (changed = true);
-				}
-			});
-			if(changeType === 1) {
-				startOffset += changeText.length;
-			}
-		});
-		return changed;
-	}
-
-	editor.adjustCommentOffsets = adjustCommentOffsets;
 
 	editor.init = function() {
 		inputElt = document.getElementById('wmd-input');

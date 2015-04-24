@@ -57,7 +57,7 @@ define([
             class: 'btn btn-success button-synchronize',
             title: 'Force synchronization Ctrl/Cmd+S'
         }, crel('i', {
-            class: 'icon-refresh'
+            class: 'icon-upload-cloud'
         }));
         $button = $(button);
         $button.click(function() {

@@ -19253,7 +19253,7 @@ function() {
    "class": "btn btn-success button-synchronize",
    title: "Force synchronization Ctrl/Cmd+S"
   }, n("i", {
-   "class": "icon-refresh"
+   "class": "icon-upload-cloud"
   }));
   return d = e(t), d.click(function() {
    d.hasClass("disabled") || s();
@@ -22652,7 +22652,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.isWatching = !1;
   var e;
   this.startWatching = function() {
-   this.isWatching = !0, e = e || new MutationObserver(w), e.observe(D, {
+   this.isWatching = !0, e = e || new MutationObserver(w), e.observe(N, {
     childList: !0,
     subtree: !0,
     characterData: !0
@@ -22669,7 +22669,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.adjustBottom = 0, this.findOffsets = function(e) {
    var t = [];
    if (!e.length) return t;
-   for (var n = e.shift(), r = document.createTreeWalker(D, 4, null, !1), i = "", o = 0; r.nextNode(); ) {
+   for (var n = e.shift(), r = document.createTreeWalker(N, 4, null, !1), i = "", o = 0; r.nextNode(); ) {
     i = r.currentNode.nodeValue || "";
     for (var a = o + i.length; a > n; ) {
      if (t.push({
@@ -22699,15 +22699,15 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    o;
   };
   var s, l = n.debounce(function() {
-   N.toggleClass("has-selection", this.selectionStart !== this.selectionEnd);
+   T.toggleClass("has-selection", this.selectionStart !== this.selectionEnd);
    var e = this.getCoordinates(this.selectionEnd, this.selectionEndContainer, this.selectionEndOffset);
    if (this.cursorY !== e.y && (this.cursorY = e.y, i.onCursorCoordinates(e.x, e.y)), 
    s) {
     var t, n;
-    if (t = n = T.offsetHeight / 2 * r.cursorFocusRatio, t = this.adjustTop || t, n = this.adjustBottom || t, 
+    if (t = n = E.offsetHeight / 2 * r.cursorFocusRatio, t = this.adjustTop || t, n = this.adjustBottom || t, 
     t && n) {
-     var o = T.scrollTop + t, a = T.scrollTop + T.offsetHeight - n;
-     U.cursorY < o ? T.scrollTop += U.cursorY - o : U.cursorY > a && (T.scrollTop += U.cursorY - a);
+     var o = E.scrollTop + t, a = E.scrollTop + E.offsetHeight - n;
+     q.cursorY < o ? E.scrollTop += q.cursorY - o : q.cursorY > a && (E.scrollTop += q.cursorY - a);
     }
    }
    s = !1;
@@ -22723,18 +22723,18 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   }, 50);
   this.setSelectionStartEnd = function(e, t) {
    void 0 === e && (e = this.selectionStart), 0 > e && (e = 0), void 0 === t && (t = this.selectionEnd), 
-   0 > t && (t = 0), this.selectionStart = e, this.selectionEnd = t, $.editorStart = e, 
-   $.editorEnd = t, u();
+   0 > t && (t = 0), this.selectionStart = e, this.selectionEnd = t, j.editorStart = e, 
+   j.editorEnd = t, u();
   }, this.saveSelectionState = function() {
    function t() {
-    if (G === !1) {
+    if ($ === !1) {
      var t = e.selectionStart, n = e.selectionEnd, r = c.getSelection();
      if (r.rangeCount > 0) {
       var i = r.getRangeAt(0), o = i.startContainer;
-      if (D.compareDocumentPosition(o) & Node.DOCUMENT_POSITION_CONTAINED_BY || D === o) {
+      if (N.compareDocumentPosition(o) & Node.DOCUMENT_POSITION_CONTAINED_BY || N === o) {
        var a = i.startOffset;
        o.hasChildNodes() && a > 0 && (o = o.childNodes[a - 1], a = o.textContent.length);
-       for (var s = o; o != D; ) {
+       for (var s = o; o != N; ) {
         for (;o = o.previousSibling; ) o.textContent && (a += o.textContent.length);
         o = s = s.parentNode;
        }
@@ -22745,7 +22745,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
      }
      e.setSelectionStartEnd(t, n);
     }
-    V.saveSelectionState();
+    z.saveSelectionState();
    }
    var r = !1, i = n.debounce(function() {
     t(), e.updateCursorCoordinates(r), s();
@@ -22758,7 +22758,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    };
   }(), this.getSelectedText = function() {
    var e = Math.min(this.selectionStart, this.selectionEnd), t = Math.max(this.selectionStart, this.selectionEnd);
-   return z.substring(e, t);
+   return U.substring(e, t);
   }, this.getCoordinates = function(e, t, n) {
    if (!t) {
     var r = this.findOffsets([ e ])[0];
@@ -22766,7 +22766,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    }
    var i = 0, o = 0;
    if ("\n" == t.textContent) o = t.parentNode.offsetTop + t.parentNode.offsetHeight / 2; else {
-    var a = z[e], s = {
+    var a = U[e], s = {
      container: t,
      offsetInContainer: n,
      offset: e
@@ -22777,7 +22777,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     };
     e > 0 && (void 0 === a || "\n" == a) ? 0 === s.offset ? s = e - 1 : s.offsetInContainer -= 1 : l.offset === t.textContent.length ? l = e + 1 : l.offsetInContainer += 1;
     var c = this.createRange(s, l), u = c.getBoundingClientRect();
-    o = u.top + u.height / 2 - T.getBoundingClientRect().top + T.scrollTop;
+    o = u.top + u.height / 2 - E.getBoundingClientRect().top + E.scrollTop;
    }
    return {
     x: i,
@@ -22785,7 +22785,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    };
   }, this.getClosestWordOffset = function(e) {
    var t = 0, n = 0, r = 0;
-   return z.split(/\s/).some(function(i) {
+   return U.split(/\s/).some(function(i) {
     return i && (t = r, n = r + i.length, n > e) ? !0 : void (r += i.length + 1);
    }), {
     start: t,
@@ -22794,54 +22794,54 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   };
  }
  function p(e) {
-  void 0 !== T && U.saveSelectionState(!0, !0, e);
+  void 0 !== E && q.saveSelectionState(!0, !0, e);
  }
  function h(e) {
-  var t = q.diff_commonPrefix(z, e);
-  t === z.length && t--;
-  var n = Math.min(q.diff_commonSuffix(z, e), z.length - t, e.length - t), r = e.substring(t, e.length - n), i = U.createRange(t, z.length - n);
+  var t = H.diff_commonPrefix(U, e);
+  t === U.length && t--;
+  var n = Math.min(H.diff_commonSuffix(U, e), U.length - t, e.length - t), r = e.substring(t, e.length - n), i = q.createRange(t, U.length - n);
   return i.deleteContents(), i.insertNode(document.createTextNode(r)), {
    start: t,
    end: e.length - n
   };
  }
  function f(e, t, n) {
-  V.currentMode = V.currentMode || "replace";
-  var r = U.createRange(Math.min(e, t), Math.max(e, t));
+  z.currentMode = z.currentMode || "replace";
+  var r = q.createRange(Math.min(e, t), Math.max(e, t));
   "" + r != n && (r.deleteContents(), r.insertNode(document.createTextNode(n)));
   var i = e + n.length;
-  U.setSelectionStartEnd(i, i), U.updateSelectionRange(), U.updateCursorCoordinates(!0);
+  q.setSelectionStartEnd(i, i), q.updateSelectionRange(), q.updateCursorCoordinates(!0);
  }
  function m(e, t) {
-  V.currentMode = V.currentMode || "replace";
-  var n = z.replace(e, t);
-  if (n != z) {
-   var r = F.setValue(n);
-   U.setSelectionStartEnd(r.end, r.end), U.updateSelectionRange(), U.updateCursorCoordinates(!0);
+  z.currentMode = z.currentMode || "replace";
+  var n = U.replace(e, t);
+  if (n != U) {
+   var r = P.setValue(n);
+   q.setSelectionStartEnd(r.end, r.end), q.updateSelectionRange(), q.updateCursorCoordinates(!0);
   }
  }
  function g(e, t) {
-  var n = U.selectionStart;
-  if (n !== U.selectionEnd) return !1;
-  var r = U.createRange(n - e.length, n);
+  var n = q.selectionStart;
+  if (n !== q.selectionEnd) return !1;
+  var r = q.createRange(n - e.length, n);
   return "" + r != e ? !1 : (r.deleteContents(), r.insertNode(document.createTextNode(t)), 
-  n = n - e.length + t.length, U.setSelectionStartEnd(n, n), U.updateSelectionRange(), 
-  U.updateCursorCoordinates(!0), !0);
+  n = n - e.length + t.length, q.setSelectionStartEnd(n, n), q.updateSelectionRange(), 
+  q.updateCursorCoordinates(!0), !0);
  }
  function v(e) {
-  h(e), z = e;
+  h(e), U = e;
  }
  function b() {
-  return z;
+  return U;
  }
  function y() {
-  M.focus(), U.updateSelectionRange(), T.scrollTop = O;
+  D.focus(), q.updateSelectionRange(), E.scrollTop = F;
  }
  function x() {
   function e(e, t, n) {
-   H.noWatch(function() {
-    z != e.content && (v(e.content), $.content = e.content, i.onContentChanged($, e.content)), 
-    U.setSelectionStartEnd(t, n), U.updateSelectionRange(), U.updateCursorCoordinates(!0);
+   G.noWatch(function() {
+    U != e.content && (v(e.content), j.content = e.content, i.onContentChanged(j, e.content)), 
+    q.setSelectionStartEnd(t, n), q.updateSelectionRange(), q.updateCursorCoordinates(!0);
    }), s = t, l = n, a = e, this.currentMode = void 0, o = void 0, this.onButtonStateChange(), 
    p();
   }
@@ -22856,12 +22856,12 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    a = {
     selectionStartBefore: s,
     selectionEndBefore: l,
-    selectionStartAfter: U.selectionStart,
-    selectionEndAfter: U.selectionEnd,
-    content: z
+    selectionStartAfter: q.selectionStart,
+    selectionEndAfter: q.selectionEnd,
+    content: U
    }, r = e, o = this.currentMode, this.currentMode = void 0, this.onButtonStateChange();
   }, this), this.saveSelectionState = t.debounce(function() {
-   void 0 === this.currentMode && (s = U.selectionStart, l = U.selectionEnd);
+   void 0 === this.currentMode && (s = q.selectionStart, l = q.selectionEnd);
   }, 50), this.canUndo = function() {
    return c.length;
   }, this.canRedo = function() {
@@ -22873,91 +22873,75 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    var t = u.pop();
    t && (c.push(a), e.call(this, t, t.selectionStartAfter, t.selectionEndAfter));
   }, this.init = function() {
-   var e = $.content;
+   var e = j.content;
    c = [], u = [], r = 0, a = {
-    selectionStartAfter: $.selectionStart,
-    selectionEndAfter: $.selectionEnd,
+    selectionStartAfter: j.selectionStart,
+    selectionEndAfter: j.selectionEnd,
     content: e
-   }, this.currentMode = void 0, o = void 0, D.textContent = e, w();
+   }, this.currentMode = void 0, o = void 0, N.textContent = e, w();
   };
  }
  function w() {
-  var e = T.textContent;
-  if (D.lastChild === P && "\n" == P.textContent.slice(-1) && (e = e.slice(0, -1)), 
-  e = e.replace(/\r\n?/g, "\n"), G === !1) {
-   if (e == z) return void (0 === D.children.length && (D.innerHTML = "", X.forEach(function(e) {
-    D.appendChild(e.elt);
-   }), k()));
-   V.currentMode = V.currentMode || "typing", z = e, $.content = z, $.update({
-    content: z,
+  var e = E.textContent;
+  if (N.lastChild === R && "\n" == R.textContent.slice(-1) && (e = e.slice(0, -1)), 
+  e = e.replace(/\r\n?/g, "\n"), $ === !1) {
+   if (e == U) return void (0 === N.children.length && (N.innerHTML = "", Q.forEach(function(e) {
+    N.appendChild(e.elt);
+   }), _()));
+   z.currentMode = z.currentMode || "typing", U = e, j.content = U, j.update({
+    content: U,
     localEdite: !0
-   }), U.saveSelectionState(), i.onContentChanged($, z), V.saveState(), W();
-  } else z = e, $.content = z, U.setSelectionStartEnd($.editorStart, $.editorEnd), 
-  U.updateSelectionRange(), U.updateCursorCoordinates(), V.saveSelectionState(), i.onFileOpen($, z), 
-  L.scrollTop = $.previewScrollTop, O = $.editorScrollTop, T.scrollTop = O, G = !1;
+   }), q.saveSelectionState(), i.onContentChanged(j, U), z.saveState(), V();
+  } else U = e, j.content = U, q.setSelectionStartEnd(j.editorStart, j.editorEnd), 
+  q.updateSelectionRange(), q.updateCursorCoordinates(), z.saveSelectionState(), i.onFileOpen(j, U), 
+  A.scrollTop = j.previewScrollTop, F = j.editorScrollTop, E.scrollTop = F, $ = !1;
  }
- function S(e, t, n) {
-  if (n.length) {
-   var r = q.diff_main(e, t), i = !1, o = 0;
-   return r.forEach(function(e) {
-    var t = e[0], r = e[1];
-    if (0 === t) return void (o += r.length);
-    var a = o, s = r.length;
-    -1 === t && (a += s, s = -s), n.forEach(function(e) {
-     e.selectionEnd > a ? (e.selectionEnd += s, e.discussionIndex && (i = !0)) : e.selectionEnd > o && (e.selectionEnd = o, 
-     e.discussionIndex && (i = !0)), e.selectionStart >= a ? (e.selectionStart += s, 
-     e.discussionIndex && (i = !0)) : e.selectionStart > o && (e.selectionStart = o, 
-     e.discussionIndex && (i = !0));
-    }), 1 === t && (o += r.length);
-   }), i;
-  }
- }
- function C(e) {
-  if (Y = [], K = [], Q = void 0, G === !0) return K = X, X = e, void (Y = e);
-  var n = X.length;
-  t.some(X, function(t, r) {
+ function S(e) {
+  if (K = [], X = [], W = void 0, $ === !0) return X = Q, Q = e, void (K = e);
+  var n = Q.length;
+  t.some(Q, function(t, r) {
    var i = e[r];
-   return r >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== D || t.elt.textContent != i.textWithFrontMatter ? (n = r, 
+   return r >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== N || t.elt.textContent != i.textWithFrontMatter ? (n = r, 
    !0) : void 0;
   });
-  var r = -X.length;
-  t.some(X.slice().reverse(), function(t, n) {
+  var r = -Q.length;
+  t.some(Q.slice().reverse(), function(t, n) {
    var i = e[e.length - n - 1];
-   return n >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== D || t.elt.textContent != i.textWithFrontMatter ? (r = -n, 
+   return n >= e.length || t.textWithFrontMatter != i.textWithFrontMatter || t.elt.parentNode !== N || t.elt.textContent != i.textWithFrontMatter ? (r = -n, 
    !0) : void 0;
-  }), n - r > X.length && (r = n - X.length);
-  var i = X.slice(0, n);
-  Y = e.slice(n, e.length + r);
-  var o = X.slice(X.length + r, X.length);
-  Q = t.first(o), K = X.slice(n, X.length + r), X = i.concat(Y).concat(o);
+  }), n - r > Q.length && (r = n - Q.length);
+  var i = Q.slice(0, n);
+  K = e.slice(n, e.length + r);
+  var o = Q.slice(Q.length + r, Q.length);
+  W = t.first(o), X = Q.slice(n, Q.length + r), Q = i.concat(K).concat(o);
  }
- function _() {
+ function C() {
   var e = document.createDocumentFragment();
-  Y.forEach(function(t) {
-   E(t), e.appendChild(t.elt);
-  }), H.noWatch(function() {
-   if (G === !0) D.innerHTML = "", D.appendChild(e); else {
-    K.forEach(function(e) {
-     e.elt.parentNode === D && D.removeChild(e.elt), e.elt.generated = !1;
-    }), void 0 !== Q ? D.insertBefore(e, Q.elt) : D.appendChild(e);
-    for (var t = D.firstChild; t; ) {
+  K.forEach(function(t) {
+   k(t), e.appendChild(t.elt);
+  }), G.noWatch(function() {
+   if ($ === !0) N.innerHTML = "", N.appendChild(e); else {
+    X.forEach(function(e) {
+     e.elt.parentNode === N && N.removeChild(e.elt), e.elt.generated = !1;
+    }), void 0 !== W ? N.insertBefore(e, W.elt) : N.appendChild(e);
+    for (var t = N.firstChild; t; ) {
      var n = t.nextSibling;
-     t.generated || D.removeChild(t), t = n;
+     t.generated || N.removeChild(t), t = n;
     }
    }
-   k(), U.updateSelectionRange(), U.updateCursorCoordinates();
+   _(), q.updateSelectionRange(), q.updateCursorCoordinates();
   });
  }
- function k() {
-  P = l("span", {
+ function _() {
+  R = l("span", {
    "class": "token lf"
-  }), P.textContent = "\n", D.appendChild(P);
+  }), R.textContent = "\n", N.appendChild(R);
  }
- function E(e) {
-  var t = J(e.text);
+ function k(e) {
+  var t = Y(e.text);
   window.viewerMode || (t = o.highlight(t, o.languages.md));
   var n = e.textWithFrontMatter.substring(0, e.textWithFrontMatter.length - e.text.length);
-  n.length && (n = J(n), n = n.replace(/\n/g, '<span class="token lf">\n</span>'), 
+  n.length && (n = Y(n), n = n.replace(/\n/g, '<span class="token lf">\n</span>'), 
   t = '<span class="token md">' + n + "</span>" + t);
   var r = l("span", {
    id: "wmd-input-section-" + e.id,
@@ -22965,83 +22949,83 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   });
   r.generated = !0, r.innerHTML = t, e.elt = r;
  }
- var T, N, D, M, I, A, L, R, P, F = {}, O = 0, B = function() {
+ var E, T, N, D, M, I, A, L, R, P = {}, F = 0, O = function() {
   var e, n = 0, i = function() {
    var e = Date.now();
-   R.refreshPreview(), n = Date.now() - e;
+   L.refreshPreview(), n = Date.now() - e;
   };
   return r.lazyRendering === !0 ? t.debounce(i, 500) : function() {
    clearTimeout(e), e = setTimeout(i, 2e3 > n ? n : 2e3);
   };
  }();
  i.addListener("onPagedownConfigure", function(e) {
-  R = e;
+  L = e;
  });
- var j = 0;
+ var B = 0;
  i.addListener("onSectionsCreated", function(e) {
-  j || (C(e), _()), G === !0 ? R.refreshPreview() : B();
+  B || (S(e), C()), $ === !0 ? L.refreshPreview() : O();
  });
- var $, G = !0;
+ var j, $ = !0;
  i.addListener("onFileSelected", function(e) {
-  G = !0, $ = e;
+  $ = !0, j = e;
  });
- var H = new u();
- F.watcher = H;
- var q = new a(), U = new d();
- F.selectionMgr = U, e(document).on("selectionchange", ".editor-content", t.bind(U.saveSelectionState, U, !0, !1)), 
- F.adjustCursorPosition = p;
- var z;
- F.setValue = h, F.replace = f, F.replaceAll = m, F.replacePreviousText = g, F.setValueNoWatch = v, 
- F.getValue = b, F.focus = y;
- var V = new x();
- F.undoMgr = V;
- var W = t.debounce(function() {
+ var G = new u();
+ P.watcher = G;
+ var H = new a(), q = new d();
+ P.selectionMgr = q, e(document).on("selectionchange", ".editor-content", t.bind(q.saveSelectionState, q, !0, !1)), 
+ P.adjustCursorPosition = p;
+ var U;
+ P.setValue = h, P.replace = f, P.replaceAll = m, P.replacePreviousText = g, P.setValueNoWatch = v, 
+ P.getValue = b, P.focus = y;
+ var z = new x();
+ P.undoMgr = z;
+ var V = t.debounce(function() {
   var e = window.getSelection();
-  U.hasFocus && !j && U.selectionStart === U.selectionEnd && e.modify && (U.selectionStart ? (e.modify("move", "backward", "character"), 
+  q.hasFocus && !B && q.selectionStart === q.selectionEnd && e.modify && (q.selectionStart ? (e.modify("move", "backward", "character"), 
   e.modify("move", "forward", "character")) : (e.modify("move", "forward", "character"), 
   e.modify("move", "backward", "character")));
  }, 10);
- F.adjustCommentOffsets = S, F.init = function() {
-  if (T = document.getElementById("wmd-input"), N = e(T), D = T.querySelector(".editor-content"), 
-  M = e(D), I = T.querySelector(".editor-margin"), A = e(I), L = document.querySelector(".preview-container"), 
-  N.addClass(r.editorFontClass), H.startWatching(), e(T).scroll(function() {
-   O = T.scrollTop, G === !1 && ($.editorScrollTop = O);
-  }), e(L).scroll(function() {
-   G === !1 && ($.previewScrollTop = L.scrollTop);
+ P.init = function() {
+  if (E = document.getElementById("wmd-input"), T = e(E), N = E.querySelector(".editor-content"), 
+  D = e(N), M = E.querySelector(".editor-margin"), I = e(M), A = document.querySelector(".preview-container"), 
+  T.addClass(r.editorFontClass), G.startWatching(), e(E).scroll(function() {
+   F = E.scrollTop, $ === !1 && (j.editorScrollTop = F);
+  }), e(A).scroll(function() {
+   $ === !1 && (j.previewScrollTop = A.scrollTop);
   }), /AppleWebKit\/([\d.]+)/.exec(navigator.userAgent)) {
    var n = e('<input style="width:1px;height:1px;border:none;margin:0;padding:0;" tabIndex="-1">').appendTo("html");
-   M.blur(function() {
+   D.blur(function() {
     n[0].setSelectionRange(0, 0), n.blur();
    });
   }
-  T.focus = y, T.adjustCursorPosition = p, Object.defineProperty(T, "value", {
+  E.focus = y, E.adjustCursorPosition = p, Object.defineProperty(E, "value", {
    get: function() {
-    return z;
+    return U;
    },
    set: h
-  }), Object.defineProperty(T, "selectionStart", {
+  }), Object.defineProperty(E, "selectionStart", {
    get: function() {
-    return Math.min(U.selectionStart, U.selectionEnd);
+    return Math.min(q.selectionStart, q.selectionEnd);
    },
    set: function(e) {
-    U.setSelectionStartEnd(e), U.updateSelectionRange(), U.updateCursorCoordinates();
+    q.setSelectionStartEnd(e), q.updateSelectionRange(), q.updateCursorCoordinates();
    },
    enumerable: !0,
    configurable: !0
-  }), Object.defineProperty(T, "selectionEnd", {
+  }), Object.defineProperty(E, "selectionEnd", {
    get: function() {
-    return Math.max(U.selectionStart, U.selectionEnd);
+    return Math.max(q.selectionStart, q.selectionEnd);
    },
    set: function(e) {
-    U.setSelectionStartEnd(void 0, e), U.updateSelectionRange(), U.updateCursorCoordinates();
+    q.setSelectionStartEnd(void 0, e), q.updateSelectionRange(), q.updateCursorCoordinates();
    },
    enumerable: !0,
    configurable: !0
   });
   var i = !1;
-  M.on("keydown", function(e) {
+  D.on("keydown", function(e) {
    if (17 !== e.which && 91 !== e.which && 18 !== e.which && 16 !== e.which) {
-    U.saveSelectionState(), p();
+    q.saveSelectionState(), p();
     var t = e.metaKey || e.ctrlKey;
     switch (e.which) {
     case 9:
@@ -23056,33 +23040,33 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     13 !== e.which && (i = !1);
    }
   }).on("compositionstart", function() {
-   j++;
+   B++;
   }).on("compositionend", function() {
    setTimeout(function() {
-    j--;
+    B--;
    }, 0);
-  }).on("mouseup", t.bind(U.saveSelectionState, U, !0, !1)).on("paste", function(e) {
-   V.currentMode = "paste", e.preventDefault();
+  }).on("mouseup", t.bind(q.saveSelectionState, q, !0, !1)).on("paste", function(e) {
+   z.currentMode = "paste", e.preventDefault();
    var t, n = (e.originalEvent || e).clipboardData;
    n ? t = n.getData("text/plain") : (n = window.clipboardData, t = n && n.getData("Text")), 
-   t && (f(U.selectionStart, U.selectionEnd, t), p());
+   t && (f(q.selectionStart, q.selectionEnd, t), p());
   }).on("cut", function() {
-   V.currentMode = "cut", p();
+   z.currentMode = "cut", p();
   }).on("focus", function() {
-   U.hasFocus = !0;
+   q.hasFocus = !0;
   }).on("blur", function() {
-   U.hasFocus = !1;
+   q.hasFocus = !1;
   });
   var o = function(e, t) {
-   var n = b(), r = Math.min(U.selectionStart, U.selectionEnd), i = Math.max(U.selectionStart, U.selectionEnd), o = {
+   var n = b(), r = Math.min(q.selectionStart, q.selectionEnd), i = Math.max(q.selectionStart, q.selectionEnd), o = {
     selectionStart: r,
     selectionEnd: i,
     before: n.slice(0, r),
     after: n.slice(i),
     selection: n.slice(r, i)
    };
-   s[e](o, t || {}), h(o.before + o.selection + o.after), U.setSelectionStartEnd(o.selectionStart, o.selectionEnd), 
-   U.updateSelectionRange();
+   s[e](o, t || {}), h(o.before + o.selection + o.after), q.setSelectionStartEnd(o.selectionStart, o.selectionEnd), 
+   q.updateSelectionRange();
   }, a = /^ {0,3}>[ ]*|^[ \t]*(?:[*+\-]|(\d+)\.)[ \t]|^\s+/, s = {
    indent: function(e, t) {
     function n(e, t, n, r) {
@@ -23108,12 +23092,12 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
      var s = parseInt(r[1], 10);
      o = o.replace(/\d+/, s + 1);
     }
-    o.length && (i = !0), V.currentMode = "newlines", e.before += "\n" + o, e.selection = "", 
+    o.length && (i = !0), z.currentMode = "newlines", e.before += "\n" + o, e.selection = "", 
     e.selectionStart += o.length + 1, e.selectionEnd = e.selectionStart;
    }
   };
  };
- var Q, X = [], K = [], Y = [], J = function() {
+ var W, Q = [], X = [], K = [], Y = function() {
   var e = {
    "&": "&amp;",
    "<": "&lt;",
@@ -23125,7 +23109,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    });
   };
  }();
- return i.onEditorCreated(F), F;
+ return i.onEditorCreated(P), P;
 }), function(e, t) {
  function n() {
   r.READY || (b.determineEventTypes(), f.each(r.gestures, function(e) {
